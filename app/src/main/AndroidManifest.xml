@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".school_information"></activity>
+        <activity android:name=".aaaaActivity"></activity>
+        <activity android:name=".school_information" />
         <activity android:name=".school_food_lineup" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
