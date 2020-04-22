@@ -7,6 +7,14 @@
     android:background="@drawable/school_information_bg">
 
     <Button
+        android:id="@+id/top_navi"
+        android:layout_width="412dp"
+        android:layout_height="62dp"
+        android:background="@drawable/top_navigator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/go_school_food_lineup"
         android:layout_width="94dp"
         android:layout_height="60dp"
