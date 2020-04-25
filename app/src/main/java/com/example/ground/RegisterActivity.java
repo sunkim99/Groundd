@@ -4,7 +4,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,11 +16,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText et_id, et_pass, et_name, et_age,et_hak,et_major,et_passck;
+    private EditText et_id, et_pass, et_name, et_nickname,et_phone,et_parphone,et_passck;
     private Button btn_register,validateButton;
     private AlertDialog dialog;
     private boolean validate=false;
@@ -33,14 +36,18 @@ public class RegisterActivity extends AppCompatActivity {
         et_id=findViewById(R.id.et_id);
         et_pass=findViewById(R.id.et_pass);
         et_name=findViewById(R.id.et_name);
-        et_age=findViewById(R.id.et_age);
-        et_hak=findViewById(R.id.et_hak);
-        et_major=findViewById(R.id.et_maj);
+        et_nickname=findViewById(R.id.et_nickname);
+        et_phone=findViewById(R.id.et_phone);
+        et_parphone=findViewById(R.id.et_parentphone);
         et_passck=findViewById(R.id.et_passck);
+
+
+        Log.d("TEST1234","userID:화면시작됨");
         validateButton=findViewById(R.id.validateButton);
         validateButton.setOnClickListener(new View.OnClickListener() {//id중복체크
             @Override
             public void onClick(View view) {
+
                 String userID=et_id.getText().toString();
                 if(validate)
                 {
@@ -94,43 +101,77 @@ public class RegisterActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //editText에 입력되어있는 값을 get(가져온다)해온다
-                String userID=et_id.getText().toString();
-                final String userPass=et_pass.getText().toString();
-                String userName=et_name.getText().toString();
-                int userAge=Integer.parseInt(et_age.getText().toString());
-                int userHak=Integer.parseInt(et_hak.getText().toString());
-                String userMajor=et_major.getText().toString();
-                final String PassCk=et_passck.getText().toString();
-
-                Response.Listener<String> responseListener=new Response.Listener<String>() {//volley
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jasonObject=new JSONObject(response);//Register2 php에 response
-                            boolean success=jasonObject.getBoolean("success");//Register2 php에 sucess
-                            if(userPass.equals(PassCk)) {
-                                if (success) {//회원등록 성공한 경우
-                                    Toast.makeText(getApplicationContext(), "회원 등록 성공", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                    startActivity(intent);
-                                }
-                            }
-                            else{//회원등록 실패한 경우
-                                Toast.makeText(getApplicationContext(),"회원 등록 실패",Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                };
-                //서버로 volley를 이용해서 요청을 함
-                RegisterRequest registerRequest=new RegisterRequest(userID,userPass, userName, userAge,userHak,userMajor,responseListener);
-                RequestQueue queue= Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(registerRequest);
+                firstAction();
             }
         });
+    }
+    private void firstAction(){
+        (new AsyncTask<RegisterActivity, Void, RegisterActivity>(){
+            @Override
+            protected RegisterActivity doInBackground(RegisterActivity... params) {
+                return params[0];
+            }
+
+            @Override
+            protected void onPostExecute(RegisterActivity result) {
+                //super.onPostExecute(result);
+                result.click();
+            }
+
+        }).execute(this);
+    }
+
+    void click(){
+        Log.d("TEST1234","userID:버튼클릭됨");
+        //editText에 입력되어있는 값을 get(가져온다)해온다
+        String userID = et_id.getText().toString();
+        final String userPass = et_pass.getText().toString();
+        String userName = et_name.getText().toString();
+        String userNick = et_nickname.getText().toString();
+        int userPh = Integer.parseInt(et_phone.getText().toString());
+        int userParPh = Integer.parseInt(et_parphone.getText().toString());
+        final String PassCk = et_passck.getText().toString();
+
+        Log.d("TEST1234","userID:"+userID);
+
+
+        Response.Listener<String> responseListener=new Response.Listener<String>() {//volley
+            @Override
+            public void onResponse(String response) {
+                try {
+                    Log.d("TEST1234","쓰레드확인1:"+Thread.currentThread());
+                    JSONObject jasonObject=new JSONObject(response);//Register2 php에 response
+                    boolean success =jasonObject.getBoolean("success");//Register2 php에 sucess
+                    String ssss = jasonObject.getString("id");
+                    Log.d("TEST1234","success:"+success);
+                    Log.d("TEST1234","정상성공?:"+ssss);
+                    if(userPass.equals(PassCk)) {
+                        Log.d("TEST1234","쓰레드확인2:"+Thread.currentThread());
+                        if (success) { //회원등록 성공한 경우
+                            Log.d("TEST1234","쓰레드확인3:"+Thread.currentThread());
+                            Toast.makeText(getApplicationContext(), "회원 등록 성공", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            Log.d("TEST1234","쓰레드확인4:"+Thread.currentThread());
+                        }
+                    }
+                    else{//회원등록 실패한 경우
+                        Toast.makeText(getApplicationContext(),"회원 등록 실패",Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        //서버로 volley를 이용해서 요청을 함
+        RegisterRequest registerRequest=new RegisterRequest(userID,userPass, userName, userNick,userPh,userParPh,responseListener);
+        Log.d("TEST1234","쓰레드확인5:"+Thread.currentThread());
+        RequestQueue queue= Volley.newRequestQueue(RegisterActivity.this);
+        Log.d("TEST1234","쓰레드확인6:"+Thread.currentThread());
+        queue.add(registerRequest);
+        Log.d("TEST1234","쓰레드확인7:"+Thread.currentThread());
     }
 
 }

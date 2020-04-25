@@ -6,7 +6,7 @@
     android:background="@drawable/notice_notice_bg">
 
     <Button
-        android:id="@+id/top_navi'"
+        android:id="@+id/top_navi"
         android:layout_width="412dp"
         android:layout_height="62dp"
         android:background="@drawable/top_navigator"
