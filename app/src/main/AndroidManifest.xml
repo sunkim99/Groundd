@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".CharInven"></activity>
+        <activity android:name=".CharShop"></activity>
+        <activity android:name=".CharInven" />
         <activity android:name=".aaaaActivity" />
         <activity android:name=".school_information" />
         <activity android:name=".school_food_lineup" />
