@@ -12,6 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".NoticeNotice" />
+        <activity android:name=".ForumImage" />
+        <activity android:name=".Config" />
+        <activity android:name=".NoticeEvent" />
+        <activity android:name=".ForumForum" />
         <activity android:name=".CharShop" />
         <activity android:name=".CharInven" />
         <activity android:name=".aaaaActivity" />
