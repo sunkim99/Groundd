@@ -143,8 +143,10 @@ public class RegisterActivity extends AppCompatActivity {
                     JSONObject jasonObject=new JSONObject(response);//Register2 php에 response
                     boolean success =jasonObject.getBoolean("success");//Register2 php에 sucess
                     String ssss = jasonObject.getString("id");
+                    String sta = jasonObject.getString("str");
                     Log.d("TEST1234","success:"+success);
                     Log.d("TEST1234","정상성공?:"+ssss);
+                    Log.d("TEST1234","php->안스 값:"+sta);
                     if(userPass.equals(PassCk)) {
                         Log.d("TEST1234","쓰레드확인2:"+Thread.currentThread());
                         if (success) { //회원등록 성공한 경우
