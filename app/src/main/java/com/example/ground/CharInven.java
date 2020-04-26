@@ -10,5 +10,5 @@ public class CharInven extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_char_inven);
-    }
+}
 }

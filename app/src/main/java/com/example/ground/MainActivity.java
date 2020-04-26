@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent1);
         }
 
-        else if (v.getId() == R.id.btn_character) {
+        if (v.getId() == R.id.btn_character) {
             Intent intent2 = new Intent(MainActivity.this, CharInven.class);
             startActivity(intent2);
         }
