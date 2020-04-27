@@ -143,20 +143,22 @@ public class RegisterActivity extends AppCompatActivity {
                     JSONObject jasonObject=new JSONObject(response);//Register2 php에 response
                     boolean success =jasonObject.getBoolean("success");//Register2 php에 sucess
                     String ssss = jasonObject.getString("id");
+                    String sta = jasonObject.getString("str");
                     Log.d("TEST1234","success:"+success);
                     Log.d("TEST1234","정상성공?:"+ssss);
+                    Log.d("TEST1234","php->안스 값:"+sta);
                     if(userPass.equals(PassCk)) {
                         Log.d("TEST1234","쓰레드확인2:"+Thread.currentThread());
                         if (success) { //회원등록 성공한 경우
                             Log.d("TEST1234","쓰레드확인3:"+Thread.currentThread());
-                            Toast.makeText(getApplicationContext(), "회원 등록 성공", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "회원 가입 성공!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                             Log.d("TEST1234","쓰레드확인4:"+Thread.currentThread());
                         }
                     }
                     else{//회원등록 실패한 경우
-                        Toast.makeText(getApplicationContext(),"회원 등록 실패",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"회원 가입 실패..",Toast.LENGTH_SHORT).show();
                         return;
                     }
                 } catch (JSONException e) {
