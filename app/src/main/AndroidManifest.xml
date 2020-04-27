@@ -13,9 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".notice_notice" />
-        <activity android:name=".forum_image" />
-        <activity android:name=".config" />
         <activity android:name=".notice_event" />
+        <activity android:name=".forum_image" />
+        <activity android:name=".forum_forum" />
+        <activity android:name=".forum_forum_write" />
+        <activity android:name=".config" />
         <activity android:name=".char_shop" />
         <activity android:name=".char_inven" />
         <activity android:name=".aaaaActivity" />
