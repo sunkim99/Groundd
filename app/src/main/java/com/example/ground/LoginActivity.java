@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_register=findViewById(R.id.btn_register);
 
         btn_gomain=findViewById(R.id.btn_gomain);
-        btn_gomain.setOnClickListener(new View.OnClickListener() {//회원가입 버튼을 클릭시 수행
+        btn_gomain.setOnClickListener(new View.OnClickListener() {//로그인 버튼을 클릭시 수행
             @Override
             public void onClick(View v) {
                 Intent intent1=new Intent(LoginActivity.this,MainActivity.class);
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject jasonObject=new JSONObject(response);
                             boolean success=jasonObject.getBoolean("success");
-                            if (success) {//회원등록 성공한 경우
+                            if (success) {//로그인에 성공한 경우
                                 String userID = jasonObject.getString("userID");
                                 String userPass = jasonObject.getString("userPassword");
                                 Toast.makeText(getApplicationContext(), "로그인 성공!!", Toast.LENGTH_SHORT).show();
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
 
 
-                            else{//회원등록 실패한 경우
+                            else{//로그인에 실패한 경우
                                 Toast.makeText(getApplicationContext(), "로그인 실패..", Toast.LENGTH_SHORT).show();
                                 return;
 
