@@ -38,15 +38,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent1);
         }
         if (v.getId() == R.id.btn_board) { // 게시판
-            Intent intent2 = new Intent(MainActivity.this, ForumForum.class);
+            Intent intent2 = new Intent(MainActivity.this, forum_forum.class);
             startActivity(intent2);
         }
         if (v.getId() == R.id.btn_character) { // 내 캐릭터
-            Intent intent3 = new Intent(MainActivity.this, CharInven.class);
+            Intent intent3 = new Intent(MainActivity.this, char_inven.class);
             startActivity(intent3);
         }
         if (v.getId() == R.id.btn_event) { // 공지 이벤트
-            Intent intent4 = new Intent(MainActivity.this, NoticeNotice.class);
+            Intent intent4 = new Intent(MainActivity.this, notice_notice.class);
             startActivity(intent4);
         }
         /*if (v.getId() == R.id.btn_game) { // 게임
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent5);
         }*/
         if (v.getId() == R.id.btn_setting) { // 설정
-            Intent intent6 = new Intent(MainActivity.this, Config.class);
+            Intent intent6 = new Intent(MainActivity.this, config.class);
             startActivity(intent6);
         }
 
