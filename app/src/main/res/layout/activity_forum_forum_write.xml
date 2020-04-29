@@ -7,6 +7,67 @@
     android:background="@drawable/forum_forum_write">
 
     <Button
+        android:id="@+id/btn_forum_write_cancel"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+
+
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/back_circle_button"
+        android:enabled="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_forum_write_forum"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_forum_write_add"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+
+
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/some_add_button"
+        android:enabled="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_forum_write_cancel"
+        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_forum_write_forum"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_forum_write_forum"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="584dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/write_button"
+        android:enabled="true"
+        android:foreground="@drawable/write_button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_forum_forum_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
         android:id="@+id/top_navi"
         android:layout_width="412dp"
         android:layout_height="62dp"
