@@ -30,13 +30,14 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
 
         btn_save.setOnClickListener(this);
         btn_back.setOnClickListener(this);
-        String contents = text_write.getText().toString();
-        contents = contents.replace("'","''");
+
     }
 
 
     @Override
     public void onClick(View v) {
+        String contents = text_write.getText().toString(); //작성된내용을 가져온다..?
+        contents = contents.replace("'","''");
 
         if (v.getId() == R.id.btn_save) { //게시판작성에서 완료하기를 눌렀을때
             Toast.makeText(getApplicationContext(), "글이 작성되었습니다", Toast.LENGTH_SHORT).show();
