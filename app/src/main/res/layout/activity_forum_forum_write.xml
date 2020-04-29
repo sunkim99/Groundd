@@ -60,7 +60,7 @@
         android:background="@drawable/write_button"
         android:enabled="true"
         android:foreground="@drawable/write_button"
-        app:layout_constraintBottom_toTopOf="@+id/btn_forum_forum_cancel"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.97"
         app:layout_constraintStart_toStartOf="parent"
