@@ -4,14 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 //게시판
 public class forum_forum extends AppCompatActivity implements View.OnClickListener{
 
     Button next_tab, write, cancel;
-
+    private ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +29,16 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         write = (Button) findViewById(R.id.go_forum_write);
         cancel = (Button) findViewById(R.id.btn_forum_forum_cancel);
 
-        next_tab.setOnClickListener(this);
+        list = findViewById(R.id.list);
+        List<String> data = new ArrayList<>();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,data);
+        list.setAdapter(adapter);
+        data.add("넣고싶은 데이터 값");
+        data.add("여러개도상관없음");
+        adapter.notifyDataSetChanged();//이걸써야 저장이됨됨
+
+
+       next_tab.setOnClickListener(this);
         write.setOnClickListener(this);
         cancel.setOnClickListener(this);
     }

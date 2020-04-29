@@ -41,7 +41,7 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        Log.d("TEST1234", "글작성 버튼 눌림");
+
         if (v.getId() == R.id.btn_save) { //게시판작성에서 완료하기를 눌렀을때
             Log.d("TEST1234", "저장하기 버튼 눌림");
             String contentsTitle = title_name.getText().toString(); //작성된 제목을 가져온다..?
