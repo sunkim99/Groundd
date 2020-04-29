@@ -1,7 +1,5 @@
 package com.example.ground;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -45,8 +45,12 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
 
 
         if (v.getId() == R.id.btn_save) { //게시판작성에서 완료하기를 눌렀을때
-            String contents = text_write.getText().toString(); //작성된내용을 가져온다..?
+            String contentsTitle = title_name.getText().toString(); //작성된 제목을 가져온다..?
+            String contents = text_write.getText().toString(); //작성된 내용을 가져온다..?
+
+            contentsTitle = contentsTitle.replace("'", "''");
             contents = contents.replace("'", "''");
+
             Response.Listener<String> responseListener = new Response.Listener<String>() {//volley
                 @Override
                 public void onResponse(String response) {
@@ -84,7 +88,7 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
                     }
                 }
             };
-            forumRequest forumRequest = new forumRequest(contents,responseListener);
+            forumRequest forumRequest = new forumRequest(contentsTitle,contents,responseListener);
             RequestQueue queue = Volley.newRequestQueue(forum_forum_write.this);
 
             queue.add(forumRequest);

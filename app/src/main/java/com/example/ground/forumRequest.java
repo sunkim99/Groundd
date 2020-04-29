@@ -13,11 +13,13 @@ public class forumRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public forumRequest(String contents, Response.Listener<String> listener) {
+    public forumRequest(String contentsTitle, String contents, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
+        map.put("contentsTitle", contentsTitle);
         map.put("contents", contents);
+
     }
 
     protected Map<String, String> getParams() throws AuthFailureError {
