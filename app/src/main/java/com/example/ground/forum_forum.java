@@ -6,12 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+//게시판
 public class forum_forum extends AppCompatActivity implements View.OnClickListener{
 
-    Button next_tab;
-    Button write;
-    Button cancel;
+    Button next_tab, write, cancel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +37,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
             startActivity(intent02);
         }
         if(v.getId() == R.id.btn_forum_forum_cancel) {
-            Intent intent03 = new Intent( forum_forum.this, MainActivity.class);
-            startActivity(intent03);
+            finish();
         }
     }
 }

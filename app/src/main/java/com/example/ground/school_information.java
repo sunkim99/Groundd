@@ -31,8 +31,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
             startActivity(intent01);
         }
         if(v.getId() == R.id.btn_school_information_cancel) {
-            Intent intent02 = new Intent( school_information.this, MainActivity.class);
-            startActivity(intent02);
+            finish();
         }
     }
 }
