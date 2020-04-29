@@ -7,7 +7,7 @@
     android:background="@drawable/forum_forum_write">
 
     <Button
-        android:id="@+id/btn_forum_write_cancel"
+        android:id="@+id/btn_back"
         android:layout_width="62dp"
         android:layout_height="62dp"
         android:layout_gravity="start"
@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.996"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_forum_write_forum"
+        app:layout_constraintTop_toBottomOf="@+id/btn_save"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -42,14 +42,14 @@
         android:enabled="true"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_forum_write_cancel"
+        app:layout_constraintEnd_toStartOf="@+id/btn_back"
         app:layout_constraintHorizontal_bias="0.965"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_forum_write_forum"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btn_forum_write_forum"
+        android:id="@+id/btn_save"
         android:layout_width="62dp"
         android:layout_height="62dp"
         android:layout_gravity="start"
