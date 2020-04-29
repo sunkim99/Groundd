@@ -17,7 +17,7 @@ import java.util.List;
 //게시판
 public class forum_forum extends AppCompatActivity implements View.OnClickListener{
 
-    Button next_tab, write, cancel;
+    Button btn_image, write, cancel;
     private ListView list;
 
     @Override
@@ -25,20 +25,22 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum);
 
-        next_tab = (Button) findViewById(R.id.go_forum_image);
-        write = (Button) findViewById(R.id.go_forum_write);
-        cancel = (Button) findViewById(R.id.btn_forum_forum_cancel);
+        btn_image = findViewById(R.id.go_forum_image);
+        write = findViewById(R.id.go_forum_write);
+        cancel = findViewById(R.id.btn_forum_forum_cancel);
 
+
+        //리스트뷰
         list = findViewById(R.id.list);
         List<String> data = new ArrayList<>();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,data);
         list.setAdapter(adapter);
         data.add("넣고싶은 데이터 값");
         data.add("여러개도상관없음");
-        adapter.notifyDataSetChanged();//이걸써야 저장이됨됨
+        adapter.notifyDataSetChanged();//이걸써야 저장이됨
 
 
-       next_tab.setOnClickListener(this);
+        btn_image.setOnClickListener(this);
         write.setOnClickListener(this);
         cancel.setOnClickListener(this);
     }
