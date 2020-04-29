@@ -30,8 +30,7 @@ public class school_food_lineup extends AppCompatActivity implements View.OnClic
             startActivity(intent01);
         }
         if(v.getId() == R.id.btn_school_food_lineup_cancel) {
-            Intent intent02 = new Intent(school_food_lineup.this, MainActivity.class);
-            startActivity(intent02);
+           finish();
         }
     }
 }
