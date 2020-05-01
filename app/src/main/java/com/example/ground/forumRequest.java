@@ -5,6 +5,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,12 +14,15 @@ public class forumRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public forumRequest(String contentsTitle, String contents, Response.Listener<String> listener) {
+    public forumRequest(String notTi, String notCon, /*int notNum, int notType, Date notDate,*/ Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("contentsTitle", contentsTitle);
-        map.put("contents", contents);
+        map.put("notTi", notTi);
+        map.put("notCon", notCon);
+       /* map.put("notNum", notNum);
+        map.put("notType", notType);
+        map.put("notDate", notDate);*/
 
     }
 

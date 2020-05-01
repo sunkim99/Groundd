@@ -58,8 +58,11 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
                         JSONObject jasonObject = new JSONObject(response);//Forum.php에 response
                         boolean success = jasonObject.getBoolean("success");//Forum.php에 sucess
 
-                       /* String sta = jasonObject.getString("str");
-                        Log.d("TEST1234","php->안스 값:"+sta);*/
+                        //String ssss = jasonObject.getString("id");
+                        String sta = jasonObject.getString("str");
+                        Log.d("TEST1234", "success:" + success);
+                        //Log.d("TEST1234", "정상성공?:" + ssss);
+                        Log.d("TEST1234","php->안스 값:"+sta);
 
                         Toast.makeText(getApplicationContext(), "글이 작성되었습니다", Toast.LENGTH_SHORT).show();
                         Log.d("TEST1234", "쓰레드확인2:" + Thread.currentThread());
