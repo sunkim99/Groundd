@@ -41,10 +41,9 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        Log.d("TESTforumwirte", "글쓰기 버튼 눌림");
-
 
         if (v.getId() == R.id.btn_save) { //게시판작성에서 완료하기를 눌렀을때
+            Log.d("TEST1234", "저장하기 버튼 눌림");
             String contentsTitle = title_name.getText().toString(); //작성된 제목을 가져온다..?
             String contents = text_write.getText().toString(); //작성된 내용을 가져온다..?
 
@@ -56,13 +55,20 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
                 public void onResponse(String response) {
                     try {
                         Log.d("TEST1234", "쓰레드확인1:" + Thread.currentThread());
-                        JSONObject jasonObject = new JSONObject(response);//Register2 php에 response
-                        boolean success = jasonObject.getBoolean("success");//Register2 php에 sucess
+                        JSONObject jasonObject = new JSONObject(response);//Forum.php에 response
+                        boolean success = jasonObject.getBoolean("success");//Forum.php에 sucess
 
+                        //String ssss = jasonObject.getString("id");
+                        String sta = jasonObject.getString("str");
+                        Log.d("TEST1234", "success:" + success);
+                        //Log.d("TEST1234", "정상성공?:" + ssss);
+                        Log.d("TEST1234","php->안스 값:"+sta);
 
                         Toast.makeText(getApplicationContext(), "글이 작성되었습니다", Toast.LENGTH_SHORT).show();
+                        Log.d("TEST1234", "쓰레드확인2:" + Thread.currentThread());
                         Intent intent = new Intent(forum_forum_write.this, forum_forum.class);
                         startActivity(intent);
+                        Log.d("TEST1234", "쓰레드확인3:" + Thread.currentThread());
 
                        /* String ssss = jasonObject.getString("id");
                         String sta = jasonObject.getString("str");
@@ -89,9 +95,11 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
                 }
             };
             forumRequest forumRequest = new forumRequest(contentsTitle,contents,responseListener);
+            Log.d("TEST1234", "쓰레드확인4:" + Thread.currentThread());
             RequestQueue queue = Volley.newRequestQueue(forum_forum_write.this);
-
+            Log.d("TEST1234", "쓰레드확인5:" + Thread.currentThread());
             queue.add(forumRequest);
+            Log.d("TEST1234", "쓰레드확인6:" + Thread.currentThread());
         }
         if (v.getId() == R.id.btn_back) { //게시판 작성화면에서 빨간버튼을 눌렀을때
             finish();

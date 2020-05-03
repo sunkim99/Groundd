@@ -66,14 +66,15 @@
         app:layout_constraintTop_toBottomOf="@+id/top_navi" />
 
     <ListView
-        android:id="@+id/my_listview"
+        android:id="@+id/list"
         android:layout_width="409dp"
         android:layout_height="580dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/bm_font"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_navi"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.859" />
 </androidx.constraintlayout.widget.ConstraintLayout>
