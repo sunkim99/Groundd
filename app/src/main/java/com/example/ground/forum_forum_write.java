@@ -70,6 +70,10 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
                         startActivity(intent);
                         Log.d("TEST1234", "쓰레드확인3:" + Thread.currentThread());
 
+
+
+
+
                        /* String ssss = jasonObject.getString("id");
                         String sta = jasonObject.getString("str");
                         Log.d("TEST1234", "success:" + success);
