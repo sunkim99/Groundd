@@ -43,4 +43,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_register"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/school_name"
+        android:layout_width="200dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="70dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/school_tel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/school_tel"
+        android:layout_width="200dp"
+        android:layout_height="18dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/school_homepage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/go_school_information"
+        app:layout_constraintTop_toBottomOf="@+id/school_name" />
+
+    <TextView
+        android:id="@+id/school_homepage"
+        android:layout_width="200dp"
+        android:layout_height="19dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/school_tel" />
 </androidx.constraintlayout.widget.ConstraintLayout>
