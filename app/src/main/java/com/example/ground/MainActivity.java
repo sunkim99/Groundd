@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_setting.setOnClickListener(this);
 
         Intent intent2 = getIntent();
-        String userID = intent2.getStringExtra("userID");
+        String userID1 = intent2.getStringExtra("userID");
         et = findViewById(R.id.editText11);
-        et.setText(userID);
+        et.setText(userID1);
     }
 
     @Override
