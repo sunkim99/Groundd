@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_school, btn_board, btn_character, btn_event, btn_game, btn_setting;
+    TextView et;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_setting = findViewById(R.id.btn_setting);
 
 
+
+
         btn_school.setOnClickListener(this);
         btn_board.setOnClickListener(this);
         btn_character.setOnClickListener(this);
@@ -30,8 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_game.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
-
-
+        Intent intent2 = getIntent();
+        String userID = intent2.getStringExtra("userID");
+        et = findViewById(R.id.editText11);
+        et.setText(userID);
     }
 
     @Override
@@ -57,9 +64,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent5);
         }*/
         if (v.getId() == R.id.btn_setting) { // 설정
+            String userID= et.getText().toString();
             Intent intent6 = new Intent(MainActivity.this, configActivity.class);
+
+            intent6.putExtra("userID", userID);
             startActivity(intent6);
         }
+
+
 
     }
 }
