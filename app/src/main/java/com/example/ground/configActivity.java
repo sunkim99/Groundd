@@ -27,8 +27,5 @@ public class configActivity extends AppCompatActivity {
         show_id.setText(temp01);
 
 
-
-
-
     }
 }
