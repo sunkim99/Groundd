@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_event.setOnClickListener(this);
         btn_game.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
+
+
 
     }
 
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent5);
         }*/
         if (v.getId() == R.id.btn_setting) { // 설정
-            Intent intent6 = new Intent(MainActivity.this, config.class);
+            Intent intent6 = new Intent(MainActivity.this, configActivity.class);
             startActivity(intent6);
         }
 

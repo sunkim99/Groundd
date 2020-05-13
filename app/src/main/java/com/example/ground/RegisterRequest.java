@@ -23,6 +23,8 @@ public class RegisterRequest extends StringRequest {
         map.put("userNick",userNick);
         map.put("userPh",Integer.toString(userPh));
         map.put("userParPh",Integer.toString(userParPh));
+
+
     }
 
     @Override

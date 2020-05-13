@@ -24,7 +24,7 @@ public class SplashActivity extends Activity {
         iv.startAnimation(animation);
 
         Handler hd = new Handler();
-        hd.postDelayed(new splashhandler(), 3000);
+        hd.postDelayed(new splashhandler(), 4500);
 
     }
 
