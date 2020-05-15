@@ -18,8 +18,6 @@ public class configActivity extends AppCompatActivity {
         setContentView(R.layout.activity_config);
 
 
-
-
         data_receive = getIntent();
         String temp01 = data_receive.getStringExtra("userID");
 
