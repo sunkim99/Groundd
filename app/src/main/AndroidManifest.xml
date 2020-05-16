@@ -23,11 +23,12 @@
         <activity android:name=".configActivity" />
         <activity android:name=".char_shop" />
         <activity android:name=".char_inven" />
-        <activity android:name=".aaaaActivity" />
         <activity android:name=".school_information" />
         <activity android:name=".school_food_lineup" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".game_main" />
+        <activity android:name=".game_ranking" />
         <activity
             android:name=".SplashActivity">
             <intent-filter>

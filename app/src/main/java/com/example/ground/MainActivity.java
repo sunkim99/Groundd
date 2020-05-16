@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent4 = new Intent(MainActivity.this, notice_notice.class);
             startActivity(intent4);
         }
-        /*if (v.getId() == R.id.btn_game) { // 게임
-            Intent intent5 = new Intent(MainActivity.this, NoticeEvent.class);
+        if (v.getId() == R.id.btn_game) { // 게임
+            Intent intent5 = new Intent(MainActivity.this, game_main.class);
             startActivity(intent5);
-        }*/
+        }
         if (v.getId() == R.id.btn_setting) { // 설정
             String userID= et.getText().toString();
             Intent intent6 = new Intent(MainActivity.this, configActivity.class);
