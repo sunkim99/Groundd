@@ -56,7 +56,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         GetData task = new GetData();
         task.execute("http://olivia7626.dothome.co.kr/Forumlist.php");
 
-
+//
         btn_image.setOnClickListener(this);
         write.setOnClickListener(this);
         cancel.setOnClickListener(this);
