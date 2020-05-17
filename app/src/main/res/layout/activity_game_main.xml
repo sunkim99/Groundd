@@ -32,13 +32,15 @@
 
     <Button
         android:id="@+id/btn_gugu"
-        android:layout_width="403dp"
-        android:layout_height="107dp"
-        android:layout_marginTop="40dp"
-        android:text="구구단 버튼 디자인바꿔주세요.."
+        android:layout_width="411dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/divider_horizontal_bright"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/go_game_ranking" />
+        app:layout_constraintTop_toBottomOf="@+id/go_game_ranking"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
