@@ -18,6 +18,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
+            android:fontFamily="@font/bm_font"
+
             android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:layout_height="50dp">
@@ -29,6 +31,8 @@
             android:textSize="25sp"
             android:textStyle="bold"
             android:gravity="center"
+            android:fontFamily="@font/bm_font"
+
             android:layout_below="@id/popup_multiplication_count"
             android:layout_width="match_parent"
             android:layout_height="80dp">
@@ -40,6 +44,8 @@
             android:textStyle="bold"
             android:textSize="20sp"
             android:textColor="#000000"
+            android:fontFamily="@font/bm_font"
+
             android:gravity="center"
             android:ellipsize="end"
             android:layout_below="@id/popup_multiplication_question"
@@ -53,6 +59,8 @@
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:fontFamily="@font/bm_font"
+
             android:textAllCaps="false"
             android:gravity="center"
             android:layout_alignParentBottom="true"
@@ -67,6 +75,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textAllCaps="false"
+            android:fontFamily="@font/bm_font"
+
             android:gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_width="100dp"

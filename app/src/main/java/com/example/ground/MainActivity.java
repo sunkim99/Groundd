@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/*봉근오빠 이메세지보이시면 밑에 똑같이 답장한번 달아서 깃 올려주세욤*/
+
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_school, btn_board, btn_character, btn_event, btn_game, btn_setting;
     TextView et;

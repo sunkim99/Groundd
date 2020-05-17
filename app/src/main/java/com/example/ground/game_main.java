@@ -1,7 +1,5 @@
 package com.example.ground;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +8,10 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
@@ -19,6 +20,11 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
 
     Button go_other_menu, btn_gugu;
     Button cancel;
+    TextView count;
+
+
+    private static final String FORMAT = "%02d:%02d:%02d";
+    int seconds, minutes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +34,15 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
         go_other_menu = (Button) findViewById(R.id.go_game_ranking);
 
         btn_gugu = findViewById(R.id.btn_gugu);
-
+        count = findViewById(R.id.popup_multiplication_count);
         go_other_menu.setOnClickListener(this);
 
         btn_gugu.setOnClickListener(this);
 
-    }
+
+}
+
+
 
     public void onClick(View v) {
         if (v.getId() == R.id.go_game_ranking) {
@@ -66,6 +75,19 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
                         multiplicationView.getPlace((View) findViewById(R.id.btn_gugu));// 어느 뷰를 기점으로 popupview를 생성?
                         multiplicationView.showPopupView(); // popupview 생성
 
+
+                       /* CountDownTimer countDownTimer = new CountDownTimer(30000, 1000) {
+                            public void onTick(long millisUntilFinished) {
+                                count.setText(String.format(Locale.getDefault(), "%d sec.", millisUntilFinished / 1000L));
+                            }
+
+                            public void onFinish() {
+                                count.setText("Done.");
+                            }
+                        }.start();
+*/
+
+                        //카운트 다운되는 코드 여기에 추가해봐야할듯..
 
                         Log.d("TEST1234", "스레드 진행1" + Thread.currentThread());
                         multiplicationView.popupTextView().setText(multiplicationQuestion());
@@ -145,5 +167,6 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
         firstNumber = 0;
         secondNumber = 0;
     }
+
 
 }
