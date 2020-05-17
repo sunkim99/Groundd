@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId() == R.id.btn_game) { // 게임
             Intent intent5 = new Intent(MainActivity.this, game_main.class);
             startActivity(intent5);
+
+            Log.d("TEST1234", "게임버튼 눌림" + Thread.currentThread());
         }
         if (v.getId() == R.id.btn_setting) { // 설정
             String userID= et.getText().toString();
