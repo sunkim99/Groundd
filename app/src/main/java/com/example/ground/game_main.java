@@ -87,7 +87,7 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
                                         multiplicationView.dismiss(); //정답이 일치할경우 mulirplicationView에 dismiss 클래스 실행 -> 팝업뷰가 사라짐 로그 뜨면서 팝업창 사라짐
                                         Toast.makeText(game_main.this, "정답!", Toast.LENGTH_SHORT).show();
                                     } else { //정답이 틀릴경우?
-                                        Toast.makeText(game_main.this, "오답..", Toast.LENGTH_SHORT).show(); //오답일경우 오답.. 이라는 토스트 메시지 출력
+                                        Toast.makeText(game_main.this, "오답..\n 다시 시도해 보세요", Toast.LENGTH_SHORT).show(); //오답일경우 오답.. 이라는 토스트 메시지 출력
                                     /*
                                     TODO :
                                      1. 백버튼 눌릴때 invalidation 에러 발생가능
