@@ -17,15 +17,16 @@
 
     <ImageView
         android:id="@+id/bgbox"
-        android:layout_width="415dp"
-        android:layout_height="349dp"
+        android:layout_width="414dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="8dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_navi"
-        app:layout_constraintVertical_bias="0.237"
+        app:layout_constraintVertical_bias="0.256"
         app:srcCompat="@drawable/resister_box_bg" />
 
     <EditText
@@ -163,16 +164,16 @@
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="74dp"
         android:background="@drawable/resister_circle_button"
         android:enabled="true"
         android:foreground="@drawable/resister_circle_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.996"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_resist_cancel"
@@ -181,9 +182,9 @@
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="6dp"
 
 
         android:background="@drawable/back_circle_button"
