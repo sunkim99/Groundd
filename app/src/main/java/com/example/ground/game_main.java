@@ -1,7 +1,5 @@
 package com.example.ground;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +8,10 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
@@ -19,6 +20,11 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
 
     Button go_other_menu, btn_gugu;
     Button cancel;
+    TextView count;
+
+
+    private static final String FORMAT = "%02d:%02d:%02d";
+    int seconds, minutes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +34,15 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
         go_other_menu = (Button) findViewById(R.id.go_game_ranking);
 
         btn_gugu = findViewById(R.id.btn_gugu);
-
+        count = findViewById(R.id.popup_multiplication_count);
         go_other_menu.setOnClickListener(this);
 
         btn_gugu.setOnClickListener(this);
 
-    }
+
+}
+
+
 
     public void onClick(View v) {
         if (v.getId() == R.id.go_game_ranking) {
@@ -67,6 +76,19 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
                         multiplicationView.showPopupView(); // popupview 생성
 
 
+                       /* CountDownTimer countDownTimer = new CountDownTimer(30000, 1000) {
+                            public void onTick(long millisUntilFinished) {
+                                count.setText(String.format(Locale.getDefault(), "%d sec.", millisUntilFinished / 1000L));
+                            }
+
+                            public void onFinish() {
+                                count.setText("Done.");
+                            }
+                        }.start();
+*/
+
+                        //카운트 다운되는 코드 여기에 추가해봐야할듯..
+
                         Log.d("TEST1234", "스레드 진행1" + Thread.currentThread());
                         multiplicationView.popupTextView().setText(multiplicationQuestion());
                         multiplicationView.popupEdittext().addTextChangedListener((TextWatcher) (new TextWatcher() {
@@ -87,7 +109,7 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
                                         multiplicationView.dismiss(); //정답이 일치할경우 mulirplicationView에 dismiss 클래스 실행 -> 팝업뷰가 사라짐 로그 뜨면서 팝업창 사라짐
                                         Toast.makeText(game_main.this, "정답!", Toast.LENGTH_SHORT).show();
                                     } else { //정답이 틀릴경우?
-                                        Toast.makeText(game_main.this, "오답..", Toast.LENGTH_SHORT).show(); //오답일경우 오답.. 이라는 토스트 메시지 출력
+                                        Toast.makeText(game_main.this, "오답..\n 다시 시도해 보세요", Toast.LENGTH_SHORT).show(); //오답일경우 오답.. 이라는 토스트 메시지 출력
                                     /*
                                     TODO :
                                      1. 백버튼 눌릴때 invalidation 에러 발생가능
@@ -145,5 +167,6 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
         firstNumber = 0;
         secondNumber = 0;
     }
+
 
 }
