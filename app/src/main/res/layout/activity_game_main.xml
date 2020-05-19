@@ -43,4 +43,15 @@
         app:layout_constraintTop_toBottomOf="@+id/go_game_ranking"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/tttt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_gugu"
+        app:layout_constraintVertical_bias="0.765"
+        tools:layout_editor_absoluteX="62dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
