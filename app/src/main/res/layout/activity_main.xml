@@ -10,6 +10,19 @@
     tools:context=".MainActivity" >
 
 
+    <TextView
+        android:id="@+id/editText11"
+        android:layout_width="201dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_setting"
         android:layout_width="412dp"
@@ -78,18 +91,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_event"
         app:layout_constraintTop_toBottomOf="@+id/btn_character" />
-
-    <TextView
-        android:id="@+id/editText11"
-        android:layout_width="201dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="76dp"
-        android:ems="10"
-        android:fontFamily="@font/bm_font"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
