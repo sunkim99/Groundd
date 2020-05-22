@@ -1,6 +1,5 @@
 package com.example.ground;
 
-
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -16,9 +15,8 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 public class MultiplicationView {
-    private final String logTag = "LanguageView";
+    private final String logTag = "MultiplicationView";
 
     private Context context;
     public final void getContext(Context context) {
@@ -31,9 +29,10 @@ public class MultiplicationView {
     }
 
     private TextView getTextView;
-    public final TextView popupTextView() {
-        return this.getTextView;
-    }
+    public final TextView popupTextView() { return this.getTextView; }
+
+    private TextView getCountTextView;
+    public final TextView popupCountTextView() { return this.getCountTextView; }
 
     private EditText getEditText;
     public final EditText popupEdittext() {
@@ -66,6 +65,7 @@ public class MultiplicationView {
             if (getEditText == null) getEditText = (EditText)view.findViewById(R.id.popup_multiplication_answer);
             if (getNextButton == null) getNextButton = (Button)view.findViewById(R.id.popup_multiplication_next);
             if (getExistButton == null) getExistButton = (Button)view.findViewById(R.id.popup_multiplication_exist);
+            if (getCountTextView == null) getCountTextView = (TextView)view.findViewById(R.id.popup_multiplication_count);
 
 
         }catch (Exception e){
@@ -79,7 +79,7 @@ public class MultiplicationView {
         if (popupWindow.isShowing()) {
             popupWindow.dismiss();
             popupWindow = null;
-            Log.d(logTag, "팝업뷰가 사라짐");// 나가기, 다음버튼을 눌렀을때 동작.
+            Log.d(logTag, "팝업뷰가 사라짐");
         }
     }
 }

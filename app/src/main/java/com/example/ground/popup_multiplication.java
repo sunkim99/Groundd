@@ -1,4 +1,5 @@
 package com.example.ground;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -16,7 +17,7 @@ public class popup_multiplication extends AppCompatActivity {
         public void run() {
 
             counttime -= 1;
-            count.setText(counttime+"");//1초 간격
+            count.setText(counttime + "");//1초 간격
 
             if (counttime <= 1) {
                 handler.removeCallbacks(runnable);
@@ -25,6 +26,7 @@ public class popup_multiplication extends AppCompatActivity {
             }
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +34,8 @@ public class popup_multiplication extends AppCompatActivity {
 
         count = findViewById(R.id.popup_multiplication_count);
         handler.post(runnable);
-    }
 
+    }
 
 
 }
