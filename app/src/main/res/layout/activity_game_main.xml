@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/game_main">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/go_game_ranking"
@@ -34,14 +33,13 @@
         android:id="@+id/btn_gugu"
         android:layout_width="411dp"
         android:layout_height="195dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:drawable/divider_horizontal_bright"
+        android:background="@drawable/game_button_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/go_game_ranking"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
         android:id="@+id/tttt"
@@ -53,5 +51,48 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_gugu"
         app:layout_constraintVertical_bias="0.765"
         tools:layout_editor_absoluteX="62dp" />
+
+    <ImageView
+        android:id="@+id/menu_bar"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="7dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menu_bar" />
+
+    <ImageView
+        android:id="@+id/menu_select_bar"
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/menu_select_bar" />
+
+    <TextView
+        android:id="@+id/menu_name"
+        android:layout_width="391dp"
+        android:layout_height="33dp"
+        android:fontFamily="@font/bm_font"
+        android:text="오락   점수표"
+        android:textColor="@android:color/background_light"
+        android:textSize="29sp"
+        android:visibility="visible"
+        app:autoSizeTextType="none"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.518" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
