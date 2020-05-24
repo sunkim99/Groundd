@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/forum_forum_write">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/btn_back"
@@ -66,15 +65,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/write_tbox"
+        android:layout_width="411dp"
+        android:layout_height="597dp"
+        android:layout_marginTop="7dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
+        app:srcCompat="@drawable/write_box" />
+
     <TextView
         android:id="@+id/user_nickname"
         android:layout_width="276dp"
         android:layout_height="29dp"
         android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="7dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_navi" />
+        app:layout_constraintTop_toTopOf="@+id/write_tbox" />
 
     <ImageView
         android:id="@+id/menu_bar"
@@ -127,22 +138,22 @@
         android:layout_marginLeft="110dp"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:fontFamily="@font/bm_font"
+        android:inputType="textPersonName"
         android:text="제목"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_nickname" />
 
     <MultiAutoCompleteTextView
         android:id="@+id/text_wirte"
-        android:layout_width="388dp"
-        android:layout_height="433dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="58dp"
+        android:layout_width="395dp"
+        android:layout_height="450dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/bm_font"
         android:gravity="start"
         android:text="내용을 입력해주세요"
+        app:layout_constraintBottom_toBottomOf="@+id/write_tbox"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_name" />
 
