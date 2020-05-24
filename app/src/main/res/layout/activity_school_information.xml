@@ -112,7 +112,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/school_homepage"
+        android:id="@+id/school_add"
         android:layout_width="195dp"
         android:layout_height="19dp"
         android:text="TextView"

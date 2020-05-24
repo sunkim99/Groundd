@@ -41,17 +41,6 @@
         app:layout_constraintTop_toBottomOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.022" />
 
-    <TextView
-        android:id="@+id/tttt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_gugu"
-        app:layout_constraintVertical_bias="0.765"
-        tools:layout_editor_absoluteX="62dp" />
-
     <ImageView
         android:id="@+id/menu_bar"
         android:layout_width="411dp"

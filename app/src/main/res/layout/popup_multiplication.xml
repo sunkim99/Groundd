@@ -77,6 +77,9 @@
             android:textAllCaps="false"
             android:fontFamily="@font/bm_font"
 
+            android:visibility="invisible"
+
+
             android:gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_width="100dp"
