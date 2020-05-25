@@ -9,12 +9,23 @@
 
 
     <Button
-        android:id="@+id/btn_setting"
+        android:id="@+id/btn_logo"
         android:layout_width="412dp"
         android:layout_height="62dp"
         android:background="@drawable/top_navigator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_setting"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:background="@drawable/setting_button"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_logo"
+        app:layout_constraintEnd_toEndOf="@+id/btn_logo"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_logo" />
 
     <Button
         android:id="@+id/btn_school"
@@ -31,7 +42,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_setting" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_logo" />
 
     <Button
         android:id="@+id/btn_board"
@@ -99,15 +110,12 @@
         android:id="@+id/editText11"
         android:layout_width="201dp"
         android:layout_height="43dp"
-        android:ems="10"
+        android:ems="0"
         android:fontFamily="@font/bm_font"
         android:inputType="textPersonName"
         android:text="Name"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="681dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

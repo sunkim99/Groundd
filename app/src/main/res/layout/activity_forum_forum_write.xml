@@ -155,7 +155,7 @@
         android:id="@+id/text_wirte"
         android:layout_width="395dp"
         android:layout_height="450dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/bm_font"
         android:gravity="start"
         android:text="내용을 입력해주세요"

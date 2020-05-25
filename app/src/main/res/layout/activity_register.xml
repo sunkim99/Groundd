@@ -14,6 +14,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_setting"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:background="@drawable/setting_button"
+        app:layout_constraintBottom_toBottomOf="@+id/top_navi"
+        app:layout_constraintEnd_toEndOf="@+id/top_navi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_navi" />
+
     <ImageView
         android:id="@+id/bgbox"
         android:layout_width="414dp"
