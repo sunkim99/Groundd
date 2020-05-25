@@ -16,7 +16,7 @@ public class notice_event extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_event);
 
-        go_notice_notice = findViewById(R.id.go_notice_event);
+        go_notice_notice = findViewById(R.id.go_notice_notice);
 
 
         go_notice_notice.setOnClickListener(this);
