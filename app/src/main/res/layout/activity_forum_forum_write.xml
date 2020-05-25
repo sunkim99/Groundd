@@ -6,6 +6,16 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/go_forum_image"
+        android:layout_width="135dp"
+        android:layout_height="60dp"
+        android:background="@android:drawable/divider_horizontal_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintStart_toEndOf="@+id/menu_select_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
         android:id="@+id/btn_back"
         android:layout_width="62dp"
         android:layout_height="62dp"
@@ -71,7 +81,6 @@
         android:layout_height="597dp"
         android:layout_marginTop="7dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_bar"
@@ -93,12 +102,10 @@
         android:layout_height="60dp"
         android:layout_marginTop="7dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_navi"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/menu_bar" />
 
     <ImageView
@@ -148,11 +155,10 @@
         android:id="@+id/text_wirte"
         android:layout_width="395dp"
         android:layout_height="450dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="45dp"
         android:fontFamily="@font/bm_font"
         android:gravity="start"
         android:text="내용을 입력해주세요"
-        app:layout_constraintBottom_toBottomOf="@+id/write_tbox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_name" />

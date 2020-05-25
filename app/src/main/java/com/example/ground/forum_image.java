@@ -177,19 +177,34 @@ public class forum_image extends AppCompatActivity {
 */
 package com.example.ground;
 //이건 forumforum에서 intent 해야해서일단 필요한 부분 실제로 사용할건 위쪽 주석처리부분
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class forum_image extends AppCompatActivity {
-
+public class forum_image extends AppCompatActivity implements View.OnClickListener  {
+    Button go_forum_forum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_image); //forum_image xml이랑 연결
 
+        go_forum_forum = findViewById(R.id.go_forum_forum);
+
+        go_forum_forum.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+
+        if (v.getId() == R.id.go_forum_forum) {
+            Intent intent1 = new Intent(forum_image.this, forum_forum.class);
+            startActivity(intent1);
+        }
+
+    }
 }
 

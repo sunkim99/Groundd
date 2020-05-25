@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 //게시판에서 글쓰기버튼 눌렀을때 게시글 작성하는 화면
 public class forum_forum_write extends AppCompatActivity implements View.OnClickListener {
-    Button btn_save, btn_back;
+    Button btn_save, btn_back, go_forum_image;
     private EditText text_write, title_name;
 
 
@@ -32,10 +32,11 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         btn_back = findViewById(R.id.btn_back);
         text_write = findViewById(R.id.text_wirte);
         title_name = findViewById(R.id.title_name);
+        go_forum_image = findViewById(R.id.go_forum_image);
 
         btn_save.setOnClickListener(this);
         btn_back.setOnClickListener(this);
-
+        go_forum_image.setOnClickListener(this);
     }
 
 
@@ -105,6 +106,12 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
             queue.add(forumRequest);
             Log.d("TEST1234", "쓰레드확인6:" + Thread.currentThread());
         }
+
+        if (v.getId() == R.id.go_forum_forum) { //포럼 버튼을 눌렀을때
+            Intent intent1 = new Intent(forum_forum_write.this, forum_image.class);
+            startActivity(intent1);
+        }
+
         if (v.getId() == R.id.btn_back) { //게시판 작성화면에서 빨간버튼을 눌렀을때
             finish();
         }
