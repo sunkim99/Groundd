@@ -186,6 +186,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class forum_image extends AppCompatActivity implements View.OnClickListener  {
     Button go_forum_forum;
+    Button top_navi, btn_setting;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -193,8 +195,13 @@ public class forum_image extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_forum_image); //forum_image xml이랑 연결
 
         go_forum_forum = findViewById(R.id.go_forum_forum);
+        top_navi = findViewById(R.id.top_navi);
+        btn_setting = findViewById(R.id.btn_setting);
 
         go_forum_forum.setOnClickListener(this);
+        top_navi.setOnClickListener(this);
+        btn_setting.setOnClickListener(this);
+
     }
 
     @Override
@@ -204,7 +211,16 @@ public class forum_image extends AppCompatActivity implements View.OnClickListen
             Intent intent1 = new Intent(forum_image.this, forum_forum.class);
             startActivity(intent1);
         }
+        if (v.getId() == R.id.top_navi) {
+            Intent intent1 = new Intent(forum_image.this, MainActivity.class);
+            startActivity(intent1);
+        }
 
+
+        if (v.getId() == R.id.btn_setting) { // 설정
+            Intent intent6 = new Intent(forum_image.this, configActivity.class);
+            startActivity(intent6);
+        }
     }
 }
 

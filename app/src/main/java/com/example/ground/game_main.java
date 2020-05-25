@@ -25,6 +25,7 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
 
     Button go_other_menu, btn_gugu;
     Button cancel;
+    Button top_navi, btn_setting;
 
 
     int value = 10; //시작 101로 하기 test니까 10
@@ -61,11 +62,18 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_main);
 
+
         go_other_menu = (Button) findViewById(R.id.go_game_ranking);
         go_other_menu.setOnClickListener(this);
 
+
         btn_gugu = findViewById(R.id.btn_gugu);
         btn_gugu.setOnClickListener(this);
+
+        top_navi = findViewById(R.id.top_navi);
+        btn_setting = findViewById(R.id.btn_setting);
+        top_navi.setOnClickListener(this);
+        btn_setting.setOnClickListener(this);
 
 
     }
@@ -83,6 +91,16 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
             //팝업뷰 생성
             setEntertainmentFunction();
             Log.d("TEST1234", "구구단 게임 선택 팝업 ");
+        }
+        if (v.getId() == R.id.top_navi) {
+            Intent intent1 = new Intent(game_main.this, MainActivity.class);
+            startActivity(intent1);
+        }
+
+
+        if (v.getId() == R.id.btn_setting) { // 설정
+            Intent intent6 = new Intent(game_main.this, configActivity.class);
+            startActivity(intent6);
         }
     }
 

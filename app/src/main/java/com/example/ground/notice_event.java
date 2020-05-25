@@ -10,6 +10,8 @@ import android.widget.Button;
 public class notice_event extends AppCompatActivity implements View.OnClickListener{
 
     Button go_notice_notice;
+    Button top_navi, btn_setting;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +19,11 @@ public class notice_event extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_notice_event);
 
         go_notice_notice = findViewById(R.id.go_notice_notice);
+        top_navi = findViewById(R.id.top_navi);
+        btn_setting = findViewById(R.id.btn_setting);
 
-
+        top_navi.setOnClickListener(this);
+        btn_setting.setOnClickListener(this);
         go_notice_notice.setOnClickListener(this);
     }
 
@@ -27,6 +32,14 @@ public class notice_event extends AppCompatActivity implements View.OnClickListe
         if (v.getId() == R.id.go_notice_notice) {
             Intent intent01 = new Intent(notice_event.this, notice_notice.class);
             startActivity(intent01);
+        }
+        if (v.getId() == R.id.top_navi) {
+            Intent intent1 = new Intent(notice_event.this, MainActivity.class);
+            startActivity(intent1);
+        }
+        if (v.getId() == R.id.btn_setting) { // 설정
+            Intent intent6 = new Intent(notice_event.this, configActivity.class);
+            startActivity(intent6);
         }
     }
 }

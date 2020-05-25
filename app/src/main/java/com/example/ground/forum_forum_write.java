@@ -20,6 +20,8 @@ import org.json.JSONObject;
 //게시판에서 글쓰기버튼 눌렀을때 게시글 작성하는 화면
 public class forum_forum_write extends AppCompatActivity implements View.OnClickListener {
     Button btn_save, btn_back, go_forum_image;
+    Button top_navi, btn_setting;
+
     private EditText text_write, title_name;
 
 
@@ -33,10 +35,16 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         text_write = findViewById(R.id.text_wirte);
         title_name = findViewById(R.id.title_name);
         go_forum_image = findViewById(R.id.go_forum_image);
+        top_navi = findViewById(R.id.top_navi);
+        btn_setting = findViewById(R.id.btn_setting);
+
+
 
         btn_save.setOnClickListener(this);
         btn_back.setOnClickListener(this);
         go_forum_image.setOnClickListener(this);
+        top_navi.setOnClickListener(this);
+        btn_setting.setOnClickListener(this);
     }
 
 
@@ -114,6 +122,16 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
 
         if (v.getId() == R.id.btn_back) { //게시판 작성화면에서 빨간버튼을 눌렀을때
             finish();
+        }
+        if (v.getId() == R.id.top_navi) {
+            Intent intent1 = new Intent(forum_forum_write.this, MainActivity.class);
+            startActivity(intent1);
+        }
+
+
+        if (v.getId() == R.id.btn_setting) { // 설정
+            Intent intent6 = new Intent(forum_forum_write.this, configActivity.class);
+            startActivity(intent6);
         }
 
 

@@ -23,6 +23,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
     Button ok;
     Button cancel;
     TextView schName, schAdd, schPh;
+    Button top_navi, btn_setting;
 
     Intent data_receive; //데이터 받기
     @Override
@@ -32,7 +33,8 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
         ok = (Button) findViewById(R.id.go_school_food_lineup);
         cancel = (Button) findViewById(R.id.btn_school_information_cancel);
-
+        top_navi = findViewById(R.id.top_navi);
+        btn_setting = findViewById(R.id.btn_setting);
         schName= findViewById(R.id.school_name);
         schAdd = findViewById(R.id.school_add);
         schPh = findViewById(R.id.school_tel);
@@ -40,7 +42,8 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
         ok.setOnClickListener(this);
         cancel.setOnClickListener(this);
-
+        top_navi.setOnClickListener(this);
+        btn_setting.setOnClickListener(this);
 
 
         data_receive = getIntent();
@@ -98,6 +101,16 @@ public class school_information extends AppCompatActivity implements View.OnClic
         }
         if(v.getId() == R.id.btn_school_information_cancel) {
             finish();
+        }
+        if (v.getId() == R.id.top_navi) {
+            Intent intent1 = new Intent(school_information.this, MainActivity.class);
+            startActivity(intent1);
+        }
+
+
+        if (v.getId() == R.id.btn_setting) { // 설정
+            Intent intent6 = new Intent(school_information.this, configActivity.class);
+            startActivity(intent6);
         }
     }
 }

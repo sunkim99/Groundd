@@ -34,6 +34,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
     private static final String TAG_notTi = "notTi";
 
     Button btn_image, write, cancel;
+    Button top_navi, btn_setting;
 
     ListView list;
     ArrayList<HashMap<String, String>> mArrrayList;
@@ -48,6 +49,9 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         write = findViewById(R.id.go_forum_write);
         cancel = findViewById(R.id.btn_forum_forum_cancel);
 
+        top_navi = findViewById(R.id.top_navi);
+        btn_setting = findViewById(R.id.btn_setting);
+
 
         //리스트뷰 정의
         list = (ListView) findViewById(R.id.list);
@@ -60,6 +64,8 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         btn_image.setOnClickListener(this);
         write.setOnClickListener(this);
         cancel.setOnClickListener(this);
+        top_navi.setOnClickListener(this);
+        btn_setting.setOnClickListener(this);
     }
 
     //서버 연결해서 데이터가져오기
@@ -171,6 +177,15 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         }
         if(v.getId() == R.id.btn_forum_forum_cancel) {
             finish();
+        }
+        if (v.getId() == R.id.top_navi) {
+            Intent intent1 = new Intent(forum_forum.this, MainActivity.class);
+            startActivity(intent1);
+        }
+
+        if (v.getId() == R.id.btn_setting) { // 설정
+            Intent intent6 = new Intent(forum_forum.this, configActivity.class);
+            startActivity(intent6);
         }
     }
 }
