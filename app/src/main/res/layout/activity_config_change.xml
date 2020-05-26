@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/bgbox2"
+        android:layout_width="414dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="7dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_select_bar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/resister_box_bg" />
+
+    <ImageView
+        android:id="@+id/menu_select_bar"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="7dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
+        app:layout_constraintTop_toBottomOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menu_select_bar" />
+
+    <TextView
+        android:id="@+id/menu_name"
+        android:layout_width="391dp"
+        android:layout_height="33dp"
+        android:fontFamily="@font/bm_font"
+        android:text=" 계정 설정 변경, 학교 변경 "
+        android:textColor="@android:color/background_light"
+        android:textSize="29sp"
+        android:visibility="visible"
+        app:autoSizeTextType="none"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_select_bar"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
+        app:layout_constraintStart_toStartOf="@+id/menu_select_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_select_bar"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <Button
+        android:id="@+id/btn_setting"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:background="@drawable/setting_button"
+        app:layout_constraintBottom_toBottomOf="@+id/top_navi"
+        app:layout_constraintEnd_toEndOf="@+id/top_navi"
+        app:layout_constraintHorizontal_bias="0.997"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/top_navi"
+        android:layout_width="412dp"
+        android:layout_height="62dp"
+        android:background="@drawable/top_navigator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
