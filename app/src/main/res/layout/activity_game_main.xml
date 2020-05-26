@@ -19,6 +19,17 @@
         app:layout_constraintVertical_bias="0.102" />
 
     <Button
+        android:id="@+id/top_navi"
+        android:layout_width="412dp"
+        android:layout_height="62dp"
+        android:background="@drawable/top_navigator"
+        app:layout_constraintBottom_toTopOf="@+id/go_game_ranking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
         android:id="@+id/btn_setting"
         android:layout_width="62dp"
         android:layout_height="62dp"
@@ -28,17 +39,6 @@
         app:layout_constraintHorizontal_bias="0.997"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/top_navi"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/top_navi"
-        android:layout_width="412dp"
-        android:layout_height="62dp"
-        android:background="@drawable/top_navigator"
-        app:layout_constraintBottom_toTopOf="@+id/go_game_ranking"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
