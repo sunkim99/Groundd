@@ -26,30 +26,34 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
     Button go_other_menu, btn_gugu;
     Button cancel;
     Button top_navi, btn_setting;
+    int correct =0;
+    int total = 0;
 
-    int value = 101; //시작 101로 하기
+    int value = 10; //시작 101로 하기 test니까 10
 
 
     public final String bringTimerThread() {
+        //여기다가 타이머 쓰래드 만들거나 따로 객체를 만들어서 여기다가 삽입하면돼 그럼 끝.
 
-        CountDownTimer cdt = new CountDownTimer (100 *1000,1000){ //여기도 나중에 10 -> 100
-                //100(10*1000)초 동안 1초마다 실행
+        CountDownTimer cdt = new CountDownTimer(10 * 1000, 1000) { //여기도 나중에 10 -> 100
+            //100(10*1000)초 동안 1초마다 실행
             @Override
             public void onTick(long millisUntilFinished) {
                 value--;
-                multiplicationView.popupCountTextView().setText(value+"초");
+                multiplicationView.popupCountTextView().setText(value + "초");
             }
 
             @Override
             public void onFinish() {
-                Toast.makeText(game_main.this, "시간끝", Toast.LENGTH_LONG).show();//시간 끝났을때 토스트 메시지뜨는거 확인
+                Toast.makeText(game_main.this, "시간 끝- \n 최종 점수 : "+ total + "점", Toast.LENGTH_LONG).show();//시간 끝났을때 토스트 메시지뜨는거 확인
                 value = 10; // 이거없으면 다시 구구단 게임 눌렀을때 -1으로 시작해서 설정한 시간만큼 줄어듦. 넣어줘야함
+                correct = 0;//스레드끝나면 값들 초기화해주기
+                total = 0;
                 multiplicationView.dismiss();
 
             }
         };
         cdt.start();
-
 
 
         return "타이머 쓰레드 여기다가 생성";
@@ -123,7 +127,7 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
 
                         multiplicationView.popupCountTextView().setText(bringTimerThread());
                         multiplicationView.popupTextView().setText(multiplicationQuestion());
-                        multiplicationView.popupEdittext().addTextChangedListener((TextWatcher) (new TextWatcher() {
+                        multiplicationView.popupEdittext().addTextChangedListener((TextWatcher) (new TextWatcher(){
                             @Override
                             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -134,34 +138,27 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
                             }
 
                             @Override
-                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                            public void onTextChanged(CharSequence s, int start, int before, int count ) {
                                 try {
-                                    int correct; // 정답 맞춘 갯수
-                                    int total = 0;
                                     String answer = multiplicationView.popupEdittext().getText().toString();
                                     int intConverter = Integer.parseInt(answer);
 
-                                    if(firstNumber * secondNumber == intConverter) {
-                                       /* correct=0;// 카운트 넣으려고했는데 생각처럼 잘안됨..
-                                        correct++;
-                                        total =+ correct;*/
-                                        Toast.makeText(game_main.this, "정답! ", Toast.LENGTH_SHORT).show();
-                                       // Log.d("TEST1234", "정답 갯수: " + correct);
+                                    if (firstNumber * secondNumber == intConverter) {
 
+                                        correct++;
+                                        total =+correct;
+                                        Toast.makeText(game_main.this, "정답! ", Toast.LENGTH_SHORT).show();
+                                        Log.d("TEST1234", "정답 개수: " + correct);
 
 
                                         multiplicationView.popupEdittext().setText("");
                                         multiplicationView.popupTextView().setText(multiplicationQuestion());
 
 
-
-
+                                    } else {
+                                        //Toast.makeText(game_main.this, "오답!", Toast.LENGTH_SHORT).show();
                                     }
-                                   else{
-                                       //Toast.makeText(game_main.this, "오답!", Toast.LENGTH_SHORT).show();
-                                   }
-                                }
-                                catch (NumberFormatException e){
+                                } catch (NumberFormatException e) {
 
                                 }
 

@@ -96,37 +96,37 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
 
             String serverURL = params[0];
             try {
-            URL url = new URL(serverURL);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                URL url = new URL(serverURL);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
-            httpURLConnection.setReadTimeout(5000);
-            httpURLConnection.setConnectTimeout(5000);
-            httpURLConnection.connect();
+                httpURLConnection.setReadTimeout(5000);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.connect();
 
-            int responseStatusCode = httpURLConnection.getResponseCode();
-            Log.d(TAG, "response cod -" + responseStatusCode);
+                int responseStatusCode = httpURLConnection.getResponseCode();
+                Log.d(TAG, "response cod -" + responseStatusCode);
 
-            InputStream inputStream;
-            if(responseStatusCode == HttpURLConnection.HTTP_OK){
-                inputStream = httpURLConnection.getInputStream();
-            }
-            else{
-                inputStream = httpURLConnection.getErrorStream();
-            }
+                InputStream inputStream;
+                if(responseStatusCode == HttpURLConnection.HTTP_OK){
+                    inputStream = httpURLConnection.getInputStream();
+                }
+                else{
+                    inputStream = httpURLConnection.getErrorStream();
+                }
 
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
 
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-            StringBuilder sb = new StringBuilder();
-            String line;
+                StringBuilder sb = new StringBuilder();
+                String line;
 
-            while ((line = bufferedReader.readLine()) !=null){
-                sb.append(line);
-            }
-            bufferedReader.close();
+                while ((line = bufferedReader.readLine()) !=null){
+                    sb.append(line);
+                }
+                bufferedReader.close();
 
-            return sb.toString().trim();
+                return sb.toString().trim();
 
             } catch (Exception e) {
                 Log.d(TAG, "InsertData : Error",e);
