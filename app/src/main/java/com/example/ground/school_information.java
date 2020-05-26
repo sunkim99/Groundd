@@ -17,6 +17,8 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+
 //학교 정보 가져오기
 public class school_information extends AppCompatActivity implements View.OnClickListener{
 
@@ -50,10 +52,11 @@ public class school_information extends AppCompatActivity implements View.OnClic
         String temp01 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기
         Log.d("TEST1234", "userID " + temp01);
 
+
         String schName = "";
-        String schAdd ="";
+        String schAdd = "";
         int schPh = 0;
-       //학교 정보 가져오기
+
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -62,20 +65,22 @@ public class school_information extends AppCompatActivity implements View.OnClic
                     boolean success = jasonObject.getBoolean("success");
                     if (success) {
 
+                        
                         String schName = jasonObject.getString("schName");
                         String schAdd = jasonObject.getString("schAdd");
                         Integer schPh = jasonObject.getInt("schPh");
                         Log.d("TEST1234", "쓰레드확인1:");
 
 
-                       // Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                       // Log.d("TEST1234", "로그인성공:" + Thread.currentThread());
-                       // intent.putExtra("log", "User");
-                       // intent.putExtra("userID", userID);
+                        Intent intent = new Intent(String.valueOf(MainActivity.class));
+                        Log.d("TEST1234", "로그인성공:" + Thread.currentThread());
+                        intent.putExtra("log", "User");
+                        boolean userID = false;
+                        intent.putExtra("userID", userID);
 
-                       // startActivity(intent);
+                        startActivity(intent);
                     } else {
-                       // Toast.makeText(getApplicationContext(), "학교 정보 가져오기 실패", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getApplicationContext(), "학교 정보 가져오기 실패", Toast.LENGTH_SHORT).show();
                         Log.d("TEST1234", "학교 정보 가져오기 실패");
                         return;
 
@@ -86,10 +91,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
             }
         };
 
-
-
-
-        school_information_request sir = new school_information_request(schName,schAdd,schPh, responseListener);
+          school_information_request sir = new  school_information_request(schName,schAdd,schPh, responseListener);
         RequestQueue queue = Volley.newRequestQueue(school_information.this);
         queue.add(sir);
 
@@ -98,7 +100,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.go_school_food_lineup) {
-            Intent intent01 = new Intent( school_information.this, school_food_lineup.class);
+            Intent intent01 = new Intent(school_information.this, school_food_lineup.class);
             startActivity(intent01);
         }
         if(v.getId() == R.id.btn_school_information_cancel) {
@@ -116,3 +118,6 @@ public class school_information extends AppCompatActivity implements View.OnClic
         }
     }
 }
+
+
+

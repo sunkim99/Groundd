@@ -78,7 +78,7 @@
         android:textSize="14sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.655"
         app:layout_constraintStart_toEndOf="@id/et_id"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -173,10 +173,10 @@
         android:layout_marginTop="52dp"
         android:ems="10"
         android:fontFamily="@font/bm_font"
-        android:hint="학교이름"
+        android:hint="학교"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@id/et_phone"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/et_phone"
         app:layout_constraintTop_toBottomOf="@id/et_phone" />
 
