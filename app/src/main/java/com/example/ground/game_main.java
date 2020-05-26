@@ -27,7 +27,6 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
     Button cancel;
     Button top_navi, btn_setting;
 
-
     int value = 101; //시작 101로 하기
 
 
