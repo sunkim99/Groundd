@@ -110,13 +110,16 @@
         android:id="@+id/editText11"
         android:layout_width="201dp"
         android:layout_height="43dp"
-        android:layout_marginTop="672dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginLeft="208dp"
+        android:layout_marginTop="40dp"
         android:ems="0"
         android:fontFamily="@font/bm_font"
         android:inputType="textPersonName"
         android:text="Name"
         android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/btn_logo"
+        app:layout_constraintTop_toTopOf="@+id/btn_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

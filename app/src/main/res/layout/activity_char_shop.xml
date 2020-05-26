@@ -7,7 +7,7 @@
     <Button
         android:id="@+id/go_char_inven"
         android:layout_width="170dp"
-        android:layout_height="61dp"
+        android:layout_height="60dp"
         android:background="@android:drawable/divider_horizontal_dark"
         app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
         app:layout_constraintStart_toStartOf="parent"

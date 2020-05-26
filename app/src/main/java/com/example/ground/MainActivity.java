@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView et;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        allround ID = (allround)getApplicationContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String userID1 = intent2.getStringExtra("userID");
         et = findViewById(R.id.editText11);
         et.setText(userID1);
+
+        ID.setID(userID1);
     }
 
     @Override
@@ -68,10 +71,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d("TEST1234", "게임버튼 눌림" + Thread.currentThread());
         }
         if (v.getId() == R.id.btn_setting) { // 설정
-            String userID= et.getText().toString();
+            // String userID= et.getText().toString();
             Intent intent6 = new Intent(MainActivity.this, configActivity.class);
 
-            intent6.putExtra("userID", userID);
+            // intent6.putExtra("userID", userID);
             startActivity(intent6);
         }
 

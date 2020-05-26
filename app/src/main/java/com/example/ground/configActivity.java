@@ -2,24 +2,28 @@ package com.example.ground;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.usage.NetworkStats;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 //설정화면
 public class configActivity extends AppCompatActivity {
+
     TextView show_id; //아이디 받아오기
 
     Intent data_receive; //데이터 받기
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        allround ID = (allround)getApplicationContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
 
 
         data_receive = getIntent();
-        String temp01 = data_receive.getStringExtra("userID");
+        // String temp01 = data_receive.getStringExtra("userID");
+        String temp01 = ID.getID();
 
         show_id =findViewById(R.id.show_id);
         show_id.setText(temp01);
