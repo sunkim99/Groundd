@@ -51,7 +51,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
         Log.d("TEST1234", "userID " + temp01);
 
 
-       /* 학교 정보 가져오기
+       //학교 정보 가져오기
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -90,7 +90,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
         school_information_request sir = new  school_information_request(schName,schAdd,schPh, responseListener);
         RequestQueue queue = Volley.newRequestQueue(school_information.this);
         queue.add(sir);
-*/
+
     }
 
     @Override

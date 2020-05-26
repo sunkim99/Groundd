@@ -13,7 +13,7 @@ public class RegisterRequest extends StringRequest {
     final static  private String URL="http://olivia7626.dothome.co.kr/Register2.php";
     private Map<String,String>map;
 
-    public RegisterRequest(String userID, String userPassword, String userName, String userNick,int userPh,int userParPh,Response.Listener<String>listener){
+    public RegisterRequest(String userID, String userPassword, String userName, String userNick,int userPh,int userParPh,String schName, Response.Listener<String>listener){
         super(Method.POST,URL,listener,null);//위 url에 post방식으로 값을 전송
 
         map=new HashMap<>();
@@ -23,6 +23,7 @@ public class RegisterRequest extends StringRequest {
         map.put("userNick",userNick);
         map.put("userPh",Integer.toString(userPh));
         map.put("userParPh",Integer.toString(userParPh));
+        map.put("schName",schName);
 
 
     }

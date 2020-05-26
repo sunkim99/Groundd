@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText et_id, et_pass, et_name, et_nickname,et_phone,et_parphone,et_passck;
+    private EditText et_id, et_pass, et_name, et_nickname,et_phone,et_parphone,et_passck,et_school;
     private Button btn_register,validateButton;
     private AlertDialog dialog;
     private boolean validate=false;
@@ -40,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_phone=findViewById(R.id.et_phone);
         et_parphone=findViewById(R.id.et_parentphone);
         et_passck=findViewById(R.id.et_passck);
+        et_school= findViewById(R.id.et_school);
 
 
         Log.d("TEST1234","userID:화면시작됨");
@@ -132,6 +133,8 @@ public class RegisterActivity extends AppCompatActivity {
         int userParPh = Integer.parseInt(et_parphone.getText().toString());
         final String PassCk = et_passck.getText().toString();
 
+
+        String schName = et_school.getText().toString();
         Log.d("TEST1234","userID:"+userID);
 
 
@@ -150,6 +153,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Log.d("TEST1234","success:"+success);
                     Log.d("TEST1234","정상성공?:"+ssss);
                     Log.d("TEST1234","php->안스 값:"+sta);
+
 
 
                     if(userPass.equals(PassCk)) {
@@ -173,7 +177,7 @@ public class RegisterActivity extends AppCompatActivity {
         };
 
         //서버로 volley를 이용해서 요청을 함
-        RegisterRequest registerRequest=new RegisterRequest(userID,userPass, userName, userNick,userPh,userParPh,responseListener);
+        RegisterRequest registerRequest=new RegisterRequest(userID,userPass, userName, userNick,userPh,userParPh,schName, responseListener);
         Log.d("TEST1234","쓰레드확인5:"+Thread.currentThread());
         RequestQueue queue= Volley.newRequestQueue(RegisterActivity.this);
         Log.d("TEST1234","쓰레드확인6:"+Thread.currentThread());
