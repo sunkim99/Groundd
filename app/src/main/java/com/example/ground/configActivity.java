@@ -17,6 +17,7 @@ public class configActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         allround ID = (allround)getApplicationContext();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
 
