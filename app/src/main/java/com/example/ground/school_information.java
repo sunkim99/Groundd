@@ -50,7 +50,9 @@ public class school_information extends AppCompatActivity implements View.OnClic
         String temp01 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기
         Log.d("TEST1234", "userID " + temp01);
 
-
+        String schName = "";
+        String schAdd ="";
+        int schPh = 0;
        //학교 정보 가져오기
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -87,7 +89,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
 
 
-        school_information_request sir = new  school_information_request(schName,schAdd,schPh, responseListener);
+        school_information_request sir = new school_information_request(schName,schAdd,schPh, responseListener);
         RequestQueue queue = Volley.newRequestQueue(school_information.this);
         queue.add(sir);
 
