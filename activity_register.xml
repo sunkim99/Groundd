@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <Button
+        android:id="@+id/top_navi"
+        android:layout_width="412dp"
+        android:layout_height="62dp"
+        android:background="@drawable/top_navigator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_setting"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:background="@drawable/setting_button"
+        app:layout_constraintBottom_toBottomOf="@+id/top_navi"
+        app:layout_constraintEnd_toEndOf="@+id/top_navi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_navi" />
+
+    <ImageView
+        android:id="@+id/bgbox"
+        android:layout_width="414dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.015"
+        app:srcCompat="@drawable/resister_box_bg" />
+
+    <EditText
+        android:id="@+id/et_pass"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:hint="비밀번호"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@id/et_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/et_id"
+        app:layout_constraintTop_toBottomOf="@id/et_id" />
+
+    <!--   <Button
+        android:id="@+id/btn_register"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/bm_font"
+        android:text="회원가입"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="@id/et_parentphone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/et_parentphone"
+        app:layout_constraintTop_toBottomOf="@id/et_parentphone" />-->
+
+    <Button
+        android:id="@+id/validateButton"
+        android:layout_width="64dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/bm_font"
+        android:text="중복\n확인"
+
+
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintStart_toEndOf="@id/et_id"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="3dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:hint="연락처"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@id/et_nickname"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/et_nickname"
+        app:layout_constraintTop_toBottomOf="@id/et_nickname" />
+
+    <EditText
+        android:id="@+id/et_id"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:hint="아이디"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bgbox" />
+
+    <EditText
+        android:id="@+id/et_passck"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:hint="비밀번호 확인"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@id/et_pass"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/et_pass"
+        app:layout_constraintTop_toBottomOf="@id/et_pass" />
+
+    <EditText
+        android:id="@+id/et_nickname"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="3dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:hint="닉네임"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@id/et_name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/et_name"
+        app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:hint="이름"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@id/et_passck"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/et_passck"
+        app:layout_constraintTop_toBottomOf="@id/et_passck" />
+
+    <EditText
+        android:id="@+id/et_parentphone"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="2dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:hint="부모연락처"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@id/et_phone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/et_phone"
+        app:layout_constraintTop_toBottomOf="@id/et_phone" />
+
+    <EditText
+        android:id="@+id/et_school"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:hint="학교"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@id/et_phone"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/et_phone"
+        app:layout_constraintTop_toBottomOf="@id/et_phone" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="74dp"
+        android:background="@drawable/resister_circle_button"
+        android:enabled="true"
+        android:foreground="@drawable/resister_circle_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_resist_cancel"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="6dp"
+
+
+        android:background="@drawable/back_circle_button"
+        android:enabled="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_register"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/menu_bar"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="7dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menu_bar" />
+
+    <ImageView
+        android:id="@+id/menu_select_bar"
+        android:layout_width="119dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menu_select_bar" />
+
+    <TextView
+        android:id="@+id/menu_name"
+        android:layout_width="391dp"
+        android:layout_height="33dp"
+        android:fontFamily="@font/bm_font"
+        android:text="회원가입"
+        android:textColor="@android:color/background_light"
+        android:textSize="29sp"
+        android:visibility="visible"
+        app:autoSizeTextType="none"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.518" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

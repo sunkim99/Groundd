@@ -3,6 +3,7 @@ package com.example.ground;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,31 +25,34 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
 
     Button go_other_menu, btn_gugu;
     Button cancel;
-    private TextView count;
-    private int counttime = 10;
-    private Handler handler = new Handler();
-//    private Runnable runnable = new Runnable() {
-//        @Override
-//        public void run() {
-//
-//            counttime -= 1;
-//            //count.setText(counttime+"");//1초 간격
-//
-//            if (counttime <= 1) {
-//                handler.removeCallbacks(runnable);
-//            } else {
-//                handler.postDelayed(runnable, 1000);
-//            }
-//        }
-//    };
+    Button top_navi, btn_setting;
 
-    /**
-     *
-     *
-     */
 
-    public final String bringTimerThread(){
-        //여기다가 타이머 쓰래드 만들거나 따로 객체를 만들어서 여기다가 삽입하면돼 그럼 끝.
+    int value = 101; //시작 101로 하기
+
+
+    public final String bringTimerThread() {
+
+        CountDownTimer cdt = new CountDownTimer (100 *1000,1000){ //여기도 나중에 10 -> 100
+                //100(10*1000)초 동안 1초마다 실행
+            @Override
+            public void onTick(long millisUntilFinished) {
+                value--;
+                multiplicationView.popupCountTextView().setText(value+"초");
+            }
+
+            @Override
+            public void onFinish() {
+                Toast.makeText(game_main.this, "시간끝", Toast.LENGTH_LONG).show();//시간 끝났을때 토스트 메시지뜨는거 확인
+                value = 10; // 이거없으면 다시 구구단 게임 눌렀을때 -1으로 시작해서 설정한 시간만큼 줄어듦. 넣어줘야함
+                multiplicationView.dismiss();
+
+            }
+        };
+        cdt.start();
+
+
+
         return "타이머 쓰레드 여기다가 생성";
     }
 
@@ -57,15 +61,20 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_main);
 
+
         go_other_menu = (Button) findViewById(R.id.go_game_ranking);
         go_other_menu.setOnClickListener(this);
+
 
         btn_gugu = findViewById(R.id.btn_gugu);
         btn_gugu.setOnClickListener(this);
 
+        top_navi = findViewById(R.id.top_navi);
+        btn_setting = findViewById(R.id.btn_setting);
+        top_navi.setOnClickListener(this);
+        btn_setting.setOnClickListener(this);
 
-//        count = findViewById(R.id.popup_multiplication_count);
-//        handler.post(runnable);
+
     }
 
 
@@ -81,6 +90,16 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
             //팝업뷰 생성
             setEntertainmentFunction();
             Log.d("TEST1234", "구구단 게임 선택 팝업 ");
+        }
+        if (v.getId() == R.id.top_navi) {
+            Intent intent1 = new Intent(game_main.this, MainActivity.class);
+            startActivity(intent1);
+        }
+
+
+        if (v.getId() == R.id.btn_setting) { // 설정
+            Intent intent6 = new Intent(game_main.this, configActivity.class);
+            startActivity(intent6);
         }
     }
 
@@ -103,8 +122,6 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
                         multiplicationView.showPopupView(); // popupview 생성
 
 
-
-//                        Log.d("TEST1234", "스레드 진행1" + Thread.currentThread());
                         multiplicationView.popupCountTextView().setText(bringTimerThread());
                         multiplicationView.popupTextView().setText(multiplicationQuestion());
                         multiplicationView.popupEdittext().addTextChangedListener((TextWatcher) (new TextWatcher() {
@@ -120,26 +137,66 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
                             @Override
                             public void onTextChanged(CharSequence s, int start, int before, int count) {
                                 try {
+                                    int correct; // 정답 맞춘 갯수
+                                    int total = 0;
+                                    String answer = multiplicationView.popupEdittext().getText().toString();
+                                    int intConverter = Integer.parseInt(answer);
+
+                                    if(firstNumber * secondNumber == intConverter) {
+                                       /* correct=0;// 카운트 넣으려고했는데 생각처럼 잘안됨..
+                                        correct++;
+                                        total =+ correct;*/
+                                        Toast.makeText(game_main.this, "정답! ", Toast.LENGTH_SHORT).show();
+                                       // Log.d("TEST1234", "정답 갯수: " + correct);
+
+
+
+                                        multiplicationView.popupEdittext().setText("");
+                                        multiplicationView.popupTextView().setText(multiplicationQuestion());
+
+
+
+
+                                    }
+                                   else{
+                                       //Toast.makeText(game_main.this, "오답!", Toast.LENGTH_SHORT).show();
+                                   }
+                                }
+                                catch (NumberFormatException e){
+
+                                }
+
+
+
+
+                              /*  try {
                                     String answer = multiplicationView.popupEdittext().getText().toString();
                                     //String answer = String.valueOf(s);
                                     int intConverter = Integer.parseInt(answer);
                                     if (firstNumber * secondNumber == intConverter) {
-                                        multiplicationView.dismiss(); //정답이 일치할경우 mulirplicationView에 dismiss 클래스 실행 -> 팝업뷰가 사라짐 로그 뜨면서 팝업창 사라짐
+
+
+
+                                        correct++;
+
+
+
+                                      //  multiplicationView.dismiss(); //정답이 일치할경우 mulirplicationView에 dismiss 클래스 실행 -> 팝업뷰가 사라짐 로그 뜨면서 팝업창 사라짐
                                         Toast.makeText(game_main.this, "정답!", Toast.LENGTH_SHORT).show();
                                     } else { //정답이 틀릴경우?
                                         Toast.makeText(game_main.this, "오답..\n 다시 시도해 보세요", Toast.LENGTH_SHORT).show(); //오답일경우 오답.. 이라는 토스트 메시지 출력
-                                    /*
+                                    *//*
                                     TODO :
                                      1. 백버튼 눌릴때 invalidation 에러 발생가능
                                      2. UI디자인 개선
 
-                                     */
+                                     *//*
                                     }
                                 } catch (NumberFormatException e) {
 
                                 } catch (Exception e) {
 
-                                }
+                                }*/
                             }
                         }));
 
