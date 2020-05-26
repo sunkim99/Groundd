@@ -15,6 +15,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_school, btn_board, btn_character, btn_event, btn_game, btn_setting;
     TextView et;
+
+    Intent data_receive; //데이터 받기
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         allround ID = (allround)getApplicationContext(); // 전역변수 소환
@@ -38,8 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_game.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
-        Intent intent2 = getIntent();
-        String userID1 = intent2.getStringExtra("userID");
+        data_receive = getIntent();
+        String userID1 = data_receive.getStringExtra("userID");
         et = findViewById(R.id.editText11);
         et.setText(userID1);
 
@@ -49,7 +51,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_school) { //학교 게시판
+            String userID= et.getText().toString();
+
             Intent intent1 = new Intent(MainActivity.this, school_information.class);
+            intent1.putExtra("userID", userID);
             startActivity(intent1);
         }
         if (v.getId() == R.id.btn_board) { // 게시판
@@ -68,14 +73,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent5 = new Intent(MainActivity.this, game_main.class);
             startActivity(intent5);
 
-            Log.d("TEST1234", "게임버튼 눌림" + Thread.currentThread());
+            Log.d("TEST1234", "게임 메인으로"/* + Thread.currentThread()*/);
         }
         if (v.getId() == R.id.btn_setting) { // 설정
-            // String userID= et.getText().toString();
-
             Intent intent6 = new Intent(MainActivity.this, configActivity.class);
-
-            // intent6.putExtra("userID", userID);
             startActivity(intent6);
         }
 

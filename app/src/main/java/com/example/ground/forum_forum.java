@@ -40,6 +40,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
     ArrayList<HashMap<String, String>> mArrrayList;
     String mJsonString;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +67,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         cancel.setOnClickListener(this);
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
+
     }
 
     //서버 연결해서 데이터가져오기
@@ -184,7 +186,9 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         }
 
         if (v.getId() == R.id.btn_setting) { // 설정
+
             Intent intent6 = new Intent(forum_forum.this, configActivity.class);
+
             startActivity(intent6);
         }
     }

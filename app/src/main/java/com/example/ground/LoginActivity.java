@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("et_pass", userPass);
                     editor.commit();
 
-                    Log.d("TEST1234", "성공?:" + userID);
+                    Log.d("TEST1234", "성공?: " + userID);
                 } else {
                     return;
                 }
