@@ -95,7 +95,7 @@
         android:id="@+id/menu_select_bar"
         android:layout_width="117dp"
         android:layout_height="60dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
         app:layout_constraintEnd_toEndOf="@+id/menu_bar"
         app:layout_constraintHorizontal_bias="0.0"
