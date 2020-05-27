@@ -10,9 +10,10 @@
 
     <Button
         android:id="@+id/btn_logo"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="62dp"
         android:background="@drawable/top_navigator"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,15 +22,12 @@
         android:layout_width="62dp"
         android:layout_height="62dp"
         android:background="@drawable/setting_button"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_logo"
-        app:layout_constraintEnd_toEndOf="@+id/btn_logo"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_logo" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_school"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="145dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/menu_select_bar"
@@ -46,8 +44,8 @@
 
     <Button
         android:id="@+id/btn_board"
-        android:layout_width="412dp"
-        android:layout_height="145dp"
+        android:layout_width="0dp"
+        android:layout_height="146dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/menu_select_bar"
         android:fontFamily="@font/bm_font"
@@ -57,13 +55,12 @@
         android:textSize="48sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_school" />
 
     <Button
         android:id="@+id/btn_character"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="145dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/menu_select_bar"
@@ -87,12 +84,10 @@
         android:layout_marginRight="8dp"
         android:background="@drawable/main_notice_button"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_game"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_character"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_character" />
 
     <Button
         android:id="@+id/btn_game"
@@ -101,10 +96,8 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/main_game_button"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_character"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_character" />
 
     <TextView
         android:id="@+id/editText11"
