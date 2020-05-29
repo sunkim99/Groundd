@@ -46,6 +46,7 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onFinish() {
                 Toast.makeText(game_main.this, "시간 끝- \n 최종 점수 : "+ total + "점", Toast.LENGTH_LONG).show();//시간 끝났을때 토스트 메시지뜨는거 확인
+                Log.d("TEST1234", "최종 "+total);
                 value = 10; // 이거없으면 다시 구구단 게임 눌렀을때 -1으로 시작해서 설정한 시간만큼 줄어듦. 넣어줘야함
                 correct = 0;//스레드끝나면 값들 초기화해주기
                 total = 0;

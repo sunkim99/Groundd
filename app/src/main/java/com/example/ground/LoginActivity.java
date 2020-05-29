@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -40,6 +42,9 @@ public class LoginActivity extends AppCompatActivity {
         btn_gomain = findViewById(R.id.btn_gomain);
         auto_login = findViewById(R.id.checkBox);
 
+        et_pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        et_pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        //위에 두줄 -> 로그인할때 비밀번호 안보이게 동그라미로 표시
 
         sendId = getSharedPreferences("sendId", MODE_PRIVATE);
         editor = sendId.edit();
@@ -116,7 +121,6 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     return;
                 }
-
 
 
                 LoginRequest loginRequest = new LoginRequest(userID, userPass, responseListener);

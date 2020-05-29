@@ -30,6 +30,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_information);
+        allround ID = (allround)getApplicationContext(); // 전역변수 소환
 
         ok = (Button) findViewById(R.id.go_school_food_lineup);
         cancel = (Button) findViewById(R.id.btn_school_information_cancel);
@@ -47,12 +48,16 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
 
         data_receive = getIntent();
-        String temp01 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기
-        Log.d("TEST1234", "userID " + temp01);
+        String userID1 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기
+        ID.setID(userID1); // 전역변수는 userID1의 값을 가짐
+        Log.d("TEST1234", "받아온 userID " + userID1);
+
+        String userID = userID1;
 
         String schName = "";
         String schAdd ="";
         int schPh = 0;
+
         //학교 정보 가져오기
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -61,13 +66,18 @@ public class school_information extends AppCompatActivity implements View.OnClic
                     JSONObject jasonObject = new JSONObject(response);
                     boolean success = jasonObject.getBoolean("success");
                     if (success) {
-
-                        String schName = jasonObject.getString("schName");
-                        String schAdd = jasonObject.getString("schAdd");
-                        Integer schPh = jasonObject.getInt("schPh");
+                        Log.d("TEST1234", "쓰레드확인");
+                       // String schName = jasonObject.getString("schName");
+                       // String schAdd = jasonObject.getString("schAdd");
+                       // Integer schPh = jasonObject.getInt("schPh");
+                        String ssss = jasonObject.getString("id");
                         Log.d("TEST1234", "쓰레드확인1:");
+                        Log.d("TEST1234","정상성공?:"+ssss);
 
+                        String sta = jasonObject.getString("str");
+                        Log.d("TEST1234","php->안스 값:"+sta);
 
+                        Log.d("TEST1234", "쓰레드확인2:");
                         // Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         // Log.d("TEST1234", "로그인성공:" + Thread.currentThread());
                         // intent.putExtra("log", "User");
@@ -89,7 +99,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
 
 
-        school_information_request sir = new school_information_request(schName,schAdd,schPh, responseListener);
+        school_information_request sir = new school_information_request(userID,/*schName,schAdd,schPh, */responseListener);
         RequestQueue queue = Volley.newRequestQueue(school_information.this);
         queue.add(sir);
 

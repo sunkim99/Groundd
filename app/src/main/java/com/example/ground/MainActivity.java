@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v.getId() == R.id.btn_school) { //학교 게시판
             Intent intent1 = new Intent(MainActivity.this, school_information.class);
+            Intent intent2 = getIntent();
+            String userID1 = intent2.getStringExtra("userID");
+            intent1.putExtra("userID", userID1);
             startActivity(intent1);
         }
         if (v.getId() == R.id.btn_board) { // 게시판
