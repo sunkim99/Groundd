@@ -4,10 +4,12 @@ import android.app.Application;
 
 public class allround extends Application {
     private String ID;
+    private String SCHOOL;
 
     @Override
     public void onCreate() {
         ID = "";
+        SCHOOL = "";
         super.onCreate();
     }
 
@@ -16,12 +18,22 @@ public class allround extends Application {
         super.onTerminate();
     }
 
-    public void setID(String ID){
+    public void setID(String ID) {
         this.ID = ID;
     }
 
-    public String getID(){
+    public String getID() {
         return ID;
     }
+
+    public void setSCHOOL(String SCHOOL) {
+        this.SCHOOL = SCHOOL;
+    }
+
+    public String getSCHOOL() {
+        return SCHOOL;
+    }
+
+
 
 }

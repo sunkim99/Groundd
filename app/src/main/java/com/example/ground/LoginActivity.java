@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -94,8 +95,12 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "로그인 성공!!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 Log.d("TEST1234", "로그인성공:" + Thread.currentThread());
-                                intent.putExtra("log", "User");
+                                intent.putExtra("log", "User"); //??????
                                 intent.putExtra("userID", userID);
+
+
+                                ID.setID(userID);// 전역변수는 userID의 값을 가짐
+
 
                                 startActivity(intent);
                             } else {//로그인에 실패한 경우

@@ -169,7 +169,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/nickname_school"
+        android:id="@+id/config_school"
         android:layout_width="232dp"
         android:layout_height="25dp"
 

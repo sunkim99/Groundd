@@ -17,8 +17,9 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 //학교 정보 가져오기
-public class school_information extends AppCompatActivity implements View.OnClickListener{
+public class school_information extends AppCompatActivity implements View.OnClickListener {
 
     Button ok;
     Button cancel;
@@ -28,22 +29,22 @@ public class school_information extends AppCompatActivity implements View.OnClic
     Intent data_receive; //데이터 받기
 
     String schName1 = "";
-    String schAdd1 ="";
-    String schPh1 ="";
-
+    String schAdd1 = "";
+    String schPh1 = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_information);
-        allround ID = (allround)getApplicationContext(); // 전역변수 소환
+        allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
 
         ok = (Button) findViewById(R.id.go_school_food_lineup);
         cancel = (Button) findViewById(R.id.btn_school_information_cancel);
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
-        schName= findViewById(R.id.school_name);
+        schName = findViewById(R.id.school_name);
         schAdd = findViewById(R.id.school_add);
         schPh = findViewById(R.id.school_tel);
 
@@ -55,7 +56,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
 
         data_receive = getIntent();
-        String userID1 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기
+        final String userID1 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기
         ID.setID(userID1); // 전역변수는 userID1의 값을 가짐
         Log.d("TEST1234", "[School Info]받아온 userID " + userID1);
 
@@ -71,58 +72,52 @@ public class school_information extends AppCompatActivity implements View.OnClic
                     boolean success = jasonObject.getBoolean("success");
                     if (success) {
                         Log.d("TEST1234", "[School Info] 쓰레드확인");
-                       // String schName = jasonObject.getString("schName");
-                       // String schAdd = jasonObject.getString("schAdd");
-                       // Integer schPh = jasonObject.getInt("schPh");
+
                         schName1 = jasonObject.getString("schName");
                         Log.d("TEST1234", "[School Info] 쓰레드확인1:");
-                        Log.d("TEST1234","[School Info] 정상성공?:"+schName1);
+                        Log.d("TEST1234", "[School Info] 정상성공?:" + schName1);
+                        String schName11 = schName1;
+                        Log.d("TEST1234", "학교이름 : " + schName11);
 
-                         schAdd1= jasonObject.getString("schAdd");
-                        Log.d("TEST1234","[School Info] php->안스 값:"+schAdd1);
 
-                         schPh1= jasonObject.getString("schPh");
-                        Log.d("TEST1234","[School Info] php->안스 값:"+schPh1);
+                        SCHOOL.setSCHOOL(schName11);  // 전역변수는 schName11의 값을 가짐
+
+
+                        schAdd1 = jasonObject.getString("schAdd");
+                        Log.d("TEST1234", "[School Info] php->안스 값:" + schAdd1);
+
+                        schPh1 = jasonObject.getString("schPh");
+                        Log.d("TEST1234", "[School Info] php->안스 값:" + schPh1);
 
                         Log.d("TEST1234", "[School Info] 쓰레드확인2:");
-                        // Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        // Log.d("TEST1234", "로그인성공:" + Thread.currentThread());
+
 
                         schName.setText(schName1);
                         schAdd.setText(schAdd1);
                         schPh.setText(schPh1);
 
                     } else {
-                        // Toast.makeText(getApplicationContext(), "학교 정보 가져오기 실패", Toast.LENGTH_SHORT).show();
                         Log.d("TEST1234", "[School Info] 학교 정보 가져오기 실패");
                         return;
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
+
         };
-
-
-
-
         school_information_request sir = new school_information_request(userID,/*schName,schAdd,schPh, */responseListener);
         RequestQueue queue = Volley.newRequestQueue(school_information.this);
         queue.add(sir);
-
-
-
-
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.go_school_food_lineup) {
-            Intent intent01 = new Intent( school_information.this, school_food_lineup.class);
+        if (v.getId() == R.id.go_school_food_lineup) {
+            Intent intent01 = new Intent(school_information.this, school_food_lineup.class);
             startActivity(intent01);
         }
-        if(v.getId() == R.id.btn_school_information_cancel) {
+        if (v.getId() == R.id.btn_school_information_cancel) {
             finish();
         }
         if (v.getId() == R.id.top_navi) {

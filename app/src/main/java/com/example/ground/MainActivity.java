@@ -10,25 +10,25 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_school, btn_board, btn_character, btn_event, btn_game, btn_setting;
     TextView et;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        allround ID = (allround)getApplicationContext(); // 전역변수 소환
+        allround ID = (allround) getApplicationContext(); // 전역변수 소환
+        allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         btn_school = (Button) findViewById(R.id.btn_school);
         btn_board = findViewById(R.id.btn_board);
         btn_character = findViewById(R.id.btn_character);
-        btn_event =  findViewById(R.id.btn_event);
+        btn_event = findViewById(R.id.btn_event);
         btn_game = findViewById(R.id.btn_game);
         btn_setting = findViewById(R.id.btn_setting);
-
-
 
 
         btn_school.setOnClickListener(this);
@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             startActivity(intent6);
         }
-
 
 
     }
