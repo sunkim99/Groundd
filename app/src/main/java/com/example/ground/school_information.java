@@ -27,6 +27,10 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
     Intent data_receive; //데이터 받기
 
+    String schName1 = "";
+    String schAdd1 ="";
+    String schPh1 ="";
+
 
 
     @Override
@@ -53,13 +57,10 @@ public class school_information extends AppCompatActivity implements View.OnClic
         data_receive = getIntent();
         String userID1 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기
         ID.setID(userID1); // 전역변수는 userID1의 값을 가짐
-        Log.d("TEST1234", "받아온 userID " + userID1);
+        Log.d("TEST1234", "[School Info]받아온 userID " + userID1);
 
         String userID = userID1;
 
-        String schName = "";
-        String schAdd ="";
-        int schPh = 0;
 
         //학교 정보 가져오기
         Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -69,27 +70,31 @@ public class school_information extends AppCompatActivity implements View.OnClic
                     JSONObject jasonObject = new JSONObject(response);
                     boolean success = jasonObject.getBoolean("success");
                     if (success) {
-                        Log.d("TEST1234", "쓰레드확인");
+                        Log.d("TEST1234", "[School Info] 쓰레드확인");
                        // String schName = jasonObject.getString("schName");
                        // String schAdd = jasonObject.getString("schAdd");
                        // Integer schPh = jasonObject.getInt("schPh");
-                        String ssss = jasonObject.getString("id");
-                        Log.d("TEST1234", "쓰레드확인1:");
-                        Log.d("TEST1234","정상성공?:"+ssss);
+                        schName1 = jasonObject.getString("schName");
+                        Log.d("TEST1234", "[School Info] 쓰레드확인1:");
+                        Log.d("TEST1234","[School Info] 정상성공?:"+schName1);
 
-                        String sta = jasonObject.getString("str");
-                        Log.d("TEST1234","php->안스 값:"+sta);
+                         schAdd1= jasonObject.getString("schAdd");
+                        Log.d("TEST1234","[School Info] php->안스 값:"+schAdd1);
 
-                        Log.d("TEST1234", "쓰레드확인2:");
+                         schPh1= jasonObject.getString("schPh");
+                        Log.d("TEST1234","[School Info] php->안스 값:"+schPh1);
+
+                        Log.d("TEST1234", "[School Info] 쓰레드확인2:");
                         // Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         // Log.d("TEST1234", "로그인성공:" + Thread.currentThread());
-                        // intent.putExtra("log", "User");
-                        // intent.putExtra("userID", userID);
 
-                        // startActivity(intent);
+                        schName.setText(schName1);
+                        schAdd.setText(schAdd1);
+                        schPh.setText(schPh1);
+
                     } else {
                         // Toast.makeText(getApplicationContext(), "학교 정보 가져오기 실패", Toast.LENGTH_SHORT).show();
-                        Log.d("TEST1234", "학교 정보 가져오기 실패");
+                        Log.d("TEST1234", "[School Info] 학교 정보 가져오기 실패");
                         return;
 
                     }

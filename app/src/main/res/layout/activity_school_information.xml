@@ -58,6 +58,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/back_circle_button"
         android:enabled="true"
+        android:fontFamily="@font/bm_font"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.996"
@@ -138,29 +139,32 @@
         android:layout_height="21dp"
         android:layout_marginTop="70dp"
         android:text="TextView"
+        android:fontFamily="@font/bm_font"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/school_add"
+        android:id="@+id/school_tel"
         android:layout_width="195dp"
         android:layout_height="19dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="@font/bm_font"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/school_tel"
+        app:layout_constraintTop_toBottomOf="@+id/school_add"
         app:layout_constraintVertical_bias="0.001" />
 
     <TextView
-        android:id="@+id/school_tel"
+        android:id="@+id/school_add"
         android:layout_width="195dp"
         android:layout_height="18dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/bm_font"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/go_school_information"
         app:layout_constraintTop_toBottomOf="@+id/school_name" />
