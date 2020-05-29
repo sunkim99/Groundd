@@ -26,6 +26,9 @@ public class school_information extends AppCompatActivity implements View.OnClic
     Button top_navi, btn_setting;
 
     Intent data_receive; //데이터 받기
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +105,9 @@ public class school_information extends AppCompatActivity implements View.OnClic
         school_information_request sir = new school_information_request(userID,/*schName,schAdd,schPh, */responseListener);
         RequestQueue queue = Volley.newRequestQueue(school_information.this);
         queue.add(sir);
+
+
+
 
     }
 
