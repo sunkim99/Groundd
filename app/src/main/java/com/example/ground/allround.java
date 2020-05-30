@@ -5,11 +5,13 @@ import android.app.Application;
 public class allround extends Application {
     private String ID;
     private String SCHOOL;
+    private int ADMIN;
 
     @Override
     public void onCreate() {
         ID = "";
         SCHOOL = "";
+        ADMIN = 0;
         super.onCreate();
     }
 
@@ -33,6 +35,10 @@ public class allround extends Application {
     public String getSCHOOL() {
         return SCHOOL;
     }
+
+    public void setADMIN(int ADMIN) { this.ADMIN = ADMIN; }
+
+    public int getADMIN() { return ADMIN; }
 
 
 

@@ -6,7 +6,9 @@ import android.app.usage.NetworkStats;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 //설정화면
@@ -14,12 +16,17 @@ public class configActivity extends AppCompatActivity {
 
     TextView show_id; //아이디 받아오기
     TextView show_school;
+    TextView ADMIN;
+    Button btn_ADMIN;
     Intent data_receive; //데이터 받기
+    int admin_s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         allround ID = (allround) getApplicationContext();
         allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
+        allround ADMIN = (allround) getApplicationContext();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
 
@@ -39,6 +46,21 @@ public class configActivity extends AppCompatActivity {
         Log.d("TEST1234", "유저 아이디 : " + temp01);
 
         Log.d("TEST1234", "학교 이름 : " + temp02);
+
+
+        admin_s = ADMIN.getADMIN();
+
+        Log.d("TEST1234", "관리 : " + admin_s);
+
+        btn_ADMIN = findViewById(R.id.btn_admin);
+
+        if(admin_s == 0){
+            btn_ADMIN.setVisibility(Button.GONE);
+        }
+        if(admin_s == 1){
+            btn_ADMIN.setVisibility(Button.VISIBLE);
+        }
+
     }
     /*여기에 이제 받은 userID가 DB에 user T에 userId랑 같을때,
      * 저장된 학교이름이랑 소유하고있는 아이템코드 가져와서 캐릭터보여주는 .php를 연동하는 코드 작성하기

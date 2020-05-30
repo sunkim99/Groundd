@@ -116,7 +116,7 @@
         tools:layout_editor_absoluteX="-1dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn_admin"
         android:layout_width="412dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"

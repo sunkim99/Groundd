@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        final allround ADMIN = (allround) getApplicationContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -91,8 +92,15 @@ public class LoginActivity extends AppCompatActivity {
                             if (success) {//로그인에 성공한 경우
                                 String userID = jasonObject.getString("userID");
                                 String userPass = jasonObject.getString("userPassword");
+                                int userAdmin= jasonObject.getInt("userAdmin");
                                 Log.d("TEST1234", "쓰레드확인1:" + Thread.currentThread());
-                                Toast.makeText(getApplicationContext(), "로그인 성공!!", Toast.LENGTH_SHORT).show();
+                                Log.d("권한권한권한권한권한권한권한권한권한권한권한", "쓰레드확인1:" + userAdmin);
+                                if(userAdmin == 0) {
+                                    Toast.makeText(getApplicationContext(), "로그인 성공!!", Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(), "관리자입니다.", Toast.LENGTH_SHORT).show();
+                                }
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 Log.d("TEST1234", "로그인성공:" + Thread.currentThread());
                                 intent.putExtra("log", "User"); //??????
@@ -100,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                                 ID.setID(userID);// 전역변수는 userID의 값을 가짐
+                                ADMIN.setADMIN(userAdmin);
 
 
                                 startActivity(intent);
