@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -67,6 +68,14 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         cancel.setOnClickListener(this);
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() { //게시판 내용 이동
+            @Override
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                Intent intent02 = new Intent(forum_forum.this, forum_forum_in.class);
+                startActivity(intent02);
+            }
+        });
 
     }
 

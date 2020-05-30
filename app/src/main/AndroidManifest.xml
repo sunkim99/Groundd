@@ -21,6 +21,7 @@
         <activity android:name=".forum_image" />
         <activity android:name=".forum_forum" />
         <activity android:name=".forum_forum_write" />
+        <activity android:name=".forum_forum_in" />
         <activity android:name=".configActivity" />
         <activity android:name=".char_shop" />
         <activity android:name=".char_inven" />
