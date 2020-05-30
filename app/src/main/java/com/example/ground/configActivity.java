@@ -60,6 +60,9 @@ public class configActivity extends AppCompatActivity {
         if(admin_s == 1){
             btn_ADMIN.setVisibility(Button.VISIBLE);
         }
+        if(admin_s == 2){
+            btn_ADMIN.setVisibility(Button.VISIBLE);
+        }
 
     }
     /*여기에 이제 받은 userID가 DB에 user T에 userId랑 같을때,

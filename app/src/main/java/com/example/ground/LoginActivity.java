@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         final allround ADMIN = (allround) getApplicationContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -92,6 +93,10 @@ public class LoginActivity extends AppCompatActivity {
                             if (success) {//로그인에 성공한 경우
                                 String userID = jasonObject.getString("userID");
                                 String userPass = jasonObject.getString("userPassword");
+
+                                String schName = jasonObject.getString("schName");
+                                Log.d("TEST1234", "학교이름 : " + schName);
+
                                 int userAdmin= jasonObject.getInt("userAdmin");
                                 Log.d("TEST1234", "쓰레드확인1:" + Thread.currentThread());
                                 Log.d("권한권한권한권한권한권한권한권한권한권한권한", "쓰레드확인1:" + userAdmin);
@@ -102,14 +107,14 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "관리자입니다.", Toast.LENGTH_SHORT).show();
                                 }
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                Log.d("TEST1234", "로그인성공:" + Thread.currentThread());
+                                Log.d("TEST1234", "로그인성공" );
                                 intent.putExtra("log", "User"); //??????
                                 intent.putExtra("userID", userID);
 
 
                                 ID.setID(userID);// 전역변수는 userID의 값을 가짐
                                 ADMIN.setADMIN(userAdmin);
-
+                                SCHOOL.setSCHOOL(schName);
 
                                 startActivity(intent);
                             } else {//로그인에 실패한 경우
@@ -131,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("et_pass", userPass);
                     editor.commit();
 
-                    Log.d("TEST1234", "성공?: " + userID);
+                    Log.d("TEST1234", "로그인 아이디 : " + userID);
                 } else {
                     return;
                 }

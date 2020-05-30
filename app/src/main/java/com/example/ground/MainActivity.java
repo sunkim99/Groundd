@@ -14,11 +14,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_school, btn_board, btn_character, btn_event, btn_game, btn_setting;
     TextView et;
 
+
+    int admin_s;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         allround ID = (allround) getApplicationContext(); // 전역변수 소환
         allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
-
+        allround ADMIN = (allround) getApplicationContext();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -44,6 +48,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         et.setText(userID1);
 
         ID.setID(userID1); // 전역변수는 userID1의 값을 가짐
+
+
+        admin_s = ADMIN.getADMIN();
+        //학교 관리자는 학교메뉴 이외에 다른 버튼은 누르지 못함.
+        if (admin_s == 1) { //학교 관리자
+            btn_board.setEnabled(false);
+            btn_character.setEnabled(false);
+            btn_event.setEnabled(false);
+            btn_event.setEnabled(false);
+            btn_game.setEnabled(false);
+        }
+
+
     }
 
     @Override
@@ -71,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent5 = new Intent(MainActivity.this, game_main.class);
             startActivity(intent5);
 
-            Log.d("TEST1234", "게임버튼 눌림" + Thread.currentThread());
+            //Log.d("TEST1234", "게임버튼 눌림" + Thread.currentThread());
         }
         if (v.getId() == R.id.btn_setting) { // 설정
 

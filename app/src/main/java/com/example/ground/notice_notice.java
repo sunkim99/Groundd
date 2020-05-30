@@ -12,10 +12,16 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
     Button go_notice_event;
     Button top_navi, btn_setting;
 
+
+    int admin_s;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_notice);
+        allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
+        allround ADMIN = (allround) getApplicationContext();
 
         go_notice_event= findViewById(R.id.go_notice_event);
         top_navi = findViewById(R.id.top_navi);
