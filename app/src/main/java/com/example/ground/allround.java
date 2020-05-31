@@ -3,10 +3,11 @@ package com.example.ground;
 import android.app.Application;
 
 public class allround extends Application {
-    private String ID;
-    private String SCHOOL;
-    private int ADMIN;
-    private String NICKNAME;
+    private String ID; //아이디
+    private String SCHOOL; //학교이름
+    private int ADMIN; //관리자 번호
+    private String NICKNAME; //닉네임
+    private String SCHADD, SCHPH; //학교주소, 학교 연락처
 
     @Override
     public void onCreate() {
@@ -14,6 +15,8 @@ public class allround extends Application {
         SCHOOL = "";
         ADMIN = 0;
         NICKNAME = "";
+        SCHADD = "";
+        SCHPH = "";
         super.onCreate();
     }
 
@@ -52,6 +55,20 @@ public class allround extends Application {
 
     public String getNICKNAME() {
         return NICKNAME;
+    }
+
+    public void setSCHADD(String SCHADD) {
+        this.SCHADD = SCHADD;
+    }
+
+    public String getSCHADD() {
+        return SCHADD;
+    }
+
+    public void setSCHPH(String SCHPH) { this.SCHPH = SCHPH; }
+
+    public String getSCHPH() {
+        return SCHPH;
     }
 
 }

@@ -40,8 +40,9 @@ public class school_information extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_school_information);
         allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
-        allround ADMIN = (allround) getApplicationContext();
-
+        allround ADMIN = (allround) getApplicationContext(); //관리자번호
+        allround SCHADD = (allround) getApplicationContext(); //학교 주소
+        allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
 
         ok = (Button) findViewById(R.id.go_school_food_lineup);
         cancel = (Button) findViewById(R.id.btn_school_information_cancel);
@@ -101,6 +102,11 @@ public class school_information extends AppCompatActivity implements View.OnClic
                         schAdd.setText(schAdd1);
                         schPh.setText(schPh1);
 
+
+                        SCHOOL.setSCHADD(schAdd1); //가져온 학교 주소 전역변수로 설정하기
+                        SCHOOL.setSCHPH(schPh1); //가져온 학교 연락처 전역변수로 설정하기
+
+
                     } else {
                         Log.d("TEST1234", "[School Info] 학교 정보 가져오기 실패");
                         return;
@@ -118,12 +124,10 @@ public class school_information extends AppCompatActivity implements View.OnClic
         admin_s = ADMIN.getADMIN();
         if (admin_s == 0) { //일반사용자
             school_write.setVisibility(Button.GONE);
-        }
-        else if(admin_s == 1){ //학교관리자일때 버튼 보이기
+        } else if (admin_s == 1) { //학교관리자일때 버튼 보이기
             school_write.setVisibility(Button.VISIBLE);
-           // school_write.callOnClick();
-        }
-        else if(admin_s == 2){ //어플관리자
+            // school_write.callOnClick();
+        } else if (admin_s == 2) { //어플관리자
             school_write.setVisibility(Button.VISIBLE);
         }
 

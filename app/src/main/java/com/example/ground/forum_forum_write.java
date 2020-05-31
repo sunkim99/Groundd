@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class forum_forum_write extends AppCompatActivity implements View.OnClickListener {
     Button btn_save, btn_back, go_forum_image;
     Button top_navi, btn_setting;
-    TextView user_nickname,show_id;
+    TextView user_nickname, show_id;
     private EditText text_write, title_name;
 
 
@@ -82,43 +82,22 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
                         String sta = jasonObject.getString("str");
                         Log.d("TEST1234", "success:" + success);
                         //Log.d("TEST1234", "정상성공?:" + ssss);
-                        Log.d("TEST1234","php->안스 값:"+sta);
+                        Log.d("TEST1234", "php->안스 값:" + sta);
 
                         Toast.makeText(getApplicationContext(), "글이 작성되었습니다", Toast.LENGTH_SHORT).show();
-                        Log.d("TEST1234", "쓰레드확인2:" + Thread.currentThread());
+                      /*  Log.d("TEST1234", "쓰레드확인2:" + Thread.currentThread());
                         Intent intent = new Intent(forum_forum_write.this, forum_forum.class);
                         startActivity(intent);
-                        Log.d("TEST1234", "쓰레드확인3:" + Thread.currentThread());
+                        Log.d("TEST1234", "쓰레드확인3:" + Thread.currentThread());*/
+                        finish(); //위 intent 코드 말고 그냥 finish가 나은듯!
 
 
-
-
-
-                       /* String ssss = jasonObject.getString("id");
-                        String sta = jasonObject.getString("str");
-                        Log.d("TEST1234", "success:" + success);
-                        Log.d("TEST1234", "정상성공?:" + ssss);
-
-                        Log.d("TEST1234", "php->안스 값:" + sta);
-                        if (userPass.equals(PassCk)) {
-                            Log.d("TEST1234", "쓰레드확인2:" + Thread.currentThread());
-                            if (success) { //회원등록 성공한 경우
-                                Log.d("TEST1234", "쓰레드확인3:" + Thread.currentThread());
-                                Toast.makeText(getApplicationContext(), "회원 가입 성공!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                Log.d("TEST1234", "쓰레드확인4:" + Thread.currentThread());
-                            }
-                        } else {//회원등록 실패한 경우
-                            Toast.makeText(getApplicationContext(), "회원 가입 실패..", Toast.LENGTH_SHORT).show();
-                            return;
-                        }*/
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             };
-            forumRequest forumRequest = new forumRequest(userID, contentsTitle,contents,responseListener);
+            forumRequest forumRequest = new forumRequest(userID, contentsTitle, contents, responseListener);
             Log.d("TEST1234", "쓰레드확인4:" + Thread.currentThread());
             RequestQueue queue = Volley.newRequestQueue(forum_forum_write.this);
             Log.d("TEST1234", "쓰레드확인5:" + Thread.currentThread());
