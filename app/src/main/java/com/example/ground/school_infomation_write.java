@@ -64,10 +64,11 @@ public class school_infomation_write extends AppCompatActivity implements View.O
 
         if (v.getId() == R.id.btn_save) { //게시판작성에서 완료하기를 눌렀을때
             Log.d("TEST1234", "저장하기 버튼 눌림");
+            
             String schTi = title_name.getText().toString();
             String schCon = text_write.getText().toString();
-
-
+            
+            String schName = null;
 
             schTi = schTi.replace("'", "''");
             schCon = schCon.replace("'", "''");
@@ -100,9 +101,9 @@ public class school_infomation_write extends AppCompatActivity implements View.O
                     }
                 }
             };
-
-
-            school_infomation_write_request sfr = new school_infomation_write_request(schName, schTi, schCon, responseListener);  //ㅏㅇ이씨..
+            
+            
+            school_infomation_write_request sfr = new school_infomation_write_request(schName, schTi, schCon, responseListener);
             RequestQueue queue = Volley.newRequestQueue(school_infomation_write.this);
             queue.add(sfr);
         }

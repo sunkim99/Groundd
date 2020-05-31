@@ -16,9 +16,10 @@ public class configActivity extends AppCompatActivity {
 
     TextView show_id; //아이디 받아오기
     TextView show_school;
+    TextView show_nick;
     TextView ADMIN;
     Button btn_ADMIN;
-    Intent data_receive; //데이터 받기
+
     int admin_s;
 
     @Override
@@ -26,41 +27,43 @@ public class configActivity extends AppCompatActivity {
         allround ID = (allround) getApplicationContext();
         allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         allround ADMIN = (allround) getApplicationContext();
+        final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
 
 
-        //data_receive = getIntent();
-        // String temp01 = data_receive.getStringExtra("userID");
-        String temp01 = ID.getID();
 
+        String temp01 = ID.getID();
         show_id = findViewById(R.id.show_id);
         show_id.setText(temp01);
 
         String temp02 = SCHOOL.getSCHOOL();
-
         show_school = findViewById(R.id.config_school);
         show_school.setText(temp02);
 
-        Log.d("TEST1234", "유저 아이디 : " + temp01);
+        String temp03 = NICKNAME.getNICKNAME();
+        show_nick = findViewById(R.id.show_nick);
+        show_nick.setText(temp03);
 
+        Log.d("TEST1234", "유저 아이디 : " + temp01);
         Log.d("TEST1234", "학교 이름 : " + temp02);
+        Log.d("TEST1234", "유저 닉네임 : " + temp03);
 
 
         admin_s = ADMIN.getADMIN();
 
-        Log.d("TEST1234", "관리 : " + admin_s);
+        Log.d("TEST1234", "관리자 번호 : " + admin_s);
 
         btn_ADMIN = findViewById(R.id.btn_admin);
 
-        if(admin_s == 0){
+        if (admin_s == 0) {
             btn_ADMIN.setVisibility(Button.GONE);
         }
-        if(admin_s == 1){
+        if (admin_s == 1) {
             btn_ADMIN.setVisibility(Button.VISIBLE);
         }
-        if(admin_s == 2){
+        if (admin_s == 2) {
             btn_ADMIN.setVisibility(Button.VISIBLE);
         }
 

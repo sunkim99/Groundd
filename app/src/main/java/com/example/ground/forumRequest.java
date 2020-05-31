@@ -14,10 +14,11 @@ public class forumRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public forumRequest(String notTi, String notCon, /*int notNum, int notType, Date notDate,*/ Response.Listener<String> listener) {
+    public forumRequest(String userID, String notTi, String notCon, /*int notNum, int notType, Date notDate,*/ Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
+        map.put("userID", userID);
         map.put("notTi", notTi);
         map.put("notCon", notCon);
        /* map.put("notNum", notNum);

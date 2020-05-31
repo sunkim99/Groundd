@@ -162,6 +162,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginTop="11dp"
         android:fontFamily="@font/bm_font"
+        android:text="아이디"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -169,17 +170,32 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <TextView
+        android:id="@+id/show_nick"
+        android:layout_width="263dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/bm_font"
+        android:text="닉네임"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintTop_toTopOf="@+id/show_id" />
+
+    <TextView
         android:id="@+id/config_school"
         android:layout_width="232dp"
         android:layout_height="25dp"
 
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:fontFamily="@font/bm_font"
         android:text="학교"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/show_id"
+        app:layout_constraintTop_toBottomOf="@+id/show_nick"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

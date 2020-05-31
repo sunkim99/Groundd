@@ -6,12 +6,14 @@ public class allround extends Application {
     private String ID;
     private String SCHOOL;
     private int ADMIN;
+    private String NICKNAME;
 
     @Override
     public void onCreate() {
         ID = "";
         SCHOOL = "";
         ADMIN = 0;
+        NICKNAME = "";
         super.onCreate();
     }
 
@@ -44,5 +46,12 @@ public class allround extends Application {
         return ADMIN;
     }
 
+    public void setNICKNAME(String NICKNAME) {
+        this.NICKNAME = NICKNAME;
+    }
+
+    public String getNICKNAME() {
+        return NICKNAME;
+    }
 
 }
