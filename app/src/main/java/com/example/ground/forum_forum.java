@@ -179,6 +179,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.go_forum_image) { //그림게시판이동
