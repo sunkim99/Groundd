@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import org.json.JSONObject;
 public class forum_forum_write extends AppCompatActivity implements View.OnClickListener {
     Button btn_save, btn_back, go_forum_image;
     Button top_navi, btn_setting;
-
+    TextView user_nickname,show_id;
     private EditText text_write, title_name;
 
 
@@ -29,6 +30,9 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum_write);
+        allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        allround NICKNAME = (allround) getApplicationContext(); // 전역변수 NICKNAME 소환
+
 
         btn_save = findViewById(R.id.btn_save);
         btn_back = findViewById(R.id.btn_back);
@@ -37,14 +41,19 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         go_forum_image = findViewById(R.id.go_forum_image);
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
-
-
+        user_nickname = findViewById(R.id.user_nickname);
+        show_id = findViewById(R.id.show_id);
 
         btn_save.setOnClickListener(this);
         btn_back.setOnClickListener(this);
         go_forum_image.setOnClickListener(this);
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
+
+        String userID = ID.getID();
+        String nickName = NICKNAME.getNICKNAME();
+        show_id.setText(userID);
+        user_nickname.setText(nickName);
     }
 
 
@@ -55,6 +64,8 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
             Log.d("TEST1234", "저장하기 버튼 눌림");
             String contentsTitle = title_name.getText().toString(); //작성된 제목을 가져온다..?
             String contents = text_write.getText().toString(); //작성된 내용을 가져온다..?
+            String userID = show_id.getText().toString();
+
 
             contentsTitle = contentsTitle.replace("'", "''");
             contents = contents.replace("'", "''");
@@ -107,7 +118,7 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
                     }
                 }
             };
-            forumRequest forumRequest = new forumRequest(contentsTitle,contents,responseListener);
+            forumRequest forumRequest = new forumRequest(userID, contentsTitle,contents,responseListener);
             Log.d("TEST1234", "쓰레드확인4:" + Thread.currentThread());
             RequestQueue queue = Volley.newRequestQueue(forum_forum_write.this);
             Log.d("TEST1234", "쓰레드확인5:" + Thread.currentThread());
