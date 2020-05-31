@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -16,6 +17,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+//학교 게시판에서 학교관리자가 게시물을 작성하는 자바파일
 
 public class school_infomation_write extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,7 +25,7 @@ public class school_infomation_write extends AppCompatActivity implements View.O
     Button btn_save, btn_back, go_forum_image;
     Button top_navi, btn_setting;
     Button btn_image_add;
-
+    TextView school_name, school_add, school_tel, sch_user_nickname, sch_user_id;
 
     private EditText text_write, title_name;
 
@@ -36,6 +38,9 @@ public class school_infomation_write extends AppCompatActivity implements View.O
         final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         final allround ADMIN = (allround) getApplicationContext();
+        final allround SCHADD = (allround) getApplicationContext(); //학교 주소
+        final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
+        final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
 
         btn_save = findViewById(R.id.btn_save); //글쓰기 버튼 = 저장 버튼
         btn_back = findViewById(R.id.btn_back); //되돌아가기 버튼
@@ -45,6 +50,11 @@ public class school_infomation_write extends AppCompatActivity implements View.O
         top_navi = findViewById(R.id.top_navi); //상단바
         btn_setting = findViewById(R.id.btn_setting); //설정 버튼
         btn_image_add = findViewById(R.id.btn_forum_write_add); //파일첨부 버튼
+        school_name = findViewById(R.id.school_name); //학교 이름
+        school_add = findViewById(R.id.school_add); //학교 주소
+        school_tel = findViewById(R.id.school_tel); //학교 연락처
+        sch_user_nickname = findViewById(R.id.sch_user_nickname); //학교 관리자 닉네임
+        sch_user_id = findViewById(R.id.sch_user_id); //학교 관리자 아이디
 
 
         btn_save.setOnClickListener(this);
@@ -56,7 +66,16 @@ public class school_infomation_write extends AppCompatActivity implements View.O
 
 
         String schName = SCHOOL.getSCHOOL();
+        String schAdd = SCHOOL.getSCHADD();
+        String schPh = SCHOOL.getSCHPH();
+        String schAdminID = ID.getID();
+        String schAdminNickName = NICKNAME.getNICKNAME();
 
+        school_name.setText(schName);
+        school_add.setText(schAdd);
+        school_tel.setText(schPh);
+        sch_user_id.setText(schAdminID);
+        sch_user_nickname.setText(schAdminNickName);
     }
 
     @Override
@@ -64,11 +83,11 @@ public class school_infomation_write extends AppCompatActivity implements View.O
 
         if (v.getId() == R.id.btn_save) { //게시판작성에서 완료하기를 눌렀을때
             Log.d("TEST1234", "저장하기 버튼 눌림");
-            
+
             String schTi = title_name.getText().toString();
             String schCon = text_write.getText().toString();
-            
-            String schName = null;
+
+            String schName = school_name.getText().toString(); //textview에 저장된 학교이름 읽어오기
 
             schTi = schTi.replace("'", "''");
             schCon = schCon.replace("'", "''");
@@ -91,27 +110,25 @@ public class school_infomation_write extends AppCompatActivity implements View.O
                         Log.d("TEST1234", "쓰레드확인2:" + Thread.currentThread());
 
 
+                        /*
                         Intent intent = new Intent(school_infomation_write.this, school_information.class);
                         startActivity(intent);
                         Log.d("TEST1234", "쓰레드확인3:" + Thread.currentThread());
-
-
+                        */
+                        finish(); // 위에 intent사용하면 intent 됐을때, 학교메인에서 학교정보를 보여주는칸이 오류가난다.. 그래서 finish 사용
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             };
-            
-            
+
+
             school_infomation_write_request sfr = new school_infomation_write_request(schName, schTi, schCon, responseListener);
             RequestQueue queue = Volley.newRequestQueue(school_infomation_write.this);
             queue.add(sfr);
         }
 
-       /* if (v.getId() == R.id.go_forum_forum) { //포럼 버튼을 눌렀을때
-            Intent intent1 = new Intent(schoolforumwrite.this, forum_image.class);
-            startActivity(intent1);
-        }*/
+
 
         if (v.getId() == R.id.btn_back) { //게시판 작성화면에서 빨간버튼을 눌렀을때
             finish();

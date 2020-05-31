@@ -149,19 +149,21 @@
         android:id="@+id/write_tbox"
         android:layout_width="411dp"
         android:layout_height="597dp"
+        android:layout_marginTop="24dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/write_box"
-        tools:layout_editor_absoluteY="136dp" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
+        app:srcCompat="@drawable/write_box" />
 
     <TextView
-        android:id="@+id/user_nickname"
+        android:id="@+id/sch_user_nickname"
         android:layout_width="276dp"
         android:layout_height="29dp"
         android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/write_tbox" />
 
@@ -177,7 +179,7 @@
         android:inputType="textPersonName"
         android:text="제목"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_nickname" />
+        app:layout_constraintTop_toBottomOf="@+id/sch_user_nickname" />
 
     <MultiAutoCompleteTextView
         android:id="@+id/text_wirte"
@@ -226,5 +228,14 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/go_school_information"
         app:layout_constraintTop_toBottomOf="@+id/school_name" />
+
+    <TextView
+        android:id="@+id/sch_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sch_user_nickname" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
