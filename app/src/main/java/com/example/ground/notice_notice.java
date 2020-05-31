@@ -66,7 +66,7 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
             finish();
         }
         if (v.getId() == R.id.go_notice_notice_write) {
-            Intent intent6 = new Intent(notice_notice.this, schoolforumwrite.class);
+            Intent intent6 = new Intent(notice_notice.this, notice_notice_write.class);
             startActivity(intent6);
         }
     }
