@@ -17,7 +17,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class schoolforumwrite extends AppCompatActivity implements View.OnClickListener {
+public class school_infomation_write extends AppCompatActivity implements View.OnClickListener {
 
 
     Button btn_save, btn_back, go_forum_image;
@@ -31,7 +31,7 @@ public class schoolforumwrite extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schoolforumwrite);
+        setContentView(R.layout.activity_school_information_write);
 
         final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
@@ -90,7 +90,7 @@ public class schoolforumwrite extends AppCompatActivity implements View.OnClickL
                         Log.d("TEST1234", "쓰레드확인2:" + Thread.currentThread());
 
 
-                        Intent intent = new Intent(schoolforumwrite.this, school_information.class);
+                        Intent intent = new Intent(school_infomation_write.this, school_information.class);
                         startActivity(intent);
                         Log.d("TEST1234", "쓰레드확인3:" + Thread.currentThread());
 
@@ -101,8 +101,9 @@ public class schoolforumwrite extends AppCompatActivity implements View.OnClickL
                 }
             };
 
-            SchoolForumRequest sfr = new SchoolForumRequest(schName, schTi, schCon, responseListener);  //ㅏㅇ이씨..
-            RequestQueue queue = Volley.newRequestQueue(schoolforumwrite.this);
+
+            school_infomation_write_request sfr = new school_infomation_write_request(schName, schTi, schCon, responseListener);  //ㅏㅇ이씨..
+            RequestQueue queue = Volley.newRequestQueue(school_infomation_write.this);
             queue.add(sfr);
         }
 
@@ -116,13 +117,13 @@ public class schoolforumwrite extends AppCompatActivity implements View.OnClickL
         }
 
         if (v.getId() == R.id.top_navi) {
-            Intent intent1 = new Intent(schoolforumwrite.this, MainActivity.class);
+            Intent intent1 = new Intent(school_infomation_write.this, MainActivity.class);
             startActivity(intent1);
         }
 
 
         if (v.getId() == R.id.btn_setting) { // 설정
-            Intent intent6 = new Intent(schoolforumwrite.this, configActivity.class);
+            Intent intent6 = new Intent(school_infomation_write.this, configActivity.class);
             startActivity(intent6);
         }
 

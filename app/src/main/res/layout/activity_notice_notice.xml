@@ -5,6 +5,44 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/btn_go_notice_notice_cancel"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/back_circle_button"
+        android:enabled="true"
+        android:fontFamily="@font/bm_font"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/go_notice_notice_write"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/write_button"
+        android:enabled="true"
+        android:foreground="@drawable/write_button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_go_notice_notice_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/go_notice_event"
         android:layout_width="100dp"
         android:layout_height="60dp"

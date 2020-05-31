@@ -5,16 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/menu_bar"
+        android:layout_width="411dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="7dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menu_bar" />
+
+    <ImageView
+        android:id="@+id/menu_select_bar"
+        android:layout_width="117dp"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menu_select_bar" />
+
+    <ImageView
+        android:id="@+id/menu_school_bar"
+        android:layout_width="197dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_select_bar"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/menu_select_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_select_bar"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/menu_school_bar" />
+
     <Button
-        android:id="@+id/go_forum_image"
-        android:layout_width="135dp"
+        android:id="@+id/go_school_food_lineup"
+        android:layout_width="97dp"
         android:layout_height="60dp"
         android:background="@android:drawable/divider_horizontal_dark"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.369"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102" />
+
+    <TextView
+        android:id="@+id/menu_name"
+        android:layout_width="391dp"
+        android:layout_height="33dp"
+        android:fontFamily="@font/bm_font"
+        android:text="학교공지    급식판"
+        android:textColor="@android:color/background_light"
+        android:textSize="29sp"
+        android:visibility="visible"
+        app:autoSizeTextType="none"
         app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
-        app:layout_constraintStart_toEndOf="@+id/menu_select_bar"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.518" />
 
     <Button
         android:id="@+id/btn_back"
@@ -92,12 +149,11 @@
         android:id="@+id/write_tbox"
         android:layout_width="411dp"
         android:layout_height="597dp"
-        android:layout_marginTop="7dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
-        app:srcCompat="@drawable/write_box" />
+        app:srcCompat="@drawable/write_box"
+        tools:layout_editor_absoluteY="136dp" />
 
     <TextView
         android:id="@+id/user_nickname"
@@ -108,47 +164,6 @@
         android:layout_marginTop="7dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/write_tbox" />
-
-    <ImageView
-        android:id="@+id/menu_bar"
-        android:layout_width="411dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="7dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_navi"
-        app:srcCompat="@drawable/menu_bar" />
-
-    <ImageView
-        android:id="@+id/menu_select_bar"
-        android:layout_width="94dp"
-        android:layout_height="60dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
-        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/menu_bar"
-        app:layout_constraintTop_toTopOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/menu_select_bar" />
-
-    <TextView
-        android:id="@+id/menu_name"
-        android:layout_width="391dp"
-        android:layout_height="33dp"
-        android:fontFamily="@font/bm_font"
-        android:text="게시판   그림게시판"
-        android:textColor="@android:color/background_light"
-        android:textSize="29sp"
-        android:visibility="visible"
-        app:autoSizeTextType="none"
-        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
-        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
-        app:layout_constraintStart_toStartOf="@+id/menu_bar"
-        app:layout_constraintTop_toTopOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.518" />
 
     <EditText
         android:id="@+id/title_name"
@@ -175,5 +190,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_name" />
+
+    <TextView
+        android:id="@+id/school_name"
+        android:layout_width="195dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/bm_font"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/school_tel"
+        android:layout_width="195dp"
+        android:layout_height="19dp"
+        android:fontFamily="@font/bm_font"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/school_add"
+        app:layout_constraintVertical_bias="0.001" />
+
+    <TextView
+        android:id="@+id/school_add"
+        android:layout_width="195dp"
+        android:layout_height="18dp"
+        android:fontFamily="@font/bm_font"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/go_school_information"
+        app:layout_constraintTop_toBottomOf="@+id/school_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
