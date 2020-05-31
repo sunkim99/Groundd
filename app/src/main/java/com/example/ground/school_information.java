@@ -150,7 +150,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
             startActivity(intent03);
         }
         if (v.getId() == R.id.go_school_infomation_write) {
-            Intent intent04 = new Intent(school_information.this, schoolforumwrite.class);
+            Intent intent04 = new Intent(school_information.this, school_infomation_write.class);
             startActivity(intent04);
 
         }
