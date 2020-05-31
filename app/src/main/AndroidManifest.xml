@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="allround"
+        android:name=".allround"
         android:allowBackup="true"
         android:icon="@mipmap/test_icon"
         android:label="@string/app_name"
@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="n">
+        <activity android:name=".schoolforumwrite"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".notice_notice" />
         <activity android:name=".notice_event" />
@@ -31,10 +32,10 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".game_main" />
         <activity android:name=".game_ranking" />
-        <activity
-            android:name=".SplashActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

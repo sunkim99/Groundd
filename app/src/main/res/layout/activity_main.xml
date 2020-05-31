@@ -51,6 +51,7 @@
         android:fontFamily="@font/bm_font"
         android:gravity="fill_vertical"
         android:text="                    게시판"
+        android:enabled="true"
         android:textColor="@android:color/background_light"
         android:textSize="48sp"
         android:visibility="visible"
@@ -67,6 +68,7 @@
         android:fontFamily="@font/bm_font"
         android:gravity="fill_vertical"
         android:text="   내 캐릭터"
+        android:enabled="true"
         android:textColor="@android:color/background_light"
         android:textSize="48sp"
         android:visibility="visible"
@@ -84,6 +86,7 @@
         android:layout_marginRight="8dp"
         android:background="@drawable/main_notice_button"
         android:visibility="visible"
+        android:enabled="true"
         app:layout_constraintEnd_toStartOf="@+id/btn_game"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,6 +99,7 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/main_game_button"
         android:visibility="visible"
+        android:enabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_character" />
 

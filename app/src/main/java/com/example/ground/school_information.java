@@ -18,13 +18,13 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//학교 정보 가져오기
+//학교메인
 public class school_information extends AppCompatActivity implements View.OnClickListener {
 
     Button ok;
     Button cancel;
     TextView schName, schAdd, schPh;
-    Button top_navi, btn_setting;
+    Button top_navi, btn_setting, school_write;
 
     Intent data_receive; //데이터 받기
 
@@ -32,6 +32,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
     String schAdd1 = "";
     String schPh1 = "";
 
+    int admin_s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,8 @@ public class school_information extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_school_information);
         allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
+        allround ADMIN = (allround) getApplicationContext();
+
 
         ok = (Button) findViewById(R.id.go_school_food_lineup);
         cancel = (Button) findViewById(R.id.btn_school_information_cancel);
@@ -47,12 +50,14 @@ public class school_information extends AppCompatActivity implements View.OnClic
         schName = findViewById(R.id.school_name);
         schAdd = findViewById(R.id.school_add);
         schPh = findViewById(R.id.school_tel);
+        school_write = findViewById(R.id.go_school_infomation_write); //관리자일때버튼
 
 
         ok.setOnClickListener(this);
         cancel.setOnClickListener(this);
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
+        school_write.setOnClickListener(this);
 
 
         data_receive = getIntent();
@@ -75,12 +80,12 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
                         schName1 = jasonObject.getString("schName");
                         Log.d("TEST1234", "[School Info] 쓰레드확인1:");
-                        Log.d("TEST1234", "[School Info] 정상성공?:" + schName1);
-                        String schName11 = schName1;
-                        Log.d("TEST1234", "학교이름 : " + schName11);
+                        Log.d("TEST1234", "[School Info] 학교이름 :" + schName1);
+                        //String schName11 = schName1;
+                        //Log.d("TEST1234", "학교이름 : " + schName1);
 
 
-                        SCHOOL.setSCHOOL(schName11);  // 전역변수는 schName11의 값을 가짐
+                        // SCHOOL.setSCHOOL(schName11);  // 전역변수는 schName11의 값을 가짐
 
 
                         schAdd1 = jasonObject.getString("schAdd");
@@ -109,6 +114,20 @@ public class school_information extends AppCompatActivity implements View.OnClic
         school_information_request sir = new school_information_request(userID,/*schName,schAdd,schPh, */responseListener);
         RequestQueue queue = Volley.newRequestQueue(school_information.this);
         queue.add(sir);
+
+        admin_s = ADMIN.getADMIN();
+        if (admin_s == 0) { //일반사용자
+            school_write.setVisibility(Button.GONE);
+        }
+        else if(admin_s == 1){ //학교관리자일때 버튼 보이기
+            school_write.setVisibility(Button.VISIBLE);
+           // school_write.callOnClick();
+        }
+        else if(admin_s == 2){ //어플관리자
+            school_write.setVisibility(Button.VISIBLE);
+        }
+
+
     }
 
     @Override
@@ -121,14 +140,19 @@ public class school_information extends AppCompatActivity implements View.OnClic
             finish();
         }
         if (v.getId() == R.id.top_navi) {
-            Intent intent1 = new Intent(school_information.this, MainActivity.class);
-            startActivity(intent1);
+            Intent intent02 = new Intent(school_information.this, MainActivity.class);
+            startActivity(intent02);
         }
 
 
         if (v.getId() == R.id.btn_setting) { // 설정
-            Intent intent6 = new Intent(school_information.this, configActivity.class);
-            startActivity(intent6);
+            Intent intent03 = new Intent(school_information.this, configActivity.class);
+            startActivity(intent03);
+        }
+        if (v.getId() == R.id.go_school_infomation_write) {
+            Intent intent04 = new Intent(school_information.this, school_infomation_write.class);
+            startActivity(intent04);
+
         }
     }
 }

@@ -1,56 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_go_notice_notice_cancel"
+        android:id="@+id/btn_back"
         android:layout_width="62dp"
         android:layout_height="62dp"
         android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+
+
+        android:layout_marginBottom="16dp"
         android:background="@drawable/back_circle_button"
         android:enabled="true"
-        android:fontFamily="@font/bm_font"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintHorizontal_bias="0.974"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintTop_toTopOf="@+id/top_navi"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/go_notice_notice_write"
+        android:id="@+id/btn_forum_write_add"
         android:layout_width="62dp"
         android:layout_height="62dp"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="6dp"
+
+
+        android:background="@drawable/some_add_button"
+        android:enabled="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_back"
+        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_gravity="start"
         android:background="@drawable/write_button"
         android:enabled="true"
         android:foreground="@drawable/write_button"
-        app:layout_constraintBottom_toTopOf="@+id/btn_go_notice_notice_cancel"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.996"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/go_notice_event"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:background="@android:drawable/divider_horizontal_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
-        app:layout_constraintStart_toEndOf="@+id/menu_select_bar"
-        app:layout_constraintTop_toTopOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="0.988" />
 
     <Button
         android:id="@+id/top_navi"
@@ -70,6 +75,62 @@
         app:layout_constraintHorizontal_bias="0.997"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/write_tbox"
+        android:layout_width="411dp"
+        android:layout_height="597dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/write_box"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <TextView
+        android:id="@+id/user_nickname"
+        android:layout_width="276dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/write_tbox" />
+
+    <EditText
+        android:id="@+id/title_name"
+        android:layout_width="275dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:fontFamily="@font/bm_font"
+        android:inputType="textPersonName"
+        android:text="제목"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_nickname" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/text_wirte"
+        android:layout_width="395dp"
+        android:layout_height="450dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/bm_font"
+        android:gravity="start"
+        android:text="내용을 입력해주세요"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_name" />
+
+    <Button
+        android:id="@+id/go_notice_event"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@android:drawable/divider_horizontal_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintStart_toEndOf="@+id/menu_select_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -114,4 +175,5 @@
         app:layout_constraintStart_toStartOf="@+id/menu_bar"
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.518" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,10 +36,13 @@ public class allround extends Application {
         return SCHOOL;
     }
 
-    public void setADMIN(int ADMIN) { this.ADMIN = ADMIN; }
+    public void setADMIN(int ADMIN) {
+        this.ADMIN = ADMIN;
+    }
 
-    public int getADMIN() { return ADMIN; }
-
+    public int getADMIN() {
+        return ADMIN;
+    }
 
 
 }
