@@ -31,8 +31,10 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
 
     private static String TAG = "phptest_forum_forum";
     private static final String TAG_JSON = "webnautes";
-    private static final String TAG_notCon = "notCon";
+    private static final String TAG_notNum = "notNum";
     private static final String TAG_notTi = "notTi";
+    private static final String TAG_notDate = "notDate";
+
 
     Button btn_image, write, cancel;
     Button top_navi, btn_setting;
@@ -69,11 +71,11 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() { //게시판 내용 이동
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-                Intent intent02 = new Intent(forum_forum.this, forum_forum_in.class);
-                startActivity(intent02);
+                Intent intent = new Intent(getApplicationContext(), forum_forum_in.class);
+                startActivity(intent);
             }
         });
 
@@ -155,19 +157,21 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
 
 
                 String notTi  = item.getString(TAG_notTi);
-                String notCon  = item.getString(TAG_notCon);
+                String notNum  = item.getString(TAG_notNum);
+                String notDate = item.getString(TAG_notDate);
 
                 HashMap<String, String> hashMap = new HashMap<>();
 
+                hashMap.put(TAG_notNum, notNum);
                 hashMap.put(TAG_notTi, notTi);
-                hashMap.put(TAG_notCon, notCon);
+                hashMap.put(TAG_notDate,notDate);
 
                 mArrrayList.add(hashMap);
             }
             ListAdapter adapter = new SimpleAdapter(
                     forum_forum.this, mArrrayList,R.layout.item_list,
-                    new String[]{TAG_notTi,TAG_notCon},
-                    new int[]{R.id.textView_list_notTi,R.id.textView_list_notCon}
+                    new String[]{TAG_notNum,TAG_notTi,TAG_notDate},
+                    new int[]{R.id.textView_list_notNum,R.id.textView_list_notTi,R.id.textView_list_notDate}
             );
             list.setAdapter(adapter);
         } catch (JSONException e){

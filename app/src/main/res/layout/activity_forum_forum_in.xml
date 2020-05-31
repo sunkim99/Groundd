@@ -120,8 +120,57 @@
         android:id="@+id/input_box"
         android:layout_width="412dp"
         android:layout_height="346dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_bar"
         app:srcCompat="@drawable/forum_box" />
+
+    <TextView
+        android:id="@+id/id_userNick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/id_notTi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/id_notTi"
+        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.441" />
+
+    <TextView
+        android:id="@+id/id_notTi"
+        android:layout_width="290dp"
+        android:layout_height="35dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/input_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.168" />
+
+    <TextView
+        android:id="@+id/id_notDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/input_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/id_notTi"
+        app:layout_constraintTop_toBottomOf="@+id/id_notTi"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <TextView
+        android:id="@+id/id_notCon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/input_box"
+        app:layout_constraintEnd_toEndOf="@+id/input_box"
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintStart_toStartOf="@+id/input_box"
+        app:layout_constraintTop_toBottomOf="@+id/id_notDate"
+        app:layout_constraintVertical_bias="0.08" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

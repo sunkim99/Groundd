@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/textView_list_notTi"
+        android:id="@+id/textView_list_notNum"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -18,12 +18,20 @@
 
 
     <TextView
-        android:id="@+id/textView_list_notCon"
+        android:id="@+id/textView_list_notTi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:layout_margin="5dp"
         android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/textView_list_notDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:layout_margin="5dp"
+        android:padding="5dp"/>
 
 
 </LinearLayout>
