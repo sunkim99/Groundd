@@ -20,9 +20,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        allround ID = (allround) getApplicationContext(); // 전역변수 소환
-        allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
-        allround ADMIN = (allround) getApplicationContext();
+        final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
+        final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
+        final allround SCHADD = (allround) getApplicationContext(); //학교 주소
+        final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
+        final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+
+        ///////////////////////////////////////////////////////
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

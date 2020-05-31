@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class notice_notice extends AppCompatActivity implements View.OnClickListener{
+//공지 메인
+public class notice_notice extends AppCompatActivity implements View.OnClickListener {
 
     Button go_notice_event;
     Button top_navi, btn_setting;
@@ -24,7 +25,7 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         allround ADMIN = (allround) getApplicationContext();
 
-        go_notice_event= findViewById(R.id.go_notice_event);
+        go_notice_event = findViewById(R.id.go_notice_event);
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
         cancel = findViewById(R.id.btn_go_notice_notice_cancel);
@@ -37,15 +38,13 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
         write.setOnClickListener(this);
 
         admin_s = ADMIN.getADMIN();
-        if(admin_s == 0){
+        if (admin_s == 0) {  //일반 사용자는 접근불가. 1이 없는이유는 메인에서 버튼 비활성화 시켰으니까.
             write.setVisibility(Button.GONE);
-        }
-        if(admin_s == 1){
+        } else if (admin_s == 2) {
             write.setVisibility(Button.VISIBLE);
         }
-        if(admin_s == 2){
-            write.setVisibility(Button.VISIBLE);
-        }
+
+
     }
 
     @Override
@@ -65,7 +64,7 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
         if (v.getId() == R.id.btn_go_notice_notice_cancel) { // 종료
             finish();
         }
-        if (v.getId() == R.id.go_notice_notice_write) {
+        if (v.getId() == R.id.go_notice_notice_write) { //글쓰기 버튼 누르면 글작성 화면으로 넘어감
             Intent intent6 = new Intent(notice_notice.this, notice_notice_write.class);
             startActivity(intent6);
         }

@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="n">
+        <activity android:name=".notice_notice_write" />
         <activity android:name=".school_infomation_write" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".notice_notice" />

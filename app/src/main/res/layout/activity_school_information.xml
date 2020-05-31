@@ -169,4 +169,19 @@
         app:layout_constraintStart_toStartOf="@+id/go_school_information"
         app:layout_constraintTop_toBottomOf="@+id/school_name" />
 
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="506dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/bm_font"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="0.519">
+
+    </ListView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

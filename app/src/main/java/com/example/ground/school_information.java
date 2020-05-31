@@ -3,11 +3,17 @@ package com.example.ground;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.arch.core.executor.TaskExecutor;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,8 +21,17 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 //학교메인
 public class school_information extends AppCompatActivity implements View.OnClickListener {
@@ -33,6 +48,17 @@ public class school_information extends AppCompatActivity implements View.OnClic
     String schPh1 = "";
 
     int admin_s;
+
+    private static String TAG = "phptest_school_information";
+    private static final String TAG_JSON = "webnautes";
+    private static final String TAG_schNum = "schNum";
+    private static final String TAG_schTi = "schTi";
+    private static final String TAG_schDate = "schDate";
+
+    ListView list;
+    ArrayList<HashMap<String, String>> mArrrayList;
+    String mJsonString;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +93,22 @@ public class school_information extends AppCompatActivity implements View.OnClic
         Log.d("TEST1234", "[School Info]받아온 userID " + userID1);
 
         String userID = userID1;
+
+
+        //리스트뷰 정의
+        list = (ListView) findViewById(R.id.list);
+        mArrrayList = new ArrayList<>();
+
+        school_information.GetData task = new school_information.GetData();
+        task.execute("http://olivia7626.dothome.co.kr/SchoolForumlist.php");
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), forum_forum_in.class); // 넘어가게될 화면 만들기
+                startActivity(intent);
+            }
+        });
 
 
         //학교 정보 가져오기
@@ -130,9 +172,114 @@ public class school_information extends AppCompatActivity implements View.OnClic
         } else if (admin_s == 2) { //어플관리자
             school_write.setVisibility(Button.VISIBLE);
         }
-
-
     }
+
+
+    //서버 연결해서 데이터가져오기
+    private class GetData extends AsyncTask<String, Void, String> {
+        ProgressDialog progressDialog;
+        String errorString = null;
+
+
+
+        String schName11 = schName.getText().toString();
+
+
+
+        @Override // 백그라운드 실행 전 변수 초기화 및 통신셋팅
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog = ProgressDialog.show(school_information.this, "Please wait", null, true, true);
+        }
+
+        @Override // 백그라운드에 저장된 데이터 뿌려주기
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            progressDialog.dismiss();
+            mJsonString = result;
+            showResult();
+        }
+
+        @Override // 서벼연결해서 데이터 저장
+        protected String doInBackground(String... params) {
+
+            String serverURL = params[0];
+            try {
+                URL url = new URL(serverURL);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
+                httpURLConnection.setReadTimeout(5000);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.connect();
+
+                int responseStatusCode = httpURLConnection.getResponseCode();
+                Log.d(TAG, "response cod -" + responseStatusCode);
+
+                InputStream inputStream;
+                if (responseStatusCode == HttpURLConnection.HTTP_OK) {
+                    inputStream = httpURLConnection.getInputStream();
+                } else {
+                    inputStream = httpURLConnection.getErrorStream();
+                }
+
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                StringBuilder sb = new StringBuilder();
+                String line;
+
+                while ((line = bufferedReader.readLine()) != null) {
+                    sb.append(line);
+                }
+                bufferedReader.close();
+
+                return sb.toString().trim();
+
+            } catch (Exception e) {
+                Log.d(TAG, "InsertData : Error", e);
+                errorString = e.toString();
+            }
+            return null;
+        }
+    }
+
+    ///
+    private void showResult() {///////////////////////이부분이랑 해당하는 php 보고 수정해야함
+        try {
+            JSONObject jsonObject = new JSONObject(mJsonString);
+            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject item = jsonArray.getJSONObject(i);
+
+                String schName11 = schName.getText().toString();
+                String schTi = item.getString(TAG_schTi);
+                String schNum = item.getString(TAG_schNum);
+                String schDate = item.getString(TAG_schDate);
+
+                HashMap<String, String> hashMap = new HashMap<>();
+
+                hashMap.put("schName11", schName11);
+                hashMap.put(TAG_schNum, schNum);
+                hashMap.put(TAG_schTi, schTi);
+                hashMap.put(TAG_schDate, schDate);
+
+                mArrrayList.add(hashMap);
+            }
+            ListAdapter adapter = new SimpleAdapter(
+                    school_information.this, mArrrayList, R.layout.item_list,
+                    new String[]{ TAG_schNum, TAG_schTi, TAG_schDate}, ///////////////////////////
+                    new int[]{R.id.textView_list_notNum, R.id.textView_list_notTi, R.id.textView_list_notDate}
+            );
+            list.setAdapter(adapter);
+        } catch (JSONException e) {
+            Log.d(TAG, "showResult :", e);
+        }
+    }
+
 
     @Override
     public void onClick(View v) {
