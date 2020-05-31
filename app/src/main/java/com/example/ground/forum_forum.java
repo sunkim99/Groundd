@@ -146,7 +146,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
             return null;
         }
     }
-    //
+    ///
     private void showResult(){
         try {
             JSONObject jsonObject = new JSONObject(mJsonString);
