@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.usage.NetworkStats;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,8 +20,10 @@ public class configActivity extends AppCompatActivity {
     TextView show_nick;
     TextView ADMIN;
     Button btn_ADMIN;
+    ImageView Profile_image;
 
     int admin_s;
+    int my_char;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class configActivity extends AppCompatActivity {
         allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         allround ADMIN = (allround) getApplicationContext();
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+        final allround Char_head = (allround) getApplicationContext();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
@@ -65,6 +69,15 @@ public class configActivity extends AppCompatActivity {
         }
         if (admin_s == 2) {
             btn_ADMIN.setVisibility(Button.VISIBLE);
+        }
+
+        Profile_image = findViewById(R.id.profile_image);
+        my_char = Char_head.getChar_head();
+        if (my_char == 0){
+            Profile_image.setImageResource(R.drawable.ex_char1);
+        }
+        else if (my_char == 1){
+            Profile_image.setImageResource(R.drawable.ex_char2);
         }
 
     }
