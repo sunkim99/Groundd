@@ -15,12 +15,17 @@ public class char_inven extends AppCompatActivity implements View.OnClickListene
     Button ex_char1, ex_char2;
     TextView show_nick;
     ImageView MY_char;
+    Button top_navi, btn_setting;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_char_inven);
+        top_navi = findViewById(R.id.top_navi);
+        btn_setting = findViewById(R.id.btn_setting);
+        top_navi.setOnClickListener(this);
+        btn_setting.setOnClickListener(this);
 
         allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
         allround Char_head = (allround) getApplicationContext();
@@ -69,6 +74,16 @@ public class char_inven extends AppCompatActivity implements View.OnClickListene
             else if (MY_Char_head == 1){
                 MY_char.setImageResource(R.drawable.ex_char2);
             }
+        }
+        if (v.getId() == R.id.top_navi) {
+            Intent intent02 = new Intent(char_inven.this, MainActivity.class);
+            startActivity(intent02);
+        }
+
+
+        if (v.getId() == R.id.btn_setting) { // 설정
+            Intent intent03 = new Intent(char_inven.this, configActivity.class);
+            startActivity(intent03);
         }
     }
 }
