@@ -72,14 +72,21 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
+
+        /*
+         * 리스트에 listener 추가 X / Adapter에서 추가. ㅇㄷ?
+         */
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), forum_forum_in.class);
 
-                //intent.putExtra("notNum",mArrrayList.get(0).toString());
 
-                Log.d("TEST1234","글번호 "+mArrrayList.get(0).toString());
+
+               HashMap check_position = mArrrayList.get(position);   //리스트뷰의 포지션에대한 객체를 가져옴.
+              //  String vo = (String)parent.getAdapter().getItem(check_position);  //리스트뷰의 포지션 내용을 가져옴.
+                Log.d("TEST1234","글번호 "+ check_position);
+
                 startActivity(intent);
             }
         });

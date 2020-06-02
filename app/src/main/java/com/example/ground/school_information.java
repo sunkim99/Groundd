@@ -9,8 +9,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -46,17 +48,19 @@ public class school_information extends AppCompatActivity implements View.OnClic
     String schName1 = "";
     String schAdd1 = "";
     String schPh1 = "";
-
+    LinearLayout ln;
     int admin_s;
 
-    private static String TAG = "phptest_school_information";
+    private static String TAG = "phptest_notice_notice";
     private static final String TAG_JSON = "webnautes";
-    private static final String TAG_schnotNum = "scnotNum";
-    private static final String TAG_schTi = "schTi";
+    private static final String TAG_schnotNum = "schnotNum";
     private static final String TAG_schName = "schName";
+    private static final String TAG_schTi = "schTi";
+
 
     ListView list;
     ArrayList<HashMap<String, String>> mArrrayList;
+    HashMap<String,String> itsreal;
     String mJsonString;
 
 
@@ -105,7 +109,11 @@ public class school_information extends AppCompatActivity implements View.OnClic
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), forum_forum_in.class); // 넘어가게될 화면 만들기
+                /*Intent intent = new Intent(getApplicationContext(), forum_forum_in.class); // 넘어가게될 화면 만들기
+                startActivity(intent);*/
+                itsreal=mArrrayList.get(position);
+                Intent intent = new Intent(school_information.this,forum_forum_in.class); //학교 게시판 보여질 class 추가하기 지금은 일단 forum으로 설정
+                intent.putExtra("itsreal",itsreal);
                 startActivity(intent);
             }
         });
@@ -159,7 +167,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
             }
 
         };
-        school_information_request sir = new school_information_request(userID,/*schName,schAdd,schPh, */responseListener);
+        school_information_request sir = new school_information_request(userID, responseListener);
         RequestQueue queue = Volley.newRequestQueue(school_information.this);
         queue.add(sir);
 
@@ -181,9 +189,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
         String errorString = null;
 
 
-
         //String schName11 = schName.getText().toString();
-
 
 
         @Override // 백그라운드 실행 전 변수 초기화 및 통신셋팅
@@ -255,25 +261,42 @@ public class school_information extends AppCompatActivity implements View.OnClic
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject item = jsonArray.getJSONObject(i);
 
-              //  String schName11 = schName.getText().toString();
-                String schTi = item.getString(TAG_schTi);
+
                 String schnotNum = item.getString(TAG_schnotNum);
-                String schName= item.getString(TAG_schName);
+                String schName = item.getString(TAG_schName);
+                String schTi = item.getString(TAG_schTi);
 
                 HashMap<String, String> hashMap = new HashMap<>();
 
-              //  hashMap.put("schName11", schName11);
                 hashMap.put(TAG_schnotNum, schnotNum);
-                hashMap.put(TAG_schTi, schTi);
                 hashMap.put(TAG_schName, schName);
+                hashMap.put(TAG_schTi, schTi);
+
 
                 mArrrayList.add(hashMap);
             }
             ListAdapter adapter = new SimpleAdapter(
                     school_information.this, mArrrayList, R.layout.item_list,
-                    new String[]{ TAG_schnotNum, TAG_schTi, TAG_schName}, ///////////////////////////
+                    new String[]{TAG_schnotNum, TAG_schName, TAG_schTi},
+
                     new int[]{R.id.textView_list_notNum, R.id.textView_list_notTi, R.id.textView_list_notDate}
             );
+            /*{
+                @Override
+                public View getView(final int position, View convertView, ViewGroup parent) {
+                    LinearLayout ln = (LinearLayout) convertView.findViewById(R.id.itemLayout);
+                    ln.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            itsreal=mArrrayList.get(position);
+                            Intent intent = new Intent(school_information.this,forum_forum_in.class);
+                            intent.putExtra("itsreal",itsreal);
+                            startActivity(intent);
+                        }
+                    });
+                    return super.getView(position, convertView, parent);
+                }
+            };*/
             list.setAdapter(adapter);
         } catch (JSONException e) {
             Log.d(TAG, "showResult :", e);

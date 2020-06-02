@@ -41,7 +41,7 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
     private static final String TAG_JSON = "webnautes";
     private static final String TAG_annNum = "annNum";
     private static final String TAG_annTi = "annTi";
-    private static final String TAG_annDate = "annDate";
+    private static final String TAG_userID= "userID";
     ListView list;
     ArrayList<HashMap<String, String>> mArrrayList;
     String mJsonString;
@@ -85,10 +85,19 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), forum_forum_in.class);
 
                 //intent.putExtra("notNum",mArrrayList.get(0).toString());
+
+
+               /* int check_position = list.getCheckedItemPosition();   //리스트뷰의 포지션을 가져옴.
+                String vo = (String)parent.getAdapter().getItem(check_position);  //리스트뷰의 포지션 내용을 가져옴.
+                Log.d("TEST1234","글번호 "+ check_position);
+                Log.d("TEST1234","내용"+ vo);*/
+              //  String curItem = mArrrayList.get(position);
+
+                출처: https://itmining.tistory.com/1 [IT 마이닝]
 
                 //Log.d("TEST1234","글번호 "+mArrrayList.get(0).toString());
                 startActivity(intent);
@@ -172,21 +181,23 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
 
 
                 String annTi  = item.getString(TAG_annTi);
+                String userID = item.getString(TAG_userID);
                 String annNum  = item.getString(TAG_annNum);
-                String annDate = item.getString(TAG_annDate);
+
 
                 HashMap<String, String> hashMap = new HashMap<>();
 
                 hashMap.put(TAG_annNum, annNum);
+                hashMap.put(TAG_userID,userID);
                 hashMap.put(TAG_annTi, annTi);
-                hashMap.put(TAG_annDate,annDate);
+
 
 
                 mArrrayList.add(hashMap);
             }
             ListAdapter adapter = new SimpleAdapter(
                     notice_notice.this, mArrrayList,R.layout.item_list,
-                    new String[]{TAG_annNum,TAG_annTi,TAG_annDate},
+                    new String[]{TAG_annNum,TAG_annTi,TAG_userID},
 
                     new int[]{R.id.textView_list_notNum,R.id.textView_list_notTi,R.id.textView_list_notDate}
             );

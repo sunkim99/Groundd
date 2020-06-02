@@ -1,8 +1,10 @@
 package com.example.ground;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 public class forum_forum_in extends AppCompatActivity implements View.OnClickListener {
 
@@ -40,6 +43,9 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 */
+        Intent intent = getIntent();
+        HashMap<String, String> hashMap = (HashMap<String, String>) intent.getSerializableExtra("itsreal");
+        Log.d("TEST1234",hashMap.toString());
 
     }
 
