@@ -16,6 +16,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="n">
         <activity android:name=".notice_notice_write" />
+        <activity android:name=".char_inven_head" android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".school_infomation_write" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".notice_notice" />
