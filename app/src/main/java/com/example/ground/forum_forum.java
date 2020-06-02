@@ -75,6 +75,10 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), forum_forum_in.class);
+
+                //intent.putExtra("notNum",mArrrayList.get(0).toString());
+
+                Log.d("TEST1234","글번호 "+mArrrayList.get(0).toString());
                 startActivity(intent);
             }
         });
@@ -166,11 +170,13 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
                 hashMap.put(TAG_notTi, notTi);
                 hashMap.put(TAG_notDate,notDate);
 
+
                 mArrrayList.add(hashMap);
             }
             ListAdapter adapter = new SimpleAdapter(
                     forum_forum.this, mArrrayList,R.layout.item_list,
                     new String[]{TAG_notNum,TAG_notTi,TAG_notDate},
+
                     new int[]{R.id.textView_list_notNum,R.id.textView_list_notTi,R.id.textView_list_notDate}
             );
             list.setAdapter(adapter);

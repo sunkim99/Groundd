@@ -54,7 +54,7 @@ public class char_inven extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        allround Char_head = (allround) getApplicationContext();
+        allround Char_head = (allround) getApplicationContext();////////
         int MY_Char_head = Char_head.getChar_head();
 
         if (v.getId() == R.id.ex_char1) {

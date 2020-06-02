@@ -182,7 +182,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
 
 
-        String schName11 = schName.getText().toString();
+        //String schName11 = schName.getText().toString();
 
 
 
@@ -255,14 +255,14 @@ public class school_information extends AppCompatActivity implements View.OnClic
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject item = jsonArray.getJSONObject(i);
 
-                String schName11 = schName.getText().toString();
+              //  String schName11 = schName.getText().toString();
                 String schTi = item.getString(TAG_schTi);
                 String schNum = item.getString(TAG_schNum);
                 String schDate = item.getString(TAG_schDate);
 
                 HashMap<String, String> hashMap = new HashMap<>();
 
-                hashMap.put("schName11", schName11);
+              //  hashMap.put("schName11", schName11);
                 hashMap.put(TAG_schNum, schNum);
                 hashMap.put(TAG_schTi, schTi);
                 hashMap.put(TAG_schDate, schDate);
