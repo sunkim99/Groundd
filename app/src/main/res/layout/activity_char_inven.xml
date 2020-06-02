@@ -188,36 +188,44 @@
 
     <ImageView
         android:id="@+id/char_inven_box"
-        android:layout_width="385dp"
-        android:layout_height="365dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_acce"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/char_box" />
 
     <Button
         android:id="@+id/ex_char1"
-        android:layout_width="80dp"
-        android:layout_height="120dp"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:foreground="@drawable/ex_char1"
         android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/char_inven_box"
         app:layout_constraintTop_toTopOf="@+id/char_inven_box" />
 
     <Button
         android:id="@+id/ex_char2"
-        android:layout_width="80dp"
-        android:layout_height="120dp"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:foreground="@drawable/ex_char2"
         android:text="Button"
+        app:layout_constraintEnd_toEndOf="@id/char_inven_box"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/char_inven_box"
         app:layout_constraintTop_toBottomOf="@+id/ex_char1" />
 
@@ -234,7 +242,7 @@
         android:id="@+id/nickname_view"
         android:layout_width="129dp"
         android:layout_height="26dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/bm_font"
         android:text="닉네임"
         android:textSize="18sp"
