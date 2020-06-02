@@ -51,9 +51,9 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
     private static String TAG = "phptest_school_information";
     private static final String TAG_JSON = "webnautes";
-    private static final String TAG_schNum = "schNum";
+    private static final String TAG_schnotNum = "scnotNum";
     private static final String TAG_schTi = "schTi";
-    private static final String TAG_schDate = "schDate";
+    private static final String TAG_schName = "schName";
 
     ListView list;
     ArrayList<HashMap<String, String>> mArrrayList;
@@ -257,21 +257,21 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
               //  String schName11 = schName.getText().toString();
                 String schTi = item.getString(TAG_schTi);
-                String schNum = item.getString(TAG_schNum);
-                String schDate = item.getString(TAG_schDate);
+                String schnotNum = item.getString(TAG_schnotNum);
+                String schName= item.getString(TAG_schName);
 
                 HashMap<String, String> hashMap = new HashMap<>();
 
               //  hashMap.put("schName11", schName11);
-                hashMap.put(TAG_schNum, schNum);
+                hashMap.put(TAG_schnotNum, schnotNum);
                 hashMap.put(TAG_schTi, schTi);
-                hashMap.put(TAG_schDate, schDate);
+                hashMap.put(TAG_schName, schName);
 
                 mArrrayList.add(hashMap);
             }
             ListAdapter adapter = new SimpleAdapter(
                     school_information.this, mArrrayList, R.layout.item_list,
-                    new String[]{ TAG_schNum, TAG_schTi, TAG_schDate}, ///////////////////////////
+                    new String[]{ TAG_schnotNum, TAG_schTi, TAG_schName}, ///////////////////////////
                     new int[]{R.id.textView_list_notNum, R.id.textView_list_notTi, R.id.textView_list_notDate}
             );
             list.setAdapter(adapter);

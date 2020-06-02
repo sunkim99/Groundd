@@ -48,6 +48,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum);
+        final allround notNum = (allround) getApplicationContext(); /////
 
         btn_image = findViewById(R.id.go_forum_image);
         write = findViewById(R.id.go_forum_write);
@@ -180,9 +181,13 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
                     new int[]{R.id.textView_list_notNum,R.id.textView_list_notTi,R.id.textView_list_notDate}
             );
             list.setAdapter(adapter);
+
+
+
         } catch (JSONException e){
             Log.d(TAG, "showResult :",e);
         }
+
     }
 
 
