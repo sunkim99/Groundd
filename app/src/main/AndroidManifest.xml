@@ -34,6 +34,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".game_main" />
         <activity android:name=".game_ranking" />
+        <activity android:name=".config_change" />
+        <activity android:name=".config_my_forum_forum" />
+        <activity android:name=".config_my_forum_image" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
