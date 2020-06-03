@@ -147,9 +147,9 @@
 
     <ImageView
         android:id="@+id/write_tbox"
-        android:layout_width="411dp"
+        android:layout_width="wrap_content"
         android:layout_height="597dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="7dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

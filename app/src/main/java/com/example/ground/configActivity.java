@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,14 +20,15 @@ public class configActivity extends AppCompatActivity {
     TextView show_school;
     TextView show_nick;
     TextView ADMIN;
-    Button btn_ADMIN;
+    Button top_navi, btn_ADMIN, btn_change, btn_my_forum;
     ImageView Profile_image;
+
 
     int admin_s;
     int my_char;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         allround ID = (allround) getApplicationContext();
         allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         allround ADMIN = (allround) getApplicationContext();
@@ -36,7 +38,13 @@ public class configActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
 
+        btn_change = findViewById(R.id.btn_config_change);
+        btn_my_forum = findViewById(R.id.btn_config_my_forum);
+        top_navi = findViewById(R.id.top_navi);
 
+        top_navi.setOnClickListener((View.OnClickListener) this);
+        btn_change.setOnClickListener((View.OnClickListener) this);
+        btn_my_forum.setOnClickListener((View.OnClickListener) this);
 
         String temp01 = ID.getID();
         show_id = findViewById(R.id.show_id);
@@ -81,6 +89,22 @@ public class configActivity extends AppCompatActivity {
         }
 
     }
+
+    public void onClick(View v) {
+        if (v.getId() == R.id.top_navi) {
+            Intent intent1 = new Intent(this, MainActivity.class);
+            startActivity(intent1);
+        }
+        if (v.getId() == R.id.btn_config_my_forum) { // 설정
+            Intent intent6 = new Intent(this, config_my_forum_forum.class);
+            startActivity(intent6);
+        }
+        if (v.getId() == R.id.btn_config_change) { // 설정
+            Intent intent6 = new Intent(this, config_change.class);
+            startActivity(intent6);
+        }
+    }
+
     /*여기에 이제 받은 userID가 DB에 user T에 userId랑 같을때,
      * 저장된 학교이름이랑 소유하고있는 아이템코드 가져와서 캐릭터보여주는 .php를 연동하는 코드 작성하기
      *
