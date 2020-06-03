@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 //설정화면
-public class configActivity extends AppCompatActivity {
+public class configActivity extends AppCompatActivity implements View.OnClickListener{
 
     TextView show_id; //아이디 받아오기
     TextView show_school;
@@ -42,9 +42,9 @@ public class configActivity extends AppCompatActivity {
         btn_my_forum = findViewById(R.id.btn_config_my_forum);
         top_navi = findViewById(R.id.top_navi);
 
-        top_navi.setOnClickListener((View.OnClickListener) this);
-        btn_change.setOnClickListener((View.OnClickListener) this);
-        btn_my_forum.setOnClickListener((View.OnClickListener) this);
+        top_navi.setOnClickListener(this);
+        btn_change.setOnClickListener(this);
+        btn_my_forum.setOnClickListener(this);
 
         String temp01 = ID.getID();
         show_id = findViewById(R.id.show_id);

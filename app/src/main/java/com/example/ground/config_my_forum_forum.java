@@ -30,7 +30,7 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.go_config_forum_image) {
-            Intent intent01 = new Intent(config_my_forum_forum.this, notice_notice.class);
+            Intent intent01 = new Intent(config_my_forum_forum.this, config_my_forum_image.class);
             startActivity(intent01);
         }
         if (v.getId() == R.id.top_navi) {
