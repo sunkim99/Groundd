@@ -43,9 +43,9 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 */
-        Intent intent = getIntent();
-        HashMap<String, String> hashMap = (HashMap<String, String>) intent.getSerializableExtra("itsreal");
-        Log.d("TEST1234",hashMap.toString());
+       // Intent intent = getIntent();
+       // HashMap<String, String> hashMap = (HashMap<String, String>) intent.getSerializableExtra("itsreal");
+       // Log.d("TEST1234",hashMap.toString());
 
     }
 

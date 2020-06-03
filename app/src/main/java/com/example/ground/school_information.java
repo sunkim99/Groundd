@@ -112,9 +112,9 @@ public class school_information extends AppCompatActivity implements View.OnClic
                 /*Intent intent = new Intent(getApplicationContext(), forum_forum_in.class); // 넘어가게될 화면 만들기
                 startActivity(intent);*/
                 itsreal=mArrrayList.get(position);
-                Intent intent = new Intent(school_information.this,forum_forum_in.class); //학교 게시판 보여질 class 추가하기 지금은 일단 forum으로 설정
-                intent.putExtra("itsreal",itsreal);
-                startActivity(intent);
+                //Intent intent = new Intent(school_information.this,forum_forum_in.class); //학교 게시판 보여질 class 추가하기 지금은 일단 forum으로 설정
+                //intent.putExtra("itsreal",itsreal);
+                //startActivity(intent);
             }
         });
 
