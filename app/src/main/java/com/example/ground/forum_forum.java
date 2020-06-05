@@ -48,7 +48,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum);
-        final allround notNum = (allround) getApplicationContext(); /////
+        //final allround notNum = (allround) getApplicationContext(); /////
 
         btn_image = findViewById(R.id.go_forum_image);
         write = findViewById(R.id.go_forum_write);
@@ -80,12 +80,12 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), forum_forum_in.class);
+                HashMap check_position = mArrrayList.get(position);   //리스트뷰의 포지션에대한 객체를 가져옴.
 
+                Log.d("TEST1234","게시판 글번호 "+ check_position.get(TAG_notNum)); //글번호 찍히기
 
-
-               HashMap check_position = mArrrayList.get(position);   //리스트뷰의 포지션에대한 객체를 가져옴.
-              //  String vo = (String)parent.getAdapter().getItem(check_position);  //리스트뷰의 포지션 내용을 가져옴.
-                Log.d("TEST1234","글번호 "+ check_position);
+                String i = (String) check_position.get(TAG_notNum); //글번호 스트링 i에 넣어주기
+                intent.putExtra("check_position1", i); //글번호 값 저장해 전달하기
 
                 startActivity(intent);
             }
@@ -181,6 +181,8 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
 
                 mArrrayList.add(hashMap);
             }
+
+
             ListAdapter adapter = new SimpleAdapter(
                     forum_forum.this, mArrrayList,R.layout.item_list,
                     new String[]{TAG_notNum,TAG_notTi,TAG_notDate},
@@ -220,7 +222,6 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         if (v.getId() == R.id.btn_setting) { // 설정
 
             Intent intent6 = new Intent(forum_forum.this, configActivity.class);
-
             startActivity(intent6);
         }
     }

@@ -1,8 +1,6 @@
 package com.example.ground;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,15 +15,9 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
 //게시판에서 게시물을 눌렀을때 해당게시물 보여지는화면
 
-public class forum_forum_in extends AppCompatActivity implements View.OnClickListener {
+public class notice_notice_in extends AppCompatActivity implements View.OnClickListener {
 
     Button btn_image, write, cancel;
     Button top_navi, btn_setting;
@@ -37,7 +29,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum_in);
-        //final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+
 
         btn_image = findViewById(R.id.go_forum_image);
         //write = findViewById(R.id.) 댓글쓰기버튼
@@ -55,10 +47,10 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
         Intent intent1 = getIntent();
         String notNum1 = intent1.getStringExtra("check_position1");
-        Integer notNum= Integer.valueOf(notNum1);
+        Integer annNum = Integer.valueOf(notNum1);
         id_notNum = findViewById(R.id.id_notNum);
         id_notNum.setText(notNum1);
-        Log.d("TEST1234", String.valueOf(notNum));
+        Log.d("TEST1234", String.valueOf(annNum));
 
 
         /*String userNick = NICKNAME.getNICKNAME();
@@ -70,7 +62,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         id_notDate = findViewById(R.id.id_notDate);
         id_notCon = findViewById(R.id.id_notCon);
 
-        Log.d("TEST1234", "[School Info] 쓰레드확인!!!");
+        Log.d("TEST1234", "[공지] ");
         //학교 정보 가져오기
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -79,11 +71,11 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
                     JSONObject jasonObject = new JSONObject(response);
                     boolean success = jasonObject.getBoolean("success");
                     if (success) {
-                        Log.d("TEST1234", "[Forum] 쓰레드확인");
+                        Log.d("TEST1234", "[공지] 쓰레드확인");
 
-                        String number = jasonObject.getString("notNum");
-                        Log.d("TEST1234", "[Forum] 쓰레드확인1:");
-                        Log.d("TEST1234", "[Forum]  가져온 글번호 :" + number);
+                        String number = jasonObject.getString("annNum");
+                        Log.d("TEST1234", "[공지] 쓰레드확인1:");
+                        Log.d("TEST1234", "[공지]  가져온 글번호 :" + number);
                         //String schName11 = schName1;
                         //Log.d("TEST1234", "학교이름 : " + schName1);
 
@@ -92,26 +84,25 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
 
                         String userID = jasonObject.getString("userID");
-                        Log.d("TEST1234", "[Forum] 아이디 " + userID);
+                        Log.d("TEST1234", "[공지] 아이디 " + userID);
 
-                        String title = jasonObject.getString("notTi");
-                        Log.d("TEST1234", "[Forum]  제목 " + title);
-                        String notCon = jasonObject.getString("notCon");
+                        String annTi = jasonObject.getString("annTi");
+                        Log.d("TEST1234", "[공지] 제목 " + annTi);
+                        String annCon = jasonObject.getString("annCon");
 
-                        String notDate = jasonObject.getString("notDate");
+                        String annDate = jasonObject.getString("annDate");
 
-                        Log.d("TEST1234", "[Forum] 쓰레드확인2:");
+                        Log.d("TEST1234", "[공지] 쓰레드확인2:");
 
 
                         id_userNick.setText(userID);
-                        id_notTi.setText(title);
-                        id_notCon.setText(notDate);
-                        id_notDate.setText(notCon);
-
+                        id_notTi.setText(annTi);
+                        id_notCon.setText(annCon);
+                        id_notDate.setText(annDate);
 
 
                     } else {
-                        Log.d("TEST1234", "[Forum] 게시글 정보");
+                        Log.d("TEST1234", "[공지] 학교공지 가져오기 실패");
                         return;
                     }
                 } catch (JSONException e) {
@@ -120,12 +111,11 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
             }
 
         };
-        forum_froum_detail_request ffd = new forum_froum_detail_request(notNum, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(forum_forum_in.this);
-        queue.add(ffd);
+        notice_notice_detail_request nndr = new notice_notice_detail_request(annNum, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(notice_notice_in.this);
+        queue.add(nndr);
 
     }
-
 
 
     @Override

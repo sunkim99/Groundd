@@ -127,8 +127,8 @@
 
     <TextView
         android:id="@+id/id_userNick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="46dp"
+        android:layout_height="24dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/id_notTi"
         app:layout_constraintEnd_toEndOf="parent"

@@ -109,12 +109,23 @@ public class school_information extends AppCompatActivity implements View.OnClic
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-                /*Intent intent = new Intent(getApplicationContext(), forum_forum_in.class); // 넘어가게될 화면 만들기
-                startActivity(intent);*/
-                itsreal=mArrrayList.get(position);
-                //Intent intent = new Intent(school_information.this,forum_forum_in.class); //학교 게시판 보여질 class 추가하기 지금은 일단 forum으로 설정
-                //intent.putExtra("itsreal",itsreal);
-                //startActivity(intent);
+
+                Intent intent = new Intent(school_information.this,school_forum_list.class); //학교게시물보여지는화면으로 넘어가기
+                itsreal = mArrrayList.get(position);//리스트뷰의 포지션에대한 객체를 가져옴.
+                intent.putExtra("itsreal",itsreal);
+                Log.d("TEST1234","글번호 "+ itsreal.get(TAG_schnotNum)); //글번호 찍히기
+
+        //        Log.d("TEST1234","글번호 "+ itsreal);
+
+
+                String i = (String) itsreal.get(TAG_schnotNum); //글번호 스트링 i에 넣어주기
+                intent.putExtra("itsreal", i); //글번호 값 저장해 전달하기
+
+
+
+
+                startActivity(intent);
+
             }
         });
 
@@ -253,7 +264,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
     }
 
     ///
-    private void showResult() {///////////////////////이부분이랑 해당하는 php 보고 수정해야함
+    private void showResult() {
         try {
             JSONObject jsonObject = new JSONObject(mJsonString);
             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
@@ -317,8 +328,6 @@ public class school_information extends AppCompatActivity implements View.OnClic
             Intent intent02 = new Intent(school_information.this, MainActivity.class);
             startActivity(intent02);
         }
-
-
         if (v.getId() == R.id.btn_setting) { // 설정
             Intent intent03 = new Intent(school_information.this, configActivity.class);
             startActivity(intent03);

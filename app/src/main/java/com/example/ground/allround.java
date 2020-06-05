@@ -38,7 +38,7 @@ public class allround extends Application {
 
     public void setID(String ID) {
         this.ID = ID;
-    }
+    } //아이디
 
     public String getID() {
         return ID;
@@ -46,7 +46,7 @@ public class allround extends Application {
 
     public void setSCHOOL(String SCHOOL) {
         this.SCHOOL = SCHOOL;
-    }
+    } //학교이름
 
     public String getSCHOOL() {
         return SCHOOL;
@@ -54,7 +54,7 @@ public class allround extends Application {
 
     public void setADMIN(int ADMIN) {
         this.ADMIN = ADMIN;
-    }
+    } //관리자 여부
 
     public int getADMIN() {
         return ADMIN;
@@ -62,7 +62,7 @@ public class allround extends Application {
 
     public void setNICKNAME(String NICKNAME) {
         this.NICKNAME = NICKNAME;
-    }
+    } //닉네임
 
     public String getNICKNAME() {
         return NICKNAME;
@@ -70,33 +70,30 @@ public class allround extends Application {
 
     public void setSCHADD(String SCHADD) {
         this.SCHADD = SCHADD;
-    }
+    } //학교 주소
 
     public String getSCHADD() {
         return SCHADD;
     }
 
-    public void setSCHPH(String SCHPH) {
-        this.SCHPH = SCHPH;
-    }
+    public void setSCHPH(String SCHPH) { this.SCHPH = SCHPH; } //학교 연락처
 
     public String getSCHPH() {
         return SCHPH;
     }
 
-    public void setNotNum(String SCHPH) {
+   /* public void setNotNum(String SCHPH) {
         this.SCHPH = SCHPH;
     }
 
 
-
     public void setnotNum(String notNum) {
         this.notNum = notNum;
-    }
-
-    public String getnotNum() {
+    } public String getnotNum() {
         return notNum;
     }
+*/
+
 
 
     public void setChar_head(int Char_head) {

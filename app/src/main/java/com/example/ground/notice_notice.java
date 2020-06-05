@@ -86,20 +86,14 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), forum_forum_in.class);
+                Intent intent = new Intent(getApplicationContext(), notice_notice_in.class);
 
-                //intent.putExtra("notNum",mArrrayList.get(0).toString());
+                HashMap check_position = mArrrayList.get(position);   //리스트뷰의 포지션에대한 객체를 가져옴.
 
+                Log.d("TEST1234","게시판 글번호 "+ check_position.get(TAG_annNum)); //글번호 찍히기
 
-               /* int check_position = list.getCheckedItemPosition();   //리스트뷰의 포지션을 가져옴.
-                String vo = (String)parent.getAdapter().getItem(check_position);  //리스트뷰의 포지션 내용을 가져옴.
-                Log.d("TEST1234","글번호 "+ check_position);
-                Log.d("TEST1234","내용"+ vo);*/
-              //  String curItem = mArrrayList.get(position);
-
-                출처: https://itmining.tistory.com/1 [IT 마이닝]
-
-                //Log.d("TEST1234","글번호 "+mArrrayList.get(0).toString());
+                String i = (String) check_position.get(TAG_annNum); //글번호 스트링 i에 넣어주기
+                intent.putExtra("check_position1", i); //글번호 값 저장해 전달하기
                 startActivity(intent);
             }
         });
