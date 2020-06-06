@@ -90,7 +90,7 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
 
                 HashMap check_position = mArrrayList.get(position);   //리스트뷰의 포지션에대한 객체를 가져옴.
 
-                Log.d("TEST1234","게시판 글번호 "+ check_position.get(TAG_annNum)); //글번호 찍히기
+                Log.d("TEST1234","게시판 글번호 : "+ check_position.get(TAG_annNum)); //글번호 찍히기
 
                 String i = (String) check_position.get(TAG_annNum); //글번호 스트링 i에 넣어주기
                 intent.putExtra("check_position1", i); //글번호 값 저장해 전달하기

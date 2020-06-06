@@ -40,7 +40,7 @@ public class school_forum_list extends AppCompatActivity implements View.OnClick
 
         btn_image.setOnClickListener(this);
         //write.setOnClickListener(this); 댓글쓰기 이벤트
-        //cancel.setOnClickListener(this); 0606 - 이거 왜 오류나지
+        //cancel.setOnClickListener(this); 0606 - 이거 왜 오류나지 R.id.~~~ 이거 오류였음 필요하면 해당 xml보고 이름다시설정하기
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
@@ -76,12 +76,6 @@ public class school_forum_list extends AppCompatActivity implements View.OnClick
                         String number = jasonObject.getString("schnotNum");
                         Log.d("TEST1234", "[SChool Forum] 쓰레드확인1:");
                         Log.d("TEST1234", "[SChool Forum] 가져온 글번호 :" + number);
-                        //String schName11 = schName1;
-                        //Log.d("TEST1234", "학교이름 : " + schName1);
-
-
-                        // SCHOOL.setSCHOOL(schName11);  // 전역변수는 schName11의 값을 가짐
-
 
                         String schName = jasonObject.getString("schName");
                         Log.d("TEST1234", "[SChool Forum]학교이름 " + schName);

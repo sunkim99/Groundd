@@ -7,7 +7,7 @@ import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//아직 만들어지지않았음
 public class forumImageRequest extends StringRequest {
     final static private String URL = "http://olivia7626.dothome.co.kr/ForumImage.php"; //php만들기
     private Map<String, String> map;

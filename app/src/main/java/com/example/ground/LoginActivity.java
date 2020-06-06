@@ -20,7 +20,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
+//로그인 (앱 기동시 첫 화면)
 public class LoginActivity extends AppCompatActivity {
     private EditText et_id, et_pass;
     private Button btn_login, btn_register, btn_gomain;
@@ -103,8 +103,8 @@ public class LoginActivity extends AppCompatActivity {
                                 Log.d("TEST1234", "닉네임 : " + userNick);
 
                                 int userAdmin= jasonObject.getInt("userAdmin");
-                                Log.d("TEST1234", "쓰레드확인1:" + Thread.currentThread());
-                                Log.d("권한권한권한권한권한권한권한권한권한권한권한", "쓰레드확인1:" + userAdmin);
+                                Log.d("TEST1234", "쓰레드확인1 " + Thread.currentThread());
+                                Log.d("TEST1234", "권한 번호 :" + userAdmin);
                                 if(userAdmin == 0) {
                                     Toast.makeText(getApplicationContext(), "로그인 성공!!", Toast.LENGTH_SHORT).show();
                                 }
@@ -112,12 +112,12 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "관리자입니다.", Toast.LENGTH_SHORT).show();
                                 }
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                Log.d("TEST1234", "로그인성공" );
-                                intent.putExtra("log", "User"); //??????
+                                Log.d("TEST1234", "로그인 성공" );
+                                intent.putExtra("log", "User"); //?????? 추후에 확인작업 거친후 삭제 조치예정
                                 intent.putExtra("userID", userID);
 
 
-                                ID.setID(userID);// 전역변수는 userID의 값을 가짐
+                                ID.setID(userID);// 로그인시 전역변수 바로 설정
                                 ADMIN.setADMIN(userAdmin);
                                 SCHOOL.setSCHOOL(schName);
                                 NICKNAME.setNICKNAME(userNick);

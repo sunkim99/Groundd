@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -81,7 +82,7 @@
         android:layout_width="391dp"
         android:layout_height="33dp"
         android:fontFamily="@font/bm_font"
-        android:text="게시판   그림게시판"
+        android:text="게시판   "
         android:textColor="@android:color/background_light"
         android:textSize="29sp"
         android:visibility="visible"
@@ -107,4 +108,25 @@
         app:layout_constraintStart_toStartOf="@+id/menu_select_bar"
         app:layout_constraintTop_toTopOf="@+id/menu_select_bar"
         app:layout_constraintVertical_bias="0.518" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="411dp"
+        android:layout_height="468dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989" />
+
+    <TextView
+        android:id="@+id/tvID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:visibility="invisible"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

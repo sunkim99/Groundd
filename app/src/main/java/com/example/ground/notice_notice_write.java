@@ -56,7 +56,7 @@ public class notice_notice_write extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_save) { //게시판작성에서 완료하기를 눌렀을때
-            Log.d("TEST1234", "저장하기 버튼 눌림");
+            Log.d("TEST1234", "[공지] 저장하기 버튼 눌림");
 
             String annTi = notice_title_name.getText().toString();
             String annCon = notice_content.getText().toString();
@@ -70,17 +70,17 @@ public class notice_notice_write extends AppCompatActivity implements View.OnCli
                 @Override
                 public void onResponse(String response) {
                     try {
-                        Log.d("TEST1234", "쓰레드확인1:" + Thread.currentThread());
+                        Log.d("TEST1234", "[공지] 쓰레드확인1" + Thread.currentThread());
                         JSONObject jasonObject = new JSONObject(response);          //NoticeWrite.php에 response
                         boolean success = jasonObject.getBoolean("success"); //NoticeWrite.php에 sucess
 
 
                         String sta = jasonObject.getString("str");
-                        Log.d("TEST1234", "success:" + success);
-                        Log.d("TEST1234", "php->안스 값:" + sta);
+                        Log.d("TEST1234", "[공지] success : " + success);
+                        Log.d("TEST1234", "[공지] php : "+ sta);
 
                         Toast.makeText(getApplicationContext(), "공지사항이 작성되었습니다", Toast.LENGTH_LONG).show();
-                        Log.d("TEST1234", "쓰레드확인2:" + Thread.currentThread());
+                        Log.d("TEST1234", "[공지] 쓰레드확인2" + Thread.currentThread());
 
 
                         finish();

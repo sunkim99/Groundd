@@ -8,7 +8,7 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-//게시판 상세 내용 요청하기
+//학교 게시판 상세 내용 요청하기
 public class school_forum_list_request extends StringRequest {
 
 

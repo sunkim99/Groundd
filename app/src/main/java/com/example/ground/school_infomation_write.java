@@ -82,7 +82,7 @@ public class school_infomation_write extends AppCompatActivity implements View.O
     public void onClick(View v) {
 
         if (v.getId() == R.id.btn_save) { //게시판작성에서 완료하기를 눌렀을때
-            Log.d("TEST1234", "저장하기 버튼 눌림");
+            Log.d("TEST1234", "[School] 저장하기 버튼 눌림");
 
             String schTi = title_name.getText().toString();
             String schCon = text_write.getText().toString();
@@ -96,18 +96,18 @@ public class school_infomation_write extends AppCompatActivity implements View.O
                 @Override
                 public void onResponse(String response) {
                     try {
-                        Log.d("TEST1234", "쓰레드확인1:" + Thread.currentThread());
+                        Log.d("TEST1234", "[School] 쓰레드확인1" + Thread.currentThread());
                         JSONObject jasonObject = new JSONObject(response);//SchoolForum.php에 response
                         boolean success = jasonObject.getBoolean("success");//SchoolForum.php에 sucess
 
                         //String ssss = jasonObject.getString("id");
                         String sta = jasonObject.getString("str");
-                        Log.d("TEST1234", "success:" + success);
+                        Log.d("TEST1234", "[School] 1" + success);
                         //Log.d("TEST1234", "정상성공?:" + ssss);
-                        Log.d("TEST1234", "php->안스 값:" + sta);
+                        Log.d("TEST1234", "[School] 2" + sta);
 
                         Toast.makeText(getApplicationContext(), "글이 작성되었습니다", Toast.LENGTH_SHORT).show();
-                        Log.d("TEST1234", "쓰레드확인2:" + Thread.currentThread());
+                        Log.d("TEST1234", "[School] 쓰레드확인2" + Thread.currentThread());
 
 
                         /*

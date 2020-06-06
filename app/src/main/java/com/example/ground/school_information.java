@@ -115,8 +115,6 @@ public class school_information extends AppCompatActivity implements View.OnClic
                 intent.putExtra("itsreal",itsreal);
                 Log.d("TEST1234","글번호 "+ itsreal.get(TAG_schnotNum)); //글번호 찍히기
 
-        //        Log.d("TEST1234","글번호 "+ itsreal);
-
 
                 String i = (String) itsreal.get(TAG_schnotNum); //글번호 스트링 i에 넣어주기
                 intent.putExtra("itsreal", i); //글번호 값 저장해 전달하기
@@ -143,11 +141,6 @@ public class school_information extends AppCompatActivity implements View.OnClic
                         schName1 = jasonObject.getString("schName");
                         Log.d("TEST1234", "[School Info] 쓰레드확인1:");
                         Log.d("TEST1234", "[School Info] 학교이름 :" + schName1);
-                        //String schName11 = schName1;
-                        //Log.d("TEST1234", "학교이름 : " + schName1);
-
-
-                        // SCHOOL.setSCHOOL(schName11);  // 전역변수는 schName11의 값을 가짐
 
 
                         schAdd1 = jasonObject.getString("schAdd");
@@ -199,8 +192,6 @@ public class school_information extends AppCompatActivity implements View.OnClic
         ProgressDialog progressDialog;
         String errorString = null;
 
-
-        //String schName11 = schName.getText().toString();
 
 
         @Override // 백그라운드 실행 전 변수 초기화 및 통신셋팅

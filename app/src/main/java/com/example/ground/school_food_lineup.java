@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+//학교 급식 게시판 (미진행)
 public class school_food_lineup extends AppCompatActivity implements View.OnClickListener{
     Button ok;
     Button cancel;

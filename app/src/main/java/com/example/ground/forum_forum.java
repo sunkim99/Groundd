@@ -33,7 +33,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
     private static final String TAG_JSON = "webnautes";
     private static final String TAG_notNum = "notNum";
     private static final String TAG_notTi = "notTi";
-    private static final String TAG_notDate = "notDate";
+    private static final String TAG_userID = "userID";
 
 
     Button btn_image, write, cancel;
@@ -170,13 +170,14 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
 
                 String notTi  = item.getString(TAG_notTi);
                 String notNum  = item.getString(TAG_notNum);
-                String notDate = item.getString(TAG_notDate);
+                String userID = item.getString(TAG_userID);
 
                 HashMap<String, String> hashMap = new HashMap<>();
 
                 hashMap.put(TAG_notNum, notNum);
+                hashMap.put(TAG_userID,userID);
                 hashMap.put(TAG_notTi, notTi);
-                hashMap.put(TAG_notDate,notDate);
+
 
 
                 mArrrayList.add(hashMap);
@@ -185,7 +186,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
 
             ListAdapter adapter = new SimpleAdapter(
                     forum_forum.this, mArrrayList,R.layout.item_list,
-                    new String[]{TAG_notNum,TAG_notTi,TAG_notDate},
+                    new String[]{TAG_notNum,TAG_userID,TAG_notTi},
 
                     new int[]{R.id.textView_list_notNum,R.id.textView_list_notTi,R.id.textView_list_notDate}
             );

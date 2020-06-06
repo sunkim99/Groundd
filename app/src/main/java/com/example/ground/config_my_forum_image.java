@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+//그림게시판..?????????
 public class config_my_forum_image extends AppCompatActivity implements View.OnClickListener{
 
     Button go_forum_forum;

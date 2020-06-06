@@ -15,7 +15,8 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-//게시판에서 게시물을 눌렀을때 해당게시물 보여지는화면
+
+//공지 게시판에서 게시물을 눌렀을때 해당게시물 보여지는화면
 
 public class notice_notice_in extends AppCompatActivity implements View.OnClickListener {
 
@@ -62,7 +63,7 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
         id_notDate = findViewById(R.id.id_notDate);
         id_notCon = findViewById(R.id.id_notCon);
 
-        Log.d("TEST1234", "[공지] ");
+        Log.d("TEST1234", "[공지]");
         //학교 정보 가져오기
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -74,25 +75,20 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
                         Log.d("TEST1234", "[공지] 쓰레드확인");
 
                         String number = jasonObject.getString("annNum");
-                        Log.d("TEST1234", "[공지] 쓰레드확인1:");
-                        Log.d("TEST1234", "[공지]  가져온 글번호 :" + number);
-                        //String schName11 = schName1;
-                        //Log.d("TEST1234", "학교이름 : " + schName1);
-
-
-                        // SCHOOL.setSCHOOL(schName11);  // 전역변수는 schName11의 값을 가짐
+                        Log.d("TEST1234", "[공지] 쓰레드확인1 ");
+                        Log.d("TEST1234", "[공지] 가져온 글번호 : " + number);
 
 
                         String userID = jasonObject.getString("userID");
-                        Log.d("TEST1234", "[공지] 아이디 " + userID);
+                        Log.d("TEST1234", "[공지] 아이디 : " + userID);
 
                         String annTi = jasonObject.getString("annTi");
-                        Log.d("TEST1234", "[공지] 제목 " + annTi);
+                        Log.d("TEST1234", "[공지] 제목 : " + annTi);
                         String annCon = jasonObject.getString("annCon");
 
                         String annDate = jasonObject.getString("annDate");
 
-                        Log.d("TEST1234", "[공지] 쓰레드확인2:");
+                        Log.d("TEST1234", "[공지] 쓰레드확인2");
 
 
                         id_userNick.setText(userID);

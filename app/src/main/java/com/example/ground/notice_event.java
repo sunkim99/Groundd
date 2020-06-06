@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+//공지 - 이벤트 (미진행)
 public class notice_event extends AppCompatActivity implements View.OnClickListener{
 
     Button go_notice_notice;

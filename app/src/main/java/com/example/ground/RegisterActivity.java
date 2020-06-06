@@ -19,7 +19,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+//회원가입
 public class RegisterActivity extends AppCompatActivity {
     private EditText et_id, et_pass, et_name, et_nickname,et_phone,et_parphone,et_passck,et_school;
     private Button btn_register,validateButton;
@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_school= findViewById(R.id.et_school);
 
 
-        Log.d("TEST1234","userID:화면시작됨");
+        Log.d("TEST1234","[회원가입] 화면시작됨");
         validateButton=findViewById(R.id.validateButton);
         validateButton.setOnClickListener(new View.OnClickListener() {//id중복체크
             @Override
@@ -123,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     void click(){
-        Log.d("TEST1234","userID:버튼클릭됨");
+        Log.d("TEST1234","[회원가입] 버튼 클릭");
         //editText에 입력되어있는 값을 get(가져온다)해온다
         String userID = et_id.getText().toString();
         final String userPass = et_pass.getText().toString();
@@ -142,7 +142,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 try {
-                    Log.d("TEST1234","쓰레드확인1:"+Thread.currentThread());
+                    Log.d("TEST1234","[회원가입] 쓰레드확인1"+Thread.currentThread());
                     JSONObject jasonObject=new JSONObject(response);//Register2 php에 response
                     boolean success =jasonObject.getBoolean("success");//Register2 php에 success
 
@@ -150,20 +150,20 @@ public class RegisterActivity extends AppCompatActivity {
 
                     String ssss = jasonObject.getString("id");
                     String sta = jasonObject.getString("str");
-                    Log.d("TEST1234","success:"+success);
-                    Log.d("TEST1234","정상성공?:"+ssss);
-                    Log.d("TEST1234","php->안스 값:"+sta);
+                    Log.d("TEST1234","[회원가입] 1 " + success);
+                    Log.d("TEST1234","[회원가입] 2 " + ssss);
+                    Log.d("TEST1234","[회원가입] 3 " + sta);
 
 
 
                     if(userPass.equals(PassCk)) {
-                        Log.d("TEST1234","쓰레드확인2:"+Thread.currentThread());
+                        Log.d("TEST1234","[회원가입] 쓰레드확인2"+Thread.currentThread());
                         if (success) { //회원등록 성공한 경우
-                            Log.d("TEST1234","쓰레드확인3:"+Thread.currentThread());
+                            Log.d("TEST1234","[회원가입] 쓰레드확인"+Thread.currentThread());
                             Toast.makeText(getApplicationContext(), "회원 가입 성공!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
-                            Log.d("TEST1234","쓰레드확인4:"+Thread.currentThread());
+                            Log.d("TEST1234","[회원가입] 쓰레드확인"+Thread.currentThread());
                         }
                     }
                     else{//회원등록 실패한 경우
@@ -178,11 +178,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         //서버로 volley를 이용해서 요청을 함
         RegisterRequest registerRequest=new RegisterRequest(userID,userPass, userName, userNick,userPh,userParPh,schName, responseListener);
-        Log.d("TEST1234","쓰레드확인5:"+Thread.currentThread());
+        Log.d("TEST1234","[회원가입] 쓰레드확인5"+Thread.currentThread());
         RequestQueue queue= Volley.newRequestQueue(RegisterActivity.this);
-        Log.d("TEST1234","쓰레드확인6:"+Thread.currentThread());
+        Log.d("TEST1234","[회원가입] 쓰레드확인6"+Thread.currentThread());
         queue.add(registerRequest);
-        Log.d("TEST1234","쓰레드확인7:"+Thread.currentThread());
+        Log.d("TEST1234","[회원가입] 쓰레드확인7"+Thread.currentThread());
     }
 
 }

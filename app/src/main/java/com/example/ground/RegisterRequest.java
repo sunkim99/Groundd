@@ -6,7 +6,7 @@ import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//회원가입 할때 요청
 public class RegisterRequest extends StringRequest {
 
     //서버 url 설정(php파일 연동)

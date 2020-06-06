@@ -105,8 +105,8 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
                         id_userNick.setText(userID);
                         id_notTi.setText(title);
-                        id_notCon.setText(notDate);
-                        id_notDate.setText(notCon);
+                        id_notCon.setText(notCon);
+                        id_notDate.setText(notDate);
 
 
 

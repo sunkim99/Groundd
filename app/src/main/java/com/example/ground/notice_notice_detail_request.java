@@ -8,12 +8,12 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-//게시판 상세 내용 요청하기
+//공지 게시판 상세 내용 요청하기
 public class notice_notice_detail_request extends StringRequest {
 
 
     //서버 url 설정(php파일 연동)
-    final static  private String URL="http://olivia7626.dothome.co.kr/Notice_detail.php"; //Notice_detail php 만들어서 학교 정보 연결하기
+    final static  private String URL="http://olivia7626.dothome.co.kr/Notice_detail.php"; //Notice_detail php
     private Map<String,String> map;
 
     public notice_notice_detail_request(Integer annNum, Response.Listener<String>listener){

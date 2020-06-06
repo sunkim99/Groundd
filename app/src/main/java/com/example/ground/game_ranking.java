@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-//그림게시판
+//게임 랭킹
 public class game_ranking extends AppCompatActivity implements View.OnClickListener{
 
     Button go_other_menu;

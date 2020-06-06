@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
+//메인
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_school, btn_board, btn_character, btn_event, btn_game, btn_setting;
     TextView et;
