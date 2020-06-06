@@ -101,7 +101,6 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
         @Override // 백그라운드 실행 전 변수 초기화 및 통신셋팅
         protected void onPreExecute() {
             super.onPreExecute();
-
             progressDialog = ProgressDialog.show(forum_forum.this, "Please wait", null, true,true);
         }
 
