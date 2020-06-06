@@ -40,15 +40,15 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         //final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
 
         btn_image = findViewById(R.id.go_forum_image);
-        //write = findViewById(R.id.) 댓글쓰기버튼
+        write = findViewById(R.id.go_forum_write); //댓글쓰기버튼
         cancel = findViewById(R.id.go_forum_forum);
 
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
 
         btn_image.setOnClickListener(this);
-        //write.setOnClickListener(this); 댓글쓰기 이벤트
-        //cancel.setOnClickListener(this);
+        write.setOnClickListener(this); //댓글쓰기 이벤트
+        //cancel.setOnClickListener(this); <--------------------------- 활성화시 오류
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
@@ -123,6 +123,61 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         forum_froum_detail_request ffd = new forum_froum_detail_request(notNum, responseListener);
         RequestQueue queue = Volley.newRequestQueue(forum_forum_in.this);
         queue.add(ffd);
+
+        //댓글 불러오기
+        Response.Listener<String> comment_response= new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jasonObject = new JSONObject(response);
+                    boolean success = jasonObject.getBoolean("success");
+                    if (success) {
+                        Log.d("TEST1234", "[Forum] 쓰레드확인");
+
+                        String number = jasonObject.getString("notNum");
+                        Log.d("TEST1234", "[Forum] 쓰레드확인1:");
+                        Log.d("TEST1234", "[Forum]  가져온 글번호 :" + number);
+                        //String schName11 = schName1;
+                        //Log.d("TEST1234", "학교이름 : " + schName1);
+
+
+                        // SCHOOL.setSCHOOL(schName11);  // 전역변수는 schName11의 값을 가짐
+
+
+                        String userID = jasonObject.getString("userID");
+                        Log.d("TEST1234", "[Forum] 아이디 " + userID);
+
+                        String title = jasonObject.getString("notTi");
+                        Log.d("TEST1234", "[Forum]  제목 " + title);
+                        String notCon = jasonObject.getString("notCon");
+
+                        String notDate = jasonObject.getString("notDate");
+
+                        Log.d("TEST1234", "[Forum] 쓰레드확인2:");
+
+
+                        id_userNick.setText(userID);
+                        id_notTi.setText(title);
+                        id_notCon.setText(notDate);
+                        id_notDate.setText(notCon);
+
+
+
+                    } else {
+                        Log.d("TEST1234", "[Forum] 게시글 정보");
+                        return;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        forum_froum_detail_request comment = new forum_froum_detail_request(notNum, comment_response);
+        RequestQueue comment_queue = Volley.newRequestQueue(forum_forum_in.this);
+        comment_queue.add(comment);
+
+
 
     }
 

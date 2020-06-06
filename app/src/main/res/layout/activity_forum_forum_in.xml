@@ -185,4 +185,25 @@
         app:layout_constraintTop_toBottomOf="@+id/id_notDate"
         app:layout_constraintVertical_bias="0.685" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="412dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/input_box"
+        tools:ignore="MissingConstraints">
+
+        <ListView
+            android:id="@+id/comment_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="댓글쓰기"
+        app:layout_constraintStart_toStartOf="@+id/input_box"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
