@@ -12,20 +12,20 @@ import java.util.Map;
 public class forum_froum_detail_request extends StringRequest {
 
 
-    //서버 url 설정(php파일 연동)
-    final static  private String URL="http://olivia7626.dothome.co.kr/Froum_Froum_detail.php"; //Froum_Froum_detail php 만들어서 학교 정보 연결하기
-    private Map<String,String> map;
+        //서버 url 설정(php파일 연동)
+        final static  private String URL="http://olivia7626.dothome.co.kr/Froum_Froum_detail.php"; //Froum_Froum_detail php 만들어서 학교 정보 연결하기
+        private Map<String,String> map;
 
-    public forum_froum_detail_request(Integer notNum,  Response.Listener<String>listener){
-        super(Method.POST,URL,listener,null);
+        public forum_froum_detail_request(Integer notNum,  Response.Listener<String>listener){
+            super(Method.POST,URL,listener,null);
 
-        map=new HashMap<>();
-        map.put("notNum",Integer.toString(notNum));
+            map=new HashMap<>();
+            map.put("notNum",Integer.toString(notNum));
 
-    }
+        }
 
-    @Override
-    protected Map<String, String> getParams() throws AuthFailureError {
-        return map;
-    }
+        @Override
+        protected Map<String, String> getParams() throws AuthFailureError {
+            return map;
+        }
 }

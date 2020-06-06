@@ -7,7 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,22 +20,39 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 //게시판에서 게시물을 눌렀을때 해당게시물 보여지는화면
 
 public class forum_forum_in extends AppCompatActivity implements View.OnClickListener {
 
+    private static String TAG = "phptest_forum_forum";
+    private static final String TAG_JSON = "webnautes";
+    private static final String TAG_commCon = "commCon";
+    private static final String TAG_commDate = "commDate";
+
+
     Button btn_image, write, cancel;
     Button top_navi, btn_setting;
 
     TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick;
+
+    private EditText commment_Context;
+
+    ListView list;
+    ArrayList<HashMap<String, String>> mArrrayList;
+    String mJsonString;
 
 
     @Override
@@ -52,6 +74,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
+        commment_Context =findViewById(R.id.commCon);
 
         Intent intent1 = getIntent();
         String notNum1 = intent1.getStringExtra("check_position1");
@@ -124,68 +147,154 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         RequestQueue queue = Volley.newRequestQueue(forum_forum_in.this);
         queue.add(ffd);
 
-        //댓글 불러오기
-        Response.Listener<String> comment_response= new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jasonObject = new JSONObject(response);
-                    boolean success = jasonObject.getBoolean("success");
-                    if (success) {
-                        Log.d("TEST1234", "[Forum] 쓰레드확인");
+        // 댓글 내용 불러오기
 
-                        String number = jasonObject.getString("notNum");
-                        Log.d("TEST1234", "[Forum] 쓰레드확인1:");
-                        Log.d("TEST1234", "[Forum]  가져온 글번호 :" + number);
-                        //String schName11 = schName1;
-                        //Log.d("TEST1234", "학교이름 : " + schName1);
+        list = (ListView) findViewById(R.id.comment_list);
+        mArrrayList = new ArrayList<>();
+/*
+        GetData task = new GetData();
+        task.execute("http://olivia7626.dothome.co.kr/Commentlist.php");
+ */
+    }
+/*
+    private class GetData extends AsyncTask<String,Void,String>{
 
+        ProgressDialog progressDialog;
+        String errorString = null;
 
-                        // SCHOOL.setSCHOOL(schName11);  // 전역변수는 schName11의 값을 가짐
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = ProgressDialog.show(forum_forum_in.this, "Please wait", null, true,true);
 
+        }
 
-                        String userID = jasonObject.getString("userID");
-                        Log.d("TEST1234", "[Forum] 아이디 " + userID);
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
 
-                        String title = jasonObject.getString("notTi");
-                        Log.d("TEST1234", "[Forum]  제목 " + title);
-                        String notCon = jasonObject.getString("notCon");
+            progressDialog.dismiss();
+            mJsonString = result;
+            showResult();
+        }
 
-                        String notDate = jasonObject.getString("notDate");
+        @Override
+        protected String doInBackground(String... params) {
 
-                        Log.d("TEST1234", "[Forum] 쓰레드확인2:");
+            String serverURL = params[0];
+            try {
+                URL url = new URL(serverURL);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
+                httpURLConnection.setReadTimeout(5000);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.connect();
 
-                        id_userNick.setText(userID);
-                        id_notTi.setText(title);
-                        id_notCon.setText(notDate);
-                        id_notDate.setText(notCon);
+                int responseStatusCode = httpURLConnection.getResponseCode();
+                Log.d(TAG, "response cod -" + responseStatusCode);
 
-
-
-                    } else {
-                        Log.d("TEST1234", "[Forum] 게시글 정보");
-                        return;
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                InputStream inputStream;
+                if(responseStatusCode == HttpURLConnection.HTTP_OK){
+                    inputStream = httpURLConnection.getInputStream();
                 }
+                else{
+                    inputStream = httpURLConnection.getErrorStream();
+                }
+
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                StringBuilder sb = new StringBuilder();
+                String line;
+
+                while ((line = bufferedReader.readLine()) !=null){
+                    sb.append(line);
+                }
+                bufferedReader.close();
+
+                return sb.toString().trim();
+
+            } catch (Exception e) {
+                Log.d(TAG, "InsertData : Error",e);
+                errorString = e.toString();
             }
+            return null;
+        }
+    }
+    private void showResult(){
+        try {
+            JSONObject jsonObject = new JSONObject(mJsonString);
+            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
 
-        };
-        forum_froum_detail_request comment = new forum_froum_detail_request(notNum, comment_response);
-        RequestQueue comment_queue = Volley.newRequestQueue(forum_forum_in.this);
-        comment_queue.add(comment);
+            for (int i=0;i<jsonArray.length(); i++) {
+                JSONObject item = jsonArray.getJSONObject(i);
 
 
+                String commCon = item.getString(TAG_commCon);
+                String commDate = item.getString(TAG_commDate);
 
+                HashMap<String, String> hashMap = new HashMap<>();
+
+                hashMap.put(TAG_commCon, commCon);
+                hashMap.put(TAG_commDate, commDate);
+
+
+                mArrrayList.add(hashMap);
+            }
+                ListAdapter adapter = new SimpleAdapter(
+                        forum_forum_in.this, mArrrayList,R.layout.comment_item_list,
+                        new String[]{TAG_commCon,TAG_commDate},
+
+                        new int[]{R.id.textView_list_commCon,R.id.textView_list_commDate}
+                );
+                list.setAdapter(adapter);
+            }
+                catch (JSONException e){
+                Log.d(TAG, "showResult :",e);
+        }
     }
 
-
+*/
 
     @Override
     public void onClick(View v) {
 
+        if(v.getId() == R.id.go_forum_write){
+            Log.d("TEST1234","댓긍작성버튼 눌림");
+            String notNum = id_notNum.getText().toString();
+            String commCon = commment_Context.getText().toString();
 
+         //   commCon = commCon.replace("'","'");
+
+            Response.Listener<String> commentwriteListener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d("TEST1234", "쓰레드확인1:" + Thread.currentThread());
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(response);
+                    boolean success = jsonObject.getBoolean("success");
+
+                    String sta = jsonObject.getString("str");
+                    Log.d("TEST1234","success:"+success);
+                    Log.d("TEST1324","php->안스 값:"+sta);
+
+                    Toast.makeText(getApplicationContext(), "댓글이 작성되었습니다", Toast.LENGTH_SHORT).show();
+
+                    finish();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            CommentWriteRequest commentWriteRequest = new CommentWriteRequest(Integer.parseInt(notNum) ,commCon, commentwriteListener);
+            Log.d("TEST1234","쓰레드확인4:"+Thread.currentThread());
+            RequestQueue commentwritequeue = Volley.newRequestQueue(forum_forum_in.this);
+            Log.d("TEST1234","쓰레드확인5:"+Thread.currentThread());
+            commentwritequeue.add(commentWriteRequest);
+            Log.d("TEST1234","쓰레드확인6:"+Thread.currentThread());
+        }
     }
 }

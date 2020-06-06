@@ -54,6 +54,8 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         String nickName = NICKNAME.getNICKNAME();
         show_id.setText(userID);
         user_nickname.setText(nickName);
+
+
     }
 
 

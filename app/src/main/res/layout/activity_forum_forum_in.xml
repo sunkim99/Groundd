@@ -201,6 +201,7 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/commCon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="댓글쓰기"
