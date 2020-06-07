@@ -215,7 +215,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bm_font"
-        android:text="댓글쓰기"
+        android:hint="댓글을 입력해주세요"
         app:layout_constraintStart_toStartOf="@+id/input_box"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
