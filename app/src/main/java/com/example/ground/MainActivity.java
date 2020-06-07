@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intent2 = getIntent();
         String userID1 = intent2.getStringExtra("userID");
-        et = findViewById(R.id.editText11);
+        et = findViewById(R.id.editText1);
         et.setText(userID1);
 
         ID.setID(userID1); // 전역변수는 userID1의 값을 가짐
