@@ -15,7 +15,7 @@ public class CommentWriteRequest extends StringRequest {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("notNum",String.valueOf(notNum));
+        map.put("notNum",notNum+"");
         map.put("commCon",commCon);
     }
 
