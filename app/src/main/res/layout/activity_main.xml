@@ -114,8 +114,9 @@
         android:fontFamily="@font/bm_font"
         android:inputType="textPersonName"
         android:text="Name"
+        android:visiblity = "invisible"
         android:textSize="30dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/btn_logo"
         app:layout_constraintTop_toTopOf="@+id/btn_logo" />
 

@@ -131,6 +131,7 @@
         android:layout_height="27dp"
         android:fontFamily="@font/bm_font"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/id_notTi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -144,6 +145,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/bm_font"
         android:text="TextView"
+        android:textSize="15sp"
+
         app:layout_constraintBottom_toTopOf="@+id/id_notTi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.963"
@@ -171,12 +174,13 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/bm_font"
         android:text="TextView"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/input_box"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.963"
         app:layout_constraintStart_toStartOf="@+id/id_notTi"
         app:layout_constraintTop_toBottomOf="@+id/id_notTi"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintVertical_bias="0.105" />
 
     <TextView
         android:id="@+id/id_notCon"
