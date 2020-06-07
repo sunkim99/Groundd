@@ -14,6 +14,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:textSize="15sp"
+        android:fontFamily="@font/bm_font"
         android:layout_margin="5dp"
         android:padding="5dp" />
 
@@ -22,15 +24,19 @@
         android:id="@+id/textView_list_notTi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
         android:layout_margin="5dp"
-        android:padding="5dp" />
+        android:layout_weight="3"
+        android:fontFamily="@font/bm_font"
+        android:padding="5dp"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView_list_notDate"
         android:layout_width="0dp"
+        android:fontFamily="@font/bm_font"
+        android:textSize="18sp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="5"
         android:layout_margin="5dp"
         android:padding="5dp"/>
 

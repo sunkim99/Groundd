@@ -29,12 +29,14 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
     Button top_navi, btn_setting;
 
     TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick;
-
+    int admin_s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_notice_in);
+        final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
+        admin_s = ADMIN.getADMIN();
 
 
         btn_image = findViewById(R.id.go_forum_image);
@@ -67,6 +69,15 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
         id_notTi = findViewById(R.id.id_notTi);
         id_notDate = findViewById(R.id.id_notDate);
         id_notCon = findViewById(R.id.id_notCon);
+
+
+        if (admin_s == 0) { //일반사용자는 볼 수 없음
+            delete.setVisibility(Button.GONE);
+        }
+        if (admin_s == 2) { //관리자 2번(어플관리자)라면 삭제하기 버튼 보이기
+            delete.setVisibility(Button.VISIBLE);
+        }
+
 
         Log.d("TEST1234", "[공지]");
         //학교 정보 가져오기

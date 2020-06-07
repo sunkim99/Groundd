@@ -19,27 +19,30 @@ import org.json.JSONObject;
 //학교게시판에서 게시물 눌렀을때 상세보여지는화면
 public class school_forum_list extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn_image, write, cancel;
+    Button btn_image, delete, cancel;
     Button top_navi, btn_setting;
 
     TextView id_notTi, id_notCon, id_notDate,tv_userNick,tv_notNum;
 
+    int admin_s;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_forum_list);
-
+        final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
+        admin_s = ADMIN.getADMIN();
 
         btn_image = findViewById(R.id.go_forum_image);
-        //write = findViewById(R.id.) 댓글쓰기버튼
+        delete = findViewById(R.id.delete); //삭제하기버튼
         cancel = findViewById(R.id.go_forum_forum);
 
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
 
         btn_image.setOnClickListener(this);
-        //write.setOnClickListener(this); 댓글쓰기 이벤트
+        delete.setOnClickListener(this); //삭제하기
+
         //cancel.setOnClickListener(this); 0606 - 이거 왜 오류나지 R.id.~~~ 이거 오류였음 필요하면 해당 xml보고 이름다시설정하기
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
@@ -48,6 +51,14 @@ public class school_forum_list extends AppCompatActivity implements View.OnClick
         id_notCon = findViewById(R.id.id_notCon);
         id_notDate =findViewById(R.id.id_notDate);
         tv_userNick = findViewById(R.id.tv_userNick);
+
+        if (admin_s == 0) { //일반사용자는 볼 수 없음
+            delete.setVisibility(Button.GONE);
+        }
+        if (admin_s == 1 || admin_s == 2) { //관리자 1번이나 관리자 2번은 접근가능
+            delete.setVisibility(Button.VISIBLE);
+        }
+
 
 
         Intent intent1 = getIntent();

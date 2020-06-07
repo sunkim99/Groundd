@@ -14,7 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:padding="5dp" />
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/bm_font" />
 
 
     <TextView
@@ -23,7 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="3"
-        android:padding="5dp" />
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/bm_font" />
 
 
 

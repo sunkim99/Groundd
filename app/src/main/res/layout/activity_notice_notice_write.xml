@@ -94,7 +94,8 @@
         android:layout_height="29dp"
         android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/write_tbox" />
 
@@ -102,7 +103,7 @@
         android:id="@+id/notice_title_name"
         android:layout_width="275dp"
         android:layout_height="46dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
         android:ems="10"
@@ -118,10 +119,10 @@
         android:id="@+id/notice_content"
         android:layout_width="395dp"
         android:layout_height="450dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/bm_font"
         android:gravity="start"
-
+        android:textSize="18sp"
         android:text="내용을 입력해주세요"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.625"
