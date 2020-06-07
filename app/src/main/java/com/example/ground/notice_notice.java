@@ -54,6 +54,9 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         allround ADMIN = (allround) getApplicationContext();
 
+        String userID;
+        userID = ID.getID();
+
         go_notice_event = findViewById(R.id.go_notice_event);
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);

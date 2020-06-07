@@ -91,12 +91,13 @@ public class school_information extends AppCompatActivity implements View.OnClic
         school_write.setOnClickListener(this);
 
 
-        data_receive = getIntent();
-        final String userID1 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기
-        ID.setID(userID1); // 전역변수는 userID1의 값을 가짐
-        Log.d("TEST1234", "[School Info]받아온 userID " + userID1);
+       /* data_receive = getIntent();
+        final String userID1 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기*/
+        String userID;
+        userID=ID.getID(); // 전역변수는 userID1의 값을 가짐
+        Log.d("TEST1234", "[School Info]받아온 userID " + userID);
 
-        String userID = userID1;
+
 
 
         //리스트뷰 정의

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.usage.NetworkStats;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -75,12 +76,15 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         }
         if (admin_s == 1) {
             btn_ADMIN.setVisibility(Button.VISIBLE);
+            btn_change.setVisibility(Button.GONE);//추가
+            btn_my_forum.setVisibility(Button.GONE);//
             btn_change.setEnabled(false);
             btn_my_forum.setEnabled(false);
 
         }
         if (admin_s == 2) {
             btn_ADMIN.setVisibility(Button.VISIBLE);
+            btn_change.setVisibility(Button.GONE);//추가
             btn_change.setEnabled(false);
         }
 

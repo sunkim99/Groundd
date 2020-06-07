@@ -55,8 +55,10 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         btn_setting.setOnClickListener(this);
 
         String userID = ID.getID();
-        String nickName = NICKNAME.getNICKNAME();
+
         show_id.setText(userID);
+
+        String nickName = NICKNAME.getNICKNAME();
         user_nickname.setText(nickName);
 
         MY_char = findViewById(R.id.MY_char);
