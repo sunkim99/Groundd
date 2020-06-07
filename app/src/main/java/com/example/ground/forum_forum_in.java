@@ -265,6 +265,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
             String notNum = id_notNum.getText().toString();
             String commCon = commment_Context.getText().toString();
 
+            int notNum_temp = Integer.parseInt(notNum);
          //   commCon = commCon.replace("'","'");
 
             Response.Listener<String> commentwriteListener = new Response.Listener<String>() {
@@ -289,11 +290,11 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
                     }
                 }
             };
-            CommentWriteRequest commentWriteRequest = new CommentWriteRequest(Integer.parseInt(notNum) ,commCon, commentwriteListener);
+            CommentWriteRequest commentWriteRequest = new CommentWriteRequest(notNum_temp ,commCon, commentwriteListener);
             Log.d("TEST1234","쓰레드확인4:"+Thread.currentThread());
-            RequestQueue commentwritequeue = Volley.newRequestQueue(forum_forum_in.this);
+            RequestQueue commentWritequeue = Volley.newRequestQueue(forum_forum_in.this);
             Log.d("TEST1234","쓰레드확인5:"+Thread.currentThread());
-            commentwritequeue.add(commentWriteRequest);
+            commentWritequeue.add(commentWriteRequest);
             Log.d("TEST1234","쓰레드확인6:"+Thread.currentThread());
         }
     }
