@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
 
     Button btn_image, delete, cancel;
     Button top_navi, btn_setting;
-
+    ImageView MY_char;
     TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick;
     int admin_s;
 
@@ -37,7 +38,8 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_notice_notice_in);
         final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
         admin_s = ADMIN.getADMIN();
-
+        allround Char_head = (allround) getApplicationContext();
+        int MY_Char_head = Char_head.getChar_head();
 
         btn_image = findViewById(R.id.go_forum_image);
         delete = findViewById(R.id.delete); //삭제하기 버튼
@@ -60,6 +62,12 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
         id_notNum.setText(notNum1);
         Log.d("TEST1234", String.valueOf(annNum));
 
+        MY_char = findViewById(R.id.MY_char);
+        if (MY_Char_head == 0) {
+            MY_char.setImageResource(R.drawable.ex_char1);
+        } else if (MY_Char_head == 1) {
+            MY_char.setImageResource(R.drawable.ex_char2);
+        }
 
         /*String userNick = NICKNAME.getNICKNAME();
 

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ public class school_infomation_write extends AppCompatActivity implements View.O
     Button top_navi, btn_setting;
     Button btn_image_add;
     TextView school_name, school_add, school_tel, sch_user_nickname, sch_user_id;
-
+    ImageView MY_char;
     private EditText text_write, title_name;
 
 
@@ -43,6 +44,9 @@ public class school_infomation_write extends AppCompatActivity implements View.O
         final allround SCHADD = (allround) getApplicationContext(); //학교 주소
         final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+        allround Char_head = (allround) getApplicationContext();
+        int MY_Char_head = Char_head.getChar_head();
+
 
         btn_save = findViewById(R.id.btn_save); //글쓰기 버튼 = 저장 버튼
         btn_back = findViewById(R.id.btn_back); //되돌아가기 버튼
@@ -78,6 +82,14 @@ public class school_infomation_write extends AppCompatActivity implements View.O
         school_tel.setText(schPh);
         sch_user_id.setText(schAdminID);
         sch_user_nickname.setText(schAdminNickName);
+
+
+        MY_char = findViewById(R.id.MY_char);
+        if (MY_Char_head == 0) {
+            MY_char.setImageResource(R.drawable.ex_char1);
+        } else if (MY_Char_head == 1) {
+            MY_char.setImageResource(R.drawable.ex_char2);
+        }
     }
 
     @Override

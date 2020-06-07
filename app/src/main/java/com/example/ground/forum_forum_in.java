@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -48,6 +49,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
     Button btn_image, write, cancel;
     Button top_navi, btn_setting;
+    ImageView MY_char;
 
     TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick, store_id;
 
@@ -62,6 +64,8 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum_in);
+        allround Char_head = (allround) getApplicationContext();
+        int MY_Char_head = Char_head.getChar_head();
         //final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
         allround ADMIN = (allround) getApplicationContext();
 
@@ -93,8 +97,16 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         Log.d("TEST1234", String.valueOf(notNum));
 
 
-        /*String userNick = NICKNAME.getNICKNAME();
+        MY_char = findViewById(R.id.MY_char);
+        if (MY_Char_head == 0) {
+            MY_char.setImageResource(R.drawable.ex_char1);
+        } else if (MY_Char_head == 1) {
+            MY_char.setImageResource(R.drawable.ex_char2);
+        } // 캐릭터관련
 
+
+
+        /*String userNick = NICKNAME.getNICKNAME();
 
         id_userNick.setText(userNick);*/ //닉네임은 이렇게말고 쿼리문에서 가져와야하는데 작성하는거 모르겠음..
         id_userNick = findViewById(R.id.id_userNick);

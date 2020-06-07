@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
     Button top_navi, btn_setting;
     TextView user_nickname, show_id;
     private EditText text_write, title_name;
-
+    ImageView MY_char;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,8 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_forum_forum_write);
         allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         allround NICKNAME = (allround) getApplicationContext(); // 전역변수 NICKNAME 소환
-
+        allround Char_head = (allround) getApplicationContext();
+        int MY_Char_head = Char_head.getChar_head();
 
         btn_save = findViewById(R.id.btn_save);
         btn_back = findViewById(R.id.btn_back);
@@ -57,6 +59,12 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         show_id.setText(userID);
         user_nickname.setText(nickName);
 
+        MY_char = findViewById(R.id.MY_char);
+        if (MY_Char_head == 0) {
+            MY_char.setImageResource(R.drawable.ex_char1);
+        } else if (MY_Char_head == 1) {
+            MY_char.setImageResource(R.drawable.ex_char2);
+        }
 
     }
 

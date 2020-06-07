@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +25,7 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
 
     Button school_forum, delete, cancel;
     Button top_navi, btn_setting;
-
+    ImageView MY_char;
     TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick;
 
     int admin_s;
@@ -35,6 +36,8 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_config_my_forum_in);
         final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
         admin_s = ADMIN.getADMIN();
+        allround Char_head = (allround) getApplicationContext();
+        int MY_Char_head = Char_head.getChar_head();
 
         delete = findViewById(R.id.delete); //삭제하기 버튼
         cancel = findViewById(R.id.btn_forum_forum_in_cancel);
@@ -51,6 +54,12 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
         btn_setting.setOnClickListener(this);
         delete.setOnClickListener(this); //삭제하기 버튼
 
+        MY_char = findViewById(R.id.MY_char);
+        if (MY_Char_head == 0) {
+            MY_char.setImageResource(R.drawable.ex_char1);
+        } else if (MY_Char_head == 1) {
+            MY_char.setImageResource(R.drawable.ex_char2);
+        }
 
         Intent intent1 = getIntent();
         String notNum1 = intent1.getStringExtra("check_position1");
