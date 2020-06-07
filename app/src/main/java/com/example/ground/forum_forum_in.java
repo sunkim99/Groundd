@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -37,7 +38,7 @@ import java.util.HashMap;
 
 public class forum_forum_in extends AppCompatActivity implements View.OnClickListener {
 
-    private static String TAG = "phptest_forum_forum";
+    private static String TAG = "phptest_forum_forum_in";
     private static final String TAG_JSON = "webnautes";
     private static final String TAG_commCon = "commCon";
     private static final String TAG_commDate = "commDate";
@@ -66,11 +67,6 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         String userID = ID.getID();
         store_id = findViewById(R.id.store_id);
         store_id.setText(userID);
-
-
-
-
-
 
         btn_image = findViewById(R.id.go_forum_image);
         write = findViewById(R.id.go_forum_write); //댓글쓰기버튼
@@ -161,12 +157,12 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
         list = (ListView) findViewById(R.id.comment_list);
         mArrrayList = new ArrayList<>();
-/*
+
         GetData task = new GetData();
-        task.execute("http://olivia7626.dothome.co.kr/Commentlist.php");
- */
+        task.execute(commment_Context.getText().toString());
+
     }
-/*
+
     private class GetData extends AsyncTask<String,Void,String>{
 
         ProgressDialog progressDialog;
@@ -190,15 +186,22 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
         @Override
         protected String doInBackground(String... params) {
-
-            String serverURL = params[0];
+            String post_notNum = params[0];
+            String serverURL = "http://olivia7626.dothome.co.kr/Commentlist.php";
             try {
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoInput(true);
                 httpURLConnection.connect();
+
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                outputStream.write(post_notNum.getBytes("UTF-8"));
+                outputStream.flush();
+                outputStream.close();
 
                 int responseStatusCode = httpURLConnection.getResponseCode();
                 Log.d(TAG, "response cod -" + responseStatusCode);
@@ -265,7 +268,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-*/
+
 
     @Override
     public void onClick(View v) {
@@ -295,7 +298,6 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
                         Toast.makeText(getApplicationContext(), "댓글이 작성되었습니다", Toast.LENGTH_SHORT).show();
 
-                        finish();
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -311,6 +313,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
             Log.d("TEST1234", "[게시판 댓글] 확인5 " + Thread.currentThread());
             commentWritequeue.add(commentWriteRequest);
             Log.d("TEST1234", "[게시판 댓글] 확인6 " + Thread.currentThread());
+            commment_Context.setText("");
         }
     }
 }
