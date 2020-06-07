@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,11 +18,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 //학교게시판에서 게시물 눌렀을때 상세보여지는화면
-public class school_forum_list extends AppCompatActivity implements View.OnClickListener {
+public class school_infomation_list extends AppCompatActivity implements View.OnClickListener {
 
     Button btn_image, delete, cancel;
     Button top_navi, btn_setting;
-
+    ImageView MY_char;
     TextView id_notTi, id_notCon, id_notDate,tv_userNick,tv_notNum;
 
     int admin_s;
@@ -29,9 +30,11 @@ public class school_forum_list extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_school_forum_list);
+        setContentView(R.layout.activity_school_information_in);
         final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
         admin_s = ADMIN.getADMIN();
+        allround Char_head = (allround) getApplicationContext();
+        int MY_Char_head = Char_head.getChar_head();
 
         btn_image = findViewById(R.id.go_forum_image);
         delete = findViewById(R.id.delete); //삭제하기버튼
@@ -59,7 +62,12 @@ public class school_forum_list extends AppCompatActivity implements View.OnClick
             delete.setVisibility(Button.VISIBLE);
         }
 
-
+        MY_char = findViewById(R.id.MY_char);
+        if (MY_Char_head == 0) {
+            MY_char.setImageResource(R.drawable.ex_char1);
+        } else if (MY_Char_head == 1) {
+            MY_char.setImageResource(R.drawable.ex_char2);
+        }
 
         Intent intent1 = getIntent();
         String schnotNum1 = intent1.getStringExtra("itsreal");
@@ -117,8 +125,8 @@ public class school_forum_list extends AppCompatActivity implements View.OnClick
             }
 
         };
-        school_forum_list_request sflr = new school_forum_list_request(schnotNum, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(school_forum_list.this);
+        school_infomation_list_request sflr = new school_infomation_list_request(schnotNum, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(school_infomation_list.this);
         queue.add(sflr);
     }
 

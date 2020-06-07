@@ -17,7 +17,7 @@
         tools:targetApi="n">
         <activity android:name=".config_my_forum_in" />
         <activity android:name=".notice_notice_in" />
-        <activity android:name=".school_forum_list" />
+        <activity android:name=".school_infomation_list" />
         <activity android:name=".notice_notice_write" />
         <activity
             android:name=".char_inven_head"

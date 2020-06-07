@@ -110,7 +110,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-                Intent intent = new Intent(school_information.this,school_forum_list.class); //학교게시물보여지는화면으로 넘어가기
+                Intent intent = new Intent(school_information.this,school_infomation_list.class); //학교게시물보여지는화면으로 넘어가기
                 itsreal = mArrrayList.get(position);//리스트뷰의 포지션에대한 객체를 가져옴.
                 intent.putExtra("itsreal",itsreal);
                 Log.d("TEST1234","글번호 "+ itsreal.get(TAG_schnotNum)); //글번호 찍히기
