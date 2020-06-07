@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/go_forum_write"
+        android:id="@+id/delete"
         android:layout_width="62dp"
         android:layout_height="62dp"
         android:layout_gravity="start"
@@ -18,7 +18,7 @@
         android:layout_marginBottom="4dp"
         android:background="@drawable/reply_button"
         android:enabled="true"
-        app:layout_constraintBottom_toTopOf="@+id/btn_forum_forum_in_cancel"
+        app:layout_constraintBottom_toTopOf="@+id/cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.996"
         app:layout_constraintStart_toStartOf="parent" />
@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btn_forum_forum_in_cancel"
+        android:id="@+id/cancel"
         android:layout_width="62dp"
         android:layout_height="62dp"
         android:layout_gravity="start"
@@ -127,8 +127,8 @@
 
     <TextView
         android:id="@+id/id_userNick"
-        android:layout_width="46dp"
-        android:layout_height="24dp"
+        android:layout_width="104dp"
+        android:layout_height="27dp"
         android:fontFamily="@font/bm_font"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/id_notTi"
@@ -156,6 +156,7 @@
         android:layout_width="290dp"
         android:layout_height="35dp"
         android:fontFamily="@font/bm_font"
+        android:textSize="19sp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/input_box"
         app:layout_constraintEnd_toEndOf="parent"

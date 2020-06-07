@@ -213,4 +213,16 @@
         android:text="댓글쓰기"
         app:layout_constraintStart_toStartOf="@+id/input_box"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/store_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:visibility="invisible"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/id_notDate"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="257dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

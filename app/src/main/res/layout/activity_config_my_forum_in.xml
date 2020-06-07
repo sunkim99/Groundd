@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/go_forum_image"
+        android:id="@+id/school_forum"
         android:layout_width="135dp"
         android:layout_height="60dp"
         android:background="@android:drawable/divider_horizontal_dark"
@@ -104,7 +104,7 @@
         android:layout_width="391dp"
         android:layout_height="33dp"
         android:fontFamily="@font/bm_font"
-        android:text="게시판   그림게시판"
+        android:text="게시판   "
         android:textColor="@android:color/background_light"
         android:textSize="29sp"
         android:visibility="visible"

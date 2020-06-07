@@ -46,7 +46,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
     Button btn_image, write, cancel;
     Button top_navi, btn_setting;
 
-    TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick;
+    TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick, store_id;
 
     private EditText commment_Context;
 
@@ -60,6 +60,17 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum_in);
         //final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+        allround ADMIN = (allround) getApplicationContext();
+
+        final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        String userID = ID.getID();
+        store_id = findViewById(R.id.store_id);
+        store_id.setText(userID);
+
+
+
+
+
 
         btn_image = findViewById(R.id.go_forum_image);
         write = findViewById(R.id.go_forum_write); //댓글쓰기버튼
@@ -74,11 +85,11 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
-        commment_Context =findViewById(R.id.commCon);
+        commment_Context = findViewById(R.id.commCon);
 
         Intent intent1 = getIntent();
         String notNum1 = intent1.getStringExtra("check_position1");
-        Integer notNum= Integer.valueOf(notNum1);
+        Integer notNum = Integer.valueOf(notNum1);
         id_notNum = findViewById(R.id.id_notNum);
         id_notNum.setText(notNum1);
         Log.d("TEST1234", String.valueOf(notNum));
@@ -130,7 +141,6 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
                         id_notTi.setText(title);
                         id_notCon.setText(notCon);
                         id_notDate.setText(notDate);
-
 
 
                     } else {
@@ -260,42 +270,44 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        if(v.getId() == R.id.go_forum_write){
-            Log.d("TEST1234","댓긍작성버튼 눌림");
+        if (v.getId() == R.id.go_forum_write) {
+            Log.d("TEST1234", "[게시판 댓글] 댓글 작성버튼 눌림");
+
             String notNum = id_notNum.getText().toString();
+            String userID =  store_id.getText().toString();
             String commCon = commment_Context.getText().toString();
 
             int notNum_temp = Integer.parseInt(notNum);
-         //   commCon = commCon.replace("'","'");
+            //   commCon = commCon.replace("'","'");
 
             Response.Listener<String> commentwriteListener = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.d("TEST1234", "쓰레드확인1:" + Thread.currentThread());
+                    Log.d("TEST1234", "[게시판 댓글] 확인1" + Thread.currentThread());
                     JSONObject jsonObject = null;
                     try {
                         jsonObject = new JSONObject(response);
-                    boolean success = jsonObject.getBoolean("success");
+                        boolean success = jsonObject.getBoolean("success");
 
-                    String sta = jsonObject.getString("str");
-                    Log.d("TEST1234","success:"+success);
-                    Log.d("TEST1324","php->안스 값:"+sta);
+                        String sta = jsonObject.getString("str");
+                        Log.d("TEST1234", "[게시판 댓글] success : " + success);
+                        Log.d("TEST1324", "[게시판 댓글] php->안스 값 : " + sta);
 
-                    Toast.makeText(getApplicationContext(), "댓글이 작성되었습니다", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "댓글이 작성되었습니다", Toast.LENGTH_SHORT).show();
 
-                    finish();
+                        finish();
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             };
-            CommentWriteRequest commentWriteRequest = new CommentWriteRequest(notNum_temp ,commCon, commentwriteListener);
-            Log.d("TEST1234","쓰레드확인4:"+Thread.currentThread());
+            CommentWriteRequest commentWriteRequest = new CommentWriteRequest(notNum_temp,userID,commCon, commentwriteListener);
+            Log.d("TEST1234", "[게시판 댓글] 확인4 " + Thread.currentThread());
             RequestQueue commentWritequeue = Volley.newRequestQueue(forum_forum_in.this);
-            Log.d("TEST1234","쓰레드확인5:"+Thread.currentThread());
+            Log.d("TEST1234", "[게시판 댓글] 확인5 " + Thread.currentThread());
             commentWritequeue.add(commentWriteRequest);
-            Log.d("TEST1234","쓰레드확인6:"+Thread.currentThread());
+            Log.d("TEST1234", "[게시판 댓글] 확인6 " + Thread.currentThread());
         }
     }
 }
