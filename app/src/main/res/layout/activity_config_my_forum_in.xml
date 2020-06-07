@@ -16,7 +16,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="4dp"
-        android:background="@drawable/reply_button"
+        android:background="@drawable/delete_button"
         app:layout_constraintBottom_toTopOf="@+id/btn_forum_forum_in_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.996"
