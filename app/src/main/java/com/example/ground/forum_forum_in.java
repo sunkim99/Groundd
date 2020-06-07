@@ -302,6 +302,9 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
                     }
                 }
             };
+
+
+
             CommentWriteRequest commentWriteRequest = new CommentWriteRequest(notNum_temp,userID,commCon, commentwriteListener);
             Log.d("TEST1234", "[게시판 댓글] 확인4 " + Thread.currentThread());
             RequestQueue commentWritequeue = Volley.newRequestQueue(forum_forum_in.this);
