@@ -35,7 +35,7 @@ public class school_forum_list extends AppCompatActivity implements View.OnClick
 
         btn_image = findViewById(R.id.go_forum_image);
         delete = findViewById(R.id.delete); //삭제하기버튼
-        cancel = findViewById(R.id.go_forum_forum);
+        cancel = findViewById(R.id.btn_forum_forum_in_cancel);
 
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
@@ -43,7 +43,7 @@ public class school_forum_list extends AppCompatActivity implements View.OnClick
         btn_image.setOnClickListener(this);
         delete.setOnClickListener(this); //삭제하기
 
-        //cancel.setOnClickListener(this); 0606 - 이거 왜 오류나지 R.id.~~~ 이거 오류였음 필요하면 해당 xml보고 이름다시설정하기
+        cancel.setOnClickListener(this);
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
@@ -124,6 +124,9 @@ public class school_forum_list extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
+        if(v.getId() == R.id.btn_forum_forum_in_cancel) {
+            finish();
+        }
 
     }
 }

@@ -95,6 +95,7 @@
         android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/bm_font"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/write_tbox" />
@@ -119,13 +120,12 @@
         android:id="@+id/notice_content"
         android:layout_width="395dp"
         android:layout_height="450dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/bm_font"
         android:gravity="start"
-        android:textSize="18sp"
         android:text="내용을 입력해주세요"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notice_title_name" />
 
@@ -181,5 +181,15 @@
         app:layout_constraintStart_toStartOf="@+id/menu_bar"
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.518" />
+
+    <TextView
+        android:id="@+id/show_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/notice_title_name"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

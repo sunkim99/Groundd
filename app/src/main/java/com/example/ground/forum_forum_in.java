@@ -1,6 +1,7 @@
 package com.example.ground;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
@@ -70,14 +72,14 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
         btn_image = findViewById(R.id.go_forum_image);
         write = findViewById(R.id.go_forum_write); //댓글쓰기버튼
-        cancel = findViewById(R.id.go_forum_forum);
+        cancel = findViewById(R.id.btn_forum_forum_in_cancel);
 
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
 
         btn_image.setOnClickListener(this);
         write.setOnClickListener(this); //댓글쓰기 이벤트
-        //cancel.setOnClickListener(this); <--------------------------- 활성화시 오류
+        cancel.setOnClickListener(this);
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
@@ -122,13 +124,16 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
 
                         String userID = jasonObject.getString("userID");
-                        Log.d("TEST1234", "[Forum] 아이디 " + userID);
+                        Log.d("TEST1234", "[Forum] 아이디 : " + userID);
 
                         String title = jasonObject.getString("notTi");
-                        Log.d("TEST1234", "[Forum]  제목 " + title);
+                        Log.d("TEST1234", "[Forum]  제목 : " + title);
                         String notCon = jasonObject.getString("notCon");
 
                         String notDate = jasonObject.getString("notDate");
+                        String Date = jasonObject.getString("notDate");
+                        Log.d("TEST1234", "[Forum] 날짜 : " + Date);
+
 
                         Log.d("TEST1234", "[Forum] 쓰레드확인2:");
 
@@ -163,7 +168,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private class GetData extends AsyncTask<String,Void,String>{
+    private class GetData extends AsyncTask<String, Void, String> {
 
         ProgressDialog progressDialog;
         String errorString = null;
@@ -171,7 +176,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog = ProgressDialog.show(forum_forum_in.this, "Please wait", null, true,true);
+            progressDialog = ProgressDialog.show(forum_forum_in.this, "Please wait", null, true, true);
 
         }
 
@@ -207,10 +212,9 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
                 Log.d(TAG, "response cod -" + responseStatusCode);
 
                 InputStream inputStream;
-                if(responseStatusCode == HttpURLConnection.HTTP_OK){
+                if (responseStatusCode == HttpURLConnection.HTTP_OK) {
                     inputStream = httpURLConnection.getInputStream();
-                }
-                else{
+                } else {
                     inputStream = httpURLConnection.getErrorStream();
                 }
 
@@ -221,7 +225,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
                 StringBuilder sb = new StringBuilder();
                 String line;
 
-                while ((line = bufferedReader.readLine()) !=null){
+                while ((line = bufferedReader.readLine()) != null) {
                     sb.append(line);
                 }
                 bufferedReader.close();
@@ -229,18 +233,19 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
                 return sb.toString().trim();
 
             } catch (Exception e) {
-                Log.d(TAG, "InsertData : Error",e);
+                Log.d(TAG, "InsertData : Error", e);
                 errorString = e.toString();
             }
             return null;
         }
     }
-    private void showResult(){
+
+    private void showResult() {
         try {
             JSONObject jsonObject = new JSONObject(mJsonString);
             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
 
-            for (int i=0;i<jsonArray.length(); i++) {
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject item = jsonArray.getJSONObject(i);
 
 
@@ -255,19 +260,17 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
                 mArrrayList.add(hashMap);
             }
-                ListAdapter adapter = new SimpleAdapter(
-                        forum_forum_in.this, mArrrayList,R.layout.comment_item_list,
-                        new String[]{TAG_commCon,TAG_commDate},
+            ListAdapter adapter = new SimpleAdapter(
+                    forum_forum_in.this, mArrrayList, R.layout.comment_item_list,
+                    new String[]{TAG_commCon, TAG_commDate},
 
-                        new int[]{R.id.textView_list_commCon,R.id.textView_list_commDate}
-                );
-                list.setAdapter(adapter);
-            }
-                catch (JSONException e){
-                Log.d(TAG, "showResult :",e);
+                    new int[]{R.id.textView_list_commCon, R.id.textView_list_commDate}
+            );
+            list.setAdapter(adapter);
+        } catch (JSONException e) {
+            Log.d(TAG, "showResult :", e);
         }
     }
-
 
 
     @Override
@@ -275,45 +278,63 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
         if (v.getId() == R.id.go_forum_write) {
             Log.d("TEST1234", "[게시판 댓글] 댓글 작성버튼 눌림");
-
-            String notNum = id_notNum.getText().toString();
-            String userID =  store_id.getText().toString();
-            String commCon = commment_Context.getText().toString();
-
-            int notNum_temp = Integer.parseInt(notNum);
-            //   commCon = commCon.replace("'","'");
-
-            Response.Listener<String> commentwriteListener = new Response.Listener<String>() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(forum_forum_in.this);
+            builder.setTitle("저장");
+            builder.setMessage("댓글을 저장할까요?");
+            builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
                 @Override
-                public void onResponse(String response) {
-                    Log.d("TEST1234", "[게시판 댓글] 확인1" + Thread.currentThread());
-                    JSONObject jsonObject = null;
-                    try {
-                        jsonObject = new JSONObject(response);
-                        boolean success = jsonObject.getBoolean("success");
+                public void onClick(DialogInterface dialog, int which) {
+                    String notNum = id_notNum.getText().toString();
+                    String userID = store_id.getText().toString();
+                    String commCon = commment_Context.getText().toString();
 
-                        String sta = jsonObject.getString("str");
-                        Log.d("TEST1234", "[게시판 댓글] success : " + success);
-                        Log.d("TEST1324", "[게시판 댓글] php->안스 값 : " + sta);
+                    int notNum_temp = Integer.parseInt(notNum);
+                    //   commCon = commCon.replace("'","'");
 
-                        Toast.makeText(getApplicationContext(), "댓글이 작성되었습니다", Toast.LENGTH_SHORT).show();
+                    Response.Listener<String> commentwriteListener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("TEST1234", "[게시판 댓글] 확인1" + Thread.currentThread());
+                            JSONObject jsonObject = null;
+                            try {
+                                jsonObject = new JSONObject(response);
+                                boolean success = jsonObject.getBoolean("success");
+
+                                String sta = jsonObject.getString("str");
+                                Log.d("TEST1234", "[게시판 댓글] success : " + success);
+                                Log.d("TEST1324", "[게시판 댓글] php->안스 값 : " + sta);
+
+                                Toast.makeText(getApplicationContext(), "댓글이 작성되었습니다", Toast.LENGTH_SHORT).show();
 
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+
+
+                    CommentWriteRequest commentWriteRequest = new CommentWriteRequest(notNum_temp, userID, commCon, commentwriteListener);
+                    Log.d("TEST1234", "[게시판 댓글] 확인4 " + Thread.currentThread());
+                    RequestQueue commentWritequeue = Volley.newRequestQueue(forum_forum_in.this);
+                    Log.d("TEST1234", "[게시판 댓글] 확인5 " + Thread.currentThread());
+                    commentWritequeue.add(commentWriteRequest);
+                    Log.d("TEST1234", "[게시판 댓글] 확인6 " + Thread.currentThread());
+                    commment_Context.setText("");
                 }
-            };
+            });
+            builder.setNegativeButton("아니요", null);
+          /*  builder.setNeutralButton("게시판으로 돌아가기", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });*/
+            builder.create().show();
 
-
-
-            CommentWriteRequest commentWriteRequest = new CommentWriteRequest(notNum_temp,userID,commCon, commentwriteListener);
-            Log.d("TEST1234", "[게시판 댓글] 확인4 " + Thread.currentThread());
-            RequestQueue commentWritequeue = Volley.newRequestQueue(forum_forum_in.this);
-            Log.d("TEST1234", "[게시판 댓글] 확인5 " + Thread.currentThread());
-            commentWritequeue.add(commentWriteRequest);
-            Log.d("TEST1234", "[게시판 댓글] 확인6 " + Thread.currentThread());
-            commment_Context.setText("");
+        }
+        if (v.getId() == R.id.btn_forum_forum_in_cancel) { //빨간버튼
+            finish();
         }
     }
 }

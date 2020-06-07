@@ -127,8 +127,8 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
 
         if (v.getId() == R.id.delete) {
             AlertDialog.Builder builder = new AlertDialog.Builder(config_my_forum_in.this);
-            builder.setTitle("삭제");
-            builder.setMessage("삭제하시겠습니까?");
+            builder.setTitle("게시글 삭제");
+            builder.setMessage("게시글을 삭제하시겠습니까?");
             builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

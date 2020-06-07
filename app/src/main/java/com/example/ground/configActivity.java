@@ -71,12 +71,17 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
 
         if (admin_s == 0) {
             btn_ADMIN.setVisibility(Button.GONE);
+
         }
         if (admin_s == 1) {
             btn_ADMIN.setVisibility(Button.VISIBLE);
+            btn_change.setEnabled(false);
+            btn_my_forum.setEnabled(false);
+
         }
         if (admin_s == 2) {
             btn_ADMIN.setVisibility(Button.VISIBLE);
+            btn_change.setEnabled(false);
         }
 
         Profile_image = findViewById(R.id.profile_image);

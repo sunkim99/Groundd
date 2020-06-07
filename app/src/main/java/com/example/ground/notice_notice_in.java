@@ -133,8 +133,8 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         if (v.getId() == R.id.delete) {
             AlertDialog.Builder builder = new AlertDialog.Builder(notice_notice_in.this);
-            builder.setTitle("삭제");
-            builder.setMessage("삭제하시겠습니까?");
+            builder.setTitle("공지 삭제");
+            builder.setMessage("해당 공지를 삭제하시겠습니까?");
             builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -156,19 +156,7 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
                                     Log.d("TEST1234", "[공지 삭제하기] 쓰레드확인");
                                     String ssss = jasonObject.getString("str");
                                     Log.d("TEST1234", "[공지 삭제하기] 수행될 쿼리문 :" + ssss);
-                           /* String number = jasonObject.getString("notNum");
-                            Log.d("TEST1234", "[Config2] 쓰레드확인1: 지우게될 글번호 " +notNum);
-                            Log.d("TEST1234", "[Config2]  가져온 글번호 :" + number);
 
-                            String userID = jasonObject.getString("userID");
-                            Log.d("TEST1234", "[Config2] 아이디 " + userID);
-
-                            String title = jasonObject.getString("notTi");
-                            Log.d("TEST1234", "[Config2] 제목 " + title);
-                            String notCon = jasonObject.getString("notCon");
-
-                            String notDate = jasonObject.getString("notDate");
-*/
                                     Log.d("TEST1234", "[공지 삭제하기] 쓰레드확인2:");
 
                                 } else {

@@ -1,7 +1,9 @@
 package com.example.ground;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -83,49 +85,58 @@ public class school_infomation_write extends AppCompatActivity implements View.O
 
         if (v.getId() == R.id.btn_save) { //게시판작성에서 완료하기를 눌렀을때
             Log.d("TEST1234", "[School] 저장하기 버튼 눌림");
-
-            String schTi = title_name.getText().toString();
-            String schCon = text_write.getText().toString();
-
-            String schName = school_name.getText().toString(); //textview에 저장된 학교이름 읽어오기
-
-            schTi = schTi.replace("'", "''");
-            schCon = schCon.replace("'", "''");
-
-            Response.Listener<String> responseListener = new Response.Listener<String>() {//volley
+            AlertDialog.Builder builder = new AlertDialog.Builder(school_infomation_write.this);
+            builder.setTitle("저장");
+            builder.setMessage("게시글을 올릴까요?");
+            builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
                 @Override
-                public void onResponse(String response) {
-                    try {
-                        Log.d("TEST1234", "[School] 쓰레드확인1" + Thread.currentThread());
-                        JSONObject jasonObject = new JSONObject(response);//SchoolForum.php에 response
-                        boolean success = jasonObject.getBoolean("success");//SchoolForum.php에 sucess
+                public void onClick(DialogInterface dialog, int which) {
+                    String schTi = title_name.getText().toString();
+                    String schCon = text_write.getText().toString();
+                    String schName = school_name.getText().toString(); //textview에 저장된 학교이름 읽어오기
 
-                        //String ssss = jasonObject.getString("id");
-                        String sta = jasonObject.getString("str");
-                        Log.d("TEST1234", "[School] 1" + success);
-                        //Log.d("TEST1234", "정상성공?:" + ssss);
-                        Log.d("TEST1234", "[School] 2" + sta);
+                    schTi = schTi.replace("'", "''");
+                    schCon = schCon.replace("'", "''");
 
-                        Toast.makeText(getApplicationContext(), "글이 작성되었습니다", Toast.LENGTH_SHORT).show();
-                        Log.d("TEST1234", "[School] 쓰레드확인2" + Thread.currentThread());
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {//volley
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                Log.d("TEST1234", "[School] 쓰레드확인1" + Thread.currentThread());
+                                JSONObject jasonObject = new JSONObject(response);//SchoolForum.php에 response
+                                boolean success = jasonObject.getBoolean("success");//SchoolForum.php에 sucess
+
+                                //String ssss = jasonObject.getString("id");
+                                String sta = jasonObject.getString("str");
+                                Log.d("TEST1234", "[School] 1" + success);
+                                //Log.d("TEST1234", "정상성공?:" + ssss);
+                                Log.d("TEST1234", "[School] 2" + sta);
+
+                                Toast.makeText(getApplicationContext(), "글이 작성되었습니다", Toast.LENGTH_SHORT).show();
+                                Log.d("TEST1234", "[School] 쓰레드확인2" + Thread.currentThread());
+
+                                finish(); // 위에 intent사용하면 intent 됐을때, 학교메인에서 학교정보를 보여주는칸이 오류가난다.. 그래서 finish 사용
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    };
 
 
-                        /*
-                        Intent intent = new Intent(school_infomation_write.this, school_information.class);
-                        startActivity(intent);
-                        Log.d("TEST1234", "쓰레드확인3:" + Thread.currentThread());
-                        */
-                        finish(); // 위에 intent사용하면 intent 됐을때, 학교메인에서 학교정보를 보여주는칸이 오류가난다.. 그래서 finish 사용
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                    school_infomation_write_request sfr = new school_infomation_write_request(schName, schTi, schCon, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(school_infomation_write.this);
+                    queue.add(sfr);
                 }
-            };
+            });
+            builder.setNegativeButton("아니요", null);
+          /*  builder.setNeutralButton("게시판으로 돌아가기", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });*/
+            builder.create().show();
 
-
-            school_infomation_write_request sfr = new school_infomation_write_request(schName, schTi, schCon, responseListener);
-            RequestQueue queue = Volley.newRequestQueue(school_infomation_write.this);
-            queue.add(sfr);
         }
 
 
