@@ -97,6 +97,9 @@ public class school_information extends AppCompatActivity implements View.OnClic
         userID=ID.getID(); // 전역변수는 userID1의 값을 가짐
         Log.d("TEST1234", "[School Info]받아온 userID " + userID);
 
+        String schoolName;
+        schoolName=SCHOOL.getSCHOOL();
+
 
 
 
@@ -105,7 +108,9 @@ public class school_information extends AppCompatActivity implements View.OnClic
         mArrrayList = new ArrayList<>();
 
         school_information.GetData task = new school_information.GetData();
-        task.execute("http://olivia7626.dothome.co.kr/SchoolForumlist.php");
+        task.execute("http://olivia7626.dothome.co.kr/SchoolForumlist-1.php?schName="+schoolName);
+
+        Log.d("TEST1234","전달한 학교이름"+schoolName);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -189,6 +194,12 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
 
     //서버 연결해서 데이터가져오기
+
+    /***
+     * 순서 : GetData로 받아온거를 PreExecute() -> doInBackGround -> onPostExecute
+     * 결과값을 result로 받아옴.
+     * 서버통신은 doINBackGround
+     */
     private class GetData extends AsyncTask<String, Void, String> {
         ProgressDialog progressDialog;
         String errorString = null;
@@ -221,6 +232,8 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setDoInput(true);
                 httpURLConnection.connect();
 
                 int responseStatusCode = httpURLConnection.getResponseCode();
@@ -243,6 +256,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
                 while ((line = bufferedReader.readLine()) != null) {
                     sb.append(line);
                 }
+
                 bufferedReader.close();
 
                 return sb.toString().trim();
