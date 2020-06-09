@@ -38,8 +38,8 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_notice_notice_in);
         final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
         admin_s = ADMIN.getADMIN();
-        allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        allround Char_hair = (allround) getApplicationContext();
+        int MY_Char_hair = Char_hair.getChar_hair();
 
         btn_image = findViewById(R.id.go_forum_image);
         delete = findViewById(R.id.delete); //삭제하기 버튼
@@ -63,9 +63,9 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
         Log.d("TEST1234", String.valueOf(annNum));
 
         MY_char = findViewById(R.id.MY_char);
-        if (MY_Char_head == 0) {
+        if (MY_Char_hair == 0) {
             MY_char.setImageResource(R.drawable.ex_char1);
-        } else if (MY_Char_head == 1) {
+        } else if (MY_Char_hair == 1) {
             MY_char.setImageResource(R.drawable.ex_char2);
         }
 

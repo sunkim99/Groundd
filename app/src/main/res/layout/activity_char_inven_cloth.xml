@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/go_char_inven"
-        android:layout_width="170dp"
+        android:id="@+id/go_char_shop"
+        android:layout_width="80dp"
         android:layout_height="60dp"
         android:background="@android:drawable/divider_horizontal_dark"
         app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/menu_select_bar"
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/menu_bar"
         android:layout_width="411dp"
         android:layout_height="60dp"
         android:layout_marginTop="7dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -30,15 +31,15 @@
 
     <ImageView
         android:id="@+id/menu_select_bar"
-        android:layout_width="80dp"
+        android:layout_width="170dp"
         android:layout_height="60dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
         app:layout_constraintEnd_toEndOf="@+id/menu_bar"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/go_char_inven"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/menu_select_bar" />
 
     <TextView
@@ -77,44 +78,12 @@
         app:layout_constraintTop_toTopOf="@+id/top_navi"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/btn_bg"
-        android:layout_width="115dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/menu_bar"
-        android:fontFamily="@font/bm_font"
-        android:text="배경"
-        android:textColor="@android:color/background_light"
-        android:textSize="29sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_acce"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cloth" />
-
-    <Button
-        android:id="@+id/btn_hat"
-        android:layout_width="115dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="7dp"
-        android:background="@drawable/menu_bar"
-        android:fontFamily="@font/bm_font"
-        android:text="모자"
-        android:textColor="@android:color/background_light"
-        android:textSize="29sp"
-        app:layout_constraintStart_toEndOf="@+id/char_box"
-        app:layout_constraintTop_toBottomOf="@+id/menu_bar" />
-
     <ImageView
         android:id="@+id/char_box"
         android:layout_width="140dp"
-        android:layout_height="210dp"
+        android:layout_height="211dp"
         android:layout_marginTop="7dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_bar"
@@ -122,77 +91,138 @@
         app:srcCompat="@drawable/menu_bar" />
 
     <Button
+        android:id="@+id/btn_face"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/menu_bar"
+        android:fontFamily="@font/bm_font"
+        android:text="얼굴"
+        android:textColor="@android:color/background_light"
+        android:textSize="29sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/char_box"
+        app:layout_constraintTop_toBottomOf="@+id/btn_hair" />
+
+    <Button
         android:id="@+id/btn_acce"
-        android:layout_width="115dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
         android:background="@drawable/menu_bar"
         android:fontFamily="@font/bm_font"
         android:text="악세사리"
         android:textColor="@android:color/background_light"
         android:textSize="29sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/char_box"
-        app:layout_constraintTop_toBottomOf="@+id/btn_face" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cloth" />
 
     <Button
         android:id="@+id/btn_cloth"
-        android:layout_width="115dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/menu_bar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/menu_select_bar"
         android:fontFamily="@font/bm_font"
         android:text="옷"
         android:textColor="@android:color/background_light"
         android:textSize="29sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_face"
-        app:layout_constraintTop_toBottomOf="@+id/btn_hair" />
+        app:layout_constraintStart_toEndOf="@+id/char_box"
+        app:layout_constraintTop_toBottomOf="@+id/btn_face" />
 
     <Button
         android:id="@+id/btn_hair"
-        android:layout_width="115dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
         android:layout_marginTop="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
         android:background="@drawable/menu_bar"
         android:fontFamily="@font/bm_font"
         android:text="머리"
         android:textColor="@android:color/background_light"
         android:textSize="29sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_hat"
+        app:layout_constraintStart_toEndOf="@+id/char_box"
         app:layout_constraintTop_toBottomOf="@+id/menu_bar" />
 
     <ImageView
         android:id="@+id/char_inven_box"
-        android:layout_width="385dp"
-        android:layout_height="365dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_acce"
+        app:layout_constraintTop_toBottomOf="@+id/char_box"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/char_box" />
 
     <Button
-        android:id="@+id/btn_face"
-        android:layout_width="115dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/menu_bar"
+        android:id="@+id/ex_char1"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:foreground="@drawable/ex_char1"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/char_inven_box"
+        app:layout_constraintTop_toTopOf="@+id/char_inven_box" />
+
+    <Button
+        android:id="@+id/ex_char2"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:foreground="@drawable/ex_char2"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="@id/char_inven_box"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/char_inven_box"
+        app:layout_constraintTop_toBottomOf="@+id/ex_char1" />
+
+    <ImageView
+        android:id="@+id/MY_char"
+        android:layout_width="110dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/char_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/char_box" />
+
+    <TextView
+        android:id="@+id/nickname_view"
+        android:layout_width="129dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/bm_font"
-        android:text="얼굴"
-        android:textColor="@android:color/background_light"
-        android:textSize="29sp"
-        app:layout_constraintStart_toEndOf="@+id/char_box"
-        app:layout_constraintTop_toBottomOf="@+id/btn_hat" />
+        android:text="닉네임"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/char_box"
+        app:layout_constraintStart_toStartOf="@+id/char_box"
+        app:layout_constraintTop_toBottomOf="@+id/MY_char" />
 </androidx.constraintlayout.widget.ConstraintLayout>

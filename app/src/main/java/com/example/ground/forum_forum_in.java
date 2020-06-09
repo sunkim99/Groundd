@@ -64,8 +64,8 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum_in);
-        allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        allround Char_hair = (allround) getApplicationContext();
+        int MY_Char_hair = Char_hair.getChar_hair();
         //final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
         allround ADMIN = (allround) getApplicationContext();
 
@@ -98,9 +98,9 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
 
         MY_char = findViewById(R.id.MY_char);
-        if (MY_Char_head == 0) {
+        if (MY_Char_hair == 0) {
             MY_char.setImageResource(R.drawable.ex_char1);
-        } else if (MY_Char_head == 1) {
+        } else if (MY_Char_hair == 1) {
             MY_char.setImageResource(R.drawable.ex_char2);
         } // 캐릭터관련
 

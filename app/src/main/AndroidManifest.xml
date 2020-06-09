@@ -19,9 +19,10 @@
         <activity android:name=".notice_notice_in" />
         <activity android:name=".school_infomation_list" />
         <activity android:name=".notice_notice_write" />
-        <activity
-            android:name=".char_inven_head"
-            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".char_inven_hair" />
+        <activity android:name=".char_inven_face" />
+        <activity android:name=".char_inven_cloth" />
+        <activity android:name=".char_inven_acce" />
         <activity android:name=".school_infomation_write" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".notice_notice" />
@@ -33,7 +34,6 @@
             android:windowSoftInputMode = "stateAlwaysHidden"/>
         <activity android:name=".configActivity" />
         <activity android:name=".char_shop" />
-        <activity android:name=".char_inven" />
         <activity android:name=".school_information" />
         <activity android:name=".school_food_lineup" />
         <activity android:name=".RegisterActivity" />

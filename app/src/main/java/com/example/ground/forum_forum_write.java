@@ -35,8 +35,8 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_forum_forum_write);
         allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         allround NICKNAME = (allround) getApplicationContext(); // 전역변수 NICKNAME 소환
-        allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        allround Char_hair = (allround) getApplicationContext();
+        int MY_Char_hair = Char_hair.getChar_hair();
 
         btn_save = findViewById(R.id.btn_save);
         btn_back = findViewById(R.id.btn_back);
@@ -62,9 +62,9 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         user_nickname.setText(nickName);
 
         MY_char = findViewById(R.id.MY_char);
-        if (MY_Char_head == 0) {
+        if (MY_Char_hair == 0) {
             MY_char.setImageResource(R.drawable.ex_char1);
-        } else if (MY_Char_head == 1) {
+        } else if (MY_Char_hair == 1) {
             MY_char.setImageResource(R.drawable.ex_char2);
         }
 
