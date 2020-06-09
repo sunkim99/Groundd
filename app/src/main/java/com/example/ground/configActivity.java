@@ -89,7 +89,7 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         Profile_image = findViewById(R.id.profile_image);
-        my_char = Char_head.getChar_head();
+        my_char = Char_head.getChar_hair();
         if (my_char == 0){
             Profile_image.setImageResource(R.drawable.ex_char1);
         }

@@ -45,7 +45,7 @@ public class school_infomation_write extends AppCompatActivity implements View.O
         final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
         allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        int MY_Char_head = Char_head.getChar_hair();
 
 
         btn_save = findViewById(R.id.btn_save); //글쓰기 버튼 = 저장 버튼

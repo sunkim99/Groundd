@@ -37,7 +37,7 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
         final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
         admin_s = ADMIN.getADMIN();
         allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        int MY_Char_head = Char_head.getChar_hair();
 
         delete = findViewById(R.id.delete); //삭제하기 버튼
         cancel = findViewById(R.id.btn_forum_forum_in_cancel);

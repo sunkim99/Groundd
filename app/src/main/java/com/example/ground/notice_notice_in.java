@@ -39,7 +39,7 @@ public class notice_notice_in extends AppCompatActivity implements View.OnClickL
         final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
         admin_s = ADMIN.getADMIN();
         allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        int MY_Char_head = Char_head.getChar_hair();
 
         btn_image = findViewById(R.id.go_forum_image);
         delete = findViewById(R.id.delete); //삭제하기 버튼

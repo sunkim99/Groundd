@@ -42,7 +42,7 @@ public class school_infomation_list extends AppCompatActivity implements View.On
 
         admin_s = ADMIN.getADMIN();
         allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        int MY_Char_head = Char_head.getChar_hair();
 
 
         school_name = findViewById(R.id.school_name);

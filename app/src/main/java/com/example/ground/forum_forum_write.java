@@ -36,7 +36,7 @@ public class forum_forum_write extends AppCompatActivity implements View.OnClick
         allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         allround NICKNAME = (allround) getApplicationContext(); // 전역변수 NICKNAME 소환
         allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        int MY_Char_head = Char_head.getChar_hair();
 
         btn_save = findViewById(R.id.btn_save);
         btn_back = findViewById(R.id.btn_back);

@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent2);
         }
         if (v.getId() == R.id.btn_character) { // 내 캐릭터
-            Intent intent3 = new Intent(MainActivity.this, char_inven.class);
+            Intent intent3 = new Intent(MainActivity.this, char_inven_hair.class);
             startActivity(intent3);
         }
         if (v.getId() == R.id.btn_event) { // 공지 이벤트

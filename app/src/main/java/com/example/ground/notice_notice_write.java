@@ -38,7 +38,7 @@ public class notice_notice_write extends AppCompatActivity implements View.OnCli
         final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
         allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        int MY_Char_head = Char_head.getChar_hair();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_notice_write);

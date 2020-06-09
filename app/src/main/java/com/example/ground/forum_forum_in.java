@@ -65,7 +65,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum_in);
         allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_head();
+        int MY_Char_head = Char_head.getChar_hair();
         //final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
         allround ADMIN = (allround) getApplicationContext();
 
