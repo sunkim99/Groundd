@@ -7,39 +7,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-//게임 랭킹
-public class game_ranking extends AppCompatActivity implements View.OnClickListener{
+//게임 랭킹 내부
+public class game_ranking_in extends AppCompatActivity implements View.OnClickListener{
 
     Button go_other_menu;
-    Button go_ranking;
     Button cancel;
     Button top_navi, btn_setting;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_ranking);
+        setContentView(R.layout.activity_game_ranking_in);
 
         go_other_menu = (Button) findViewById(R.id.go_game_main);
-        go_ranking = (Button) findViewById(R.id.btn_gugu);
 
         go_other_menu.setOnClickListener(this);
-        go_ranking.setOnClickListener(this);
-
 
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
+
     }
 
     public void onClick(View v) {
         if(v.getId() == R.id.go_game_main) {
-            Intent intent01 = new Intent( game_ranking.this, game_main.class);
-            startActivity(intent01);
-        }
-        if(v.getId() == R.id.btn_gugu) {
-            Intent intent01 = new Intent( game_ranking.this, game_ranking_in.class);
+            Intent intent01 = new Intent( this, game_main.class);
             startActivity(intent01);
         }
         if(v.getId() == R.id.btn_school_information_cancel) {
