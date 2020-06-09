@@ -65,9 +65,8 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_game_main);
 
 
-        go_other_menu = (Button) findViewById(R.id.go_game_ranking);
+        go_other_menu = findViewById(R.id.go_game_ranking);
         go_other_menu.setOnClickListener(this);
-
 
         btn_gugu = findViewById(R.id.btn_gugu);
         btn_gugu.setOnClickListener(this);

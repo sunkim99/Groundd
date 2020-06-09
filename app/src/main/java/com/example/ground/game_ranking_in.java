@@ -20,7 +20,7 @@ public class game_ranking_in extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_ranking_in);
 
-        go_other_menu = (Button) findViewById(R.id.go_game_main);
+        go_other_menu = findViewById(R.id.go_game_main);
 
         go_other_menu.setOnClickListener(this);
 
