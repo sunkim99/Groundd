@@ -177,42 +177,80 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/char_box" />
 
-    <Button
-        android:id="@+id/ex_char1"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:foreground="@drawable/ex_char1"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/char_inven_box"
-        app:layout_constraintTop_toTopOf="@+id/char_inven_box" />
-
-    <Button
-        android:id="@+id/ex_char2"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:foreground="@drawable/ex_char2"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@id/char_inven_box"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/char_inven_box"
-        app:layout_constraintTop_toBottomOf="@+id/ex_char1" />
-
     <ImageView
         android:id="@+id/MY_char"
+        android:layout_width="110dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/background_light"
+        android:foreground="@drawable/char_default"
+        app:layout_constraintEnd_toEndOf="@+id/char_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/char_box" />
+
+    <ImageView
+        android:id="@+id/MY_char_cloth"
         android:layout_width="110dp"
         android:layout_height="165dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="@+id/char_box"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/char_box" />
+
+    <ImageView
+        android:id="@+id/MY_char_face"
+        android:layout_width="110dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/char_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/char_box" />
+
+    <ImageView
+        android:id="@+id/MY_char_hair"
+        android:layout_width="110dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/char_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/char_box" />
+
+    <ImageView
+        android:id="@+id/MY_char_acce"
+        android:layout_width="110dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/char_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/char_box" />
+
+    <Button
+        android:id="@+id/cloth_default"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/background_light"
+        android:foreground="@drawable/cloth_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/char_inven_box"
+        app:layout_constraintTop_toTopOf="@+id/char_inven_box" />
+
+    <Button
+        android:id="@+id/cloth_gom"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/background_light"
+        android:foreground="@drawable/char_cloth_gom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/char_inven_box"
+        app:layout_constraintTop_toBottomOf="@+id/cloth_default" />
 
     <TextView
         android:id="@+id/nickname_view"

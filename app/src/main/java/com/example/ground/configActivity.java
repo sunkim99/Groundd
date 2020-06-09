@@ -21,12 +21,12 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
     TextView show_school;
     TextView show_nick;
     TextView ADMIN;
+    ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
     Button top_navi, btn_ADMIN, btn_change, btn_my_forum;
     ImageView Profile_image;
 
 
     int admin_s;
-    int my_char;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -34,7 +34,14 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         allround ADMIN = (allround) getApplicationContext();
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
-        final allround Char_hair = (allround) getApplicationContext();
+        allround Char_hair = (allround) getApplicationContext();
+        allround Char_face = (allround) getApplicationContext();
+        allround Char_cloth = (allround) getApplicationContext();
+        allround Char_acce = (allround) getApplicationContext();
+        int MY_Char_hair = Char_hair.getChar_hair();
+        int MY_Char_face = Char_face.getChar_face();
+        int MY_Char_cloth = Char_cloth.getChar_cloth();
+        int MY_Char_acce = Char_acce.getChar_acce();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
@@ -42,6 +49,11 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         btn_change = findViewById(R.id.btn_config_change);
         btn_my_forum = findViewById(R.id.btn_config_my_forum);
         top_navi = findViewById(R.id.top_navi);
+
+        I_char_hair = findViewById(R.id.MY_char_hair);
+        I_char_face = findViewById(R.id.MY_char_face);
+        I_char_cloth = findViewById(R.id.MY_char_cloth);
+        I_char_acce = findViewById(R.id.MY_char_acce);
 
         top_navi.setOnClickListener(this);
         btn_change.setOnClickListener(this);
@@ -89,12 +101,16 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         Profile_image = findViewById(R.id.profile_image);
-        my_char = Char_hair.getChar_hair();
-        if (my_char == 0){
-            Profile_image.setImageResource(R.drawable.ex_char1);
+        if (MY_Char_acce == 0) {
+            I_char_acce.setImageResource(R.drawable.char_blind);
+        } else if (MY_Char_acce == 1) {
+            I_char_acce.setImageResource(R.drawable.char_acce_gom);
         }
-        else if (my_char == 1){
-            Profile_image.setImageResource(R.drawable.ex_char2);
+
+        if (MY_Char_cloth == 0) { // 옷
+            I_char_cloth.setImageResource(R.drawable.char_blind);
+        } else if (MY_Char_cloth == 1) {
+            I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
         }
 
     }

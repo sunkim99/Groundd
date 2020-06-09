@@ -10,9 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class char_inven_hair extends AppCompatActivity implements View.OnClickListener {
-    Button ex_char1, ex_char2;
     TextView show_nick;
-    ImageView MY_char;
+    ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
     Button top_navi, btn_setting;
     Button btn_hair, btn_face, btn_acce, btn_cloth;
 
@@ -37,52 +36,39 @@ public class char_inven_hair extends AppCompatActivity implements View.OnClickLi
 
         allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
         allround Char_hair = (allround) getApplicationContext();
+        allround Char_face = (allround) getApplicationContext();
+        allround Char_cloth = (allround) getApplicationContext();
+        allround Char_acce = (allround) getApplicationContext();
         int MY_Char_hair = Char_hair.getChar_hair();
+        int MY_Char_face = Char_face.getChar_face();
+        int MY_Char_cloth = Char_cloth.getChar_cloth();
+        int MY_Char_acce = Char_acce.getChar_acce();
 
         String temp01 = NICKNAME.getNICKNAME();
         show_nick = findViewById(R.id.nickname_view);
         show_nick.setText(temp01);
 
-        ex_char1 = findViewById(R.id.ex_char1);
-        ex_char2 = findViewById(R.id.ex_char2);
+        I_char_hair = findViewById(R.id.MY_char_hair);
+        I_char_face = findViewById(R.id.MY_char_face);
+        I_char_cloth = findViewById(R.id.MY_char_cloth);
+        I_char_acce = findViewById(R.id.MY_char_acce);
 
-        ex_char1.setOnClickListener(this);
-        ex_char2.setOnClickListener(this);
-
-        MY_char = findViewById(R.id.MY_char);
-        if (MY_Char_hair == 0) {
-            MY_char.setImageResource(R.drawable.ex_char1);
-        } else if (MY_Char_hair == 1) {
-            MY_char.setImageResource(R.drawable.ex_char2);
+        if (MY_Char_acce == 0) {
+            I_char_acce.setImageResource(R.drawable.char_blind);
+        } else if (MY_Char_acce == 1) {
+            I_char_acce.setImageResource(R.drawable.char_acce_gom);
         }
 
+        if (MY_Char_cloth == 0) { // 옷
+            I_char_cloth.setImageResource(R.drawable.char_blind);
+        } else if (MY_Char_cloth == 1) {
+            I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+        }
     }
 
 
     @Override
     public void onClick(View v) {
-        allround Char_hair = (allround) getApplicationContext();////////
-        int MY_Char_hair = Char_hair.getChar_hair();
-
-        if (v.getId() == R.id.ex_char1) {
-            Char_hair.setChar_hair(0);
-            MY_Char_hair = Char_hair.getChar_hair();
-            if (MY_Char_hair == 0) {
-                MY_char.setImageResource(R.drawable.ex_char1);
-            } else if (MY_Char_hair == 1) {
-                MY_char.setImageResource(R.drawable.ex_char2);
-            }
-        }
-        if (v.getId() == R.id.ex_char2) {
-            Char_hair.setChar_hair(1);
-            MY_Char_hair = Char_hair.getChar_hair();
-            if (MY_Char_hair == 0) {
-                MY_char.setImageResource(R.drawable.ex_char1);
-            } else if (MY_Char_hair == 1) {
-                MY_char.setImageResource(R.drawable.ex_char2);
-            }
-        }
-
 
         if (v.getId() == R.id.top_navi) {
             Intent intent02 = new Intent(this, MainActivity.class);
@@ -95,6 +81,11 @@ public class char_inven_hair extends AppCompatActivity implements View.OnClickLi
             startActivity(intent03);
         }
 
+        if (v.getId() == R.id.btn_acce) {
+            Intent intent = new Intent(this, char_inven_acce.class);
+            startActivity(intent);
+        }
+
         if (v.getId() == R.id.btn_face) {
             Intent intent = new Intent(this, char_inven_face.class);
             startActivity(intent);
@@ -102,10 +93,6 @@ public class char_inven_hair extends AppCompatActivity implements View.OnClickLi
 
         if (v.getId() == R.id.btn_cloth) {
             Intent intent = new Intent(this, char_inven_cloth.class);
-            startActivity(intent);
-        }
-        if (v.getId() == R.id.btn_acce) {
-            Intent intent = new Intent(this, char_inven_acce.class);
             startActivity(intent);
         }
     }
