@@ -44,8 +44,8 @@ public class school_infomation_write extends AppCompatActivity implements View.O
         final allround SCHADD = (allround) getApplicationContext(); //학교 주소
         final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
-        allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_hair();
+        allround Char_hair = (allround) getApplicationContext();
+        int MY_Char_hair = Char_hair.getChar_hair();
 
 
         btn_save = findViewById(R.id.btn_save); //글쓰기 버튼 = 저장 버튼
@@ -85,9 +85,9 @@ public class school_infomation_write extends AppCompatActivity implements View.O
 
 
         MY_char = findViewById(R.id.MY_char);
-        if (MY_Char_head == 0) {
+        if (MY_Char_hair == 0) {
             MY_char.setImageResource(R.drawable.ex_char1);
-        } else if (MY_Char_head == 1) {
+        } else if (MY_Char_hair == 1) {
             MY_char.setImageResource(R.drawable.ex_char2);
         }
     }

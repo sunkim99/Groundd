@@ -34,7 +34,7 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         allround ADMIN = (allround) getApplicationContext();
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
-        final allround Char_head = (allround) getApplicationContext();
+        final allround Char_hair = (allround) getApplicationContext();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
@@ -89,7 +89,7 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         Profile_image = findViewById(R.id.profile_image);
-        my_char = Char_head.getChar_hair();
+        my_char = Char_hair.getChar_hair();
         if (my_char == 0){
             Profile_image.setImageResource(R.drawable.ex_char1);
         }

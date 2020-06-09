@@ -41,8 +41,8 @@ public class school_infomation_list extends AppCompatActivity implements View.On
         allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
 
         admin_s = ADMIN.getADMIN();
-        allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_hair();
+        allround Char_hair = (allround) getApplicationContext();
+        int MY_Char_hair = Char_hair.getChar_hair();
 
 
         school_name = findViewById(R.id.school_name);
@@ -85,9 +85,9 @@ public class school_infomation_list extends AppCompatActivity implements View.On
         }
 
         MY_char = findViewById(R.id.MY_char);
-        if (MY_Char_head == 0) {
+        if (MY_Char_hair == 0) {
             MY_char.setImageResource(R.drawable.ex_char1);
-        } else if (MY_Char_head == 1) {
+        } else if (MY_Char_hair == 1) {
             MY_char.setImageResource(R.drawable.ex_char2);
         }
 

@@ -8,7 +8,7 @@ public class allround extends Application {
     private int ADMIN; //관리자 번호
     private String NICKNAME; //닉네임
     private String SCHADD, SCHPH; //학교주소, 학교 연락처
-    private int Char_head, Char_hair, Char_face, Char_cloth, Char_bg, Char_acce;
+    private int Char_hair, Char_face, Char_cloth, Char_acce;
     private String notNum;
 
     @Override

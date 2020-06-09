@@ -36,8 +36,8 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
         btn_setting.setOnClickListener(this);
 
         allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
-        allround Char_head = (allround) getApplicationContext();
-        int MY_Char_head = Char_head.getChar_hair();
+        allround Char_hair = (allround) getApplicationContext();
+        int MY_Char_hair = Char_hair.getChar_hair();
 
         String temp01 = NICKNAME.getNICKNAME();
         show_nick = findViewById(R.id.nickname_view);
@@ -50,9 +50,9 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
         ex_char2.setOnClickListener(this);
 
         MY_char = findViewById(R.id.MY_char);
-        if (MY_Char_head == 0) {
+        if (MY_Char_hair == 0) {
             MY_char.setImageResource(R.drawable.ex_char1);
-        } else if (MY_Char_head == 1) {
+        } else if (MY_Char_hair == 1) {
             MY_char.setImageResource(R.drawable.ex_char2);
         }
 
@@ -61,24 +61,24 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        allround Char_head = (allround) getApplicationContext();////////
-        int MY_Char_head = Char_head.getChar_hair();
+        allround Char_hair = (allround) getApplicationContext();////////
+        int MY_Char_hair = Char_hair.getChar_hair();
 
         if (v.getId() == R.id.ex_char1) {
-            Char_head.setChar_hair(0);
-            MY_Char_head = Char_head.getChar_hair();
-            if (MY_Char_head == 0) {
+            Char_hair.setChar_hair(0);
+            MY_Char_hair = Char_hair.getChar_hair();
+            if (MY_Char_hair == 0) {
                 MY_char.setImageResource(R.drawable.ex_char1);
-            } else if (MY_Char_head == 1) {
+            } else if (MY_Char_hair == 1) {
                 MY_char.setImageResource(R.drawable.ex_char2);
             }
         }
         if (v.getId() == R.id.ex_char2) {
-            Char_head.setChar_hair(1);
-            MY_Char_head = Char_head.getChar_hair();
-            if (MY_Char_head == 0) {
+            Char_hair.setChar_hair(1);
+            MY_Char_hair = Char_hair.getChar_hair();
+            if (MY_Char_hair == 0) {
                 MY_char.setImageResource(R.drawable.ex_char1);
-            } else if (MY_Char_head == 1) {
+            } else if (MY_Char_hair == 1) {
                 MY_char.setImageResource(R.drawable.ex_char2);
             }
         }
