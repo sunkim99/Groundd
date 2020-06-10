@@ -7,6 +7,15 @@
     android:padding="10dp"
     android:id="@+id/comment_item">
 
+    <TextView
+        android:id="@+id/textView_list_userNick"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/bm_font"
+        android:padding="5dp"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/textView_list_commCon"

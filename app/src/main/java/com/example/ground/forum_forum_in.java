@@ -43,6 +43,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
     private static String TAG = "phptest_forum_forum_in";
     private static final String TAG_JSON = "webnautes";
+    private static final String TAG_userNick = "userNick";
     private static final String TAG_commCon = "commCon";
     private static final String TAG_commDate = "commDate";
 
@@ -260,11 +261,13 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject item = jsonArray.getJSONObject(i);
 
+                String userNick = item.getString(TAG_userNick);
                 String commCon = item.getString(TAG_commCon);
                 String commDate = item.getString(TAG_commDate);
 
                 HashMap<String, String> hashMap = new HashMap<>();
 
+                hashMap.put(TAG_userNick, userNick);
                 hashMap.put(TAG_commCon, commCon);
                 hashMap.put(TAG_commDate, commDate);
 
@@ -272,8 +275,8 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
             }
             ListAdapter adapter = new SimpleAdapter(
                     forum_forum_in.this, mArrrayList, R.layout.comment_item_list,
-                    new String[]{TAG_commCon, TAG_commDate},
-                    new int[]{R.id.textView_list_commCon, R.id.textView_list_commDate}
+                    new String[]{TAG_userNick,TAG_commCon, TAG_commDate},
+                    new int[]{R.id.textView_list_userNick,R.id.textView_list_commCon, R.id.textView_list_commDate}
             );
             list.setAdapter(adapter);
         } catch (JSONException e) {
