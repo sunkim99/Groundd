@@ -57,7 +57,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
     ListView list;
     ArrayList<HashMap<String, String>> mArrrayList;
-    String mJsonString;
+    private String mJsonString;
 
 
     @Override
@@ -87,6 +87,7 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
+        String post_notNum;
         commment_Context = findViewById(R.id.commCon);
 
         Intent intent1 = getIntent();
@@ -175,8 +176,10 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         list = (ListView) findViewById(R.id.comment_list);
         mArrrayList = new ArrayList<>();
 
+
         GetData task = new GetData();
-        task.execute(commment_Context.getText().toString());
+        task.execute("http://olivia7626.dothome.co.kr/Commentlist.php?notNum="+notNum1);
+        Log.d("TEST1324","전당된 게시판번호 "+notNum1);
 
     }
 
@@ -203,25 +206,21 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
         @Override
         protected String doInBackground(String... params) {
-            String post_notNum = params[0];
-            String serverURL = "http://olivia7626.dothome.co.kr/Commentlist.php";
+
+            String serverURL = params[0];
+
             try {
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setConnectTimeout(5000);
-                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.connect();
 
-                OutputStream outputStream = httpURLConnection.getOutputStream();
-                outputStream.write(post_notNum.getBytes("UTF-8"));
-                outputStream.flush();
-                outputStream.close();
-
                 int responseStatusCode = httpURLConnection.getResponseCode();
-                Log.d(TAG, "response cod -" + responseStatusCode);
+                Log.d(TAG, "POST response code -" + responseStatusCode);
 
                 InputStream inputStream;
                 if (responseStatusCode == HttpURLConnection.HTTP_OK) {
@@ -255,11 +254,11 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
     private void showResult() {
         try {
             JSONObject jsonObject = new JSONObject(mJsonString);
+            Log.d("가져온 json 데이터 : ", String.valueOf(jsonObject));
             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject item = jsonArray.getJSONObject(i);
-
 
                 String commCon = item.getString(TAG_commCon);
                 String commDate = item.getString(TAG_commDate);
@@ -269,13 +268,11 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
                 hashMap.put(TAG_commCon, commCon);
                 hashMap.put(TAG_commDate, commDate);
 
-
                 mArrrayList.add(hashMap);
             }
             ListAdapter adapter = new SimpleAdapter(
                     forum_forum_in.this, mArrrayList, R.layout.comment_item_list,
                     new String[]{TAG_commCon, TAG_commDate},
-
                     new int[]{R.id.textView_list_commCon, R.id.textView_list_commDate}
             );
             list.setAdapter(adapter);

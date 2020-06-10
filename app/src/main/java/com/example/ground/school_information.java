@@ -273,6 +273,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
     private void showResult() {
         try {
             JSONObject jsonObject = new JSONObject(mJsonString);
+            Log.d("가져온 json 데이터 : ", String.valueOf(jsonObject));
             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
 
             for (int i = 0; i < jsonArray.length(); i++) {
