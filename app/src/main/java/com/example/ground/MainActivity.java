@@ -13,10 +13,10 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_school, btn_board, btn_character, btn_event, btn_game, btn_setting;
     TextView et;
-
+    Button logo;
 
     int admin_s;
-
+    String ID, SCHOOL, SCHADD, SCHPH, NICKNAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final allround SCHADD = (allround) getApplicationContext(); //학교 주소
         final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+
+        ID.getID();
+        SCHOOL.getSCHOOL();
+        SCHADD.getSCHADD();
+        SCHPH.getSCHPH();
+        NICKNAME.getSCHPH();
 
         ///////////////////////////////////////////////////////
 
@@ -38,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_event = findViewById(R.id.btn_event);
         btn_game = findViewById(R.id.btn_game);
         btn_setting = findViewById(R.id.btn_setting);
-
+        logo = findViewById(R.id.btn_logo);
 
         btn_school.setOnClickListener(this);
         btn_board.setOnClickListener(this);
@@ -46,13 +52,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_event.setOnClickListener(this);
         btn_game.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
+        logo.setOnClickListener(this);
 
-        Intent intent2 = getIntent();
+       /* Intent intent2 = getIntent();
         String userID1 = intent2.getStringExtra("userID");
         et = findViewById(R.id.editText1);
         et.setText(userID1);
 
-        ID.setID(userID1); // 전역변수는 userID1의 값을 가짐
+        ID.setID(userID1); // 전역변수는 userID1의 값을 가짐*/
 
 
         admin_s = ADMIN.getADMIN();
@@ -100,6 +107,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent6 = new Intent(MainActivity.this, configActivity.class);
 
             startActivity(intent6);
+        }
+        if (v.getId() == R.id.btn_logo) {//
+
+            Intent intent7 = new Intent(MainActivity.this, MainActivity.class);
+
+            intent7.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+            startActivity(intent7);
         }
 
 

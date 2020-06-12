@@ -88,6 +88,7 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
                 intent.putExtra("check_position1", i); //글번호 값 저장해 전달하기
 
                 startActivity(intent);
+
             }
         });
 

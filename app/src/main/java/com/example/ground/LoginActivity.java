@@ -113,8 +113,8 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 Log.d("TEST1234", "로그인 성공" );
-                                intent.putExtra("log", "User"); //?????? 추후에 확인작업 거친후 삭제 조치예정
-                                intent.putExtra("userID", userID);
+                               /* intent.putExtra("log", "User"); //?????? 추후에 확인작업 거친후 삭제 조치예정
+                                intent.putExtra("userID", userID);*/
 
 
                                 ID.setID(userID);// 로그인시 전역변수 바로 설정

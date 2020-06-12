@@ -20,7 +20,6 @@ public class allround extends Application {
         SCHADD = "";
         SCHPH = "";
 
-        notNum = "";
 
         Char_hair = 0;
         Char_face = 0;
@@ -80,17 +79,6 @@ public class allround extends Application {
         return SCHPH;
     }
 
-   /* public void setNotNum(String SCHPH) {
-        this.SCHPH = SCHPH;
-    }
-
-
-    public void setnotNum(String notNum) {
-        this.notNum = notNum;
-    } public String getnotNum() {
-        return notNum;
-    }
-*/
 
 
 
