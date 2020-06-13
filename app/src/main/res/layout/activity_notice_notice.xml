@@ -116,13 +116,27 @@
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.518" />
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="409dp"
-        android:layout_height="462dp"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_layout"
+        android:layout_width="392dp"
+        android:layout_height="484dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="1.0">
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="409dp"
+            android:layout_height="462dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu_bar"
+            app:layout_constraintVertical_bias="0.314">
+
+        </ListView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

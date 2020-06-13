@@ -1,11 +1,13 @@
 package com.example.ground;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 //공지 메인
-public class notice_notice extends AppCompatActivity implements View.OnClickListener {
+public class notice_notice extends AppCompatActivity implements View.OnClickListener , SwipeRefreshLayout.OnRefreshListener{
 
     Button go_notice_event;
     Button top_navi, btn_setting;
@@ -42,21 +44,38 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
     private static final String TAG_annNum = "annNum";
     private static final String TAG_annTi = "annTi";
     private static final String TAG_userID= "userID";
-    ListView list;
-    ArrayList<HashMap<String, String>> mArrrayList;
-    String mJsonString;
+
+    private ListView list;
+    private ArrayList<HashMap<String, String>> mArrrayList;
+    private HashMap<String, String> itsreal;
+    private String mJsonString;
+
+    private ListAdapter adapter;
+    private SwipeRefreshLayout mSwipeRefreshLayout; //새로고침
+    private notice_notice.GetData task; //새로고침때문에 추가
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_notice);
-        allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
-        allround ADMIN = (allround) getApplicationContext();
+        final allround ADMIN = (allround) getApplicationContext();
 
         String userID;
         userID = ID.getID();
 
+        final allround SCHADD = (allround) getApplicationContext(); //학교 주소
+        final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
+        final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+
+        SCHOOL.getSCHOOL();
+        SCHADD.getSCHADD();
+        SCHPH.getSCHPH();
+        NICKNAME.getSCHPH();
+
+        ///////////////////////////////////////////////////////////////////////////////////////
         go_notice_event = findViewById(R.id.go_notice_event);
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
@@ -97,11 +116,40 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
 
                 String i = (String) check_position.get(TAG_annNum); //글번호 스트링 i에 넣어주기
                 intent.putExtra("check_position1", i); //글번호 값 저장해 전달하기
+
+                list.invalidateViews();
                 startActivity(intent);
             }
         });
 
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
     }
+
+    @Override
+    public void onRefresh() {
+        //새로고침 코드
+        mSwipeRefreshLayout.setRefreshing(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //새로고침 될 것들
+                final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
+                String schoolName;
+                schoolName = SCHOOL.getSCHOOL();
+                //adapter.init(); 이거 왜안되는지 모르겠음 이거 두개 대신 mArrayList.clear()해줌
+                //adapter.notifyDataSetChanged();
+                mArrrayList.clear();
+                list.invalidateViews();
+                notice_notice.GetData task = new notice_notice.GetData();
+                task.execute("http://olivia7626.dothome.co.kr/AnnList.php");
+                list.setAdapter(adapter);
+                mSwipeRefreshLayout.setRefreshing(false); //새로고침 완료
+            }
+        }, 1000);
+    }
+
     //서버 연결해서 데이터가져오기
     private class GetData extends AsyncTask<String, Void, String> {
         ProgressDialog progressDialog;

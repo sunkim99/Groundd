@@ -61,6 +61,13 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
         btn_setting.setOnClickListener(this);
         delete.setOnClickListener(this); //삭제하기 버튼
 
+        I_char_hair = findViewById(R.id.MY_char_hair);
+        I_char_face = findViewById(R.id.MY_char_face);
+        I_char_cloth = findViewById(R.id.MY_char_cloth);
+        I_char_acce = findViewById(R.id.MY_char_acce);
+
+
+
         MY_char = findViewById(R.id.MY_char);
         if (MY_Char_acce == 0) { // 악세
             I_char_acce.setImageResource(R.drawable.char_blind);

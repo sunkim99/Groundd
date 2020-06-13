@@ -30,6 +30,9 @@ public class notice_notice_write extends AppCompatActivity implements View.OnCli
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_notice_notice_write);
+
         final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
@@ -41,6 +44,7 @@ public class notice_notice_write extends AppCompatActivity implements View.OnCli
         allround Char_face = (allround) getApplicationContext();
         allround Char_cloth = (allround) getApplicationContext();
         allround Char_acce = (allround) getApplicationContext();
+
         int MY_Char_hair = Char_hair.getChar_hair();
         int MY_Char_face = Char_face.getChar_face();
         int MY_Char_cloth = Char_cloth.getChar_cloth();
@@ -51,10 +55,6 @@ public class notice_notice_write extends AppCompatActivity implements View.OnCli
         I_char_cloth = findViewById(R.id.MY_char_cloth);
         I_char_acce = findViewById(R.id.MY_char_acce);
 
-
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notice_notice_write);
 
         admin_id = findViewById(R.id.admin_id);
         notice_title_name = findViewById(R.id.notice_title_name);

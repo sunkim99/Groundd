@@ -2,11 +2,13 @@ package com.example.ground;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.arch.core.executor.TaskExecutor;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 //학교메인
-public class school_information extends AppCompatActivity implements View.OnClickListener {
+public class school_information extends AppCompatActivity implements View.OnClickListener , SwipeRefreshLayout.OnRefreshListener {
 
     Button ok;
     Button cancel;
@@ -58,16 +60,20 @@ public class school_information extends AppCompatActivity implements View.OnClic
     private static final String TAG_schTi = "schTi";
 
 
-    ListView list;
-    ArrayList<HashMap<String, String>> mArrrayList;
-    HashMap<String,String> itsreal;
-    String mJsonString;
+    private ListView list;
+    private ArrayList<HashMap<String, String>> mArrrayList;
+    private HashMap<String, String> itsreal;
+    private String mJsonString;
 
-
+    private ListAdapter adapter;
+    private SwipeRefreshLayout mSwipeRefreshLayout; //새로고침
+    private school_information.GetData task; //새로고침때문에 추가
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_information);
+
+
         allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         allround ADMIN = (allround) getApplicationContext(); //관리자번호
@@ -94,13 +100,11 @@ public class school_information extends AppCompatActivity implements View.OnClic
        /* data_receive = getIntent();
         final String userID1 = data_receive.getStringExtra("userID"); //유저 아이디 값 받아오기*/
         String userID;
-        userID=ID.getID(); // 전역변수는 userID1의 값을 가짐
+        userID = ID.getID(); // 전역변수는 userID1의 값을 가짐
         Log.d("TEST1234", "[School Info]받아온 userID " + userID);
 
         String schoolName;
-        schoolName=SCHOOL.getSCHOOL();
-
-
+        schoolName = SCHOOL.getSCHOOL();
 
 
         //리스트뷰 정의
@@ -108,31 +112,28 @@ public class school_information extends AppCompatActivity implements View.OnClic
         mArrrayList = new ArrayList<>();
 
         school_information.GetData task = new school_information.GetData();
-        task.execute("http://olivia7626.dothome.co.kr/SchoolForumlist-1.php?schName="+schoolName);
+        task.execute("http://olivia7626.dothome.co.kr/SchoolForumlist-1.php?schName=" + schoolName);
 
-        Log.d("TEST1234","전달한 학교이름"+schoolName);
+        Log.d("TEST1234", "전달한 학교이름" + schoolName);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-                Intent intent = new Intent(school_information.this,school_infomation_list.class); //학교게시물보여지는화면으로 넘어가기
+                Intent intent = new Intent(school_information.this, school_infomation_list.class); //학교게시물보여지는화면으로 넘어가기
                 itsreal = mArrrayList.get(position);//리스트뷰의 포지션에대한 객체를 가져옴.
-                intent.putExtra("itsreal",itsreal);
-                Log.d("TEST1234","글번호 "+ itsreal.get(TAG_schnotNum)); //글번호 찍히기
+                intent.putExtra("itsreal", itsreal);
+                Log.d("TEST1234", "글번호 " + itsreal.get(TAG_schnotNum)); //글번호 찍히기
 
 
                 String i = (String) itsreal.get(TAG_schnotNum); //글번호 스트링 i에 넣어주기
                 intent.putExtra("itsreal", i); //글번호 값 저장해 전달하기
 
-
-
-
+                list.invalidateViews();
                 startActivity(intent);
 
             }
         });
-
 
         //학교 정보 가져오기
         Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -182,14 +183,47 @@ public class school_information extends AppCompatActivity implements View.OnClic
         queue.add(sir);
 
         admin_s = ADMIN.getADMIN();
-        if (admin_s == 0) { //일반사용자
+        if (admin_s == 0) {
+            //일반사용자
             school_write.setVisibility(Button.GONE);
-        } else if (admin_s == 1) { //학교관리자일때 버튼 보이기
+        } else if (admin_s == 1) {
+            //학교관리자일때 버튼 보이기
             school_write.setVisibility(Button.VISIBLE);
             // school_write.callOnClick();
         } else if (admin_s == 2) { //어플관리자
             school_write.setVisibility(Button.VISIBLE);
         }
+
+
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
+
+    }
+
+    @Override
+    public void onRefresh() {
+        //새로고침 코드
+        mSwipeRefreshLayout.setRefreshing(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //새로고침 될 것들
+                final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
+                String schoolName;
+                schoolName = SCHOOL.getSCHOOL();
+                //adapter.init(); 이거 왜안되는지 모르겠음 이거 두개 대신 mArrayList.clear()해줌
+                //adapter.notifyDataSetChanged();
+                mArrrayList.clear();
+                list.invalidateViews();
+                school_information.GetData task = new school_information.GetData();
+                task.execute("http://olivia7626.dothome.co.kr/SchoolForumlist-1.php?schName=" + schoolName);
+                list.setAdapter(adapter);
+                mSwipeRefreshLayout.setRefreshing(false); //새로고침 완료
+            }
+        }, 1000);
+
     }
 
 
@@ -203,7 +237,6 @@ public class school_information extends AppCompatActivity implements View.OnClic
     private class GetData extends AsyncTask<String, Void, String> {
         ProgressDialog progressDialog;
         String errorString = null;
-
 
 
         @Override // 백그라운드 실행 전 변수 초기화 및 통신셋팅
@@ -293,7 +326,7 @@ public class school_information extends AppCompatActivity implements View.OnClic
 
                 mArrrayList.add(hashMap);
             }
-            ListAdapter adapter = new SimpleAdapter(
+            adapter = new SimpleAdapter(
                     school_information.this, mArrrayList, R.layout.item_list,
                     new String[]{TAG_schnotNum, TAG_schName, TAG_schTi},
 
@@ -315,6 +348,9 @@ public class school_information extends AppCompatActivity implements View.OnClic
                     return super.getView(position, convertView, parent);
                 }
             };*/
+
+
+
             list.setAdapter(adapter);
         } catch (JSONException e) {
             Log.d(TAG, "showResult :", e);
