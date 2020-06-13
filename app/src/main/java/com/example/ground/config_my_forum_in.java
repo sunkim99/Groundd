@@ -28,7 +28,7 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
     ImageView MY_char;
     TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick;
 
-    int admin_s;
+    int admin_s;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
