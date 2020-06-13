@@ -62,8 +62,12 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
 
         if (MY_Char_acce == 0) {
             I_char_acce.setImageResource(R.drawable.char_blind);
+            acce_default.setBackgroundResource(R.drawable.char_blind_decide);
+            acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
         } else if (MY_Char_acce == 1) {
             I_char_acce.setImageResource(R.drawable.char_acce_gom);
+            acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+            acce_gom.setBackgroundResource(R.drawable.char_blind_decide);
         }
 
         if (MY_Char_cloth == 0) { // 옷
@@ -82,10 +86,14 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
         if (v.getId() == R.id.acce_default) {
             Char_acce.setChar_acce(0);
             int_Char_acce = Char_acce.getChar_acce();
-            if (int_Char_acce== 0) {
+            if (int_Char_acce == 0) {
                 I_char_acce.setImageResource(R.drawable.char_blind);
+                acce_default.setBackgroundResource(R.drawable.char_blind_decide);
+                acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
             } else if (int_Char_acce == 1) {
                 I_char_acce.setImageResource(R.drawable.char_acce_gom);
+                acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_gom.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
         if (v.getId() == R.id.acce_gom) {
@@ -93,8 +101,12 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
             int_Char_acce = Char_acce.getChar_acce();
             if (int_Char_acce == 0) {
                 I_char_acce.setImageResource(R.drawable.char_blind);
+                acce_default.setBackgroundResource(R.drawable.char_blind_decide);
+                acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
             } else if (int_Char_acce == 1) {
                 I_char_acce.setImageResource(R.drawable.char_acce_gom);
+                acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_gom.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
 

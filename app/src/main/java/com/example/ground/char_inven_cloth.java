@@ -68,8 +68,12 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
 
         if (MY_Char_cloth == 0) { // 옷
             I_char_cloth.setImageResource(R.drawable.char_blind);
+            cloth_default.setBackgroundResource(R.drawable.char_blind_decide);
+            cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
         } else if (MY_Char_cloth == 1) {
             I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+            cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+            cloth_gom.setBackgroundResource(R.drawable.char_blind_decide);
         }
     }
 
@@ -84,17 +88,25 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
             MY_Char_cloth = Char_cloth.getChar_cloth();
             if (MY_Char_cloth == 0) {
                 I_char_cloth.setImageResource(R.drawable.char_blind);
+                cloth_default.setBackgroundResource(R.drawable.char_blind_decide);
+                cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
             } else if (MY_Char_cloth == 1) {
                 I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+                cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_gom.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
         if (v.getId() == R.id.cloth_gom) {
             Char_cloth.setChar_cloth(1);
             MY_Char_cloth = Char_cloth.getChar_cloth();
-            if (MY_Char_cloth == 0) {
+            if (MY_Char_cloth == 0) { // 옷
                 I_char_cloth.setImageResource(R.drawable.char_blind);
+                cloth_default.setBackgroundResource(R.drawable.char_blind_decide);
+                cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
             } else if (MY_Char_cloth == 1) {
                 I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+                cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_gom.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
 
