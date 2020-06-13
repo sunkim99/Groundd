@@ -50,9 +50,9 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
     Button btn_image, write, cancel;
     Button top_navi, btn_setting;
-    ImageView MY_char;
 
     TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick, store_id;
+    ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
 
     private EditText commment_Context;
 
@@ -66,7 +66,19 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_forum_in);
         allround Char_hair = (allround) getApplicationContext();
+        allround Char_face = (allround) getApplicationContext();
+        allround Char_cloth = (allround) getApplicationContext();
+        allround Char_acce = (allround) getApplicationContext();
         int MY_Char_hair = Char_hair.getChar_hair();
+        int MY_Char_face = Char_face.getChar_face();
+        int MY_Char_cloth = Char_cloth.getChar_cloth();
+        int MY_Char_acce = Char_acce.getChar_acce();
+
+        I_char_hair = findViewById(R.id.MY_char_hair);
+        I_char_face = findViewById(R.id.MY_char_face);
+        I_char_cloth = findViewById(R.id.MY_char_cloth);
+        I_char_acce = findViewById(R.id.MY_char_acce);
+
         //final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
         allround ADMIN = (allround) getApplicationContext();
 
@@ -98,13 +110,33 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         id_notNum.setText(notNum1);
         Log.d("TEST1234", String.valueOf(notNum));
 
+        if (MY_Char_acce == 0) { // 악세
+            I_char_acce.setImageResource(R.drawable.char_blind);
+        } else if (MY_Char_acce == 1) {
+            I_char_acce.setImageResource(R.drawable.char_acce_gom);
+        } else if (MY_Char_acce == 2) {
+            I_char_acce.setImageResource(R.drawable.char_acce_cat_ear);
+        }
 
-        MY_char = findViewById(R.id.MY_char);
-        if (MY_Char_hair == 0) {
-            MY_char.setImageResource(R.drawable.ex_char1);
+        if (MY_Char_face == 0) { // 얼굴
+            I_char_face.setImageResource(R.drawable.face_default);
+        } else if (MY_Char_face == 1) {
+            I_char_face.setImageResource(R.drawable.face_default_black);
+        }
+        if (MY_Char_cloth == 0) { // 옷
+            I_char_cloth.setImageResource(R.drawable.cloth_default);
+        } else if (MY_Char_cloth == 1) {
+            I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+        } else if (MY_Char_cloth == 2) {
+            I_char_cloth.setImageResource(R.drawable.char_cloth_daram);
+        }
+
+
+        if (MY_Char_hair == 0) { // 머리
+            I_char_hair.setImageResource(R.drawable.hair_default);
         } else if (MY_Char_hair == 1) {
-            MY_char.setImageResource(R.drawable.ex_char2);
-        } // 캐릭터관련
+            I_char_hair.setImageResource(R.drawable.char_blind);
+        }
 
 
 

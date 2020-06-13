@@ -126,13 +126,12 @@
         app:srcCompat="@drawable/forum_box" />
 
     <ImageView
-        android:id="@+id/MY_char"
         android:layout_width="91dp"
         android:layout_height="127dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="4dp"
-        android:background="@drawable/char_default"
+        android:background="@drawable/char_blind_none_decide"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/input_box"
         app:layout_constraintEnd_toEndOf="parent"

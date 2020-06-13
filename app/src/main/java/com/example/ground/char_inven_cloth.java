@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class char_inven_cloth extends AppCompatActivity implements View.OnClickListener {
-    Button cloth_default, cloth_gom;
+    Button cloth_default, cloth_gom, cloth_daram;
     TextView show_nick;
     ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
     Button top_navi, btn_setting;
@@ -51,9 +51,11 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
 
         cloth_default = findViewById(R.id.cloth_default);
         cloth_gom = findViewById(R.id.cloth_gom);
+        cloth_daram = findViewById(R.id.cloth_daram);
 
         cloth_default.setOnClickListener(this);
         cloth_gom.setOnClickListener(this);
+        cloth_daram.setOnClickListener(this);
 
         I_char_hair = findViewById(R.id.MY_char_hair);
         I_char_face = findViewById(R.id.MY_char_face);
@@ -64,17 +66,28 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
             I_char_acce.setImageResource(R.drawable.char_blind);
         } else if (MY_Char_acce == 1) {
             I_char_acce.setImageResource(R.drawable.char_acce_gom);
+        } else if (MY_Char_acce == 2) {
+            I_char_acce.setImageResource(R.drawable.char_acce_cat_ear);
         }
 
         if (MY_Char_cloth == 0) { // 옷
             I_char_cloth.setImageResource(R.drawable.cloth_default);
             cloth_default.setBackgroundResource(R.drawable.char_blind_decide);
             cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+            cloth_daram.setBackgroundResource(R.drawable.char_blind_none_decide);
         } else if (MY_Char_cloth == 1) {
             I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
             cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
             cloth_gom.setBackgroundResource(R.drawable.char_blind_decide);
+            cloth_daram.setBackgroundResource(R.drawable.char_blind_none_decide);
         }
+        else if (MY_Char_cloth == 2) {
+            I_char_cloth.setImageResource(R.drawable.char_cloth_daram);
+            cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+            cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+            cloth_daram.setBackgroundResource(R.drawable.char_blind_decide);
+        }
+
         if (MY_Char_hair == 0) { // 머리
             I_char_hair.setImageResource(R.drawable.hair_default);
         } else if (MY_Char_hair == 1) {
@@ -96,14 +109,22 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
         if (v.getId() == R.id.cloth_default) {
             Char_cloth.setChar_cloth(0);
             MY_Char_cloth = Char_cloth.getChar_cloth();
-            if (MY_Char_cloth == 0) {
+            if (MY_Char_cloth == 0) { // 옷
                 I_char_cloth.setImageResource(R.drawable.cloth_default);
                 cloth_default.setBackgroundResource(R.drawable.char_blind_decide);
                 cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_daram.setBackgroundResource(R.drawable.char_blind_none_decide);
             } else if (MY_Char_cloth == 1) {
                 I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
                 cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
                 cloth_gom.setBackgroundResource(R.drawable.char_blind_decide);
+                cloth_daram.setBackgroundResource(R.drawable.char_blind_none_decide);
+            }
+            else if (MY_Char_cloth == 2) {
+                I_char_cloth.setImageResource(R.drawable.char_cloth_daram);
+                cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_daram.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
         if (v.getId() == R.id.cloth_gom) {
@@ -113,10 +134,39 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
                 I_char_cloth.setImageResource(R.drawable.cloth_default);
                 cloth_default.setBackgroundResource(R.drawable.char_blind_decide);
                 cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_daram.setBackgroundResource(R.drawable.char_blind_none_decide);
             } else if (MY_Char_cloth == 1) {
                 I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
                 cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
                 cloth_gom.setBackgroundResource(R.drawable.char_blind_decide);
+                cloth_daram.setBackgroundResource(R.drawable.char_blind_none_decide);
+            }
+            else if (MY_Char_cloth == 2) {
+                I_char_cloth.setImageResource(R.drawable.char_cloth_daram);
+                cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_daram.setBackgroundResource(R.drawable.char_blind_decide);
+            }
+        }
+        if (v.getId() == R.id.cloth_daram) {
+            Char_cloth.setChar_cloth(2);
+            MY_Char_cloth = Char_cloth.getChar_cloth();
+            if (MY_Char_cloth == 0) { // 옷
+                I_char_cloth.setImageResource(R.drawable.cloth_default);
+                cloth_default.setBackgroundResource(R.drawable.char_blind_decide);
+                cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_daram.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_cloth == 1) {
+                I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+                cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_gom.setBackgroundResource(R.drawable.char_blind_decide);
+                cloth_daram.setBackgroundResource(R.drawable.char_blind_none_decide);
+            }
+            else if (MY_Char_cloth == 2) {
+                I_char_cloth.setImageResource(R.drawable.char_cloth_daram);
+                cloth_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                cloth_daram.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
 

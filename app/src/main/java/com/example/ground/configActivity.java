@@ -105,6 +105,8 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
             I_char_acce.setImageResource(R.drawable.char_blind);
         } else if (MY_Char_acce == 1) {
             I_char_acce.setImageResource(R.drawable.char_acce_gom);
+        } else if (MY_Char_acce == 2) {
+            I_char_acce.setImageResource(R.drawable.char_acce_cat_ear);
         }
 
         if (MY_Char_face == 0) { // 얼굴
@@ -116,7 +118,11 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
             I_char_cloth.setImageResource(R.drawable.cloth_default);
         } else if (MY_Char_cloth == 1) {
             I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+        } else if (MY_Char_cloth == 2) {
+            I_char_cloth.setImageResource(R.drawable.char_cloth_daram);
         }
+
+
         if (MY_Char_hair == 0) { // 머리
             I_char_hair.setImageResource(R.drawable.hair_default);
         } else if (MY_Char_hair == 1) {

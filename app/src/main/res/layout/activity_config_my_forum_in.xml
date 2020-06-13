@@ -131,7 +131,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="4dp"
-        android:foreground="@drawable/char_default"
+        android:foreground="@drawable/char_blind_none_decide"
         app:layout_constraintBottom_toBottomOf="@+id/input_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class char_inven_acce extends AppCompatActivity implements View.OnClickListener {
-    Button acce_gom, acce_default;
+    Button acce_gom, acce_default, acce_cat_ear;
     TextView show_nick;
     ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
     Button top_navi, btn_setting;
@@ -51,7 +51,9 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
 
         acce_gom = findViewById(R.id.acce_gom);
         acce_default = findViewById(R.id.acce_default);
+        acce_cat_ear = findViewById(R.id.acce_cat_ear);
 
+        acce_cat_ear.setOnClickListener(this);
         acce_gom.setOnClickListener(this);
         acce_default.setOnClickListener(this);
 
@@ -64,10 +66,17 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
             I_char_acce.setImageResource(R.drawable.char_blind);
             acce_default.setBackgroundResource(R.drawable.char_blind_decide);
             acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+            acce_cat_ear.setBackgroundResource(R.drawable.char_blind_none_decide);
         } else if (MY_Char_acce == 1) {
             I_char_acce.setImageResource(R.drawable.char_acce_gom);
             acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
             acce_gom.setBackgroundResource(R.drawable.char_blind_decide);
+            acce_cat_ear.setBackgroundResource(R.drawable.char_blind_none_decide);
+        } else if (MY_Char_acce == 2) {
+            I_char_acce.setImageResource(R.drawable.char_acce_cat_ear);
+            acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+            acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+            acce_cat_ear.setBackgroundResource(R.drawable.char_blind_decide);
         }
 
         if (MY_Char_face == 0) { // 얼굴
@@ -75,11 +84,15 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
         } else if (MY_Char_face == 1) {
             I_char_face.setImageResource(R.drawable.face_default_black);
         }
+
         if (MY_Char_cloth == 0) { // 옷
             I_char_cloth.setImageResource(R.drawable.cloth_default);
         } else if (MY_Char_cloth == 1) {
             I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+        } else if (MY_Char_cloth == 2) {
+            I_char_cloth.setImageResource(R.drawable.char_cloth_daram);
         }
+
         if (MY_Char_hair == 0) { // 머리
             I_char_hair.setImageResource(R.drawable.hair_default);
         } else if (MY_Char_hair == 1) {
@@ -91,32 +104,66 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         allround Char_acce = (allround) getApplicationContext();////////
-        int int_Char_acce = Char_acce.getChar_acce();
+        int MY_Char_acce = Char_acce.getChar_acce();
 
         if (v.getId() == R.id.acce_default) {
             Char_acce.setChar_acce(0);
-            int_Char_acce = Char_acce.getChar_acce();
-            if (int_Char_acce == 0) {
+            MY_Char_acce = Char_acce.getChar_acce();
+            if (MY_Char_acce == 0) {
                 I_char_acce.setImageResource(R.drawable.char_blind);
                 acce_default.setBackgroundResource(R.drawable.char_blind_decide);
                 acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
-            } else if (int_Char_acce == 1) {
+                acce_cat_ear.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_acce == 1) {
                 I_char_acce.setImageResource(R.drawable.char_acce_gom);
                 acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
                 acce_gom.setBackgroundResource(R.drawable.char_blind_decide);
+                acce_cat_ear.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_acce == 2) {
+                I_char_acce.setImageResource(R.drawable.char_acce_cat_ear);
+                acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_cat_ear.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
         if (v.getId() == R.id.acce_gom) {
             Char_acce.setChar_acce(1);
-            int_Char_acce = Char_acce.getChar_acce();
-            if (int_Char_acce == 0) {
+            MY_Char_acce = Char_acce.getChar_acce();
+            if (MY_Char_acce == 0) {
                 I_char_acce.setImageResource(R.drawable.char_blind);
                 acce_default.setBackgroundResource(R.drawable.char_blind_decide);
                 acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
-            } else if (int_Char_acce == 1) {
+                acce_cat_ear.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_acce == 1) {
                 I_char_acce.setImageResource(R.drawable.char_acce_gom);
                 acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
                 acce_gom.setBackgroundResource(R.drawable.char_blind_decide);
+                acce_cat_ear.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_acce == 2) {
+                I_char_acce.setImageResource(R.drawable.char_acce_cat_ear);
+                acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_cat_ear.setBackgroundResource(R.drawable.char_blind_decide);
+            }
+        }
+        if (v.getId() == R.id.acce_cat_ear) {
+            Char_acce.setChar_acce(2);
+            MY_Char_acce = Char_acce.getChar_acce();
+            if (MY_Char_acce == 0) {
+                I_char_acce.setImageResource(R.drawable.char_blind);
+                acce_default.setBackgroundResource(R.drawable.char_blind_decide);
+                acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_cat_ear.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_acce == 1) {
+                I_char_acce.setImageResource(R.drawable.char_acce_gom);
+                acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_gom.setBackgroundResource(R.drawable.char_blind_decide);
+                acce_cat_ear.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_acce == 2) {
+                I_char_acce.setImageResource(R.drawable.char_acce_cat_ear);
+                acce_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_gom.setBackgroundResource(R.drawable.char_blind_none_decide);
+                acce_cat_ear.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
 

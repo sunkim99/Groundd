@@ -204,6 +204,20 @@
         app:layout_constraintStart_toStartOf="@+id/char_inven_box"
         app:layout_constraintTop_toBottomOf="@+id/acce_default" />
 
+    <Button
+        android:id="@+id/acce_cat_ear"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/background_light"
+        android:foreground="@drawable/char_acce_cat_ear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/acce_default"
+        app:layout_constraintTop_toTopOf="@+id/char_inven_box" />
+
     <ImageView
         android:id="@+id/MY_char"
         android:layout_width="110dp"

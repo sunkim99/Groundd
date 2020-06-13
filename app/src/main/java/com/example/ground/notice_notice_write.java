@@ -26,8 +26,7 @@ public class notice_notice_write extends AppCompatActivity implements View.OnCli
     TextView admin_id,show_id;
     EditText notice_title_name, notice_content;
     Button btn_save, btn_back, btn_forum_write_add;
-    ImageView MY_char;
-
+    ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +36,22 @@ public class notice_notice_write extends AppCompatActivity implements View.OnCli
         final allround SCHADD = (allround) getApplicationContext(); //학교 주소
         final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+
         allround Char_hair = (allround) getApplicationContext();
+        allround Char_face = (allround) getApplicationContext();
+        allround Char_cloth = (allround) getApplicationContext();
+        allround Char_acce = (allround) getApplicationContext();
         int MY_Char_hair = Char_hair.getChar_hair();
+        int MY_Char_face = Char_face.getChar_face();
+        int MY_Char_cloth = Char_cloth.getChar_cloth();
+        int MY_Char_acce = Char_acce.getChar_acce();
+
+        I_char_hair = findViewById(R.id.MY_char_hair);
+        I_char_face = findViewById(R.id.MY_char_face);
+        I_char_cloth = findViewById(R.id.MY_char_cloth);
+        I_char_acce = findViewById(R.id.MY_char_acce);
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_notice_write);
@@ -60,11 +73,32 @@ public class notice_notice_write extends AppCompatActivity implements View.OnCli
         show_id.setText(userID);
         admin_id.setText(nickName);
 
-        MY_char = findViewById(R.id.MY_char);
-        if (MY_Char_hair == 0) {
-            MY_char.setImageResource(R.drawable.ex_char1);
+        if (MY_Char_acce == 0) { // 악세
+            I_char_acce.setImageResource(R.drawable.char_blind);
+        } else if (MY_Char_acce == 1) {
+            I_char_acce.setImageResource(R.drawable.char_acce_gom);
+        } else if (MY_Char_acce == 2) {
+            I_char_acce.setImageResource(R.drawable.char_acce_cat_ear);
+        }
+
+        if (MY_Char_face == 0) { // 얼굴
+            I_char_face.setImageResource(R.drawable.face_default);
+        } else if (MY_Char_face == 1) {
+            I_char_face.setImageResource(R.drawable.face_default_black);
+        }
+        if (MY_Char_cloth == 0) { // 옷
+            I_char_cloth.setImageResource(R.drawable.cloth_default);
+        } else if (MY_Char_cloth == 1) {
+            I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+        } else if (MY_Char_cloth == 2) {
+            I_char_cloth.setImageResource(R.drawable.char_cloth_daram);
+        }
+
+
+        if (MY_Char_hair == 0) { // 머리
+            I_char_hair.setImageResource(R.drawable.hair_default);
         } else if (MY_Char_hair == 1) {
-            MY_char.setImageResource(R.drawable.ex_char2);
+            I_char_hair.setImageResource(R.drawable.char_blind);
         }
     }
 
