@@ -74,8 +74,8 @@ public class char_inven_face extends AppCompatActivity implements View.OnClickLi
             face_default_black.setBackgroundResource(R.drawable.char_blind_none_decide);
         } else if (MY_Char_face == 1) {
             I_char_face.setImageResource(R.drawable.face_default_black);
-            face_default.setBackgroundResource(R.drawable.char_blind_decide);
-            face_default_black.setBackgroundResource(R.drawable.char_blind_none_decide);
+            face_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+            face_default_black.setBackgroundResource(R.drawable.char_blind_decide);
         }
         if (MY_Char_cloth == 0) { // 옷
             I_char_cloth.setImageResource(R.drawable.cloth_default);
