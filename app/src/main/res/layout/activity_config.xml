@@ -150,7 +150,6 @@
         android:layout_width="125dp"
         android:layout_height="185dp"
         android:background="@android:color/background_light"
-        android:foreground="@drawable/char_default"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"

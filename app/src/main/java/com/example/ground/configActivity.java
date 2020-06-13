@@ -101,16 +101,26 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         Profile_image = findViewById(R.id.profile_image);
-        if (MY_Char_acce == 0) {
+        if (MY_Char_acce == 0) { // 악세
             I_char_acce.setImageResource(R.drawable.char_blind);
         } else if (MY_Char_acce == 1) {
             I_char_acce.setImageResource(R.drawable.char_acce_gom);
         }
 
+        if (MY_Char_face == 0) { // 얼굴
+            I_char_face.setImageResource(R.drawable.face_default);
+        } else if (MY_Char_face == 1) {
+            I_char_face.setImageResource(R.drawable.face_default_black);
+        }
         if (MY_Char_cloth == 0) { // 옷
-            I_char_cloth.setImageResource(R.drawable.char_blind);
+            I_char_cloth.setImageResource(R.drawable.cloth_default);
         } else if (MY_Char_cloth == 1) {
             I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+        }
+        if (MY_Char_hair == 0) { // 머리
+            I_char_hair.setImageResource(R.drawable.hair_default);
+        } else if (MY_Char_hair == 1) {
+            I_char_hair.setImageResource(R.drawable.char_blind);
         }
 
     }

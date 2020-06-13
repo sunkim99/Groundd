@@ -70,10 +70,20 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
             acce_gom.setBackgroundResource(R.drawable.char_blind_decide);
         }
 
+        if (MY_Char_face == 0) { // 얼굴
+            I_char_face.setImageResource(R.drawable.face_default);
+        } else if (MY_Char_face == 1) {
+            I_char_face.setImageResource(R.drawable.face_default_black);
+        }
         if (MY_Char_cloth == 0) { // 옷
-            I_char_cloth.setImageResource(R.drawable.char_blind);
+            I_char_cloth.setImageResource(R.drawable.cloth_default);
         } else if (MY_Char_cloth == 1) {
             I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
+        }
+        if (MY_Char_hair == 0) { // 머리
+            I_char_hair.setImageResource(R.drawable.hair_default);
+        } else if (MY_Char_hair == 1) {
+            I_char_hair.setImageResource(R.drawable.char_blind);
         }
     }
 
