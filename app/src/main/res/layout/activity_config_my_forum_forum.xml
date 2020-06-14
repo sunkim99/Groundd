@@ -93,32 +93,34 @@
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.518" />
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@id/menu_bar"
-    app:layout_constraintBottom_toTopOf="@id/list"
-    app:layout_constraintStart_toStartOf="@id/menu_bar"
-    app:layout_constraintEnd_toEndOf="@id/menu_bar"
-    tools:ignore="MissingConstraints">
-    <Button
-        android:id="@+id/button_myNotice"
+    <LinearLayout
+        android:id="@+id/config_linearlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="나의 글보기"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="203dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toTopOf="@id/config_list"
+        app:layout_constraintEnd_toEndOf="@id/menu_bar"
+        app:layout_constraintStart_toStartOf="@id/menu_select_in_bar"
+        app:layout_constraintTop_toBottomOf="@id/menu_bar"
+        tools:ignore="MissingConstraints">
 
-    <Button
-        android:id="@+id/button_myComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="나의 댓글보기"
-        tools:ignore="MissingConstraints" />
-</LinearLayout>
+        <Button
+            android:id="@+id/button_myNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="나의 글보기"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="203dp" />
+
+        <Button
+            android:id="@+id/button_myComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나의 댓글보기"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/menu_name"
@@ -143,7 +145,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_bar"
+        app:layout_constraintTop_toBottomOf="@+id/config_linearlayout"
         app:layout_constraintVertical_bias="0.989" />
 
     <TextView

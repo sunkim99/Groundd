@@ -32,34 +32,39 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
     Button go_forum_image;
     Button top_navi, btn_setting;
+    Button showmynot, showmycomm;
     TextView tvID;
 
     private static String TAG = "phptest_config_my_forum_forum";
     private static final String TAG_JSON = "webnautes";
     private static final String TAG_notNum = "notNum";
-    private static final String TAG_userNick = "userNick";
     private static final String TAG_notTi = "notTi";
     private static final String TAG_notDate = "notDate";
+    private static final String TAG_commCon = "commCon";
+    private static final String TAG_commDate = "commDate";
 
-    private int showlistnum;
+    boolean clickednum = true;
 
     ListView noticelist, commentlist;
     ArrayList<HashMap<String, String>> MyNoticeList;
     ArrayList<HashMap<String, String>> MyCommentList;
     String mJsonString;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config_my_forum_forum);
-        allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
-        String userID = ID.getID();
 
         go_forum_image = findViewById(R.id.go_config_forum_image);
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
+
+        showmynot = findViewById(R.id.button_myNotice);
+        showmycomm = findViewById(R.id.button_myComment);
+
+        allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        String userID = ID.getID();
+
 
         tvID=findViewById(R.id.tvID);
         tvID.setText(userID);
@@ -75,29 +80,47 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
         MyNoticeList = new ArrayList<>();
         MyCommentList = new ArrayList<>();
 
-        showlistnum = 0;
-        if (showlistnum == 0) {
+        if(clickednum = true) {
             config_my_forum_forum.MyNotice task = new config_my_forum_forum.MyNotice();
-            task.execute("http://olivia7626.dothome.co.kr/config_mynoticelist.php?userID="+userID);
-            Log.d("TEST1324","전당된 유저아이디 "+userID);
+            task.execute("http://olivia7626.dothome.co.kr/config_mynoticelist.php?userID=" + userID);
+            Log.d("TEST1324", "전당된 유저아이디 " + userID);
+
+            noticelist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView parent, View v, int position, long id) {
+                    Intent intent = new Intent(getApplicationContext(), config_my_forum_in.class); //클릭하면 이동하는 화면
+                    HashMap check_position = MyNoticeList.get(position);   //리스트뷰의 포지션에대한 객체를 가져옴.
+
+                    Log.d("TEST1234", "게시판 글번호 " + check_position.get(TAG_notNum)); //글번호 찍히기
+
+                    String i = (String) check_position.get(TAG_notNum); //글번호 스트링 i에 넣어주기
+                    intent.putExtra("check_position1", i); //글번호 값 저장해 전달하기
+
+                    startActivity(intent);
+                }
+            });
+        }
+        else {
+            config_my_forum_forum.MyComment task = new config_my_forum_forum.MyComment();
+            task.execute("http://olivia7626.dothome.co.kr/config_mycommentlist.php?userID=" + userID);
+            Log.d("TEST1324", "전당된 유저아이디 " + userID);
+
+            commentlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView parent, View view, int position, long id) {
+                    Intent comment_intent = new Intent(getApplicationContext(), config_my_forum_in.class);
+                    HashMap check_position = MyCommentList.get(position);
+
+                    Log.d("TEST1234", "게시판 글번호 " + check_position.get(TAG_notNum));
+
+                    String i = (String) check_position.get(TAG_notNum);
+                    comment_intent.putExtra("check_position2", i);
+
+                    startActivity(comment_intent);
+                }
+            });
         }
 
-
-
-        noticelist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), config_my_forum_in.class); //클릭하면 이동하는 화면
-                HashMap check_position = MyNoticeList.get(position);   //리스트뷰의 포지션에대한 객체를 가져옴.
-
-                Log.d("TEST1234", "게시판 글번호 " + check_position.get(TAG_notNum)); //글번호 찍히기
-
-                String i = (String) check_position.get(TAG_notNum); //글번호 스트링 i에 넣어주기
-                intent.putExtra("check_position1", i); //글번호 값 저장해 전달하기
-
-                startActivity(intent);
-            }
-        });
     }
 
         //사용자가 쓴 게시글 불러오기
@@ -118,7 +141,12 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
                 progressDialog.dismiss();
                 mJsonString = result;
+                if(clickednum = true){
                 showMyNotice();
+                }
+                else{
+                ShowMyComment();
+                }
             }
 
             @Override // 서벼연결해서 데이터 저장
@@ -183,14 +211,12 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
                     JSONObject item = jsonArray.getJSONObject(i);
 
                     String notNum = item.getString(TAG_notNum);
-                    String userNick = item.getString(TAG_userNick);
                     String notTi  = item.getString(TAG_notTi);
                     String notDate  = item.getString(TAG_notDate);
 
                     HashMap<String, String> hashMap = new HashMap<>();
 
                     hashMap.put(TAG_notNum,notNum);
-                    hashMap.put(TAG_userNick,userNick);
                     hashMap.put(TAG_notTi, notTi);
                     hashMap.put(TAG_notDate, notDate);
 
@@ -200,8 +226,8 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
                 ListAdapter adapter = new SimpleAdapter(
                         config_my_forum_forum.this, MyNoticeList,R.layout.config_item_list,
-                        new String[]{TAG_notNum,TAG_userNick,TAG_notTi,TAG_notDate},
-                        new int[]{R.id.textView_list_config_notNum,R.id.textView_list_config_userNick,R.id.textView_list_config_notTi,R.id.textView_list_config_notDate}
+                        new String[]{TAG_notNum,TAG_notTi,TAG_notDate},
+                        new int[]{R.id.textView_list_config_notNum, R.id.textView_list_config_notTi,R.id.textView_list_config_notDate}
                 );
                 noticelist.setAdapter(adapter);
 
@@ -213,6 +239,7 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
 
     }
+
     //사용자가 쓴 댓글 불러오기
     public class MyComment extends AsyncTask<String, Void, String>{
         ProgressDialog progressDialog;
@@ -290,23 +317,21 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
                 JSONObject item = jsonArray.getJSONObject(i);
 
                 String notNum = item.getString(TAG_notNum);
-                String userNick = item.getString(TAG_userNick);
-                String notTi = item.getString(TAG_notTi);
-                String notDate = item.getString(TAG_notDate);
+                String commCon = item.getString(TAG_commCon);
+                String commDate = item.getString(TAG_commDate);
 
                 HashMap<String, String> hashMap = new HashMap<>();
 
                 hashMap.put(TAG_notNum,notNum);
-                hashMap.put(TAG_userNick,userNick);
-                hashMap.put(TAG_notTi,notTi);
-                hashMap.put(TAG_notDate,notDate);
+                hashMap.put(TAG_commCon,commCon);
+                hashMap.put(TAG_commDate,commDate);
 
                 MyCommentList.add(hashMap);
             }
             ListAdapter adapter = new SimpleAdapter(
-                    config_my_forum_forum.this, MyNoticeList,R.layout.config_item_list,
-                    new String[]{TAG_notNum,TAG_userNick,TAG_notTi,TAG_notDate},
-                    new int[]{R.id.textView_list_config_notNum,R.id.textView_list_config_userNick,R.id.textView_list_config_notTi,R.id.textView_list_config_notDate}
+                    config_my_forum_forum.this, MyCommentList,R.layout.config_item_list,
+                    new String[]{TAG_notNum,TAG_commCon,TAG_commDate},
+                    new int[]{R.id.textView_list_config_notNum,R.id.textView_list_config_notTi,R.id.textView_list_config_notDate}
             );
             commentlist.setAdapter(adapter);
         } catch (JSONException e) {
@@ -329,8 +354,12 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
             startActivity(intent6);
         }
         if (v.getId() == R.id.button_myNotice){//내 게시글보기 버튼클릭시 내가쓴 글 리스트 표시
-                showlistnum = 0;
-
+                clickednum = true;
              }
+        if (v.getId() == R.id.button_myComment){
+            clickednum = false;
+        }
+
     }
+
 }
