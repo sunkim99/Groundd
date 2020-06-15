@@ -69,12 +69,10 @@
         android:layout_height="60dp"
         android:layout_marginTop="7dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
         app:layout_constraintEnd_toEndOf="@+id/menu_bar"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/menu_bar"
         app:layout_constraintTop_toBottomOf="@+id/top_navi"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/menu_select_bar" />
 
     <TextView
@@ -99,6 +97,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/config_list"
         app:layout_constraintEnd_toEndOf="@id/menu_bar"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@id/menu_select_in_bar"
         app:layout_constraintTop_toBottomOf="@id/menu_bar"
         tools:ignore="MissingConstraints">
@@ -152,10 +151,11 @@
         android:id="@+id/tvID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:visibility="invisible"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="TextView"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/menu_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

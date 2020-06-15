@@ -6,16 +6,6 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/go_notice_notice"
-        android:layout_width="72dp"
-        android:layout_height="60dp"
-        android:background="@android:drawable/divider_horizontal_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
-        app:layout_constraintStart_toStartOf="@+id/menu_bar"
-        app:layout_constraintTop_toTopOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
         android:id="@+id/btn_go_notice_notice_cancel"
         android:layout_width="62dp"
         android:layout_height="62dp"
@@ -98,6 +88,16 @@
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/menu_select_bar" />
+
+    <Button
+        android:id="@+id/go_notice_notice"
+        android:layout_width="72dp"
+        android:layout_height="60dp"
+        android:background="@android:drawable/divider_horizontal_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/menu_name"
