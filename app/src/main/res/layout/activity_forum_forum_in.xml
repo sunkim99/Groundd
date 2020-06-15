@@ -270,6 +270,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="412dp"
         android:layout_height="120dp"
+        android:layout_marginTop="7dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/input_box"
         tools:ignore="MissingConstraints">
@@ -277,8 +278,7 @@
         <ListView
             android:id="@+id/comment_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <EditText

@@ -1,44 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/comment_item4"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_margin="15dp"
-    android:padding="10dp"
-    android:id="@+id/comment_item">
-
-    <TextView
-        android:id="@+id/textView_list_userNick"
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:fontFamily="@font/bm_font"
-        android:padding="5dp"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/textView_list_commCon"
-        android:layout_width="234dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:padding="5dp"
-        android:textSize="18sp"
-        android:fontFamily="@font/bm_font" />
+    android:layout_height="107dp"
+    android:orientation="horizontal">
 
 
-    <TextView
-        android:id="@+id/textView_list_commDate"
-        android:layout_width="21dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="3"
-        android:padding="5dp"
-        android:textSize="15sp"
-        android:fontFamily="@font/bm_font" />
+    <LinearLayout
+        android:id="@+id/comment_item"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/input_box_big"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="70dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ex_char1" />
 
+        <LinearLayout
+            android:id="@+id/comment_item2"
+            android:layout_width="335dp"
+            android:layout_height="90dp"
+            android:layout_margin="0dp"
+            android:background="@drawable/input_box_big"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView_list_userNick"
+                android:layout_width="142dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/bm_font"
+                android:padding="2dp"
+                android:text="ghnghj"
+                android:textColor="#f8aaa3"
+                android:textSize="15sp" />
 
+            <TextView
+                android:id="@+id/textView_list_commCon"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/bm_font"
+                android:padding="2dp"
+                android:text="khjkhjkhjkhjk"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView_list_commDate"
+                android:layout_width="317dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:fontFamily="@font/bm_font"
+                android:padding="2dp"
+                android:text="hjkhjkhj"
+                android:textColor="@android:color/background_light"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
+

@@ -1,45 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemLayout4"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="15dp"
-    android:padding="1dp"
-    android:id="@+id/itemLayout">
+    android:layout_height="200dp"
+    android:layout_margin="10dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/itemLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/list_block"
+        android:orientation="horizontal"
+        android:padding="0dp">
 
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="83dp"
-        android:layout_height="122dp"
-        app:srcCompat="@drawable/char_default" />
+        <LinearLayout
+            android:id="@+id/itemLayout3"
+            android:layout_width="128dp"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:orientation="vertical"
+            android:padding="0dp">
 
-    <TextView
-        android:id="@+id/textView_list_notNum"
-        android:layout_width="37dp"
-        android:layout_height="31dp"
-        android:layout_margin="5dp"
-        android:fontFamily="@font/bm_font"
-        android:textSize="15sp" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/char_blind_none_decide"
+                app:srcCompat="@drawable/char_default" />
 
-    <TextView
-        android:id="@+id/textView_list_notTi"
-        android:layout_width="202dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:fontFamily="@font/bm_font"
-        android:padding="7dp"
-        android:textSize="16sp" />
+            <TextView
+                android:id="@+id/textView_list_notTi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="5"
+                android:fontFamily="@font/bm_font"
+                android:padding="5dp"
+                android:textColor="#f8aaa3"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textView_list_notDate"
-        android:layout_width="347dp"
-        android:layout_height="60dp"
-        android:layout_margin="5dp"
-        android:fontFamily="@font/bm_font"
-        android:padding="5dp"
-        android:textSize="18sp" />
 
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/itemLayout"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/textView_list_notDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="5"
+                android:fontFamily="@font/bm_font"
+                android:padding="5dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView_list_notNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:layout_weight="5"
+                android:fontFamily="@font/bm_font"
+                android:padding="0dp"
+                android:textSize="15sp"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
