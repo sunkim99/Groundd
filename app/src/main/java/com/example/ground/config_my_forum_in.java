@@ -166,7 +166,6 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
 
     }
 
-
     @Override
     public void onClick(View v) {
 
