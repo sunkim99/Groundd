@@ -194,19 +194,14 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
                 return null;
             }
         }
-        ///
+
         private void showMyNotice(){
         MyNoticeList.clear(); //리스트 내용 초기화, 초기화안하면 버튼 클릭할때마다 리스트 아이템이 중복으로 쌓임
-        //allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
-           // String userID = ID.getID();
+
             try {
                 JSONObject jsonObject = new JSONObject(mJsonString);
                 Log.d("가져온 notice json 데이터 : ", String.valueOf(jsonObject));
                 JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
-
-                //HashMap<String, String> hashMap1 = new HashMap<>();
-                //hashMap1.put("userID",userID);
-
 
                 for (int i=0;i<jsonArray.length(); i++){
                     JSONObject item = jsonArray.getJSONObject(i);
@@ -273,74 +268,6 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
             Log.d(TAG, "showResult :", e);
         }
     }
-    /*
-    //사용자가 쓴 댓글 불러오기
-    public class MyComment extends AsyncTask<String, Void, String>{
-        ProgressDialog progressDialog;
-        String errorString = null;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressDialog = ProgressDialog.show(config_my_forum_forum.this,"Please wait", null, true,true);
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-
-            progressDialog.dismiss();
-            mJsonString =result;
-            ShowMyComment();
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-
-            String serverURL = params[0];
-
-            try {
-                URL url = new URL(serverURL);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-
-                httpURLConnection.setReadTimeout(5000);
-                httpURLConnection.setConnectTimeout(5000);
-                httpURLConnection.setRequestMethod("GET");
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.connect();
-
-                int responseStatusCode = httpURLConnection.getResponseCode();
-                Log.d(TAG, "POST response code -" + responseStatusCode);
-
-                InputStream inputStream;
-                if (responseStatusCode == HttpURLConnection.HTTP_OK) {
-                    inputStream = httpURLConnection.getInputStream();
-                } else {
-                    inputStream = httpURLConnection.getErrorStream();
-                }
-
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
-
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-                StringBuilder sb = new StringBuilder();
-                String line;
-
-                while ((line = bufferedReader.readLine()) != null) {
-                    sb.append(line);
-                }
-                bufferedReader.close();
-
-                return sb.toString().trim();
-
-            } catch (Exception e) {
-                Log.d(TAG, "InsertData : Error", e);
-                errorString = e.toString();
-            }
-            return null;
-        }
-    }
-    */
 
     @Override
     public void onClick(View v) {
