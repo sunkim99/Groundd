@@ -43,7 +43,7 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
     private static final String TAG_commCon = "commCon";
     private static final String TAG_commDate = "commDate";
 
-    boolean clickednum;
+    boolean clickednum; // 댓글 버튼 클릭 화인 변수
 
     ListView list;
     ArrayList<HashMap<String, String>> MyNoticeList;
@@ -80,44 +80,32 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
         showmynot.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //내 게시글 보기 버튼 클릭시
                 allround ID = (allround) getApplicationContext();
                 String userID = ID.getID();
 
-                clickednum = true;
+                clickednum = true; // 불변수 true로 주기 (onPostexecute 에서 true면  showmyNotice()실행)
 
                 config_my_forum_forum.MyNotice task = new config_my_forum_forum.MyNotice();
-                task.execute("http://olivia7626.dothome.co.kr/config_mynoticelist.php?userID=" + userID);
+                task.execute("http://olivia7626.dothome.co.kr/config_mynoticelist.php?userID=" + userID); //유저 아이디를 보냄, 게시글 확인하는 php파일 연동
                 Log.d("TEST1324", "전당된 유저아이디 " + userID);
             }
         });
         showmycomm.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // 내 댓글 보기 버튼 클릭시
                 allround ID = (allround) getApplicationContext();
                 String userID = ID.getID();
 
-                clickednum = false;
+                clickednum = false; // 불변수 false로 주기 (onPostexecute에서 false면 ShowmyComment()실행)
 
                 config_my_forum_forum.MyNotice task = new config_my_forum_forum.MyNotice();
-                task.execute("http://olivia7626.dothome.co.kr/config_mycommentlist.php?userID=" + userID);
+                task.execute("http://olivia7626.dothome.co.kr/config_mycommentlist.php?userID=" + userID); //유저 아이디 보냄, 댓글 확인 하는 php파일 연동
                 Log.d("TEST1324", "전당된 유저아이디 " + userID);
             }
         });
 
-
-      /*  if (clickednum = true) {
-            config_my_forum_forum.MyNotice task = new config_my_forum_forum.MyNotice();
-            task.execute("http://olivia7626.dothome.co.kr/config_mynoticelist.php?userID=" + userID);
-            Log.d("TEST1324", "전당된 유저아이디 " + userID);
-        }
-        else {
-            config_my_forum_forum.MyNotice task = new config_my_forum_forum.MyNotice();
-            task.execute("http://olivia7626.dothome.co.kr/config_mycommentlist.php?userID=" + userID);
-            Log.d("TEST1324", "전당된 유저아이디 " + userID);
-        }
-*/
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() { // 클릭시 해당 게시글로 이동
                 @Override
                 public void onItemClick(AdapterView parent, View v, int position, long id) {
                     Intent intent = new Intent(getApplicationContext(), config_my_forum_in.class); //클릭하면 이동하는 화면
@@ -152,11 +140,11 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
                 progressDialog.dismiss();
                 mJsonString = result;
-                if(clickednum == true){
-                showMyNotice();
+                if(clickednum == true){ // 불변수 확인해서 내 글보기 클릭시 true 설정
+                showMyNotice(); // true면 showMyNotice() -> 게시글 번호(번호는 invisible), 제목, 날짜 가져와서 리스트에 삽입
                 }
                 else{
-                ShowMyComment();
+                ShowMyComment(); // false면 showMyNotice() -> 게시글 번호(번호는 invisible), 내용, 날짜 가져와서 리스트에 삽입
                 }
             }
 
@@ -208,7 +196,7 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
         }
         ///
         private void showMyNotice(){
-        MyNoticeList.clear();
+        MyNoticeList.clear(); //리스트 내용 초기화, 초기화안하면 버튼 클릭할때마다 리스트 아이템이 중복으로 쌓임
         //allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
            // String userID = ID.getID();
             try {
