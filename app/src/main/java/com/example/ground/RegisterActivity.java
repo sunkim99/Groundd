@@ -49,37 +49,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         validateButton = findViewById(R.id.validateButton);
         validateButton.setOnClickListener(this);
-     /*
-        validateButton.setOnClickListener(new View.OnClickListener() {//id중복체크
-            @Override
-            public void onClick(View view)
-        });
-*/
 
-        //btn_register=findViewById(R.id.btn_register);
-        /*btn_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firstAction();
-            }
-        });
-    }
-    private void firstAction(){
-        (new AsyncTask<RegisterActivity, Void, RegisterActivity>(){
-            @Override
-            protected RegisterActivity doInBackground(RegisterActivity... params) {
-                return params[0];
-            }
-
-            @Override
-            protected void onPostExecute(RegisterActivity result) {
-                //super.onPostExecute(result);
-                result.click();
-            }
-
-        }).execute(this);
-    }
-*/
         check = findViewById(R.id.check);
         check.setOnClickListener(this);
 

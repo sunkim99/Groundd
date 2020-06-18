@@ -33,7 +33,7 @@
         android:background="@drawable/menu_bar"
         android:fontFamily="@font/bm_font"
         android:gravity="fill_vertical"
-        android:text=" 계정 설정 변경, 학교 변경 "
+        android:text=" 나의 정보"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/background_light"

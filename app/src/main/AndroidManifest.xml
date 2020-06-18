@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="n">
+
         <activity android:name=".notice_event_in" />
         <activity android:name=".notice_event_write"/>
         <activity android:name=".notice_event"/>

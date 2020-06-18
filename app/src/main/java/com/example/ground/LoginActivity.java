@@ -34,11 +34,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
-        final allround ADMIN = (allround) getApplicationContext(); //전역변수 ADMIN 소환
+        final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
+        final allround SCHADD = (allround) getApplicationContext(); //학교 주소
+        final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
-        final allround USERNUM = (allround) getApplicationContext(); //전역변수 USERNUM 소환
-
-
+        final allround USERNUM = (allround) getApplicationContext(); // 전역변수 USERNUM
+        final allround USERNAME = (allround) getApplicationContext(); // 전역변수 USERNUM
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -108,7 +109,8 @@ public class LoginActivity extends AppCompatActivity {
                                 int userAdmin= jasonObject.getInt("userAdmin");
                                 Log.d("TEST1234", "관리자 여부 : " + userAdmin);
 
-
+                                String userName = jasonObject.getString("userName");
+                                Log.d("TEST1234", "사용자 이름 : " + userName);
 
                                 int userNum = jasonObject.getInt("userNum");
                                 Log.d("TEST1234", "유저번호 : " + userNum);
@@ -133,6 +135,7 @@ public class LoginActivity extends AppCompatActivity {
                                 SCHOOL.setSCHOOL(schName);
                                 NICKNAME.setNICKNAME(userNick);
                                 USERNUM.setUSERNUM(userNum);
+                                USERNAME.setUSERNAME(userName);
 
                                 startActivity(intent);
                             } else {//로그인에 실패한 경우

@@ -10,7 +10,8 @@ public class allround extends Application {
     private String SCHADD, SCHPH; //학교주소, 학교 연락처
     private int Char_hair, Char_face, Char_cloth, Char_acce;
     private int GUGU_TOTAL; //구구단 점수
-    private int  USERNUM;
+    private int USERNUM; //사용자 번호
+    private String USERNAME;
 
     @Override
     public void onCreate() {
@@ -22,6 +23,8 @@ public class allround extends Application {
         SCHPH = "";
         GUGU_TOTAL = 0;
         USERNUM = 0;
+        USERNAME = "";
+
 
         Char_hair = 0;
         Char_face = 0;
@@ -99,6 +102,14 @@ public class allround extends Application {
 
     public int getUSERNUM() {
         return USERNUM;
+    }
+
+    public void setUSERNAME(String USERNAME) {
+        this.USERNAME = USERNAME;
+    } //사용자 이름
+
+    public String getUSERNAME() {
+        return USERNAME;
     }
 
 

@@ -26,13 +26,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final allround SCHADD = (allround) getApplicationContext(); //학교 주소
         final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+        final allround USERNUM = (allround) getApplicationContext(); // 전역변수 USERNUM
+        final allround USERNAME = (allround) getApplicationContext(); // 전역변수 USERNUM
 
         ID.getID();
         SCHOOL.getSCHOOL();
         SCHADD.getSCHADD();
         SCHPH.getSCHPH();
         NICKNAME.getSCHPH();
-
+        USERNUM.getUSERNUM();
+        USERNAME.getUSERNAME();
         ///////////////////////////////////////////////////////
 
         super.onCreate(savedInstanceState);

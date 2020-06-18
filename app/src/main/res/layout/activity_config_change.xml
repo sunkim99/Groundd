@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -38,7 +39,7 @@
         android:layout_width="391dp"
         android:layout_height="33dp"
         android:fontFamily="@font/bm_font"
-        android:text=" 계정 설정 변경, 학교 변경 "
+        android:text=" 나의 정보 "
         android:textColor="@android:color/background_light"
         android:textSize="29sp"
         android:visibility="visible"
@@ -68,4 +69,81 @@
         android:background="@drawable/top_navigator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="198dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bgbox2" />
+
+    <EditText
+        android:id="@+id/tv_pw"
+        android:layout_width="198dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:text="변경할 비밀번호 입력"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_id" />
+
+    <EditText
+        android:id="@+id/tv_pw1"
+        android:layout_width="198dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="변경할 비밀번호 입력"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pw" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="198dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pw1" />
+
+    <EditText
+        android:id="@+id/tv_nick"
+        android:layout_width="198dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:text="변경할 닉네임 입력"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <EditText
+        android:id="@+id/tv_ph"
+        android:layout_width="198dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="변경할 연락처 입력"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nick" />
+
+    <EditText
+        android:id="@+id/tv_pph"
+        android:layout_width="198dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:text="변경할 부모연락처 입력"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ph" />
+
+    <TextView
+        android:id="@+id/tv_school"
+        android:layout_width="198dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pph" />
 </androidx.constraintlayout.widget.ConstraintLayout>
