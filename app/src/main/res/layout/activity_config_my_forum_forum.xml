@@ -57,7 +57,7 @@
 
     <Button
         android:id="@+id/top_navi"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="62dp"
         android:background="@drawable/top_navigator"
         app:layout_constraintStart_toStartOf="parent"

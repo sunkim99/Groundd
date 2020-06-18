@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/top_navi"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="62dp"
         android:background="@drawable/top_navigator"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,9 +27,10 @@
 
     <ImageView
         android:id="@+id/bgbox"
-        android:layout_width="414dp"
-        android:layout_height="400dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="4dp"
+        android:layout_marginBottom="197dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +79,7 @@
 
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toEndOf="@id/et_id"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -210,7 +211,7 @@
 
     <ImageView
         android:id="@+id/menu_bar"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="7dp"
         android:scaleType="centerCrop"
@@ -256,12 +257,12 @@
         android:layout_width="16dp"
         android:layout_height="22dp"
         android:layout_marginTop="160dp"
+        android:foreground="@android:drawable/presence_online"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/validateButton"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/et_id"
-        app:layout_constraintTop_toTopOf="parent"
-        android:foreground="@drawable/resister_circle_button"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,8 +23,9 @@ import org.json.JSONObject;
 //로그인 (앱 기동시 첫 화면)
 public class LoginActivity extends AppCompatActivity {
     private EditText et_id, et_pass;
-    private Button btn_login, btn_register, btn_gomain;
+    private Button btn_login, btn_register;
     private CheckBox auto_login; // 자동로그인
+
 
 
     SharedPreferences sendId; //아이디값 전달하기
@@ -41,6 +42,11 @@ public class LoginActivity extends AppCompatActivity {
         final allround USERNUM = (allround) getApplicationContext(); // 전역변수 USERNUM
         final allround USERNAME = (allround) getApplicationContext(); // 전역변수 USERNUM
 
+        final allround Char_hair = (allround) getApplicationContext();
+        final allround Char_face = (allround) getApplicationContext();
+        final allround Char_cloth = (allround) getApplicationContext();
+        final allround Char_acce = (allround) getApplicationContext();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -48,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
         et_pass = findViewById(R.id.et_pass);
         btn_login = findViewById(R.id.btn_login);
         btn_register = findViewById(R.id.btn_register);
-        btn_gomain = findViewById(R.id.btn_gomain);
         auto_login = findViewById(R.id.checkBox);
 
         et_pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -65,15 +70,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
         Log.d("TEST1234", "Ground 실행");
-
-
-        btn_gomain.setOnClickListener(new View.OnClickListener() {//로그인 버튼을 클릭시 수행
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent1);
-            }
-        });
 
 
         btn_register.setOnClickListener(new View.OnClickListener() {//회원가입 버튼을 클릭시 수행
@@ -114,6 +110,12 @@ public class LoginActivity extends AppCompatActivity {
 
                                 int userNum = jasonObject.getInt("userNum");
                                 Log.d("TEST1234", "유저번호 : " + userNum);
+
+                                Char_hair.setChar_face(jasonObject.getInt("hair_equip"));
+                                Char_face.setChar_face(jasonObject.getInt("face_equip"));
+                                Char_cloth.setChar_face(jasonObject.getInt("cloth_equip"));
+                                Char_acce.setChar_face(jasonObject.getInt("acce_equip"));
+
 
 
                                 Log.d("TEST1234", "쓰레드확인1 " + Thread.currentThread());

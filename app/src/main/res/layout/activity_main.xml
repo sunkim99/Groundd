@@ -28,7 +28,7 @@
     <Button
         android:id="@+id/btn_school"
         android:layout_width="0dp"
-        android:layout_height="145dp"
+        android:layout_height="0dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/btn_main1"
         android:fontFamily="@font/bm_font"
@@ -38,6 +38,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="48sp"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_board"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_logo" />
@@ -45,7 +46,7 @@
     <Button
         android:id="@+id/btn_board"
         android:layout_width="0dp"
-        android:layout_height="146dp"
+        android:layout_height="0dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/btn_main2"
         android:enabled="true"
@@ -55,6 +56,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="48sp"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_character"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_school" />
@@ -62,7 +64,7 @@
     <Button
         android:id="@+id/btn_character"
         android:layout_width="0dp"
-        android:layout_height="145dp"
+        android:layout_height="0dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/btn_main3"
         android:enabled="true"
@@ -72,6 +74,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="48sp"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_event"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,14 +82,15 @@
 
     <Button
         android:id="@+id/btn_event"
-        android:layout_width="202dp"
-        android:layout_height="145dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="7dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:background="@drawable/main_notice_button"
-        android:visibility="visible"
         android:enabled="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_game"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,13 +98,17 @@
 
     <Button
         android:id="@+id/btn_game"
-        android:layout_width="202dp"
-        android:layout_height="145dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/main_game_button"
-        android:visibility="visible"
         android:enabled="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_event"
         app:layout_constraintTop_toBottomOf="@+id/btn_character" />
 
     <EditText

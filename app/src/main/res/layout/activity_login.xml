@@ -4,62 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@drawable/main_screen_bg"
     tools:context=".LoginActivity">
 
 
+    <TextView
+        android:id="@+id/main_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:fontFamily="@font/bm_font"
+        android:text="GROUND"
+        android:textColor="@android:color/background_light"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/et_id"
-        android:layout_width="190dp"
+        android:layout_width="0dp"
         android:layout_height="41dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="324dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
         android:ems="10"
         android:fontFamily="@font/bm_font"
         android:hint="아이디를 입력하세요"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.756"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/main_name" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="78dp"
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
         android:layout_height="36dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
         android:fontFamily="@font/bm_font"
-        android:text="아이디"
+        android:text="비밀번호"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/et_id"
-        app:layout_constraintEnd_toStartOf="@+id/et_id"
-        app:layout_constraintHorizontal_bias="0.752"
+        app:layout_constraintBottom_toBottomOf="@+id/et_pass"
+        app:layout_constraintEnd_toStartOf="@+id/et_pass"
+        app:layout_constraintHorizontal_bias="0.864"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/et_id"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/et_pass"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btn_gomain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:id="@+id/btn_register"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="12dp"
+
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/resister_button"
         android:fontFamily="@font/bm_font"
-        android:text="메인화면으로"
-        android:visibility="invisible"
-
-
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <EditText
         android:id="@+id/et_pass"
-        android:layout_width="192dp"
+        android:layout_width="0dp"
         android:layout_height="41dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
         android:ems="10"
         android:fontFamily="@font/bm_font"
         android:hint="비밀번호를 입력하세요"
@@ -70,67 +94,47 @@
         app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
     <Button
-        android:id="@+id/btn_register"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/resister_button"
-        android:fontFamily="@font/bm_font"
-
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_login"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btn_login"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="102dp"
-        android:layout_height="36dp"
-        android:fontFamily="@font/bm_font"
-        android:text="비밀번호"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/et_pass"
-        app:layout_constraintEnd_toStartOf="@+id/et_pass"
-        app:layout_constraintHorizontal_bias="0.864"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/et_pass"
-        app:layout_constraintVertical_bias="0.6" />
-
-    <Button
         android:id="@+id/btn_login"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
         android:background="@drawable/login_button"
         android:fontFamily="@font/bm_font"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/et_pass"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/et_pass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_pass" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="413dp"
-        android:layout_height="325dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login_banner"
-        tools:srcCompat="@drawable/login_banner" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:fontFamily="@font/bm_font"
+        android:text="아이디"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_id"
+        app:layout_constraintEnd_toStartOf="@+id/et_id"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="276dp"
+        android:layout_marginTop="30dp"
         android:checked="true"
         android:fontFamily="@font/bm_font"
         android:text="자동로그인"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/main_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
