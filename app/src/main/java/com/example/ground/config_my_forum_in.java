@@ -193,19 +193,6 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
                                     Log.d("TEST1234", "[설정_나의 게시글] 확인");
                                     String ssss = jasonObject.getString("str");
                                     Log.d("TEST1234", "[설정_나의 게시글] 수행될 쿼리문 :" + ssss);
-                           /* String number = jasonObject.getString("notNum");
-                            Log.d("TEST1234", "[Config2] 쓰레드확인1: 지우게될 글번호 " +notNum);
-                            Log.d("TEST1234", "[Config2]  가져온 글번호 :" + number);
-
-                            String userID = jasonObject.getString("userID");
-                            Log.d("TEST1234", "[Config2] 아이디 " + userID);
-
-                            String title = jasonObject.getString("notTi");
-                            Log.d("TEST1234", "[Config2] 제목 " + title);
-                            String notCon = jasonObject.getString("notCon");
-
-                            String notDate = jasonObject.getString("notDate");
-*/
                                     Log.d("TEST1234", "[설정_나의 게시글] 확인2");
 
                                 } else {

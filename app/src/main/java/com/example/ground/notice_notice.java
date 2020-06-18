@@ -61,14 +61,12 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_notice_notice);
         final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
-        final allround ADMIN = (allround) getApplicationContext();
-
-        String userID;
-        userID = ID.getID();
-
+        final allround ADMIN = (allround) getApplicationContext(); //관리자번호
         final allround SCHADD = (allround) getApplicationContext(); //학교 주소
         final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+        String userID;
+        userID = ID.getID();
 
         SCHOOL.getSCHOOL();
         SCHADD.getSCHADD();

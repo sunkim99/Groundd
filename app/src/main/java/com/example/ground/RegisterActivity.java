@@ -299,6 +299,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Log.d("TEST1234", "[회원가입] 가입 확인 6" + Thread.currentThread());
             queue11.add(registerRequest);
             Log.d("TEST1234", "[회원가입] 가입 확인 7" + Thread.currentThread());
+
+
+
+
+
+
+
+
         }
 
     }

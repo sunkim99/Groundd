@@ -36,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
         final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
         final allround ADMIN = (allround) getApplicationContext(); //전역변수 ADMIN 소환
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+        final allround USERNUM = (allround) getApplicationContext(); //전역변수 USERNUM 소환
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -103,8 +106,16 @@ public class LoginActivity extends AppCompatActivity {
                                 Log.d("TEST1234", "닉네임 : " + userNick);
 
                                 int userAdmin= jasonObject.getInt("userAdmin");
+                                Log.d("TEST1234", "관리자 여부 : " + userAdmin);
+
+
+
+                                int userNum = jasonObject.getInt("userNum");
+                                Log.d("TEST1234", "유저번호 : " + userNum);
+
+
                                 Log.d("TEST1234", "쓰레드확인1 " + Thread.currentThread());
-                                Log.d("TEST1234", "권한 번호 :" + userAdmin);
+
                                 if(userAdmin == 0) {
                                     Toast.makeText(getApplicationContext(), "로그인 성공!!", Toast.LENGTH_SHORT).show();
                                 }
@@ -121,6 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                                 ADMIN.setADMIN(userAdmin);
                                 SCHOOL.setSCHOOL(schName);
                                 NICKNAME.setNICKNAME(userNick);
+                                USERNUM.setUSERNUM(userNum);
 
                                 startActivity(intent);
                             } else {//로그인에 실패한 경우

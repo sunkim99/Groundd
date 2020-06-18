@@ -9,7 +9,8 @@ public class allround extends Application {
     private String NICKNAME; //닉네임
     private String SCHADD, SCHPH; //학교주소, 학교 연락처
     private int Char_hair, Char_face, Char_cloth, Char_acce;
-    private String notNum;
+    private int GUGU_TOTAL; //구구단 점수
+    private int  USERNUM;
 
     @Override
     public void onCreate() {
@@ -19,7 +20,8 @@ public class allround extends Application {
         NICKNAME = "";
         SCHADD = "";
         SCHPH = "";
-
+        GUGU_TOTAL = 0;
+        USERNUM = 0;
 
         Char_hair = 0;
         Char_face = 0;
@@ -51,11 +53,12 @@ public class allround extends Application {
 
     public void setADMIN(int ADMIN) {
         this.ADMIN = ADMIN;
-    } //관리자 여부
+    } //구구단 토탈 값
 
     public int getADMIN() {
         return ADMIN;
     }
+
 
     public void setNICKNAME(String NICKNAME) {
         this.NICKNAME = NICKNAME;
@@ -73,12 +76,30 @@ public class allround extends Application {
         return SCHADD;
     }
 
-    public void setSCHPH(String SCHPH) { this.SCHPH = SCHPH; } //학교 연락처
+    public void setSCHPH(String SCHPH) {
+        this.SCHPH = SCHPH;
+    } //학교 연락처
 
     public String getSCHPH() {
         return SCHPH;
     }
 
+
+    public void setGUGU_TOTAL(int GUGU_TOTAL) {
+        this.GUGU_TOTAL = GUGU_TOTAL;
+    } //구구단 값
+
+    public int getGUGU_TOTAL() {
+        return GUGU_TOTAL;
+    }
+
+    public void setUSERNUM(int USERNUM) {
+        this.USERNUM = USERNUM;
+    } //유저번호
+
+    public int getUSERNUM() {
+        return USERNUM;
+    }
 
 
 
@@ -98,7 +119,9 @@ public class allround extends Application {
         return Char_face;
     }
 
-    public void setChar_cloth(int Char_cloth) { this.Char_cloth = Char_cloth; }
+    public void setChar_cloth(int Char_cloth) {
+        this.Char_cloth = Char_cloth;
+    }
 
     public int getChar_cloth() {
         return Char_cloth;

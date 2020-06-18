@@ -15,6 +15,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Timer;
@@ -28,13 +35,14 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
     Button top_navi, btn_setting;
     int correct =0;
     int total = 0;
+    TextView gugu_score,userNumber;
 
-    int value = 101; //시작 101로 하기 test니까 10
+    int value = 10; //시작 101로 하기 test니까 10
 
 
     public final String bringTimerThread() {
 
-        CountDownTimer cdt = new CountDownTimer(100 * 1000, 1000) { //여기도 나중에 10 -> 100
+        CountDownTimer cdt = new CountDownTimer(10 * 1000, 1000) { //여기도 나중에 10 -> 100
             //100(10*1000)초 동안 1초마다 실행
             @Override
             public void onTick(long millisUntilFinished) {
@@ -44,9 +52,90 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
 
             @Override
             public void onFinish() {
+                final allround GUGU_TOTAL = (allround) getApplicationContext(); //구구단 점수
+                final allround USERNUM = (allround) getApplicationContext(); //유저 번호
                 Toast.makeText(game_main.this, "시간 끝- \n 최종 점수 : "+ total + "점", Toast.LENGTH_LONG).show();//시간 끝났을때 토스트 메시지뜨는거 확인
+                GUGU_TOTAL.setGUGU_TOTAL(total);
+                //gugu_score.setText(total);
+                int userNum = USERNUM.getUSERNUM();
                 Log.d("TEST1234", "최종 "+total);
-                value = 101; // 이거없으면 다시 구구단 게임 눌렀을때 -1으로 시작해서 설정한 시간만큼 줄어듦. 넣어줘야함
+
+
+                ///구구단 점수 보내기
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jasonObject = new JSONObject(response);
+                            boolean success = jasonObject.getBoolean("success");
+                            if (success) {
+                                Log.d("TEST1234", "[구구단2] 쓰레드확인");
+
+                                String ssss = jasonObject.getString("id");
+                                //  String iiii = jasonObject.getString("select");
+                                String sta = jasonObject.getString("str");
+                                Log.d("TEST1234", "[구구단2] 연결 성공 ? " + success);
+                                Log.d("TEST1234", "[구구단2] 유저 번호 " + ssss);
+                                Log.d("TEST1234", "[구구단2] 보내질 값 " + sta);
+                                // Log.d("TEST1234", "[회원가입] ??? " + iiii);
+
+
+                            } else {
+                                Log.d("TEST1234", "[구구단2] 실패");
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                };
+                game_total_request gtr = new game_total_request(userNum, total, responseListener);
+                RequestQueue queue1 = Volley.newRequestQueue(game_main.this);
+                queue1.add(gtr);
+
+
+
+
+                //구구단 점수 보내기
+                Response.Listener<String> gugu = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jasonObject = new JSONObject(response);
+                            boolean success = jasonObject.getBoolean("success");
+                            if (success) {
+                                Log.d("TEST1234", "[구구단1] 쓰레드확인");
+
+                                String ssss = jasonObject.getString("id");
+                                //  String iiii = jasonObject.getString("select");
+                                String sta = jasonObject.getString("str");
+                                Log.d("TEST1234", "[구구단1] 연결 성공 ? " + success);
+                                Log.d("TEST1234", "[구구단1] 유저 번호 " + ssss);
+                                Log.d("TEST1234", "[구구단1] 보내질 값 " + sta);
+                                // Log.d("TEST1234", "[회원가입] ??? " + iiii);
+
+
+                            } else {
+                                Log.d("TEST1234", "[구구단1]  실패");
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                };
+                game_total2_request gtrr = new game_total2_request(userNum, total, gugu);
+                RequestQueue queue = Volley.newRequestQueue(game_main.this);
+                queue.add(gtrr);
+
+
+
+
+
+                //////////////////게임이끝나고 난 후 초기화작업///////////////////////////
+                value = 10; // 이거없으면 다시 구구단 게임 눌렀을때 -1으로 시작해서 설정한 시간만큼 줄어듦. 넣어줘야함
                 correct = 0;//스레드끝나면 값들 초기화해주기
                 total = 0;
                 multiplicationView.dismiss();
@@ -63,6 +152,22 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_main);
+        final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
+        final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
+        final allround SCHADD = (allround) getApplicationContext(); //학교 주소
+        final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
+        final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
+        final allround GUGU_TOTAL = (allround) getApplicationContext(); //구구단 점수
+        final allround USERNUM = (allround) getApplicationContext(); //유저 번호
+
+        ID.getID();
+        SCHOOL.getSCHOOL();
+        SCHADD.getSCHADD();
+        SCHPH.getSCHPH();
+        NICKNAME.getSCHPH();
+
+
 
 
         go_other_menu = findViewById(R.id.go_game_ranking);
@@ -76,6 +181,14 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
 
+        gugu_score = findViewById(R.id.gugu_score);
+        userNumber = findViewById(R.id.userNumber);
+
+        //userNumber.setText(USERNUM.getUSERNUM());
+
+
+
+
 
     }
 
@@ -85,10 +198,7 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
             Intent intent01 = new Intent(game_main.this, game_ranking.class);
             startActivity(intent01);
         }
-        if (v.getId() == R.id.btn_school_information_cancel) { //???????????이거 어디일까..
 
-//            finish();
-        }
         if (v.getId() == R.id.btn_gugu) {
             //팝업뷰 생성
             setEntertainmentFunction();
