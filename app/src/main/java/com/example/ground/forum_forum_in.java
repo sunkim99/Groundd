@@ -47,9 +47,12 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
 
     Button btn_image, write, cancel;
     Button top_navi, btn_setting;
+    Button delete;
 
     TextView id_notTi, id_notCon, id_notNum, id_notDate, id_userNick, store_id;
     ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
+
+    int admin_s;
 
     private EditText commment_Context;
 
@@ -77,16 +80,19 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         I_char_acce = findViewById(R.id.MY_char_acce);
 
         //final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
-        allround ADMIN = (allround) getApplicationContext();
 
         final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
         String userID = ID.getID();
         store_id = findViewById(R.id.store_id);
         store_id.setText(userID);
 
+        final allround ADMIN = (allround) getApplicationContext();
+        admin_s = ADMIN.getADMIN();
+
         btn_image = findViewById(R.id.go_forum_image);
         write = findViewById(R.id.go_forum_write); //댓글쓰기버튼
         cancel = findViewById(R.id.btn_forum_forum_in_cancel);
+        delete = findViewById(R.id.button_delete);
 
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
@@ -96,13 +102,16 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         cancel.setOnClickListener(this);
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
+        delete.setOnClickListener(this);
 
         String post_notNum;
         commment_Context = findViewById(R.id.commCon);
 
         Intent intent1 = getIntent();
-        String notNum1 = intent1.getStringExtra("check_position1");
+        String notNum1 = intent1.getExtras().getString("check_position1");
         Integer notNum = Integer.valueOf(notNum1);
+
+
         id_notNum = findViewById(R.id.id_notNum);
         id_notNum.setText(notNum1);
         Log.d("TEST1234", String.valueOf(notNum));
@@ -135,6 +144,13 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
             I_char_hair.setImageResource(R.drawable.char_blind);
         }
 
+
+        if (admin_s == 2){
+            delete.setVisibility(Button.VISIBLE);
+        }
+        else{
+            delete.setVisibility(Button.GONE);
+        }
 
 
         /*String userNick = NICKNAME.getNICKNAME();
@@ -376,6 +392,66 @@ public class forum_forum_in extends AppCompatActivity implements View.OnClickLis
         }
         if (v.getId() == R.id.btn_forum_forum_in_cancel) { //빨간버튼
             finish();
+        }
+        if (v.getId() == R.id.button_delete) { // 삭제버튼
+            AlertDialog.Builder builder = new AlertDialog.Builder(forum_forum_in.this);
+            builder.setTitle("게시글 삭제");
+            builder.setMessage("해당 게시글을 삭제하시겠습니까?");
+            builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    Intent intent1 = getIntent();
+                    String notNum1 = intent1.getStringExtra("check_position1");
+                    final Integer notNum = Integer.valueOf(notNum1);
+                    id_notNum = findViewById(R.id.id_notNum);
+                    id_notNum.setText(notNum1);
+
+                    //공지 삭제하기
+                    Response.Listener<String> delete_notice1 = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jasonObject = new JSONObject(response);
+                                boolean success = jasonObject.getBoolean("success");
+                                if (success) {
+                                    Log.d("TEST1234", "[게시글 삭제하기] 쓰레드확인");
+                                    String ssss = jasonObject.getString("str");
+                                    Log.d("TEST1234", "[게시글 삭제하기] 수행될 쿼리문 :" + ssss);
+
+                                    Log.d("TEST1234", "[게시글 삭제하기] 쓰레드확인2:");
+
+                                } else {
+                                    Log.d("TEST1234", "[게시글 삭제하기] 게시글 정보오류 ");
+                                    return;
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                    };
+                    Intent intent = new Intent(forum_forum_in.this, forum_forum.class); //화면 어디로 넘어가는지 확인하기
+                    Toast.makeText(getApplicationContext(), "해당 게시물이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                    Log.d("TEST1234", "[게시글 삭제하기] 해당 게시물 삭제");
+                    startActivity(intent);
+
+                    config_delete_notice delete_notice = new config_delete_notice(notNum, delete_notice1);
+                    RequestQueue comment_queue = Volley.newRequestQueue(forum_forum_in.this);
+                    comment_queue.add(delete_notice);
+
+                }
+            });
+            builder.setNegativeButton("아니요", null);
+            builder.setNeutralButton("목록으로 돌아가기", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            builder.create().show();
+
+
         }
     }
 }

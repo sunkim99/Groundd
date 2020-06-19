@@ -16,6 +16,7 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
     Button top_navi, btn_setting;
     Button btn_hair, btn_face, btn_acce, btn_cloth;
 
+
     TextView txtResult;
 
     @Override

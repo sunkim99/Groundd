@@ -21,6 +21,7 @@
         <activity android:name=".notice_event_write"/>
         <activity android:name=".notice_event"/>
         <activity android:name=".config_my_forum_in" />
+        <activity android:name=".config_my_comment_in" />
         <activity android:name=".notice_notice_in" />
         <activity android:name=".school_infomation_list" />
         <activity android:name=".notice_notice_write" />

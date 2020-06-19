@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 //설정에서 내가 작성한게시글 클릭하고 목록보여진뒤 상세내역으로 넘어가는화면
 
-public class config_my_forum_in extends AppCompatActivity implements View.OnClickListener {
+public class config_my_comment_in extends AppCompatActivity implements View.OnClickListener {
 
     Button school_forum, delete, cancel;
     Button top_navi, btn_setting;
@@ -163,15 +163,15 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
             }
 
         };
-        config_my_forum_request cfmr = new config_my_forum_request(notNum, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(config_my_forum_in.this);
-        queue.add(cfmr);
+        config_my_comment_request cmcr = new config_my_comment_request(notNum, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(config_my_comment_in.this);
+        queue.add(cmcr);
 
     }
 
     @Override
     public void onClick(View v) {
-
+/*
         if (v.getId() == R.id.delete) {
             AlertDialog.Builder builder = new AlertDialog.Builder(config_my_forum_in.this);
             builder.setTitle("게시글 삭제");
@@ -228,10 +228,10 @@ public class config_my_forum_in extends AppCompatActivity implements View.OnClic
             });
             builder.create().show();
 
-        }
+        }*/
         if (v.getId() == R.id.school_forum) { //학교게시판 버튼 눌렸을때
-           // Intent intent1 = new Intent(config_my_forum_in.this, config_my_school_forum_in.class);
-           // startActivity(intent1);
+            // Intent intent1 = new Intent(config_my_forum_in.this, config_my_school_forum_in.class);
+            // startActivity(intent1);
 
 
 
