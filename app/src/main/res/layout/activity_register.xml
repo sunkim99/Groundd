@@ -19,32 +19,30 @@
         android:layout_width="62dp"
         android:layout_height="62dp"
         android:background="@drawable/setting_button"
-        app:layout_constraintBottom_toBottomOf="@+id/top_navi"
         app:layout_constraintEnd_toEndOf="@+id/top_navi"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/top_navi" />
 
     <ImageView
         android:id="@+id/bgbox"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="197dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="7dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.015"
         app:srcCompat="@drawable/resister_box_bg" />
 
     <EditText
         android:id="@+id/et_id"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginLeft="118dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:fontFamily="@font/bm_font"
         android:hint="아이디"
@@ -53,9 +51,10 @@
         app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bgbox" />
+
     <EditText
         android:id="@+id/et_pass"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="4dp"
         android:ems="10"
@@ -71,7 +70,7 @@
     <Button
         android:id="@+id/validateButton"
         android:layout_width="64dp"
-        android:layout_height="53dp"
+        android:layout_height="50dp"
         android:layout_marginTop="140dp"
         android:fontFamily="@font/bm_font"
         android:text="중복\n확인"
@@ -79,13 +78,13 @@
 
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/et_id"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_phone"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="3dp"
         android:ems="10"
@@ -98,10 +97,9 @@
         app:layout_constraintTop_toBottomOf="@id/et_nickname" />
 
 
-
     <EditText
         android:id="@+id/et_passck"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="4dp"
         android:ems="10"
@@ -115,7 +113,7 @@
 
     <EditText
         android:id="@+id/et_nickname"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="3dp"
         android:ems="10"
@@ -129,9 +127,9 @@
 
     <EditText
         android:id="@+id/et_name"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="3dp"
         android:ems="10"
         android:fontFamily="@font/bm_font"
         android:hint="이름"
@@ -143,7 +141,7 @@
 
     <EditText
         android:id="@+id/et_parentphone"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="2dp"
         android:ems="10"
@@ -157,17 +155,18 @@
 
     <EditText
         android:id="@+id/et_school"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginBottom="2dp"
         android:ems="10"
         android:fontFamily="@font/bm_font"
         android:hint="학교"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/bgbox"
         app:layout_constraintEnd_toEndOf="@id/et_phone"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/et_phone"
-        app:layout_constraintTop_toBottomOf="@id/et_phone" />
+        app:layout_constraintTop_toBottomOf="@+id/et_parentphone" />
 
     <Button
         android:id="@+id/btn_register"
@@ -238,8 +237,14 @@
 
     <TextView
         android:id="@+id/menu_name"
-        android:layout_width="391dp"
-        android:layout_height="33dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/bm_font"
         android:text="회원가입"
         android:textColor="@android:color/background_light"
@@ -254,9 +259,9 @@
 
     <Button
         android:id="@+id/check"
-        android:layout_width="16dp"
+        android:layout_width="22dp"
         android:layout_height="22dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="152dp"
         android:foreground="@android:drawable/presence_online"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/validateButton"

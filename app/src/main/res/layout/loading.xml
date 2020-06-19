@@ -7,8 +7,14 @@
 
     <ImageView
         android:id="@+id/logo_image"
-        android:layout_width="365dp"
+        android:layout_width="350dp"
         android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="335dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="335dp"
         android:background="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

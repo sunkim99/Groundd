@@ -16,7 +16,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_select_bar"
+        app:layout_constraintTop_toBottomOf="@+id/top_navi"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/menu_bar" />
+
+    <ImageView
+        android:id="@+id/menu_bar2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="7dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/menu_bar" />
 
@@ -63,18 +77,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/menu_select_bar"
-        android:layout_width="412dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="7dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/menu_bar"
-        app:layout_constraintTop_toBottomOf="@+id/top_navi"
-        app:srcCompat="@drawable/menu_select_bar" />
-
     <TextView
         android:id="@+id/menu_name3"
         android:layout_width="391dp"
@@ -95,68 +97,63 @@
         android:id="@+id/config_linearlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/config_list"
-        app:layout_constraintEnd_toEndOf="@id/menu_bar"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@id/menu_select_in_bar"
-        app:layout_constraintTop_toBottomOf="@+id/tvID"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar2"
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar2"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar2"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar2"
         tools:ignore="MissingConstraints">
 
-        <Button
-            android:id="@+id/button_myNotice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="나의 글보기"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="29dp"
-            tools:layout_editor_absoluteY="203dp" />
-
-        <Button
-            android:id="@+id/button_myComment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="나의 댓글보기"
-            tools:ignore="MissingConstraints" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/menu_name"
-        android:layout_width="391dp"
-        android:layout_height="33dp"
-        android:fontFamily="@font/bm_font"
-        android:text="나의 글, 나의 댓글"
-        android:textColor="@android:color/background_light"
-        android:textSize="29sp"
-        android:visibility="visible"
-        app:autoSizeTextType="none"
-        app:layout_constraintBottom_toBottomOf="@+id/menu_select_bar"
-        app:layout_constraintEnd_toEndOf="@+id/menu_bar"
-        app:layout_constraintStart_toStartOf="@+id/menu_select_bar"
-        app:layout_constraintTop_toTopOf="@+id/menu_select_bar"
-        app:layout_constraintVertical_bias="0.518" />
 
     <ListView
         android:id="@+id/config_list"
-        android:layout_width="411dp"
-        android:layout_height="450dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/config_linearlayout"
+        app:layout_constraintTop_toBottomOf="@+id/menu_bar2"
         app:layout_constraintVertical_bias="0.989" />
 
     <TextView
         android:id="@+id/tvID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:text="TextView"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/menu_bar" />
+        app:layout_constraintEnd_toEndOf="@+id/menu_bar2"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/button_myComment"
+        tools:layout_editor_absoluteY="159dp" />
+
+    <Button
+        android:id="@+id/button_myNotice"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/bm_font"
+        android:text="나의 글보기"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar2"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar2"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar2"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_myComment"
+        android:layout_width="140dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/bm_font"
+        android:text="나의 댓글보기"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar2"
+        app:layout_constraintStart_toEndOf="@+id/button_myNotice"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar2"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
