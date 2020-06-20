@@ -51,14 +51,12 @@ public class notice_event_in extends AppCompatActivity implements View.OnClickLi
         I_char_cloth = findViewById(R.id.MY_char_cloth);
         I_char_acce = findViewById(R.id.MY_char_acce);
 
-        btn_image = findViewById(R.id.go_forum_image);
         delete = findViewById(R.id.delete); //삭제하기 버튼
         cancel = findViewById(R.id.cancel);//빨간버튼
 
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
 
-        btn_image.setOnClickListener(this);
         delete.setOnClickListener(this); //삭제하기
         cancel.setOnClickListener(this); //빨간버튼
         top_navi.setOnClickListener(this);
