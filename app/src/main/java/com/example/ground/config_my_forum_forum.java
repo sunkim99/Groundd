@@ -46,7 +46,7 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
     boolean clickednum = false; // 댓글 버튼 클릭 확인 변수
 
-    ListView list;
+    ListView notlist,commlist;
     ArrayList<HashMap<String, String>> MyNoticeList;
     ArrayList<HashMap<String, String>> MyCommentList;
     String mJsonString;
@@ -75,7 +75,8 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
 
         //리스트뷰 정의
-        list = (ListView) findViewById(R.id.config_list);
+        notlist = (ListView) findViewById(R.id.config_list);
+        commlist = (ListView) findViewById(R.id.config_comment_list);
 
         MyNoticeList = new ArrayList<>();
         MyCommentList = new ArrayList<>();
@@ -88,6 +89,9 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
                 clickednum = true; // 불변수 true로 주기 (onPostexecute 에서 true면  showmyNotice()실행)
                 Log.d("TEST1234", "Clickednum " + clickednum); //버튼 불변수확인
+
+                commlist.setVisibility(View.INVISIBLE); // 리스트뷰 한개를 쓰려니 계속 indexoutofboundsexception 오류가 떠서 어쩔수없이 두개만들어서 버튼클릭시 다른 리스트가 안보이도록 했습니다
+                notlist.setVisibility(View.VISIBLE);
 
                 config_my_forum_forum.MyNotice task = new config_my_forum_forum.MyNotice();
                 task.execute("http://olivia7626.dothome.co.kr/config_mynoticelist.php?userID=" + userID); //유저 아이디를 보냄, 게시글 확인하는 php파일 연동
@@ -103,6 +107,8 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
                 clickednum = false; // 불변수 false로 주기 (onPostexecute에서 false면 ShowmyComment()실행)
                 Log.d("TEST1234", "Clickednum " + clickednum); //버튼 불변수확인
+                notlist.setVisibility(View.INVISIBLE);
+                commlist.setVisibility(View.VISIBLE);
 
                 config_my_forum_forum.MyNotice task = new config_my_forum_forum.MyNotice();
                 task.execute("http://olivia7626.dothome.co.kr/config_mycommentlist.php?userID=" + userID); //유저 아이디 보냄, 댓글 확인 하는 php파일 연동
@@ -110,11 +116,11 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
             }
         });
 
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() { // 클릭시 해당 게시글로 이동
+            notlist.setOnItemClickListener(new AdapterView.OnItemClickListener() { // 클릭시 해당 게시글로 이동
                 @Override
                 public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-                        Intent intent = new Intent(getApplicationContext(), config_my_forum_in.class); //클릭하면 이동하는 화면
+                        Intent intent = new Intent(getApplicationContext(), config_my_forum_in.class); //클릭하면 이동하는 화면}
                         HashMap check_position = MyNoticeList.get(position);   //리스트뷰의 포지션에대한 객체를 가져옴.
                         Log.d("TEST1234", "게시판 글번호 " + check_position.get(TAG_notNum)); //글번호 찍히기
 
@@ -122,16 +128,20 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
                         intent.putExtra("check_position1", i); //글번호 값 저장해
                         startActivity(intent);
 
+                }
+            });
+            commlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        /*
-                    Intent intent = new Intent(getApplicationContext(), config_my_comment_in.class); //클릭하면 이동하는 화면
-                    HashMap check_position = MyCommentList.get(positions);   //리스트뷰의 포지션에대한 객체를 가져옴.
-                    Log.d("TEST1234", "게시판 글번호 " + check_position.get(TAG_notNum)); //댓글번호 찍히기
+                        Intent intent = new Intent(getApplicationContext(), config_my_comment_in.class); //클릭하면 이동하는 화면
+                        HashMap check_position = MyCommentList.get(position);   //리스트뷰의 포지션에대한 객체를 가져옴.
+                        Log.d("TEST1234", "게시판 글번호 " + check_position.get(TAG_notNum)); //댓글번호 찍히기
 
-                    String i = (String) check_position.get(TAG_notNum); //댓글번호 스트링 i에 넣어주기
-                    intent.putExtra("check_position1", i); //댓글번호 값 저장해 전달하기
-                    startActivity(intent);
-                    */
+                        String i = (String) check_position.get(TAG_notNum); //댓글번호 스트링 i에 넣어주기
+                        intent.putExtra("check_position1", i); //댓글번호 값 저장해 전달하기
+                        startActivity(intent);
+
                 }
             });
 
@@ -242,7 +252,7 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
 
                         );
 
-                list.setAdapter(adapter);
+                notlist.setAdapter(adapter);
 
 
             } catch (JSONException e){
@@ -279,7 +289,7 @@ public class config_my_forum_forum extends AppCompatActivity implements View.OnC
                     new String[]{TAG_notNum,TAG_commCon,TAG_commDate},
                     new int[]{R.id.textView_list_config_notNum,R.id.textView_list_config_notTi,R.id.textView_list_config_notDate}
             );
-            list.setAdapter(adapter);
+            commlist.setAdapter(adapter);
         } catch (JSONException e) {
             Log.d(TAG, "showResult :", e);
         }

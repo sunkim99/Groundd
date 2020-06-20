@@ -1,12 +1,17 @@
 package com.example.ground;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,11 +22,26 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 //설정에서 내가 작성한게시글 클릭하고 목록보여진뒤 상세내역으로 넘어가는화면
 
 public class config_my_comment_in extends AppCompatActivity implements View.OnClickListener {
+
+    private static String TAG = "phptest_config_my_comment_in";
+    private static final String TAG_JSON = "webnautes";
+    private static final String TAG_userNick = "userNick";
+    private static final String TAG_commCon = "commCon";
+    private static final String TAG_commDate = "commDate";
 
     Button school_forum, delete, cancel;
     Button top_navi, btn_setting;
@@ -30,6 +50,10 @@ public class config_my_comment_in extends AppCompatActivity implements View.OnCl
     ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
 
     int admin_s;;
+
+    private String mJsonString;
+    ListView list;
+    ArrayList<HashMap<String,String>> mArrrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,14 +136,13 @@ public class config_my_comment_in extends AppCompatActivity implements View.OnCl
         id_notDate = findViewById(R.id.id_notDate);
         id_notCon = findViewById(R.id.id_notCon);
 
-        // 무조건 내가 작성한 게시글만 볼수있기때문에 삭제 버튼을 감출필요가?
 
-      /*  if (admin_s == 0 || admin_s == 1) { //일반사용자 or 학교 관리자는 볼수 없음
+      if (admin_s == 0 || admin_s == 1) { //일반사용자 or 학교 관리자는 볼수 없음
             delete.setVisibility(Button.GONE);
         }
         if (admin_s == 2) { //관리자 2번(어플관리자)라면 삭제하기 버튼 보이기
             delete.setVisibility(Button.VISIBLE);
-        }*/
+        }
 
 
         Log.d("TEST1234", "[설정_나의 게시글] 확인1!!!");
@@ -167,72 +190,117 @@ public class config_my_comment_in extends AppCompatActivity implements View.OnCl
         RequestQueue queue = Volley.newRequestQueue(config_my_comment_in.this);
         queue.add(cmcr);
 
+        list = (ListView) findViewById(R.id.config_in_comment_list);
+        mArrrayList = new ArrayList<>();
+
+        getCommentList task = new getCommentList();
+        task.execute("http://olivia7626.dothome.co.kr/Commentlist.php?notNum="+notNum1);
+        Log.d("TEST1324","전당된 게시판번호 "+notNum1);
+    }
+
+    public class getCommentList extends AsyncTask<String,Void,String>{
+        ProgressDialog progressDialog;
+        String errorString = null;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog = ProgressDialog.show(config_my_comment_in.this,"Please wait", null, true, true);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            progressDialog.dismiss();
+            mJsonString = result;
+            showCommentlist();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String serverURL = params[0];
+
+            try {
+                URL url = new URL(serverURL);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
+                httpURLConnection.setReadTimeout(5000);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.connect();
+
+                int responseStatusCode = httpURLConnection.getResponseCode();
+                Log.d(TAG, "POST response code -" + responseStatusCode);
+
+                InputStream inputStream;
+                if (responseStatusCode == HttpURLConnection.HTTP_OK) {
+                    inputStream = httpURLConnection.getInputStream();
+                } else {
+                    inputStream = httpURLConnection.getErrorStream();
+                }
+
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                StringBuilder sb = new StringBuilder();
+                String line;
+
+                while ((line = bufferedReader.readLine()) != null) {
+                    sb.append(line);
+                }
+                bufferedReader.close();
+
+                return sb.toString().trim();
+
+            } catch (Exception e) {
+                Log.d(TAG, "InsertData : Error", e);
+                errorString = e.toString();
+            }
+            return null;
+        }
+    }
+    private void showCommentlist(){
+        try {
+            JSONObject jsonObject = new JSONObject(mJsonString);
+            Log.d("가져온 json 데이터 : ", String.valueOf(jsonObject));
+            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject item = jsonArray.getJSONObject(i);
+
+                String userNick = item.getString(TAG_userNick);
+                String commCon = item.getString(TAG_commCon);
+                String commDate = item.getString(TAG_commDate);
+
+                HashMap<String, String> hashMap = new HashMap<>();
+
+                hashMap.put(TAG_userNick, userNick);
+                hashMap.put(TAG_commCon, commCon);
+                hashMap.put(TAG_commDate, commDate);
+
+                mArrrayList.add(hashMap);
+            }
+            ListAdapter adapter = new SimpleAdapter(
+                    config_my_comment_in.this, mArrrayList, R.layout.comment_item_list,
+                    new String[]{TAG_userNick,TAG_commCon, TAG_commDate},
+                    new int[]{R.id.textView_list_userNick,R.id.textView_list_commCon, R.id.textView_list_commDate}
+            );
+            list.setAdapter(adapter);
+        } catch (JSONException e) {
+            Log.d(TAG, "showResult :", e);
+        }
     }
 
     @Override
     public void onClick(View v) {
-/*
-        if (v.getId() == R.id.delete) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(config_my_forum_in.this);
-            builder.setTitle("게시글 삭제");
-            builder.setMessage("게시글을 삭제하시겠습니까?");
-            builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Intent intent1 = getIntent();
-                    String notNum1 = intent1.getStringExtra("check_position1");
-                    final Integer notNum = Integer.valueOf(notNum1);
-                    id_notNum = findViewById(R.id.id_notNum);
-                    id_notNum.setText(notNum1);
 
-                    //게시글 삭제하기
-                    Response.Listener<String> admin_delete = new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            try {
-                                JSONObject jasonObject = new JSONObject(response);
-                                boolean success = jasonObject.getBoolean("success");
-                                if (success) {
-                                    Log.d("TEST1234", "[설정_나의 게시글] 확인");
-                                    String ssss = jasonObject.getString("str");
-                                    Log.d("TEST1234", "[설정_나의 게시글] 수행될 쿼리문 :" + ssss);
-                                    Log.d("TEST1234", "[설정_나의 게시글] 확인2");
-
-                                } else {
-                                    Log.d("TEST1234", "[설정_나의 게시글]  게시글 정보오류 ");
-                                    return;
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                    };
-                    Intent intent = new Intent(config_my_forum_in.this, config_my_forum_forum.class);
-                    Toast.makeText(getApplicationContext(), "해당 게시물이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
-                    Log.d("TEST1234", "[설정_나의 게시글] 해당 게시물 삭제");
-                    startActivity(intent);
-
-                    config_admin_delete admin = new config_admin_delete(notNum, admin_delete);
-                    RequestQueue comment_queue = Volley.newRequestQueue(config_my_forum_in.this);
-                    comment_queue.add(admin);
-
-                }
-            });
-            builder.setNegativeButton("아니요", null);
-            builder.setNeutralButton("목록으로 돌아가기", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
-                }
-            });
-            builder.create().show();
-
-        }*/
         if (v.getId() == R.id.school_forum) { //학교게시판 버튼 눌렸을때
             // Intent intent1 = new Intent(config_my_forum_in.this, config_my_school_forum_in.class);
             // startActivity(intent1);
-
 
 
         }
