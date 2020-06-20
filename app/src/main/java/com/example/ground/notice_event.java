@@ -243,7 +243,7 @@ public class notice_event extends AppCompatActivity implements View.OnClickListe
                     notice_event.this, mArrrayList,R.layout.item_list_admin,
                     new String[]{TAG_annNum,TAG_annTi,TAG_userID},
 
-                    new int[]{R.id.textView_list_notNum,R.id.textView_list_notTi,R.id.textView_list_notDate}
+                    new int[]{R.id.textView_list_notNum,R.id.textView_list_notDate,R.id.textView_list_notTi}
             );
             list.setAdapter(adapter);
 
