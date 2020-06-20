@@ -24,16 +24,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/go_forum_image"
-        android:layout_width="135dp"
-        android:layout_height="60dp"
-        android:background="@android:drawable/divider_horizontal_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
-        app:layout_constraintStart_toEndOf="@+id/menu_select_bar"
-        app:layout_constraintTop_toTopOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
         android:id="@+id/cancel"
         android:layout_width="62dp"
         android:layout_height="62dp"
@@ -74,38 +64,56 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
+        android:id="@+id/input_box"
+        android:layout_width="0dp"
+        android:layout_height="346dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
+        app:srcCompat="@drawable/forum_box" />
+
+    <ImageView
         android:id="@+id/menu_bar"
         android:layout_width="411dp"
         android:layout_height="60dp"
         android:layout_marginTop="7dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_navi"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/menu_bar" />
 
     <ImageView
         android:id="@+id/menu_select_bar"
-        android:layout_width="94dp"
+        android:layout_width="95dp"
         android:layout_height="60dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
         app:layout_constraintEnd_toEndOf="@+id/menu_bar"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="@+id/menu_bar"
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/menu_select_bar" />
+
+    <Button
+        android:id="@+id/go_notice_notice"
+        android:layout_width="72dp"
+        android:layout_height="60dp"
+        android:background="@android:drawable/divider_horizontal_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_bar"
+        app:layout_constraintStart_toStartOf="@+id/menu_bar"
+        app:layout_constraintTop_toTopOf="@+id/menu_bar"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/menu_name"
         android:layout_width="391dp"
         android:layout_height="33dp"
         android:fontFamily="@font/bm_font"
-        android:text="게시판   이벤트"
+        android:text="공지    이벤트"
         android:textColor="@android:color/background_light"
         android:textSize="29sp"
         android:visibility="visible"
@@ -115,15 +123,6 @@
         app:layout_constraintStart_toStartOf="@+id/menu_bar"
         app:layout_constraintTop_toTopOf="@+id/menu_bar"
         app:layout_constraintVertical_bias="0.518" />
-
-    <ImageView
-        android:id="@+id/input_box"
-        android:layout_width="412dp"
-        android:layout_height="346dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
-        app:srcCompat="@drawable/forum_box" />
 
     <ImageView
         android:id="@+id/MY_char"
@@ -200,44 +199,41 @@
         android:id="@+id/id_userNick"
         android:layout_width="104dp"
         android:layout_height="27dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/bm_font"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/id_notTi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/id_notTi"
-        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.441" />
+        app:layout_constraintStart_toStartOf="@+id/id_notTi" />
 
     <TextView
         android:id="@+id/id_notNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/bm_font"
         android:text="TextView"
-        android:textSize="15sp"
 
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/id_notTi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.963"
-        app:layout_constraintStart_toStartOf="@+id/id_notTi"
-        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.441" />
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="@+id/id_notTi" />
 
     <TextView
         android:id="@+id/id_notTi"
         android:layout_width="290dp"
         android:layout_height="35dp"
+        android:layout_marginBottom="264dp"
         android:fontFamily="@font/bm_font"
-        android:textSize="19sp"
         android:text="TextView"
+        android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="@+id/input_box"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_bar"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/id_notDate"
@@ -255,8 +251,8 @@
 
     <TextView
         android:id="@+id/id_notCon"
-        android:layout_width="381dp"
-        android:layout_height="184dp"
+        android:layout_width="389dp"
+        android:layout_height="200dp"
         android:fontFamily="@font/bm_font"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/input_box"

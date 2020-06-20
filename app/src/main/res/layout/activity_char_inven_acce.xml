@@ -17,7 +17,7 @@
 
     <ImageView
         android:id="@+id/menu_bar"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="7dp"
         android:scaleType="centerCrop"
@@ -60,9 +60,10 @@
 
     <Button
         android:id="@+id/top_navi"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="62dp"
         android:background="@drawable/top_navigator"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,12 +72,8 @@
         android:layout_width="62dp"
         android:layout_height="62dp"
         android:background="@drawable/setting_button"
-        app:layout_constraintBottom_toBottomOf="@+id/top_navi"
         app:layout_constraintEnd_toEndOf="@+id/top_navi"
-        app:layout_constraintHorizontal_bias="0.997"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/top_navi"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/top_navi" />
 
     <ImageView
         android:id="@+id/char_box"

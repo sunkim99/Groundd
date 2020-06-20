@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -34,6 +35,7 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
     Button go_notice_event;
     Button top_navi, btn_setting;
     Button cancel, write;
+    ImageView profile;
 
 
     int admin_s;
@@ -239,9 +241,8 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
                 mArrrayList.add(hashMap);
             }
             ListAdapter adapter = new SimpleAdapter(
-                    notice_notice.this, mArrrayList,R.layout.item_list,
-                    new String[]{TAG_annNum,TAG_annTi,TAG_userID},
-
+                    notice_notice.this, mArrrayList,R.layout.item_list_admin,
+                    new String[]{TAG_annNum,TAG_userID,TAG_annTi},
                     new int[]{R.id.textView_list_notNum,R.id.textView_list_notTi,R.id.textView_list_notDate}
             );
             list.setAdapter(adapter);

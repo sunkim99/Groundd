@@ -240,7 +240,7 @@ public class notice_event extends AppCompatActivity implements View.OnClickListe
                 mArrrayList.add(hashMap);
             }
             ListAdapter adapter = new SimpleAdapter(
-                    notice_event.this, mArrrayList,R.layout.item_list,
+                    notice_event.this, mArrrayList,R.layout.item_list_admin,
                     new String[]{TAG_annNum,TAG_annTi,TAG_userID},
 
                     new int[]{R.id.textView_list_notNum,R.id.textView_list_notTi,R.id.textView_list_notDate}
@@ -258,7 +258,7 @@ public class notice_event extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.go_notice_notice) { //공지로 돌아가기
-            Intent intent01 = new Intent(notice_event.this, notice_event.class);
+            Intent intent01 = new Intent(notice_event.this, notice_notice.class);
             startActivity(intent01);
         }
         if (v.getId() == R.id.top_navi) {//상단바 클릭
