@@ -37,12 +37,12 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
     int total = 0;
     TextView gugu_score,userNumber;
 
-    int value = 10; //시작 101로 하기 test니까 10
+    int value = 101; //시작 101로 하기 test니까 10
 
 
     public final String bringTimerThread() {
 
-        CountDownTimer cdt = new CountDownTimer(10 * 1000, 1000) { //여기도 나중에 10 -> 100
+        CountDownTimer cdt = new CountDownTimer(100 * 1000, 1000) { //여기도 나중에 10 -> 100
             //100(10*1000)초 동안 1초마다 실행
             @Override
             public void onTick(long millisUntilFinished) {
@@ -135,7 +135,7 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
 
 
                 //////////////////게임이끝나고 난 후 초기화작업///////////////////////////
-                value = 10; // 이거없으면 다시 구구단 게임 눌렀을때 -1으로 시작해서 설정한 시간만큼 줄어듦. 넣어줘야함
+                value = 101; // 이거없으면 다시 구구단 게임 눌렀을때 -1으로 시작해서 설정한 시간만큼 줄어듦. 넣어줘야함
                 correct = 0;//스레드끝나면 값들 초기화해주기
                 total = 0;
                 multiplicationView.dismiss();

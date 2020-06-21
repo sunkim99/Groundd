@@ -33,7 +33,7 @@ import java.util.HashMap;
 public class notice_notice extends AppCompatActivity implements View.OnClickListener , SwipeRefreshLayout.OnRefreshListener{
 
     Button go_notice_event;
-    Button top_navi, btn_setting;
+    Button top_navi, btn_setting,btn_go_notice_notice_cancel;
     Button cancel, write;
     ImageView profile;
 
@@ -81,12 +81,14 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
         btn_setting = findViewById(R.id.btn_setting);
         cancel = findViewById(R.id.btn_go_notice_notice_cancel);
         write = findViewById(R.id.go_notice_notice_write);
+        btn_go_notice_notice_cancel= findViewById(R.id.btn_go_notice_notice_cancel);
 
         top_navi.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
         go_notice_event.setOnClickListener(this);
         cancel.setOnClickListener(this);
         write.setOnClickListener(this);
+        btn_go_notice_notice_cancel.setOnClickListener(this);
 
         admin_s = ADMIN.getADMIN();
         if (admin_s == 0) {  //일반 사용자는 접근불가. 1이 없는이유는 메인에서 버튼 비활성화 시켰으니까.
@@ -269,8 +271,9 @@ public class notice_notice extends AppCompatActivity implements View.OnClickList
             Intent intent6 = new Intent(notice_notice.this, configActivity.class);
             startActivity(intent6);
         }
-        if (v.getId() == R.id.btn_go_notice_notice_cancel) { // 종료
-            finish();
+        if (v.getId() == R.id.btn_go_notice_notice_cancel) { // 빨간버튼
+            Intent intent04 = new Intent(notice_notice.this, MainActivity.class);
+            startActivity(intent04);
         }
         if (v.getId() == R.id.go_notice_notice_write) { //글쓰기 버튼 누르면 글작성 화면으로 넘어감
             Intent intent6 = new Intent(notice_notice.this, notice_notice_write.class);
