@@ -92,11 +92,18 @@ public class char_inven_cloth extends AppCompatActivity implements View.OnClickL
             I_char_hair.setImageResource(R.drawable.hair_default);
         } else if (MY_Char_hair == 1) {
             I_char_hair.setImageResource(R.drawable.char_blind);
+        } else if (MY_Char_hair == 2) {
+            I_char_hair.setImageResource(R.drawable.hair_long);
         }
+
         if (MY_Char_face == 0) { // 얼굴
             I_char_face.setImageResource(R.drawable.face_default);
         } else if (MY_Char_face == 1) {
             I_char_face.setImageResource(R.drawable.face_default_black);
+        } else if (MY_Char_face == 2) {
+            I_char_face.setImageResource(R.drawable.face_blame);
+        } else if (MY_Char_face == 3) {
+            I_char_face.setImageResource(R.drawable.face_pretty);
         }
     }
 

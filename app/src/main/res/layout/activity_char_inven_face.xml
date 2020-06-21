@@ -192,6 +192,34 @@
         app:layout_constraintTop_toTopOf="@+id/char_inven_box" />
 
     <Button
+        android:id="@+id/face_blame"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/char_blind_none_decide"
+        android:foreground="@drawable/face_blame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/face_default"
+        app:layout_constraintTop_toTopOf="@+id/char_inven_box" />
+
+    <Button
+        android:id="@+id/face_pretty"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/char_blind_none_decide"
+        android:foreground="@drawable/face_pretty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/face_black"
+        app:layout_constraintTop_toBottomOf="@+id/face_blame" />
+
+    <Button
         android:id="@+id/face_black"
         android:layout_width="70dp"
         android:layout_height="100dp"
@@ -216,15 +244,6 @@
         app:layout_constraintTop_toTopOf="@+id/char_box" />
 
     <ImageView
-        android:id="@+id/MY_char_cloth"
-        android:layout_width="110dp"
-        android:layout_height="165dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/char_box"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/char_box" />
-
-    <ImageView
         android:id="@+id/MY_char_face"
         android:layout_width="110dp"
         android:layout_height="165dp"
@@ -235,6 +254,15 @@
 
     <ImageView
         android:id="@+id/MY_char_hair"
+        android:layout_width="110dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/char_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/char_box" />
+
+    <ImageView
+        android:id="@+id/MY_char_cloth"
         android:layout_width="110dp"
         android:layout_height="165dp"
         android:layout_marginTop="8dp"

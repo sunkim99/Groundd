@@ -193,7 +193,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="7dp"
         android:background="@android:color/background_light"
         android:foreground="@drawable/char_acce_gom"
         app:layout_constraintEnd_toEndOf="parent"
@@ -206,7 +206,7 @@
         android:layout_width="70dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="7dp"
         android:layout_marginTop="32dp"
         android:background="@android:color/background_light"
         android:foreground="@drawable/char_acce_cat_ear"
@@ -226,15 +226,6 @@
         app:layout_constraintTop_toTopOf="@+id/char_box" />
 
     <ImageView
-        android:id="@+id/MY_char_cloth"
-        android:layout_width="110dp"
-        android:layout_height="165dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/char_box"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/char_box" />
-
-    <ImageView
         android:id="@+id/MY_char_face"
         android:layout_width="110dp"
         android:layout_height="165dp"
@@ -245,6 +236,15 @@
 
     <ImageView
         android:id="@+id/MY_char_hair"
+        android:layout_width="110dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/char_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/char_box" />
+
+    <ImageView
+        android:id="@+id/MY_char_cloth"
         android:layout_width="110dp"
         android:layout_height="165dp"
         android:layout_marginTop="8dp"

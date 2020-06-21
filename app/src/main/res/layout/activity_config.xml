@@ -158,17 +158,6 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <ImageView
-        android:id="@+id/MY_char_cloth"
-        android:layout_width="125dp"
-        android:layout_height="185dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
-    <ImageView
         android:id="@+id/MY_char_face"
         android:layout_width="125dp"
         android:layout_height="185dp"
@@ -181,6 +170,17 @@
 
     <ImageView
         android:id="@+id/MY_char_hair"
+        android:layout_width="125dp"
+        android:layout_height="185dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/MY_char_cloth"
         android:layout_width="125dp"
         android:layout_height="185dp"
         android:scaleType="fitXY"

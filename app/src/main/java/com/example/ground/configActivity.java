@@ -113,7 +113,12 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
             I_char_face.setImageResource(R.drawable.face_default);
         } else if (MY_Char_face == 1) {
             I_char_face.setImageResource(R.drawable.face_default_black);
+        } else if (MY_Char_face == 2) {
+            I_char_face.setImageResource(R.drawable.face_blame);
+        } else if (MY_Char_face == 3) {
+            I_char_face.setImageResource(R.drawable.face_pretty);
         }
+
         if (MY_Char_cloth == 0) { // 옷
             I_char_cloth.setImageResource(R.drawable.cloth_default);
         } else if (MY_Char_cloth == 1) {
@@ -127,6 +132,8 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
             I_char_hair.setImageResource(R.drawable.hair_default);
         } else if (MY_Char_hair == 1) {
             I_char_hair.setImageResource(R.drawable.char_blind);
+        } else if (MY_Char_hair == 2) {
+            I_char_hair.setImageResource(R.drawable.hair_long);
         }
 
     }
