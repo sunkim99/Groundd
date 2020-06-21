@@ -1,6 +1,7 @@
 package com.example.ground;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.app.usage.NetworkStats;
 import android.content.Intent;
@@ -22,7 +23,7 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
     TextView show_nick;
     TextView ADMIN;
     ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
-    Button top_navi, btn_ADMIN, btn_change, btn_my_forum;
+    Button top_navi, btn_ADMIN, btn_change, btn_my_forum,btn_logout;
     ImageView Profile_image;
 
 
@@ -49,6 +50,7 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         btn_change = findViewById(R.id.btn_config_change);
         btn_my_forum = findViewById(R.id.btn_config_my_forum);
         top_navi = findViewById(R.id.top_navi);
+        btn_logout =findViewById(R.id.btn_logout);
 
         I_char_hair = findViewById(R.id.MY_char_hair);
         I_char_face = findViewById(R.id.MY_char_face);
@@ -58,6 +60,7 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         top_navi.setOnClickListener(this);
         btn_change.setOnClickListener(this);
         btn_my_forum.setOnClickListener(this);
+        btn_logout.setOnClickListener(this);
 
         String temp01 = ID.getID();
         show_id = findViewById(R.id.show_id);
@@ -150,6 +153,10 @@ public class configActivity extends AppCompatActivity implements View.OnClickLis
         if (v.getId() == R.id.btn_config_change) { // 설정
             Intent intent6 = new Intent(this, config_change.class);
             startActivity(intent6);
+        }
+        if (v.getId() == R.id.btn_logout) {
+            ActivityCompat.finishAffinity(this);
+            System.exit(0);
         }
     }
 

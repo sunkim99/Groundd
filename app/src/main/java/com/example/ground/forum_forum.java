@@ -253,8 +253,9 @@ public class forum_forum extends AppCompatActivity implements View.OnClickListen
             Intent intent02 = new Intent(forum_forum.this, forum_forum_write.class);
             startActivity(intent02);
         }
-        if (v.getId() == R.id.btn_forum_forum_cancel) {
-            finish();
+        if (v.getId() == R.id.btn_forum_forum_cancel) { //빨간 버튼 눌렀을때, 메인으로 돌아가기
+            Intent intent03 = new Intent(forum_forum.this, MainActivity.class);
+            startActivity(intent03);
         }
         if (v.getId() == R.id.top_navi) {
             Intent intent1 = new Intent(forum_forum.this, MainActivity.class);
