@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class char_inven_hair extends AppCompatActivity implements View.OnClickListener {
     TextView show_nick;
-    Button hair_default, hair_bold;
+    Button hair_default, hair_bold, hair_long;
     ImageView I_char_hair, I_char_face, I_char_cloth, I_char_acce;
     Button top_navi, btn_setting;
     Button btn_hair, btn_face, btn_acce, btn_cloth;
@@ -56,9 +56,11 @@ public class char_inven_hair extends AppCompatActivity implements View.OnClickLi
 
         hair_default = findViewById(R.id.hair_default);
         hair_bold = findViewById(R.id.hair_bold);
+        hair_long = findViewById(R.id.hair_long);
 
         hair_default.setOnClickListener(this);
         hair_bold.setOnClickListener(this);
+        hair_long.setOnClickListener(this);
 
 
         if (MY_Char_acce == 0) { // 악세
@@ -73,7 +75,12 @@ public class char_inven_hair extends AppCompatActivity implements View.OnClickLi
             I_char_face.setImageResource(R.drawable.face_default);
         } else if (MY_Char_face == 1) {
             I_char_face.setImageResource(R.drawable.face_default_black);
+        } else if (MY_Char_face == 2) {
+            I_char_face.setImageResource(R.drawable.face_blame);
+        } else if (MY_Char_face == 3) {
+            I_char_face.setImageResource(R.drawable.face_pretty);
         }
+
         if (MY_Char_cloth == 0) { // 옷
             I_char_cloth.setImageResource(R.drawable.cloth_default);
         } else if (MY_Char_cloth == 1) {
@@ -86,10 +93,17 @@ public class char_inven_hair extends AppCompatActivity implements View.OnClickLi
             I_char_hair.setImageResource(R.drawable.hair_default);
             hair_default.setBackgroundResource(R.drawable.char_blind_decide);
             hair_bold.setBackgroundResource(R.drawable.char_blind_none_decide);
+            hair_long.setBackgroundResource(R.drawable.char_blind_none_decide);
         } else if (MY_Char_hair == 1) {
             I_char_hair.setImageResource(R.drawable.char_blind);
             hair_default.setBackgroundResource(R.drawable.char_blind_none_decide);
             hair_bold.setBackgroundResource(R.drawable.char_blind_decide);
+            hair_long.setBackgroundResource(R.drawable.char_blind_none_decide);
+        } else if (MY_Char_hair == 2) {
+            I_char_hair.setImageResource(R.drawable.hair_long);
+            hair_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+            hair_bold.setBackgroundResource(R.drawable.char_blind_none_decide);
+            hair_long.setBackgroundResource(R.drawable.char_blind_decide);
         }
     }
 
@@ -102,27 +116,61 @@ public class char_inven_hair extends AppCompatActivity implements View.OnClickLi
         if (v.getId() == R.id.hair_default) {
             Char_hair.setChar_hair(0);
             MY_Char_hair = Char_hair.getChar_hair();
-            if (MY_Char_hair == 0) {
+            if (MY_Char_hair == 0) { // 머리
                 I_char_hair.setImageResource(R.drawable.hair_default);
                 hair_default.setBackgroundResource(R.drawable.char_blind_decide);
                 hair_bold.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_long.setBackgroundResource(R.drawable.char_blind_none_decide);
             } else if (MY_Char_hair == 1) {
                 I_char_hair.setImageResource(R.drawable.char_blind);
                 hair_default.setBackgroundResource(R.drawable.char_blind_none_decide);
                 hair_bold.setBackgroundResource(R.drawable.char_blind_decide);
+                hair_long.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_hair == 2) {
+                I_char_hair.setImageResource(R.drawable.hair_long);
+                hair_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_bold.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_long.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
         if (v.getId() == R.id.hair_bold) {
             Char_hair.setChar_hair(1);
             MY_Char_hair = Char_hair.getChar_hair();
-            if (MY_Char_hair == 0) {
+            if (MY_Char_hair == 0) { // 머리
                 I_char_hair.setImageResource(R.drawable.hair_default);
                 hair_default.setBackgroundResource(R.drawable.char_blind_decide);
                 hair_bold.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_long.setBackgroundResource(R.drawable.char_blind_none_decide);
             } else if (MY_Char_hair == 1) {
                 I_char_hair.setImageResource(R.drawable.char_blind);
                 hair_default.setBackgroundResource(R.drawable.char_blind_none_decide);
                 hair_bold.setBackgroundResource(R.drawable.char_blind_decide);
+                hair_long.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_hair == 2) {
+                I_char_hair.setImageResource(R.drawable.hair_long);
+                hair_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_bold.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_long.setBackgroundResource(R.drawable.char_blind_decide);
+            }
+        }
+        if (v.getId() == R.id.hair_long) {
+            Char_hair.setChar_hair(2);
+            MY_Char_hair = Char_hair.getChar_hair();
+            if (MY_Char_hair == 0) { // 머리
+                I_char_hair.setImageResource(R.drawable.hair_default);
+                hair_default.setBackgroundResource(R.drawable.char_blind_decide);
+                hair_bold.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_long.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_hair == 1) {
+                I_char_hair.setImageResource(R.drawable.char_blind);
+                hair_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_bold.setBackgroundResource(R.drawable.char_blind_decide);
+                hair_long.setBackgroundResource(R.drawable.char_blind_none_decide);
+            } else if (MY_Char_hair == 2) {
+                I_char_hair.setImageResource(R.drawable.hair_long);
+                hair_default.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_bold.setBackgroundResource(R.drawable.char_blind_none_decide);
+                hair_long.setBackgroundResource(R.drawable.char_blind_decide);
             }
         }
 

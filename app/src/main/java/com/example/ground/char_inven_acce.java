@@ -84,6 +84,10 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
             I_char_face.setImageResource(R.drawable.face_default);
         } else if (MY_Char_face == 1) {
             I_char_face.setImageResource(R.drawable.face_default_black);
+        } else if (MY_Char_face == 2) {
+            I_char_face.setImageResource(R.drawable.face_blame);
+        } else if (MY_Char_face == 3) {
+            I_char_face.setImageResource(R.drawable.face_pretty);
         }
 
         if (MY_Char_cloth == 0) { // 옷
@@ -98,6 +102,8 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
             I_char_hair.setImageResource(R.drawable.hair_default);
         } else if (MY_Char_hair == 1) {
             I_char_hair.setImageResource(R.drawable.char_blind);
+        } else if (MY_Char_hair == 2) {
+            I_char_hair.setImageResource(R.drawable.hair_long);
         }
     }
 
