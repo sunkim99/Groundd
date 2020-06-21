@@ -270,7 +270,7 @@ public class notice_event extends AppCompatActivity implements View.OnClickListe
             startActivity(intent6);
         }
         if (v.getId() == R.id.btn_go_notice_notice_cancel) { // 종료(빨간버튼)
-            Intent intent7 = new Intent(notice_event.this, configActivity.class);
+            Intent intent7 = new Intent(notice_event.this, MainActivity.class);
             startActivity(intent7);
         }
         if (v.getId() == R.id.go_notice_notice_write) { //글쓰기 버튼 누르면 글작성 화면으로 넘어감

@@ -160,12 +160,16 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
         final allround NICKNAME = (allround) getApplicationContext(); //전역변수 NICKNAME 소환
         final allround GUGU_TOTAL = (allround) getApplicationContext(); //구구단 점수
         final allround USERNUM = (allround) getApplicationContext(); //유저 번호
+        final allround USERNAME = (allround) getApplicationContext(); // 전역변수 USERNUM
 
         ID.getID();
         SCHOOL.getSCHOOL();
         SCHADD.getSCHADD();
         SCHPH.getSCHPH();
         NICKNAME.getSCHPH();
+        USERNUM.getUSERNUM();
+        USERNAME.getUSERNAME();
+
 
 
 
@@ -309,7 +313,7 @@ public class game_main extends AppCompatActivity implements View.OnClickListener
                         multiplicationView.popupExistButton().setOnClickListener((View.OnClickListener) (new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(game_main.this, "구구단게임이 종료되었습니다..\n정답수 : "+total, Toast.LENGTH_LONG).show();
+                                Toast.makeText(game_main.this, "구구단게임이 중단되었습니다..\n정답수 : "+total, Toast.LENGTH_LONG).show();
                                 Log.d("TEST1234", "최종 "+total);
                                 multiplicationView.dismiss();
                             }

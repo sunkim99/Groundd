@@ -23,6 +23,21 @@ public class char_inven_acce extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_char_inven_acce);
+        final allround ID = (allround) getApplicationContext(); // 전역변수 ID 소환
+        final allround SCHOOL = (allround) getApplicationContext(); // 전역변수 SCHOOL 소환
+        final allround ADMIN = (allround) getApplicationContext(); // 관리자 소환
+        final allround SCHADD = (allround) getApplicationContext(); //학교 주소
+        final allround SCHPH = (allround) getApplicationContext(); //학교 전화번호
+        final allround USERNUM = (allround) getApplicationContext(); // 전역변수 USERNUM
+        final allround USERNAME = (allround) getApplicationContext(); // 전역변수 USERNUM
+
+        ID.getID();
+        SCHOOL.getSCHOOL();
+        SCHADD.getSCHADD();
+        SCHPH.getSCHPH();
+        USERNUM.getUSERNUM();
+        USERNAME.getUSERNAME();
+
         top_navi = findViewById(R.id.top_navi);
         btn_setting = findViewById(R.id.btn_setting);
         btn_hair = findViewById(R.id.btn_hair);
