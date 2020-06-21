@@ -27,7 +27,7 @@
 
     <Button
         android:id="@+id/top_navi"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="62dp"
         android:background="@drawable/top_navigator"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
 
     <ImageView
         android:id="@+id/menu_bar"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="7dp"
         android:scaleType="centerCrop"
@@ -176,9 +176,10 @@
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_layout"
-        android:layout_width="392dp"
-        android:layout_height="484dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

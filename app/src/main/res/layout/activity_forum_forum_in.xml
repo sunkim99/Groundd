@@ -134,9 +134,10 @@
 
     <ImageView
         android:id="@+id/input_box"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="346dp"
         android:layout_marginTop="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_bar"
         app:srcCompat="@drawable/forum_box" />
