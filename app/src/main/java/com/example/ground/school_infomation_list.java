@@ -42,21 +42,6 @@ public class school_infomation_list extends AppCompatActivity implements View.On
 
         admin_s = ADMIN.getADMIN();
 
-        allround Char_hair = (allround) getApplicationContext();
-        allround Char_face = (allround) getApplicationContext();
-        allround Char_cloth = (allround) getApplicationContext();
-        allround Char_acce = (allround) getApplicationContext();
-        int MY_Char_hair = Char_hair.getChar_hair();
-        int MY_Char_face = Char_face.getChar_face();
-        int MY_Char_cloth = Char_cloth.getChar_cloth();
-        int MY_Char_acce = Char_acce.getChar_acce();
-
-        I_char_hair = findViewById(R.id.MY_char_hair);
-        I_char_face = findViewById(R.id.MY_char_face);
-        I_char_cloth = findViewById(R.id.MY_char_cloth);
-        I_char_acce = findViewById(R.id.MY_char_acce);
-
-
         school_name = findViewById(R.id.school_name);
         school_add = findViewById(R.id.school_add);
         school_tel = findViewById(R.id.school_tel);
@@ -94,34 +79,6 @@ public class school_infomation_list extends AppCompatActivity implements View.On
         }
         if (admin_s == 1 || admin_s == 2) { //관리자 1번이나 관리자 2번은 접근가능
             delete.setVisibility(Button.VISIBLE);
-        }
-
-        if (MY_Char_acce == 0) { // 악세
-            I_char_acce.setImageResource(R.drawable.char_blind);
-        } else if (MY_Char_acce == 1) {
-            I_char_acce.setImageResource(R.drawable.char_acce_gom);
-        } else if (MY_Char_acce == 2) {
-            I_char_acce.setImageResource(R.drawable.char_acce_cat_ear);
-        }
-
-        if (MY_Char_face == 0) { // 얼굴
-            I_char_face.setImageResource(R.drawable.face_default);
-        } else if (MY_Char_face == 1) {
-            I_char_face.setImageResource(R.drawable.face_default_black);
-        }
-        if (MY_Char_cloth == 0) { // 옷
-            I_char_cloth.setImageResource(R.drawable.cloth_default);
-        } else if (MY_Char_cloth == 1) {
-            I_char_cloth.setImageResource(R.drawable.char_cloth_gom);
-        } else if (MY_Char_cloth == 2) {
-            I_char_cloth.setImageResource(R.drawable.char_cloth_daram);
-        }
-
-
-        if (MY_Char_hair == 0) { // 머리
-            I_char_hair.setImageResource(R.drawable.hair_default);
-        } else if (MY_Char_hair == 1) {
-            I_char_hair.setImageResource(R.drawable.char_blind);
         }
 
         Intent intent1 = getIntent();

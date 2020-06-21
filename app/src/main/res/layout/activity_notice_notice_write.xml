@@ -87,7 +87,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menu_bar"
-        app:srcCompat="@drawable/write_box" />
+        app:srcCompat="@drawable/write_box_admin" />
 
     <TextView
         android:id="@+id/admin_id"
@@ -100,77 +100,6 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/write_tbox" />
-
-    <ImageView
-        android:id="@+id/MY_char"
-        android:layout_width="91dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        android:foreground="@drawable/char_blind_none_decide"
-        app:layout_constraintBottom_toBottomOf="@+id/write_tbox"
-        app:layout_constraintEnd_toEndOf="@+id/write_tbox"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/write_tbox"
-        app:layout_constraintTop_toTopOf="@+id/write_tbox"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/MY_char_cloth"
-        android:layout_width="91dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/write_tbox"
-        app:layout_constraintEnd_toEndOf="@+id/write_tbox"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/write_tbox"
-        app:layout_constraintTop_toTopOf="@+id/write_tbox"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/MY_char_face"
-        android:layout_width="91dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/write_tbox"
-        app:layout_constraintEnd_toEndOf="@+id/write_tbox"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/write_tbox"
-        app:layout_constraintTop_toTopOf="@+id/write_tbox"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/MY_char_hair"
-        android:layout_width="91dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/write_tbox"
-        app:layout_constraintEnd_toEndOf="@+id/write_tbox"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/write_tbox"
-        app:layout_constraintTop_toTopOf="@+id/write_tbox"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/MY_char_acce"
-        android:layout_width="91dp"
-        android:layout_height="127dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/write_tbox"
-        app:layout_constraintEnd_toEndOf="@+id/write_tbox"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/write_tbox"
-        app:layout_constraintTop_toTopOf="@+id/write_tbox"
-        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/notice_title_name"
