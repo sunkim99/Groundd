@@ -187,7 +187,7 @@
         android:id="@+id/tv_notNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="24dp"
         android:fontFamily="@font/bm_font"
 
         android:text="TextView"
@@ -201,15 +201,15 @@
         android:id="@+id/id_notTi"
         android:layout_width="290dp"
         android:layout_height="35dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="256dp"
         android:fontFamily="@font/bm_font"
         android:text="TextView"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/input_box"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/input_box"
         app:layout_constraintHorizontal_bias="0.884"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/input_box"
         app:layout_constraintTop_toTopOf="@+id/input_box"
         app:layout_constraintVertical_bias="0.0" />
 
